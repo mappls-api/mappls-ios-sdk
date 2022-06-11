@@ -60,7 +60,6 @@ shared between platforms, so the API hits you make from a web application, Andro
 
   - Add below lines in pod file of your project:
     ```Cocoapods
-    pod 'MapplsAPIKit', '1.6.0'
     pod 'MapplsMap', '5.13.0'
     ```
   - Run pod install or pod update (to update existing pods)
