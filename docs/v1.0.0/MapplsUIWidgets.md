@@ -29,7 +29,7 @@ On running `pod install` command it will automatically download and setup `Mappl
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.0` | 01 June, 2022 | Initial Mappls UIWidget Release.|
+| `1.0.0` | 12 June, 2022 | Initial Mappls UIWidget Release.|
 
 ## [Authorization](#Authorization)
 
