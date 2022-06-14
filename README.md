@@ -105,7 +105,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 - [Mappls Annotation Extension](./docs/v1.0.0/MapplsAnnotationExtension.md)
 
-- [Mappls GeofenceUI Plugin](./docs/v1.0.0/MapplsGeofenceUIPlugin.md)
+- [Mappls GeofenceUI Plugin](./docs/v1.0.0/MapplsGeofenceUI.md)
 
 - [Mappls Pin Strategy - Mappls Map](./docs/v1.0.0/MapplsPinStrategy.md)
 
