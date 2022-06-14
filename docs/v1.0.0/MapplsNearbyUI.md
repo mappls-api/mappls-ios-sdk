@@ -40,7 +40,7 @@ Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
 | Version | Dated | Description | 
 | :---- | :---- | :---- |
-| `1.0.0` | 01 June 2022 | Initial Mappls NearbyUI Release.|
+| `1.0.0` | 14 June 2022 | Initial Mappls NearbyUI Release.|
 
 <br>
 
