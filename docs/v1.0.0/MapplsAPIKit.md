@@ -4,14 +4,9 @@
 
 ## [Introduction](#Introduction)
 
-This SDK includes different API wrappers, available with Mappls.
+Our APIs, SDKs, and live updating map data available for [200+ countries & territories](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) give developers tools to build better experiences across various platforms.
 
-These wrappers are easy to integrate and use with different configurable parameters.
-
-Powered with India's most comprehensive and robust mapping functionalities.
-**Now Available** for Srilanka, Nepal, Bhutan and Bangladesh
-
-1. You can get your api key to be used in this document here: [https://about.mappls.com/api/signup](https://about.mappls.com/api/signup)
+1. You can get your api key to be used in this document here: [https://apis.mappls.com/console/](https://apis.mappls.com/console/)
 
 2. The sample code is provided to help you understand the basic functionality of Mappls REST APIs working on iOS native development platform. 
 
@@ -23,27 +18,16 @@ Powered with India's most comprehensive and robust mapping functionalities.
 
 ## [Getting Started](#Getting-Started)
 
-Mappls Map SDK for iOS lets you easily add Mappls Map and web services to your own iOS app. Mappls Map SDK for iOS supports iOS SDK 9.0 and above and Xcode 10.1 or later. You can have a look at the map and features you will get in your own app by using the Mappls Map app for iOS. The SDK handles map tiles download and their display along with a bunch of controls and native gestures.
-
-## [Installation](#Installation)
-
-This SDK can be used in a project using `Cocoapods`. Include following pod statement in podfile of project and do `pod install`.
-
-```cocapods
-pod 'MapplsAPIKit', '2.0.0'
-```
+Mappls Map SDK for iOS lets you easily add Mappls Map and services to your own iOS app.It supports iOS SDK 9.0 and above and Xcode 10.1 or later. You can have a look at the map and features you will get in your own app by using the Mappls Map app for iOS. The SDK handles Map Display along with a bunch of controls and native gestures.
 
 ## [Authorization](#Authorization)
 
 ### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys and authenticate before using any Mappls SDK. Please see the reference [here](MapplsAPICore.md).
 
 ## [API Usage and Requirements](#API-Usage-and-Requirements)
 
-As part of the terms and conditions, you cannot remove or hide the Mappls logo and copyright information in your project. Please see [branding guidelines](https://about.mappls.com/api/advanced-maps/API-Branding-Guidelines.pdf) on Mappls [website](https://about.mappls.com/api) for more details.
-
-The allowed SDK hits are described on the plans page. Note that your usage is
-shared between platforms, so the API hits you make from a web application, Android app or an iOS app all add up to your allowed daily limit.
+The allowed SDK hits are described on the plans page. Note that your usage is shared between platforms, so the API hits you make from a web application, Android app or an iOS app all add up to your allowed daily limit.
 
 ## [Autosuggest API](#Autosuggest-API)
 
@@ -59,7 +43,7 @@ Class used for Autosuggest search is `MapplsAutoSuggestManager`. Create a `Mappl
 
 To perform auto suggest use `MapplsAutoSearchAtlasOptions` class to pass query parameter to get auto suggest search with an option to pass region in parameter `withRegion`, which is an enum of type `MapplsRegionType`. If no value is passed for region, It will take default value which is India.
 
-`MapplsRegionType` is used to validate and get result for different countries. Currently five countries are supported including India which are Sri Lanka, India, Bhutan, Bangladesh, Nepal.
+`MapplsRegionType` is used to validate and get result for different countries availble with Mappls [200+ countries & territories](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md)
 
 Additionally you can also set location and restriction filters in object of `MapplsAutoSearchAtlasOptions`. 
 
@@ -196,7 +180,7 @@ autoSuggestManager.getAutoSuggestionResults(autoSearchAtlasOptions) { (locationR
 }
 ```
 
-For more details visit our [online documentation](https://about.mappls.com/api/advanced-maps/ios/vector-map-sdk#Autosuggest).
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/autosuggest-api#/Autosuggest%20API/AutoSuggestAPI).
 
 ## [Reverse Geocoding API](#Reverse-Geocoding-API)
 
@@ -210,7 +194,7 @@ Class used for geocode is `MapplsReverseGeocodeManager`. Create a `MapplsReverse
 
 To perform the translation use `MapplsReverseGeocodeOptions` class to pass coordinates as parameters to reverse geocode with an option to pass region in parameter `withRegion`, which is an enum of type `MapplsRegionType`. If no value is passed for region, It will take default value which is India.
 
-`MapplsRegionType` is used to validate and get result for different countries. Currently five countries are supported including India which are Sri Lanka, India, Bhutan, Bangladesh, Nepal.
+`MapplsRegionType` is used to validate and get result for different countries. 
 
 ### Response Parameters
 
@@ -276,22 +260,20 @@ reverseGeocodeManager.reverseGeocode(revOptions) { (placemarks, attribution, err
 }
 ```
 
-For more details visit our [online documentation](https://about.mappls.com/api/advanced-maps/ios/vector-map-sdk#Reverse-Geocoding).
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/reverse-geocoding-api#/Reverse%20Geocode%20API/ReverseGeocodeAPI).
 
 
 ## [Nearby API](#Nearby-API)
 
 For live demo click [LIVE DEMO](https://about.mappls.com/api/advanced-maps/doc/sample/mapmyindia-maps-near-by-api-example)
 
-Search for nearby places in a category near a given location
-
-Nearby Places API, enables you to add discovery and search of nearby POIs by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.
+Nearby Places API, enables you to add discovery and search of nearby places by searching for a generic keyword used to describe a category of places or via the unique code assigned to that category.
 
 Class used for nearby search is `MapplsNearByManager`. Create a `MapplsNearByManager` object using your rest key or alternatively, you can place your rest key in the `MapplsRestKey` key of your application's Info.plist file, then use the shared instance of `MapplsNearByManager` class.
 
 To perform nearby search use `MapplsNearbyAtlasOptions` class to pass keywords/categories and a reference location as parameters to get Nearby search results with an option to pass region in parameter `withRegion`, which is an enum of type `MapplsRegionType`. If no value is passed for region, It will take default value which is India.
 
-`MapplsRegionType` is used to validate and get result for different countries. Currently five countries are supported including India which are Sri Lanka, India, Bhutan, Bangladesh, Nepal.
+`MapplsRegionType` is used to validate and get result for different countries. 
 
 *Additionally you can also set location and zoom in object of `MapplsNearbyAtlasOptions` location coordinate can be set  in comma seprated format i.e `("latitue", "longitue")` or location can be Mappls Pin  for eg. `("MMI000")`*
 
@@ -307,11 +289,11 @@ To perform nearby search use `MapplsNearbyAtlasOptions` class to pass keywords/c
 
 3.  **radius (integer):**  provides the range of distance to search over (default: 1000, min: 500, max: 10000).
 
-3. **sortBy:** It is used to sort results based on value provided. It can accept object of `MapplsSortBy` or `MapplsSortByDistanceWithOrder`
+4. **sortBy:** It is used to sort results based on value provided. It can accept object of `MapplsSortBy` or `MapplsSortByDistanceWithOrder`
 
-3. **searchBy:** It is used to search places based on preference provided. It is of enum type `MapplsSearchByType`  its value can be either `.importance` or `.distance`
+5. **searchBy:** It is used to search places based on preference provided. It is of enum type `MapplsSearchByType`  its value can be either `.importance` or `.distance`
 
-3. **filters:**   On basis of this only specific type of response returned. it can of type `MapplsNearbyKeyValueFilter` (derived from `MapplsNearbySearchFilter`).
+6. **filters:**   On basis of this only specific type of response returned. it can of type `MapplsNearbyKeyValueFilter` (derived from `MapplsNearbySearchFilter`).
 MapplsNearbySearchFilter have following properties.
 	- **filterKey:-** It takes  value for `key`  to filter result.
 	- **filterValues:-** It takes an array of different query values.
@@ -322,15 +304,15 @@ MapplsNearbySearchFilter have following properties.
 	let filter = MapplsNearbyKeyValueFilter(filterKey: "brandId", filterValues: [String,String])
 	```
 
-4.  **bounds (x1,y1;x2,y2):**  Allows the developer to send in map bounds to provide a nearby search of the geobounds. where x1,y1 are the latitude and langitude.
+7.  **bounds (x1,y1;x2,y2):**  Allows the developer to send in map bounds to provide a nearby search of the geobounds. where x1,y1 are the latitude and langitude.
 
-5.	**isRichData:** It is of type `Bool`. It allows some additional information to receive in `richInfo` parameter of response.
+8.  **isRichData:** It is of type `Bool`. It allows some additional information to receive in `richInfo` parameter of response.
 
-6.	**shouldExplain:** It is of type `Bool`.
+9.  **shouldExplain:** It is of type `Bool`.
 
-7.	**userName:** It is of type `String`. On basis of value of this some specific results bounded to a user.
+10. **userName:** It is of type `String`. On basis of value of this some specific results bounded to a user.
 
-8.  **pod**: It takes place type which helps in restricting the results to certain chosen type  
+11.  **pod**: It takes place type which helps in restricting the results to certain chosen type  
     Below mentioned are the codes for the pod -
     -   Sublocality
     -   Locality
@@ -360,7 +342,7 @@ You will find below useful properties in suggestion object :
 -   **pincode:**  Pincode of area.
 -   **categoryCode:**  Code of category with that result belongs to.
 -   **richInfo:**  A dictionary object with dynamic information
--	**hourOfOperation:** A string value which describes hour of 
+-	**hourOfOperation:** A string value which describes hour of operation.
 -	**addressTokens**:
 	- **houseNumber**: house number of the location.
 	- **houseName**: house name of the location.
@@ -375,8 +357,7 @@ You will find below useful properties in suggestion object :
 	- **city**: the city to which the location belongs. (if applicable)
 	- **state**: the state to which the location belongs. (if applicable)
 	- **pincode**: the PIN code to which the location belongs. (if applicable)
-  operation.
--	**pageInfo**:
+  -	**pageInfo**:
 	- **pageCount**
 	- **totalHits**
 	- **totalPages**
@@ -431,7 +412,8 @@ nearByManager.getNearBySuggestions(nearByOptions) { (result, error) in
 ```
 
  ### [NearBy using Mappls Pin](#NearBy-using-MapplsPin)
- *Code snipet for getting nearby location using Mappls Pin's is below.*
+
+### Code Samples
 
  ```swift
 let nearByManager = MapplsNearByManager.shared
@@ -450,7 +432,7 @@ nearByManager.getNearBySuggestions(nearByOptions) { (result, error) in
 }
 ```
 
-For more details visit our [online documentation](https://about.mappls.com/api/advanced-maps/ios/vector-map-sdk#nearby-search).
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/nearby-api#/Nearby%20API/AtlasNearbyAPI).
 
 ## [Place Detail](#Place-Detail)
 
@@ -458,7 +440,7 @@ The Mappls Pin is a simple, standardised and precise PAN India digital address s
 
 Class used for Mappls Pin search is `MapplsPlaceDetailManager`. Create a `MapplsPlaceDetailManager` object using your authenticated Mappls's keys or alternatively, you can use the shared instance of `MapplsPlaceDetailManager` class.
 
-To perform Place Detail use `MapplsPlaceDetailOptions` class to pass digital address code (Mappls Pin) as parameters to get detail result with an option to pass region in parameter withRegion, which is an enum of type `MapplsRegionType`. If no value is passed for region, It will take default value which is India.
+To perform Place Detail use `MapplsPlaceDetailOptions` class to pass digital address code (Mappls Pin) as parameters to get detail result with an option to pass region in parameter withRegion, which is an enum of type `MapplsRegionType`. If no value is passed for region, it will take default value which is India.
 
 ### Response Parameters
 
@@ -483,7 +465,7 @@ In response of Mappls Pin search either you will receive an error or an object o
 -   **type:**  defines the type of location matched (HOUSE_NUMBER, HOUSE_NAME, POI, STREET, SUB_LOCALITY, LOCALITY, VILLAGE, DISTRICT, SUB_DISTRICT, CITY, STATE, SUBSUBLOCALITY, PINCODE)
 -   **keyInfo:**  The dynamic custom information related to a place.
 
-**Note: Not all response parameters are available by default. These parameters are restricted and available as per discussed use case. For details, please contact Mappls API support.**
+**Note: Not all response parameters are available by default. These parameters are available on demand as per mutually agreed use case. For details, please contact [Mappls API support](api_support@mappls.com).**
 
 ### Code Samples
 
@@ -602,7 +584,7 @@ atlasGeocodeManager.getGeocodeResults(atlasGeocodeOptions) { (response, error) i
 	}
 }
 ```
-For more details visit our [online documentation]().
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/geocoding-api#/Geocode%20API/AtlasGeocodeAPI).
 
 
 ## [Routing API](#Routing-API)
@@ -637,7 +619,7 @@ To choose **Travelling Mode** use parameter profileIdentifier as described below
 
 - `profileIdentifier:` This property is type of enum `MapplsDirectionsProfileIdentifier` with acceptable values `driving`, `biking`, `walking` and `trucking`. The default value of this property is `driving`.
 
-**Additionally** you can set some more parameters on instance of `RouteOptions` to get filtered/specific results. Which are as :
+**Additionally** you can set some more parameters on instance of `RouteOptions` to get filtered/specific results as :
 
 1. `routeType`: It is type of enum  `MapplsRouteType` which can accept values `quickest`, `shortest`, `none`. By default its value is `none`.
 2. `region`: It is type of enum `MapplsRegionType`. It is used to validate and get result for different countries. Currently five countries are supported including India which are Sri Lanka, India, Bhutan, Bangladesh, Nepal.
@@ -750,9 +732,9 @@ NSURLSessionDataTask *task = [directions calculateDirectionsWithOptions:options
 
 ### [**Usage with other Mappls Libraries**](Usage-with-other-Mappls-Libraries)
 
-#### [**Drawing Route on Mappls's Map**](Drawing-Route-on-Mappls's-Map)
+#### [**Drawing Route on mappls's Map**](Drawing-Route-on-Mappls's-Map)
 
-With the [Mappls Maps SDK for iOS](https://about.mappls.com/api/advanced-maps/ios/vector-map-sdk/), you can easily draw the route on a map in Swift or Objective-C:
+Refer the code below to draw the route on a map:
 
 ```swift
 // main.swift
@@ -908,7 +890,7 @@ distanceMatrixManager.getResult(distanceMatrixOptions) { (result, error) in
 	}
 ```
 
-For more details visit our [online documentation]().
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/driving-distance-matrix-api).
 
 ## [POI Along The Route API](#POI-Along-The-Route-API)
 
@@ -916,7 +898,7 @@ With POI Along the Route API user will be able to get the details of POIs of a p
 
 Class used to get list of POI along a route is `MapplsPOIAlongTheRouteManager`. Create an object of this class using Mappls's API Keys or alternatively use shared instance of `MapplsPOIAlongTheRouteManager` class.
 
-**Note:** To use shared SDK must be initilized by setting Mappls's API Acesss Keys using class `MapplsAccountManager` of framework `MapplsAPIKit`. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/wiki#Setup-your-Project).
+**Note:** To use shared SDK must be initilized by setting Mappls's API Acesss Keys using class `MapplsAccountManager` of framework `MapplsAPIKit`. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/v1.0.0/MapplsAPICore.md).
 
 ### Request Parameters
 
@@ -1002,13 +984,15 @@ poiAlongTheRouteOptions.buffer = 300;
 
 <br/>
 
+For more details visit our [api reference documentation](https://about.mappls.com/api/advanced-maps/doc/poi-along-the-route)
+
 ## [Nearby Reports API](#Nearby-Reports-API)
 
 Nearby Reports enables the user to get required reports related to traffic, safety, community issues etc on the basis of input bound.
 
 Class used to get list of Nearby Reports API is `MapplsNearbyReportManager`. Create an object of this class using Mappls's API Keys or alternatively use shared instance of `MapmyIndidiaNearbyReportManager` class.
 
-**Note:** To use shared SDK must be initilized by setting Mappls's API Acesss Keys using class `MapplsAccountManager` of framework `MaplsAPIKit`. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/wiki#Setup-your-Project).
+**Note:** To use shared SDK must be initilized by setting Mappls's API Acesss Keys using class `MapplsAccountManager` of framework `MaplsAPIKit`. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/v1.0.0/MapplsAPICore.md).
 
 ### Request Parameters
 
@@ -1058,30 +1042,30 @@ nearbyReportManager.getNearbyReportResult(option) { (response, error) in
 
 <br><br><br>
 
-## Our many happy customers:
+For any queries and support, please contact: 
 
-![](https://www.mapmyindia.com/api/img/logos1/PhonePe.png)![](https://www.mapmyindia.com/api/img/logos1/Arya-Omnitalk.png)![](https://www.mapmyindia.com/api/img/logos1/delhivery.png)![](https://www.mapmyindia.com/api/img/logos1/hdfc.png)![](https://www.mapmyindia.com/api/img/logos1/TVS.png)![](https://www.mapmyindia.com/api/img/logos1/Paytm.png)![](https://www.mapmyindia.com/api/img/logos1/FastTrackz.png)![](https://www.mapmyindia.com/api/img/logos1/ICICI-Pru.png)![](https://www.mapmyindia.com/api/img/logos1/LeanBox.png)![](https://www.mapmyindia.com/api/img/logos1/MFS.png)![](https://www.mapmyindia.com/api/img/logos1/TTSL.png)![](https://www.mapmyindia.com/api/img/logos1/Novire.png)![](https://www.mapmyindia.com/api/img/logos1/OLX.png)![](https://www.mapmyindia.com/api/img/logos1/sun-telematics.png)![](https://www.mapmyindia.com/api/img/logos1/Sensel.png)![](https://www.mapmyindia.com/api/img/logos1/TATA-MOTORS.png)![](https://www.mapmyindia.com/api/img/logos1/Wipro.png)![](https://www.mapmyindia.com/api/img/logos1/Xamarin.png)
-
-<br>
-
-For any queries and support, please contact:
-
-[<img src="https://mmi-api-team.s3.amazonaws.com/Mappls-SDKs/Resources/mappls-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
-
+[<img src="https://about.mappls.com/images/mappls-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
+
 
 ![](https://www.mapmyindia.com/api/img/icons/support.png)
 [Support](https://about.mappls.com/contact/)
 Need support? contact us!
 
 <br></br>
+<br></br>
 
-[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
+[<p align="center"> <img src="https://www.mapmyindia.com/api/img/icons/stack-overflow.png"/> ](https://stackoverflow.com/questions/tagged/mappls-api)[![](https://www.mapmyindia.com/api/img/icons/blog.png)](https://about.mappls.com/blog/)[![](https://www.mapmyindia.com/api/img/icons/gethub.png)](https://github.com/Mappls-api)[<img src="https://mmi-api-team.s3.ap-south-1.amazonaws.com/API-Team/npm-logo.one-third%5B1%5D.png" height="40"/> </p>](https://www.npmjs.com/org/mapmyindia) 
+
+
 
 [<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mapplsofficial)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls/)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/channel/UCAWvWsh-dZLLeUU7_J9HiOA)
 
-<div align="center">@ Copyright 2020 CE Info Systems Pvt. Ltd. All Rights Reserved.</div>
 
-<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
+
+
+<div align="center">@ Copyright 2022 CE Info Systems Ltd. All Rights Reserved.</div>
+
+<div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://about.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://about.mappls.com/pdf/mapmyIndia-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://about.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://about.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 
 <div align="center">Customer Care: +91-9999333223</div>

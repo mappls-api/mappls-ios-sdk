@@ -35,7 +35,7 @@ Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
 | Version | Dated         | Description |
 |:--------|:--------------|:------------|
-| `1.0.0` | 14 June, 2022 | Initial MAPPLS release. |
+| `1.0.0` | 14 June, 2022 | Initial release  |
 
 #### [Dependencies](#Dependencies)
 
@@ -49,7 +49,7 @@ Below are list of dependcies which are required to run this SDK:
 ### [Authorization](#Authorization)
 
 #### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documenatation [here](MapplsAPICore.md).
 
 **Step 2:-**
 ## [Plugin Initialization](#Plugin-Initialization)

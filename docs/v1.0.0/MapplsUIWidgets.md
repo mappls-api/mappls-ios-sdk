@@ -1,6 +1,6 @@
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="80"/> </p>](https://www.mapmyindia.com/api)
 
-# MapplsUIWidgets: UI Components SDK for iOS 
+# MapplsUIWidgets - UI Components SDK for iOS 
 
 ## [Introduction](#Introduction)
 The MapplsUIWidgets SDK for iOS allows you can build rich apps by quickly implement reday made UI components. Currently this SDK have a widget for Searching a place using [AutoSuggest API](https://about.mappls.com/api/advanced-maps/doc/autosuggest-api).
@@ -34,11 +34,11 @@ On running `pod install` command it will automatically download and setup `Mappl
 ## [Authorization](#Authorization)
 
 ### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys to use any Mappls SDK. Please refer the documentation [here](MapplsAPICore.md).
 
 ## [Autocomplete](#Autocomplete)
 
-<img src = "https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/Autocomplete/defaultAutocompleteVC.gif" width = "300" style="margin-left: 50px;" align = "right"/>
+<img src = "https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/Autocomplete/defaultAutocompleteVC.gif" width = "250" style="margin-left: 50px;" align = "right"/>
 
 The autocomplete service in the SDK for iOS returns place predictions in response to user search queries. As the user types, the autocomplete service returns suggestions for places such as businesses, addresses and points of interest.
 
@@ -393,9 +393,9 @@ Currently supported countries are Sri-Lanka, India, Bhutan, Bangladesh, Nepal. D
 
 ## [Place Picker View](#Place-Picker-View)
 
-<!-- <img src="https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/PlacePicker/placepicker.gif" width = "300"  style="margin-left: 50px;" /><br><br> -->
+<!-- <img src="https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/PlacePicker/placepicker.gif" width = "250"  style="margin-left: 50px;" /><br><br> -->
 
-<img src="https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/PlacePicker/placePicker.gif" width = "300"  style="margin-left: 30px; margin-right: 30px" align = "right" /><br>
+<img src="https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaUIWidgets/PlacePicker/placePicker.gif" width = "250"  style="margin-left: 30px; margin-right: 30px" align = "right" /><br>
 
 The Place Picker View is a UIView component that allows a user to pick a Place using an interactive map.
 

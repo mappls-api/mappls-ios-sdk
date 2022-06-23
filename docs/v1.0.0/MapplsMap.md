@@ -14,15 +14,11 @@ Mappls's APIs, SDKs, and live updating map data available for [238 nations](http
 
 In this section you will find documentation for :-
 
+- Detailed information about integration of Vector iOS Map.
 - REST APIs module is a custom module for developers to consume our RESTful APIs within their applications, easily, and without having to develop such 
   functionality from scratch.
 - Detailed information related to how to integrate Mappls Widgets.
 - Detailed information about integration of Vector iOS Map.
-
-
-# [REST API Kit](#REST-API-Kit)
-
-Rest API Kit is a iOS wrapper library on Mappls's offered Rest APIs. For more detail go to [Mappls's Rest APIs](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsAPIKit.md).
 
 # [Map SDK](#Map-SDK)
 
@@ -32,19 +28,11 @@ Rest API Kit is a iOS wrapper library on Mappls's offered Rest APIs. For more de
 
 Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your own iOS app. Mappls's Map SDK for iOS supports iOS SDK 9.0 and above and Xcode 10.1 or later. You can have a look at the map and features you will get in your own app by using the Mappls's Maps app for iOS. The SDK handles map tiles download and their display along with a bunch of controls and native gestures.
 
-## [API Usage](#API-Usage)
-
-Your Mappls Map SDK usage needs a set of license keys ([get them here](http://about.mappls.com/api/signup) ) and is governed by the API [terms and conditions](https://about.mappls.com/api/terms-&-conditions). 
-As part of the terms and conditions, you cannot remove or hide the Mappls's logo and copyright information in your project. 
-Please see [branding guidelines](https://about.mappls.com/api/advanced-maps/API-Branding-Guidelines.pdf) on Mappls's [website](https://about.mappls.com/api) for more details.
-The allowed SDK hits are described on the [plans](https://about.mappls.com/api) page. Note that your usage is
-shared between platforms, so the API hits you make from a web application, Android app or an iOS app all add up to your allowed daily limit.
-
 ## [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
-| `5.13.0` | 5 June, 2022 | Initial Mappls Map Release. |
+| `5.13.0` | 11 June, 2022 | Initial Mappls Map Release. |
 
 ## [Setup your Project](#Setup-your-Project)
 
@@ -78,7 +66,7 @@ shared between platforms, so the API hits you make from a web application, Andro
 ## [Authorization](#Authorization)
 
 ### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys to use any MAPPL's SDK. Please refer to documenatation [here](MapplsAPICore.md).
 
 ## [Add a Mappls Map View](#Add-a-Mappls-Map-View)
 

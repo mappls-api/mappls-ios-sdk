@@ -49,7 +49,7 @@ Below are list of dependcies which are required to run this SDK:
 ## [Authorization](#Authorization)
 
 ### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set MAPPLS's keys to use any MAPPL's SDK. Please refer the documentation [here](MapplsAPICore.md).
 
 ## [Usage](#Usage)
 

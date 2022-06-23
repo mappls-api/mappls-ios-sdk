@@ -58,7 +58,7 @@ Below are list of dependencies which are required to run this SDK:
 #### [Authorization](#Authorization)
 
 ##### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys to use any Mappls SDK. Please refer the documentation [here](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsAPICore.md).
 
 **Step 2:-**
 ## [Launching with default configuration](#Launching-with-default-configuration)

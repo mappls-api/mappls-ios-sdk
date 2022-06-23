@@ -40,7 +40,7 @@ To integrate Geofence SDK, it is important to pass an object of **MapplsMapView*
 ## Step 2 :-  [Authorization](#Authorization)
 
 ### [MapplsAPICore](#MapplsAPICore)
-It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documentatation [here](MapplsAPICore.md).
 
 ## Step 3 :-  [Initialization of GeofenceViewUI](#Initialization)
 
