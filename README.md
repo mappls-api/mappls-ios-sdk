@@ -14,7 +14,7 @@ You can get your api key to be used in this document here: [https://apis.mappls.
 
 | Version | Supported SDK Version |
 | ------- | --------------------- |
-| [v1.0.0](./docs/v1.0.0/README.md) | - MapplsAPIKit v1.6.0 <br/> - MappplsMap v5.13.0 <br/> - MapplsUIWidget v0.4.0 <br/> - MapplsGeoanalytics v0.2.0 <br/> - MapplsGeofenceUI v0.10.0 <br/> - MapplsDirectionUI v0.1.0 <br/> - MapplsNearbyUI v0.2.0 <br/> - MapplsFeedbackKit v1.1.0 <br/> - MapplsSafetyPlugin v1.1.0 <br/> - MapplsDrivingRangePlugin v0.2.0 <br/> - MapplsAnnotationExtension v0.0.4 |
+| [v1.0.0](./docs/v1.0.0/README.md) | - MapplsAPICore - 1.0.0 <br/> - MapplsAPIKit - 2.0.0 <br/> - MappplsMap - 5.13.0 <br/> - MapplsUIWidget - 1.0.0 <br/> - MapplsNearbyUI - 1.0.0 <br/> - MapplsDirectionUI - 1.0.0 <br/> - MapplsGeoanalytics - 1.0.0 <br/> - MapplsFeedbackKit - 1.0.0 <br/> - MapplsDrivingRangePlugin - 1.0.0 <br/> - MapplsAnnotationExtension - 1.0.0 <br/> - MapplsGeofenceUI - 1.0.0 |
 
 Reference to the documentation of Previous SDK versions [here](https://github.com/mappls-api/mapmyindia-maps-vectorSDK-iOS)
 
@@ -37,8 +37,8 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 - [Mappls Map](./docs/v1.0.0/MapplsMap.md#Vector-iOS-Map)
     * [Getting Started](./docs/v1.0.0/MapplsMap.md#Getting-Started)
-    * [API Usage](./docs/v1.0.0/MapplsMap.md#API-Usage)
     * [Setup your Project](./docs/v1.0.0/MapplsMap.md#Setup-your-Project)
+    * [Usage](./docs/v1.0.0/MapplsMap.md#Usage)    
     * [Add a Mappls Map View](./docs/v1.0.0/MapplsMap.md#Add-a-Mappls-Map-View)
     * [Map Interactions](./docs/v1.0.0/MapplsMap.md#Map-Interactions)
     * [Map Features](./docs/v1.0.0/MapplsMap.md#Map-Features)
@@ -50,10 +50,13 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     * [Miscellaneous](./docs/v1.0.0/MapplsMap.md#Miscellaneous)
     * [Cluster Based Authentication](./docs/v1.0.0/MapplsMap.md#Cluster-Based-Authentication)
 
-- [Set Mappls Map Style](./docs/v1.0.0/MapplsMapStyle.md)
+- [Mappls Pin Strategy - Mappls Map](./docs/v1.0.0/MapplsPinStrategy.md)
+
+- [Mappls Map Styles - Mappls Map](./docs/v1.0.0/MapplsMapStyle.md)
+
+- [Interactive Layers - Mappls Map](./docs/v1.0.0/InteractiveLayers.md)
 
 - [Mappls UI Widgets](./docs/v1.0.0/MapplsUIWidgets.md)
-
     - [Introduction](./docs/v1.0.0/MapplsUIWidgets.md#Introduction)
     - [Installation](./docs/v1.0.0/MapplsUIWidgets.md#Installation)
         - [Version History](./docs/v1.0.0/MapplsUIWidgets.md#Version-History)
@@ -62,7 +65,6 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     - [Autocomplete Attribution Appearance](./docs/v1.0.0/MapplsUIWidgets.md#Autocomplete-Attribution-Appearance)
 
 - [Mappls Nearby UI](./docs/v1.0.0/MapplsNearbyUI.md)
-
     - [Introduction](./docs/v1.0.0/MapplsNearbyUI.md#Introduction)
     - [Installation](./docs/v1.0.0/MapplsNearbyUI.md#Installation)
         - [Version History](./docs/v1.0.0/MapplsNearbyUI.md#Version-History)
@@ -70,7 +72,6 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     - [MapplsNearbyCategoriesViewControllerDelegate](./docs/v1.0.0/MapplsNearbyUI.md#MapplsNearbyCategoriesViewControllerDelegate)
 
 - [Mappls Direction UI Widget](./docs/v1.0.0/MapplsDirectionUI.md)
-
     - [Introduction](./docs/v1.0.0/MapplsDirectionUI.md#Introduction)
     - [Installation](./docs/v1.0.0/MapplsDirectionUI.md#Installation)
         - [Version History](./docs/v1.0.0/MapplsDirectionUI.md#Version-History)
@@ -79,37 +80,20 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 - [Mappls Geoanalytics](./docs/v1.0.0/MapplsGeoanalytics.md)
 
-- [Mappls Safety Plugin](./docs/v1.0.0/MapplsSafetyPlugin.md)
-
-    - [Introduction](./docs/v1.0.0/MapplsSafetyPlugin.md#Introduction)
-    - [Steps to Integrate](./docs/v1.0.0/MapplsSafetyPlugin.md#Steps-to-Integrate-SDK-in-an-application)
-        - [Setup Your Project](./docs/v1.0.0/MapplsSafetyPlugin.md#1-Setup-Your-Project)
-        - [Initializion](./docs/v1.0.0/MapplsSafetyPlugin.md#2-Initialization)
-        - [Start Plugin](./docs/v1.0.0/MapplsSafetyPlugin.md#3-Start-Plugin)
-        - [Stop Safety Plugin](./docs/v1.0.0/MapplsSafetyPlugin.md#4-Stop-Safety-plugin)
-        - [Current Location Safety](./docs/v1.0.0/MapplsSafetyPlugin.md#5-Current-Location-Safety)
-        - [Enable or Disable Local Notification](./docs/v1.0.0/MapplsSafetyPlugin.md#6-Enable-or-Disable-Local-Notification)
-        - [Callbacks](./docs/v1.0.0/MapplsSafetyPlugin.md#7-Callbacks)
-
 - [Mappls Feedback Kit](./docs/v1.0.0/MapplsFeedbackKit.md)
 
-- [Interactive Layers - Mappls Map](./docs/v1.0.0/InteractiveLayers.md)
-
-- [Safety Strip - Mappls Map](./docs/v1.0.0/SafetyStrip.md)
+- [Mappls Feedback UI Kit](./docs/v1.0.0/MapplsFeedbackUIKit.md)
 
 - [Mappls Driving Range plugin](./docs/v1.0.0/MapplsDrivingRangePlugin.md)
   - [Introduction](./docs/v1.0.0/MapplsDrivingRangePlugin.md#Introduction)
   - [Installation](./docs/v1.0.0/MapplsDrivingRangePlugin.md#Installation)
       - [Version History](./docs/v1.0.0/MapplsDrivingRangePlugin.md#Version-History)
 
-
 - [Mappls Annotation Extension](./docs/v1.0.0/MapplsAnnotationExtension.md)
 
-- [Mappls GeofenceUI Plugin](./docs/v1.0.0/MapplsGeofenceUI.md)
+- [Mappls Geofence UI Plugin](./docs/v1.0.0/MapplsGeofenceUI.md)
 
-- [Mappls Pin Strategy - Mappls Map](./docs/v1.0.0/MapplsPinStrategy.md)
-
- <br><br><br>
+<br><br><br>
 
 ## Our many happy customers:
 
@@ -119,7 +103,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 For any queries and support, please contact:
 
-[<img src="https://mmi-api-team.s3.amazonaws.com/Mappls-SDKs/Resources/mappls-logo.png" height="40"/> </p>](https://about.mappls.com/api/)
+[<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="40"/> </p>](https://about.mappls.com/api/)
 
 Email us at [apisupport@mappls.com](mailto:apisupport@mappls.com)
 
@@ -133,7 +117,7 @@ Need support? contact us!
 
 [<p align="center"> <img src="https://www.mapmyindia.com/june-newsletter/icon4.png"/> ](https://www.facebook.com/Mapplsofficial)[![](https://www.mapmyindia.com/june-newsletter/icon2.png)](https://twitter.com/mappls)[![](https://www.mapmyindia.com/newsletter/2017/aug/llinkedin.png)](https://www.linkedin.com/company/mappls/)[![](https://www.mapmyindia.com/june-newsletter/icon3.png)](https://www.youtube.com/channel/UCAWvWsh-dZLLeUU7_J9HiOA)
 
-<div align="center">@ Copyright 2020 CE Info Systems Pvt. Ltd. All Rights Reserved.</div>
+<div align="center">@ Copyright 2022 CE Info Systems Pvt. Ltd. All Rights Reserved.</div>
 
 <div align="center"> <a href="https://about.mappls.com/api/terms-&-conditions">Terms & Conditions</a> | <a href="https://www.mappls.com/about/privacy-policy">Privacy Policy</a> | <a href="https://www.mappls.com/pdf/mappls-sustainability-policy-healt-labour-rules-supplir-sustainability.pdf">Supplier Sustainability Policy</a> | <a href="https://www.mappls.com/pdf/Health-Safety-Management.pdf">Health & Safety Policy</a> | <a href="https://www.mappls.com/pdf/Environment-Sustainability-Policy-CSR-Report.pdf">Environmental Policy & CSR Report</a>
 

@@ -1,62 +1,68 @@
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="80"/> </p>](https://www.mapmyindia.com/api)
 
-# MapplsFeedbackUIKit for iOS
+# Mappls Pin Strategy in Mappls's Map SDK for iOS
 
-## [Introduction](#Introduction)
+## [Add Marker Using Mappls Pin](#Add-Marker-Using-Mappls-Pin)
 
-FeedbackUI Kit for IOS is a UI kit to use wrapper for Mappls's feedback API. It allows developers to integrate feedback module in their application. Using feedback module user can submit location related feedback to Mappls's server.
+A marker on Mappls Map can be added using only Mappls Pin. For this it will require an object of `MapplsPointAnnotation`.
 
-**Note:** Sample for UI view controllers with source code is also provided by Mappls which user can directly use to show feedback screen. Information about how to use UI sample is also provided in this documentation.
+To create object of `MapplsPointAnnotation` it will require Mappls Mappls Pin(unique code of a Place) in its initializer.
 
-If you don’t want to implement own logic and use sample from Mappls Jump to Sample UI Kit section.
+### Single Marker
 
-### [Version History](#Version-History)
-
-| Version | Dated | Description |
-| :------ | :---- | :---------- |
-| `1.0.0` | 22 June, 2022 | Initial release. |
-
-## [Setup your Project](#Setup-your-Project)
-
-### [Using CocoaPods](#Using-CocoaPods)
-
-To install the MapplsFeedbackUIKit using CocoaPods:
-
-Create a Podfile with the following specification:
-
-```
-pod 'MapplsFeedbackUIKit', '1.0.0'
+**Swift**
+```swift
+let annotation11 = MapplsPointAnnotation(mapplsPin: "7gbcyf")
+mapView.addMapplsAnnotation(annotation11, completionHandler: nil)
 ```
 
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
+### Multiple Markers
 
-### [Authorization](#Authorization)
-
-#### [MapplsAPICore](#MapplsAPICore)
-It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documenatation [here](MapplsAPICore.md)
-
-## [Usage](#Usage)
-
-`MapplsFeedbackUIKitManager` is the class which will help to use this UI Control.Access shared instance of that class and call `getViewController` method to get instance of ViewController and present or push according to requirement.
-
-##### Objective-C
-
-```objectivec
-CLLocation *location = [[CLLocation alloc] initWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude];
-
-UINavigationController *navVC = [[MapplsFeedbackUIKitManager sharedManager] getViewControllerWithLocation:location moduleId:ModuleId];
-[self presentViewController:navVC animated:YES completion:nil];
+**Swift**
+```swift
+var annotations = [MapplsPointAnnotation]()            
+let mapplsPins = [ "mmi000", "7gbcyf", "5MEQEL", "k595cm"]
+for mapplsPin in mapplsPins {
+    let annotation = MapplsPointAnnotation(mapplsPin: mapplsPin)
+    annotations.append(annotation)
+}
+self.mapView.addMapplsAnnotations(annotations, completionHandler: nil)
 ```
+## [Set Map Center Using Mappls Pin](#Set-Map-Center-Using-Mappls-Pin)
 
-##### Swift
+Mappls's Map can be centered to a Place using its Mappls Pin.
+Different functions are available to achieve this. Below are code snippets to use it.
+
+**Swift**
+```swift
+mapView.setMapCenterAtMapplsPin("mmi000", animated: false, completionHandler: nil)
+```
 
 ```swift
-let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude), moduleId: ModuleId)
-
-self.present(navVC, animated: true, completion: nil)
+mapView.setMapCenterAtMapplsPin("mmi000", zoomLevel: 17, animated: false, completionHandler: nil)
 ```
 
-`MapplsFeedbackUIKit` implicitly use functionalities of MapplsFeedBackKitManager module and provides a beautiful user expereience to submit feedback.
+```swift                
+mapView.setMapCenterAtMapplsPin("mmi000", zoomLevel: 17, direction: 0, animated: false, completionHandler: nil)
+```
+
+## [Set Map View Bounds Using List of Mappls Pin](#Set-Map-View-Bounds-Using-List-of-Mappls-Pin)
+
+Mappls's Map's bounds can be set to fit bounds for a list of Mappls Pins.
+A method `showMapplsPins:` is available to achieve this. Below is code snipped to demonstrated its usage
+
+**Swift**
+```swift
+let mapplsPins = ["mmi000", "7gbcyf", "5MEQEL", "k595cm"]
+self.mapView.showMapplsPins(MapplsPins, animated: false, completionHandler: nil)
+```
+## [Distance Between Locations Using Mappls Pins](#Distance-Between-Locations-Using-Mappls-Pins)
+
+Code snipet for getting distance between different locations using Mappls Pins is below. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/docs/1.0.0/RESTAPIKit#Distance-Using-MapplsPin).
+
+## [Directions Between Locations Using Mappls Pins](#Directions-Between-Locations-Using-Mappls-Pins)
+
+Directions between different locations can be get using Mappls Pins. For more information please see [here](https://github.com/MapmyIndia/mapmyindia-maps-vectorSDK-iOS/wiki/REST-API-Kit#Routing-API) and [here](https://github.com/MapmyIndia/mapmyindia-maps-vectorSDK-iOS/wiki/REST-API-Kit#Directions-Using-Mappls-Pins).
 
 <br><br><br>
 

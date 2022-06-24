@@ -1,62 +1,39 @@
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="80"/> </p>](https://www.mapmyindia.com/api)
 
-# MapplsFeedbackUIKit for iOS
+# Setting Regions - Limiting Geographic Area
 
-## [Introduction](#Introduction)
+Source data can often contain more information than what's needed in your map.
+For example, an administrative places dataset may contain data for a country OR set of countries OR contain places for the entire world; when you may only need political boundaries for North America or the USA.
+In this scenario, you can specify a region in SDK to limit the geographic extent of the data that will be tiled.
 
-FeedbackUI Kit for IOS is a UI kit to use wrapper for Mappls's feedback API. It allows developers to integrate feedback module in their application. Using feedback module user can submit location related feedback to Mappls's server.
+As of now, **the tiles for global maps are enabled by default** for all users as a means for users to visually experience our international maps.
 
-**Note:** Sample for UI view controllers with source code is also provided by Mappls which user can directly use to show feedback screen. Information about how to use UI sample is also provided in this documentation.
+Search and Routing APIs are available for the entire world as well; but they are enabled by default for India only for all customers.
+If any customer wishes to use our Search and Routing Stacks of SDKs & APIs in their apps, please contact our API Support team.
 
-If you don’t want to implement own logic and use sample from Mappls Jump to Sample UI Kit section.
+Why limit access?
 
-### [Version History](#Version-History)
+By reducing the amount of data querying & transference required, you can reduce your API transaction costs and also reduce the amount of time it takes for your job to process.
 
-| Version | Dated | Description |
-| :------ | :---- | :---------- |
-| `1.0.0` | 22 June, 2022 | Initial release. |
+Now what you as a developer need to do is to specify a region in our APIs/SDKs from the list of globally applicable region values and that's it !!
+[See Country List](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md)
 
-## [Setup your Project](#Setup-your-Project)
+To specify the region , refer to the below code. Default is India ("IND")
 
-### [Using CocoaPods](#Using-CocoaPods)
-
-To install the MapplsFeedbackUIKit using CocoaPods:
-
-Create a Podfile with the following specification:
-
+```js
+MapmyIndiaAccountManager.setDefaultRegion(MMIRegionTypeIdentifier("IND"))
 ```
-pod 'MapplsFeedbackUIKit', '1.0.0'
-```
+or
 
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
-
-### [Authorization](#Authorization)
-
-#### [MapplsAPICore](#MapplsAPICore)
-It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documenatation [here](MapplsAPICore.md)
-
-## [Usage](#Usage)
-
-`MapplsFeedbackUIKitManager` is the class which will help to use this UI Control.Access shared instance of that class and call `getViewController` method to get instance of ViewController and present or push according to requirement.
-
-##### Objective-C
-
-```objectivec
-CLLocation *location = [[CLLocation alloc] initWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude];
-
-UINavigationController *navVC = [[MapplsFeedbackUIKitManager sharedManager] getViewControllerWithLocation:location moduleId:ModuleId];
-[self presentViewController:navVC animated:YES completion:nil];
+```js
+MapmyIndiaAccountManager.setDefaultRegion(MMIRegionTypeIdentifier("KWT"))
 ```
 
-##### Swift
+To select from a country list, use below code **(Available from MapmyIndiaAPIKit Version 1.4.19)**. Default is (.india)
 
-```swift
-let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude), moduleId: ModuleId)
-
-self.present(navVC, animated: true, completion: nil)
+```js
+MapmyIndiaAccountManager.setDefaultRegion(.kuwait)
 ```
-
-`MapplsFeedbackUIKit` implicitly use functionalities of MapplsFeedBackKitManager module and provides a beautiful user expereience to submit feedback.
 
 <br><br><br>
 

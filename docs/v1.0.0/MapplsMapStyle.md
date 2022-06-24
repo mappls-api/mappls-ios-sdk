@@ -1,62 +1,73 @@
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="80"/> </p>](https://www.mapmyindia.com/api)
 
-# MapplsFeedbackUIKit for iOS
+# [Set Map Style](#Set-Map-Style)
 
-## [Introduction](#Introduction)
+Mappls offers a range of preset styles to rendering the map. The user has to retrieve a list of styles for a specific account. 
+The listing api would help in rendering specific style as well as facilitate the switching of style themes. 
 
-FeedbackUI Kit for IOS is a UI kit to use wrapper for Mappls's feedback API. It allows developers to integrate feedback module in their application. Using feedback module user can submit location related feedback to Mappls's server.
+From the below reference code it would become quite clear that user has to specify style names and not URLs to use them. 
+A default style is set for all account users to start with. 
+To know more about available styles, kindly contact apisupport@mappls.com
 
-**Note:** Sample for UI view controllers with source code is also provided by Mappls which user can directly use to show feedback screen. Information about how to use UI sample is also provided in this documentation.
+**This feature is available from version v5.7.19**
 
-If you don’t want to implement own logic and use sample from Mappls Jump to Sample UI Kit section.
+## [List of Available Styles](#list-of-available-styles)
 
-### [Version History](#Version-History)
+Explore and choose from our map style list on [Live Demo](https://www.mapmyindia.com/api/advanced-maps/WebSDK-LiveDemo/map_style)
 
-| Version | Dated | Description |
-| :------ | :---- | :---------- |
-| `1.0.0` | 22 June, 2022 | Initial release. |
+Subscribe the delegate to get the list of available styles:
 
-## [Setup your Project](#Setup-your-Project)
-
-### [Using CocoaPods](#Using-CocoaPods)
-
-To install the MapplsFeedbackUIKit using CocoaPods:
-
-Create a Podfile with the following specification:
-
+#### Swift
 ```
-pod 'MapplsFeedbackUIKit', '1.0.0'
+func didLoadedMapplsMapsStyles(_ mapView: MapplsMapView, styles: [MapplsMapStyle], withError error: Error?)
 ```
 
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
-
-### [Authorization](#Authorization)
-
-#### [MapplsAPICore](#MapplsAPICore)
-It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documenatation [here](MapplsAPICore.md)
-
-## [Usage](#Usage)
-
-`MapplsFeedbackUIKitManager` is the class which will help to use this UI Control.Access shared instance of that class and call `getViewController` method to get instance of ViewController and present or push according to requirement.
-
-##### Objective-C
-
-```objectivec
-CLLocation *location = [[CLLocation alloc] initWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude];
-
-UINavigationController *navVC = [[MapplsFeedbackUIKitManager sharedManager] getViewControllerWithLocation:location moduleId:ModuleId];
-[self presentViewController:navVC animated:YES completion:nil];
+#### Objective C
+```
+- (void)didLoadedMapplsMapsStyles:(MapplsMapView *)mapView styles:(NSArray<MapplsMapStyle *> *)styles withError:(nullable NSError *)error;
 ```
 
-##### Swift
+`MapplsMapStyle` contains below parameters:
 
-```swift
-let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude), moduleId: ModuleId)
+ 1. `style_Description(String)`: Description of the style
+ 2. `displayName(string)`: Generic Name of style mostly used in Mappls content.
+ 3. `imageUrl(String)`: Preview Image of style
+ 4. `name(String)`: Name of style used to change the style.
 
-self.present(navVC, animated: true, completion: nil)
+## [Set Mappls Map Style](#set-Mappls-Map-Style)
+To set MapplsMap style reference code is below:
+#### Swift
+```
+mapView.setMapplsMapStyle("style Name")
 ```
 
-`MapplsFeedbackUIKit` implicitly use functionalities of MapplsFeedBackKitManager module and provides a beautiful user expereience to submit feedback.
+#### Objective C
+```
+[self.mapView setMapplsMapStyle:@"Style Name"];
+```
+
+## [To enable/disable last selected style](#To-enable-last-selected-style)
+To enable/disable loading of last selected style:
+
+#### Swift
+```
+MapplsMapConfiguration.setIsShowPreferedMapStyle(false) // true is enable & false is disable(default value is true) 
+``` 
+#### Objective C
+```
+[MapplsMapConfiguration setIsShowPreferedMapStyle:false]; //true is enable & false is disable(default value is true)
+```
+
+## [didSetMapplsMapStyle](#did-Set-Mappls-Map-Style)
+Tells the delegate that the style set by user is valid or not.
+#### Swift
+```
+func didSetMapplsMapStyle(_ mapView: MapplsMapView, isSuccess: Bool, withError error: Error?)
+```
+#### Objective C
+```
+-(void)didSetMapplsMapStyle:(MapplsMapView *)mapView isSuccess:(BOOL)isSuccess withError:(nullable NSError *)error;
+```
 
 <br><br><br>
 
