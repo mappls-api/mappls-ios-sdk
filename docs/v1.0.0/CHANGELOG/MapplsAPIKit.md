@@ -1,6 +1,12 @@
 # Changes to the MapplsAPIKit SDK for iOS
 
-## v2.0.0 - 11 June, 2022
+## 2.0.1 - 05 Jul, 2022
+
+### Added
+
+- In response of Reverse Geocode `Mappls Pin` is added.
+
+## 2.0.0 - 11 Jun, 2022
 
 Initial version of `MapplsAPIKit`.
 

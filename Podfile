@@ -7,7 +7,7 @@ target 'MapplsSDKDemo' do
 
   # Pods for MapplsDemo
   pod 'MapplsAPICore', '1.0.0'
-  pod 'MapplsAPIKit', '2.0.0'
+  pod 'MapplsAPIKit', '2.0.1'
   pod 'MapplsMap', '5.13.0'
   pod 'MapplsFeedbackKit', '1.0.0'
   pod 'MapplsFeedbackUIKit', '1.0.0'

@@ -10,11 +10,26 @@ Our APIs, SDKs, and live updating map data available for [200+ countries & terri
 
 2. The sample code is provided to help you understand the basic functionality of Mappls REST APIs working on iOS native development platform. 
 
+## [Installation](#Installation)
+
+This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
+
+```ruby
+pod 'MapplsAPIKit', '2.0.1'
+```
+
+Run pod repo update && pod install and open the resulting Xcode workspace.
+
+### [Dependencies](#Dependencies)
+
+This library depends upon `MapplsAPICore`. All dependent libraries will be automatically installed on using CocoaPods.
+
 ## [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `2.0.0` | 11 June 2022 | Initial release with `Mappls` branding and merging of Directions SDK. Supports Xcode 13+.|
+| `2.0.1` | 05 Jul 2022 | In response of Reverse Geocode `Mappls Pin` is added.|
+| `2.0.0` | 11 Jun 2022 | Initial release with `Mappls` branding and merging of Directions SDK. Supports Xcode 13+.|
 
 ## [Getting Started](#Getting-Started)
 
