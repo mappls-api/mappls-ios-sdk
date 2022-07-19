@@ -12,7 +12,7 @@ You can get your api key to be used in this document here: [https://apis.mappls.
 
 ## [Documentation History](#Documentation-History)
 
-| Version | Supported SDK Version |
+| Version | Supported SDK Version 
 | ------- | --------------------- |
 | [v1.0.0](./docs/v1.0.0/README.md) | - MapplsAPICore - 1.0.0 <br/> - MapplsAPIKit - 2.0.0 <br/> - MappplsMap - 5.13.0 <br/> - MapplsUIWidget - 1.0.0 <br/> - MapplsNearbyUI - 1.0.0 <br/> - MapplsDirectionUI - 1.0.0 <br/> - MapplsGeoanalytics - 1.0.0 <br/> - MapplsFeedbackKit - 1.0.0 <br/> - MapplsDrivingRangePlugin - 1.0.0 <br/> - MapplsAnnotationExtension - 1.0.0 <br/> - MapplsGeofenceUI - 1.0.0 |
 
