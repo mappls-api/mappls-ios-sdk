@@ -116,18 +116,32 @@ class POIsAlongTheRouteVC: UIViewController {
             }
         }
     }
-    
+    var elocAnnotations = [CustomPointAnnotationEloc]()
     func plotPOIMarkers(suggestions: [MapplsPOISuggestion]) {
         var markers = [CustomPointAnnotation]()
+        var elocAnnotationsMarker = [CustomPointAnnotationEloc]()
         for suggestion in suggestions {
-            if let latitude = suggestion.latitude, let longitude = suggestion.longitude {
-                let markerTitle = "\([suggestion.poi ?? "", suggestion.address ?? ""].joined(separator: ","))"
+            let markerTitle = "\([suggestion.poi ?? "", suggestion.address ?? ""].joined(separator: ","))"
+            if let mapplsPin = suggestion.mapplsPin {
+                let marker = CustomPointAnnotationEloc(mapplsPin: mapplsPin)
+                marker.title = markerTitle
+                marker.image = UIImage(named: "marker1")
+                marker.reuseIdentifier = markerTitle
+                elocAnnotationsMarker.append(marker)
+//                mapView.addMapplsAnnotation(marker)
+            } else if let latitude = suggestion.latitude, let longitude = suggestion.longitude {
                 let marker = CustomPointAnnotation(coordinate: CLLocationCoordinate2DMake(latitude, longitude), title: markerTitle, subtitle: nil)
                 markers.append(marker)
             }
         }
-        self.poiMarkers = markers
-        self.mapView.addAnnotations(self.poiMarkers)
+        if markers.count > 0 {
+            self.poiMarkers = markers
+            self.mapView.addAnnotations(self.poiMarkers)
+        } else if elocAnnotationsMarker.count > 0 {
+            self.elocAnnotations = elocAnnotationsMarker
+            self.mapView.addMapplsAnnotations(self.elocAnnotations)
+        }
+        
     }
 }
 
@@ -190,6 +204,8 @@ extension POIsAlongTheRouteVC: MapplsMapViewDelegate {
         if let _ = annotation as? CustomPointAnnotation {
             // For POI markers, show callout
             return nil
+        } else if let _ =  annotation as? CustomPointAnnotationEloc {
+            return nil
         } else {
             // For polyline, show custom callout
             return CustomCalloutViewForPolyline(representedObject: annotation)
@@ -197,8 +213,10 @@ extension POIsAlongTheRouteVC: MapplsMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        if let _ = annotation as? CustomPointAnnotation {
+        if let _ = annotation as? CustomPointAnnotation  {
             // For POI markers, show default marker
+            return nil
+        } else  if let _  = annotation as? CustomPointAnnotationEloc {
             return nil
         } else {
             // For polyline, show no marker
@@ -206,5 +224,17 @@ extension POIsAlongTheRouteVC: MapplsMapViewDelegate {
             annotationView.isOpaque = true
             return annotationView
         }
+    }
+    
+     public func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage? {
+         if let pointEloc = annotation as? CustomPointAnnotationEloc,
+            let reuseIdentifierEloc = pointEloc.reuseIdentifier, let image = pointEloc.image {
+            if let annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: reuseIdentifierEloc) {
+                return annotationImage
+            } else {
+                return MGLAnnotationImage(image: image, reuseIdentifier: reuseIdentifierEloc)
+            }
+        }
+        return nil
     }
 }

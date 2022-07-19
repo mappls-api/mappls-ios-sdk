@@ -14,8 +14,7 @@ class DrivingRangeSampleViewController: UIViewController {
 
     var mapView: MapplsMapView!
     let progressHUD = ProgressHUD(text: "Loading..")
-    var drivingRangePlugin: MapplsDrivingRangePlugin!
-    
+    var drivingRangePlugin: MapplsDrivingRange!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,7 +27,7 @@ class DrivingRangeSampleViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         
-        self.drivingRangePlugin = MapplsDrivingRangePlugin(mapView: self.mapView)
+        self.drivingRangePlugin = MapplsDrivingRange(mapView: self.mapView)
         self.drivingRangePlugin.delegate = self
         
         let settingBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(settingsButtonPressed(_:)))
@@ -88,8 +87,8 @@ extension DrivingRangeSampleViewController: MapplsMapViewDelegate {
 }
 
 
-extension DrivingRangeSampleViewController: MapplsDrivingRangePluginDelegate {
-    func drivingRange(_ plugin: MapplsDrivingRangePlugin, didFailToGetAndPlotDrivingRange error: Error) {
+extension DrivingRangeSampleViewController: MapplsDrivingRangeDelegate {
+    func drivingRange(_ plugin: MapplsDrivingRange, didFailToGetAndPlotDrivingRange error: Error) {
         print("drivingRange: didFailToGetAndPlotDrivingRange: \(error.localizedDescription)")
         let alertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (alertAction) in
@@ -99,13 +98,13 @@ extension DrivingRangeSampleViewController: MapplsDrivingRangePluginDelegate {
         progressHUD.hide()
     }
     
-    func drivingRangeDidSuccessToGetAndPlotDrivingRange(_ plugin: MapplsDrivingRangePlugin) {
+    func drivingRangeDidSuccessToGetAndPlotDrivingRange(_ plugin: MapplsDrivingRange) {
         print("drivingRange: drivingRangeDidSuccessToGetAndPlotDrivingRange")
        
         progressHUD.hide()
     }
     
-    func drivingRangePolygonStyleLayer(_ plugin: MapplsDrivingRangePlugin) -> MGLFillStyleLayer? {
+    func drivingRangePolygonStyleLayer(_ plugin: MapplsDrivingRange) -> MGLFillStyleLayer? {
         let fillLayer = MGLFillStyleLayer(identifier: "Random", source: MGLShapeSource(identifier: "random"))
         fillLayer.fillColor = NSExpression(forConstantValue: UIColor.red)
         fillLayer.fillOpacity = NSExpression(forConstantValue: 0.5)
@@ -113,7 +112,7 @@ extension DrivingRangeSampleViewController: MapplsDrivingRangePluginDelegate {
         return fillLayer
     }
 
-    func drivingRangePolylineStyleLayer(_ plugin: MapplsDrivingRangePlugin) -> MGLLineStyleLayer? {
+    func drivingRangePolylineStyleLayer(_ plugin: MapplsDrivingRange) -> MGLLineStyleLayer? {
         let lineLayer = MGLLineStyleLayer(identifier: "rail-line", source: MGLShapeSource(identifier: "rail-line"))
         lineLayer.lineColor = NSExpression(forConstantValue: UIColor.gray)
         lineLayer.lineWidth = NSExpression(forConstantValue: 5)

@@ -9,6 +9,14 @@
 import Foundation
 import MapplsMap
 
+
+class CustomPointAnnotationEloc: MapplsPointAnnotation {
+    var image: UIImage?
+    var reuseIdentifier: String?
+    var placeName: String?
+
+}
+
 class CustomPointAnnotation: NSObject, MGLAnnotation {
     var mapplsPin: String?
     
@@ -29,6 +37,7 @@ class CustomPointAnnotation: NSObject, MGLAnnotation {
     init(coordinate: CLLocationCoordinate2D, title: String?, subtitle: String? ) {
         self.coordinate = coordinate
         self.title = title
+        self.mapplsPin = title
         self.subtitle = subtitle
         
     }
