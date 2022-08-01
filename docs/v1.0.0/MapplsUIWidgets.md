@@ -137,6 +137,97 @@ extension ViewController: MapplsAutocompleteViewControllerDelegate {
 }
 ```
 
+#### [SwiftUI Full Screen Control](#SwiftUI-Full-Screen-Control)
+
+##### [Create Autosuggest View Controller](#Create-Autosuggest-View-Controller)
+
+1. In your project, add new SwiftUI View and name it MapplsAutocompleteViewControllerSwiftUIView.swift
+2. In order to use native UIKit view controller in `SwiftUI` view, you must use [UIViewControllerRepresentable](https://developer.apple.com/documentation/swiftui/uiviewcontrollerrepresentable) wrapper. The instance of custom type which adopts UIViewControllerRepresentable protocol is responsible for creation and management a UIViewController object in your SwiftUI interface.
+    ```swift
+    struct MapplsAutocompleteViewControllerSwiftUIWrapper: UIViewControllerRepresentable {
+        ...
+    }
+    ```
+3. The UIViewControllerRepresentable requires to implement makeUIViewController(context:) method that creates the instance of with the desired UIKit view. Add the following code to create map view instance
+    ```swift
+    @Environment(\.presentationMode) var presentationMode
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<MapplsAutocompleteViewControllerSwiftUIWrapper>) -> MapplsAutocompleteViewController {
+        let autocompleteViewController = MapplsAutocompleteViewController()        
+        autocompleteViewController.delegate = context.coordinator
+        return autocompleteViewController
+    }
+    ```
+4. The UIViewControllerRepresentable view also requires to implement updateUIViewController(_:context:) which is used to configure the newly created instance. To show autosuggest only We dont need to configure anything so we will keep it empty.
+    ```swift
+    func updateUIViewController(_ uiViewController: MapplsAutocompleteViewController, context: UIViewControllerRepresentableContext<MapplsAutocompleteViewControllerSwiftUIWrapper>) {
+
+    }
+    ```
+5. To use selected place from results of autosuggest add below property code as shown above:
+    ```swift
+    @Binding var placeSuggestion: MapplsAtlasSuggestion?
+    ```
+6. Use below code to create `SwiftUIView` to consume in another View.
+    ```swift
+    struct MapplsAutocompleteViewControllerSwiftUIView: View {
+      @Binding var placeSuggestion: MapplsAtlasSuggestion?
+    
+      var body: some View {
+        MapplsAutocompleteViewControllerSwiftUIWrapper(placeSuggestion: $placeSuggestion)
+            .navigationBarHidden(true)
+      }
+    }
+    ```
+
+##### [Respond To Autosuggest Events](#Respond-To-Autosuggest-Events)
+
+In order to respond to Autosuggest events, for example perform an action on selecting a result from Autosuggest's results. In SwiftUI, a Coordinator can be used with delegates, data sources, and user events. The UIViewControllerRepresentable protocol defines makeCoordinator() method which creates coordinator instance. Add the following code to declare coordinator class:
+
+```swift
+class Coordinator: NSObject, UINavigationControllerDelegate, MapplsAutocompleteViewControllerDelegate {
+        var parent: MapplsAutocompleteViewControllerSwiftUIWrapper
+        
+        init(_ parent: MapplsAutocompleteViewControllerSwiftUIWrapper) {
+            self.parent = parent
+        }
+        
+        func didAutocomplete(viewController: MapplsAutocompleteViewController, withSuggestion suggestion: MapplsSearchPrediction) {
+            
+        }
+        
+        func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+            DispatchQueue.main.async {
+                print(place.description.description as Any)
+                self.parent.presentationMode.wrappedValue.dismiss()
+                self.parent.placeSuggestion = place
+            }
+        }
+        
+        func didFailAutocomplete(viewController: MapplsAutocompleteViewController, withError error: NSError) {
+            print("Error: ", error.localizedDescription)
+        }
+
+        func wasCancelled(viewController: MapplsAutocompleteViewController) {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+```
+
+And then add the following method to the `MapplsAutocompleteViewControllerSwiftUIWrapper`:
+
+```swift
+func makeCoordinator() -> MapView.Coordinator {
+    Coordinator(self)
+}
+```
+
+**Note:** Reference coordinator is set using below code in above class.
+
+```swift
+autocompleteViewController.delegate = context.coordinator
+```
+
 ### [Add a results controller](#Add-a-results-controller)
 
 Use a results controller when you want more control over the text input UI. The results controller dynamically toggles the visibility of the results list based on input UI focus.
