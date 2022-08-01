@@ -40,6 +40,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     * [Setup your Project](MapplsMap.md#Setup-your-Project)
     * [Usage](MapplsMap.md#Usage)    
     * [Add a Mappls Map View](MapplsMap.md#Add-a-Mappls-Map-View)
+        * [SwiftUI](MapplsMap.md#SwiftUI)
     * [Map Interactions](MapplsMap.md#Map-Interactions)
     * [Map Features](MapplsMap.md#Map-Features)
     * [Map Events](MapplsMap.md#Map-Events)
