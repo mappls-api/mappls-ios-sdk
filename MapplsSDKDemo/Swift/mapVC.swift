@@ -126,23 +126,23 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
     let point = MGLPointAnnotation()
     var isForCustomAnnotationView = false
     var isCustomCalloutForPolyline = false
-    var strType:String?
+    var sampleType: SampleType = .addMarker
     var place:  MapplsAtlasSuggestion!
     var refLocations: String!
     var infoView = UIView()
     var infoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = strType
+        self.title = sampleType.title
         self.mapView.delegate = self
         
         self.mapView.minimumZoomLevel = 4
         customSearchUI.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        if strType != "AutoSuggest"{
+        if sampleType != .autosuggest {
              self.customSearchUI.isHidden = true
         }
         
-        if strType != "Route Advance" && strType != "Route Advance ETA"{
+        if sampleType != .routeAdvance && sampleType != .routeAdvanceETA {
             self.btn_Instruction.isHidden = true
         }else{
             mapView.bringSubviewToFront(btn_Instruction)
@@ -185,41 +185,41 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
     }
     
     func setData()  {
-        self.title = strType
+        self.title = sampleType.title
         
-        switch strType {
-        case "Zoom Level":
+        switch sampleType {
+        case .zoomLevel:
             mapView.setCenter(CLLocationCoordinate2DMake(28.550667, 77.268959), animated: false)
             mapView.zoomLevel = 15
             break
-        case "Zoom Level With Animation":
+        case .zoomLevelWithAnimation:
             mapView.setCenter(CLLocationCoordinate2DMake(28.550667, 77.268959), animated: false)
             mapView.zoomLevel = 15
             feedbackButton.setTitle("Start Zoom", for: .normal)
             feedbackButton.isHidden = false
             feedbackButton.addTarget(self, action: #selector(zoomWithAnimation), for: .touchUpInside)
             break
-        case "Center With Animation":
+        case .centerWithAnimation:
             mapView.setCenter(CLLocationCoordinate2DMake(28.550667, 77.268959), animated: false)
             mapView.zoomLevel = 15
             feedbackButton.setTitle("Start Center", for: .normal)
             feedbackButton.isHidden = false
             feedbackButton.addTarget(self, action: #selector(centerWithAnimation), for: .touchUpInside)
             break
-        case "Current Location":
+        case .currentLocation:
             self.mapView.showsUserLocation = true
             break
-        case "Tracking Mode":
+        case .trackingMode:
             mapView.userTrackingMode = .followWithCourse
             break
-        case "Add Marker":
+        case .addMarker:
             let point = MGLPointAnnotation()
             point.coordinate = CLLocationCoordinate2D(latitude: 28.550834, longitude:
                 77.268918)
             point.title = "Annotation"
             mapView.addAnnotation(point)
             break
-        case "Add Multiple Markers With Bounds":
+        case .addMultipleMarkersWithBounds:
             var annotations = [MGLPointAnnotation]()
             
             let coordinates = [
@@ -238,7 +238,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             self.mapView.addAnnotations(annotations)
             self.mapView.showAnnotations(annotations, animated: true)
             break
-        case "Remove Marker":
+        case .removeMarker:
             let point = MGLPointAnnotation()
             point.coordinate = CLLocationCoordinate2D(latitude: 28.550834, longitude:
                 77.268918)
@@ -247,7 +247,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             
             mapView.removeAnnotation(point) // to remove a single marker
 //            mapView.removeAnnotations(point) // to clear multiple markers on map
-        case "Polyline":
+        case .polyline:
             var coordinates = [
                 CLLocationCoordinate2D(latitude: 28.550834, longitude: 77.268918),
                 CLLocationCoordinate2D(latitude: 28.551059, longitude: 77.268890),
@@ -261,7 +261,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             let shapeCam = mapView.cameraThatFitsShape(polyline, direction: CLLocationDirection(0), edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
             mapView.setCamera(shapeCam, animated: false)
             break
-        case "Polygons":
+        case .polygons:
             var coordinates = [
                 CLLocationCoordinate2D(latitude: 28.550834, longitude:
                     77.268918),
@@ -281,7 +281,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             let shapeCam = mapView.cameraThatFitsShape(polygon, direction: CLLocationDirection(0), edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
             mapView.setCamera(shapeCam, animated: false)
             break
-        case "Circles":
+        case .circles:
             let circleCoordinates = InteriorPolygonExample_Swift.polygonCircleForCoordinate(coordinate: CLLocationCoordinate2D(latitude: 28.550834, longitude:
                 77.268918), withMeterRadius: 1000)
             let polygon = MGLPolygon(coordinates: circleCoordinates, count: UInt(circleCoordinates.count))
@@ -289,7 +289,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             let shapeCam = mapView.cameraThatFitsShape(polygon, direction: CLLocationDirection(0), edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
             mapView.setCamera(shapeCam, animated: false)
             break
-        case "Autosuggest":
+        case .autosuggest:
              self.customSearchUI.isHidden = false
              mapView.setCenter(referenceLocation.coordinate, animated: false)
              mapView.zoomLevel = 16
@@ -297,17 +297,17 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
              annotation.coordinate = referenceLocation.coordinate
              mapView.addAnnotation(annotation)
              break
-        case "Geocode":
+        case .geocode:
             searchBar.isHidden = false
             searchBar.text = "Mappls, Okhla"
             callGeocode(searchQuery: searchBar.text!)
             break
-        case "Reverse Geocoding":
+        case .reverseGeocoding:
             let singleTap = UITapGestureRecognizer(target: self, action:
                 #selector(didTapMap(tap:)))
             mapView.addGestureRecognizer(singleTap)
             break
-        case "Nearby Search":
+        case .nearbySearch:
 //            infoView = UIView()	
             self.view.addSubview(infoView)
             infoView.backgroundColor = .red
@@ -334,7 +334,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             searchBar.placeholder = "Type Here eg:- Shoes/Hotels"
             break
             
-        case "Place Detail":
+        case .placeDetail:
             searchBar.isHidden = false
             self.constraintSearchBarHeight.constant = 65
             //searchBar.isUserInteractionEnabled = false
@@ -342,22 +342,22 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             mapView.addSubview(searchBar)
             callPlaceDetail(searchQuery: searchBar.text!)
             break
-        case "Distance Matrix":
+        case .distanceMatrix:
             callDistanceMatrix(isETA: false)
             break
-        case "Distance Matrix ETA":
+        case .distanceMatrixETA:
             callDistanceMatrix(isETA: true)
             break
-        case "Route Advance":
+        case .routeAdvance:
             callRouteUsingDirectionsFramework(isETA: false)
             isCustomCalloutForPolyline = true
             
             break
-        case "Route Advance ETA":
+        case .routeAdvanceETA:
             callRouteUsingDirectionsFramework(isETA: true)
             isCustomCalloutForPolyline = true
             break
-        case "Feedback":
+        case .feedback:
             mapView = MapplsMapView()
             let placePickerView = PlacePickerView(frame: self.view.bounds, parentViewController: self, mapView: mapView)
             placePickerView.delegate = self
@@ -371,7 +371,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             mapView.showsUserLocation = true
             feedbackButton.isHidden = false
             break
-        case "Animate Marker":
+        case .animateMarker:
             isForCustomAnnotationView = true
             self.mapView.centerCoordinate = referenceLocation.coordinate
             self.mapView.zoomLevel = 12
@@ -389,7 +389,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
                 })
             })
             break        
-        case "Custom Marker":
+        case .customMarker:
             let coordinates = [
                 CLLocationCoordinate2D(latitude: 28.551438, longitude: 77.265119),
                 CLLocationCoordinate2D(latitude: 28.521438, longitude: 77.265179),
@@ -482,8 +482,8 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             let location = tap.location(in: mapView)
             let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
             
-            switch strType {
-            case "Reverse Geocoding":
+            switch sampleType {
+            case .reverseGeocoding:
                 let reverseGeocodeManager = MapplsReverseGeocodeManager.shared
                 let revOptions = MapplsReverseGeocodeOptions(coordinate:
                     coordinate)
@@ -777,8 +777,8 @@ extension mapVC: UISearchBarDelegate {
     //    MARK: -  Webservice Method
     
     fileprivate func updateListResults(searchQuery: String, isTextSearch: Bool = false) {
-        switch strType {
-        case "Nearby Search":
+        switch sampleType {
+        case .nearbySearch:
             let nearByManager = MapplsNearByManager.shared
             let filter = MapplsNearbyKeyValueFilter(filterKey: "brandId", filterValues: ["String","String"])
             let sortBy = MapplsSortByDistanceWithOrder(orderBy: .ascending)
@@ -825,9 +825,9 @@ extension mapVC: UISearchBarDelegate {
             }
             break
             
-        case "Place Detail":
+        case .placeDetail:
             callPlaceDetail(searchQuery: searchQuery)
-        case "Geocode":
+        case .geocode:
             callGeocode(searchQuery: searchQuery)
         default:
             break

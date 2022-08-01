@@ -16,7 +16,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc var placemark: MapplsPlacemark?
     @objc var placeDetail: MapplsPlaceDetail?
     
-    let listArr:[String]? = ["Road Traffic Details","Geofence UI", "Geoanalytics", "Mappls Map Styles", "DrivingRange", "Nearby Report", "Zoom Level", "Zoom Level With Animation", "Center With Animation", "Current Location","Tracking Mode", "Add Marker", "Add Multiple Markers With Bounds", "Custom Marker", "Animate Marker", "Draggable Marker", "Clustering Markers", "Interactive Markers", "Polyline", "Multiple Polylines", "Polygons", "Circles", "Update Circle", "Autosuggest", "Geocode", "Reverse Geocoding", "Nearby Search", "Place Detail", "Distance Matrix", "Distance Matrix ETA", "Distance Matrix Mappls Pins", "Route Advance", "Route Advance ETA", "Routing/Directions", "Feedback", "GeoJson Multiple Shapes", "Dashed Polyline", "Geodesic Polyline", "Interior Polygons", "Default Indoor", "Custom Indoor", "Point On Map", "Covid Layers", "COVID-19 Safety Status", "Place Picker", "POI along the Route", "Autosuggest Widget", "DirectionUI Plugin","Nearby UI"]
+    let listArr: [SectionInfo] = [SectionInfo(rows: SampleType.allCases, headerTitle: "Swift")]
     
     var placeDetails = [String]()
     
@@ -46,13 +46,22 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if placeDetails.count > 0 {
+            return 1
+        }
+        else {
+            return listArr.count
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if placeDetails.count > 0 {
             return placeDetails.count
         }
         else {
-            return listArr?.count ?? 0
+            return listArr[section].rows.count
         }
     }
     
@@ -63,7 +72,7 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = placeDetails[indexPath.row]
         }
         else {
-            cell.textLabel?.text = listArr?[indexPath.row]
+            cell.textLabel?.text = listArr[indexPath.section].rows[indexPath.row].title
         }
         return cell
     }
@@ -75,126 +84,120 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         else {
             print("You tapped cell number \(indexPath.row).")
-            let strType = listArr![indexPath.row]
-            switch strType {
-            case "Interior Polygons":
+            let sampleType = listArr[indexPath.section].rows[indexPath.row]
+            switch sampleType {
+            case .interiorPolygons:
                 //let vc = InteriorPolygonExample_Swift(nibName: nil, bundle: nil)
                 let vc = HighlightPointExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "GeoJson Multiple Shapes":
+            case .geoJsonMultipleShapes:
                 let vc = MultipleShapesExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Dashed Polyline":
+            case .dashedPolyline:
                 let vc = DashedPolylineExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Clustering Markers":
+            case .clusteringMarkers:
                 let vc = ClusterMarkersExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Geodesic Polyline":
+            case .geodesicPolyline:
                 let vc = GeodesicPolylineExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Custom Indoor":
+            case .customIndoor:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomIndoorVC") as? CustomIndoorVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
-                vctrl?.strType = strType
                 break
-            case "Default Indoor":
+            case .defaultIndoor:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DefaultIndoorVC") as? DefaultIndoorVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
-                vctrl?.strType = strType
                 break
-            case "Interactive Markers":
+            case .interactiveMarkers:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InteractiveMarkerVC") as? InteractiveMarkerVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
-                vctrl?.strType = strType
                 break
-            case "Point On Map":
+            case .pointOnMap:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PointOnMapVC") as? PointOnMapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
-                vctrl?.strType = strType
                 break
-            case "Draggable Marker":
+            case .draggableMarker:
                 let vc = DraggableMapMarkerVC_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Update Circle":
+            case .updateCircle:
                 let vc = UpdateCircleExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Multiple Polylines":
+            case .multiplePolylines:
                 let vc = MultiplePolylinesExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Covid Layers":
+            case .covidLayers:
                 if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidLayersExample") as? CovidLayersExample_Swift {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 break
-            case "COVID-19 Safety Status":
+            case .covid19SafetyStatus:
                 if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidSafetyStatusExample") as? CovidSafetyStatusExample_Swift {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 break
-            case "Place Picker":
+            case .placePicker:
                 let vc = PlacePickerViewExampleLauncherVC(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-                
-            case "POI along the Route":
+            case .poiAlongTheRoute:
                 let vc = POIsAlongTheRouteVC(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
-            case "Autosuggest Widget":
+            case .autosuggestWidget:
                 let vc = AutosuggestWidgetExamplesLauncherVC(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Distance Matrix Mappls Pins":
+            case .distanceMatrixUsingMapplsPins:
                 let vc = DistanceMatrixViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "Routing/Directions":
+            case .routing:
                 let vc = DirectionsViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case "DirectionUI Plugin":
+            case .directionUIPlugin:
                 let vC = DirectionUIViewController()
                 self.navigationController?.pushViewController(vC, animated: false)
                 break
-            case "Nearby UI":
+            case .nearbyUI:
                 let vC = NearbyViewControllerLauncher()
                 self.navigationController?.pushViewController(vC, animated: false)
-            case "Geofence UI":
+            case .geofenceUI:
                 let geofenceUILVC = GeofenceUILunchVC()
                 self.navigationController?.pushViewController(geofenceUILVC, animated: false)
-                
-            case "Geoanalytics":
+            case .geoanalytics:
                 let geoanalytics = DemoGeoanalyticsViewController()
                 geoanalytics.title = "Geoanalytics"
                 self.navigationController?.pushViewController(geoanalytics, animated: false)
-            case "Mappls Map Styles":
+            case .mapplsMapStyles:
                 let mapStyleVC = DemoMapStyleViewController()
                 mapStyleVC.title = "Map style"
                 self.navigationController?.pushViewController(mapStyleVC, animated: false)
-            case "DrivingRange":
+            case .drivingRange:
                 let drivingRangeVC = DrivingRangeSampleViewController()
                 drivingRangeVC.title = "Driving Range"
                 self.navigationController?.pushViewController(drivingRangeVC, animated: false)
-            case "Road Traffic Details":
+            case .roadTrafficDetails:
                 let roadTrafficDetails = RoadTrafficDetailsViewController()
                 roadTrafficDetails.title = "Road Traffic Details"
                 self.navigationController?.pushViewController(roadTrafficDetails, animated: false)
-            case "Nearby Report":
+            case .nearbyReport:
                 let nearbyReport = DemoNearbyReportViewController()
                 nearbyReport.title = "Nearby Report"
                 self.navigationController?.pushViewController(nearbyReport, animated: false)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
-                vctrl?.strType = strType
+                vctrl?.sampleType = sampleType
                 break
             }
         }

@@ -17,48 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-JI-tbq">
-                                <rect key="frame" x="82" y="373" width="250" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hTR-kj-Mfu">
+                                <rect key="frame" x="167" y="410" width="80" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hTR-kj-Mfu">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqP-j3-pnF">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="65"/>
-                                                <state key="normal" title="Swift"/>
-                                                <connections>
-                                                    <action selector="swift:" destination="3II-3f-gcB" eventType="touchUpInside" id="r6q-lT-wsz"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjZ-Dj-qXd">
-                                                <rect key="frame" x="0.0" y="85" width="250" height="65"/>
-                                                <state key="normal" title="Objective C"/>
-                                                <connections>
-                                                    <action selector="objectiveC:" destination="3II-3f-gcB" eventType="touchUpInside" id="yUB-jh-Lpc"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="GqP-j3-pnF" firstAttribute="height" secondItem="xjZ-Dj-qXd" secondAttribute="height" id="LfE-bR-Nbi"/>
-                                        </constraints>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqP-j3-pnF">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                        <state key="normal" title="Swift"/>
+                                        <connections>
+                                            <action selector="swift:" destination="3II-3f-gcB" eventType="touchUpInside" id="r6q-lT-wsz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPr-BZ-FqM" userLabel="SwiftUI">
+                                        <rect key="frame" x="0.0" y="50" width="80" height="30"/>
+                                        <state key="normal" title="SwiftUI"/>
+                                        <connections>
+                                            <action selector="swiftUI:" destination="3II-3f-gcB" eventType="touchUpInside" id="jYj-Ih-3g7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjZ-Dj-qXd">
+                                        <rect key="frame" x="0.0" y="100" width="80" height="30"/>
+                                        <state key="normal" title="Objective C"/>
+                                        <connections>
+                                            <action selector="objectiveC:" destination="3II-3f-gcB" eventType="touchUpInside" id="yUB-jh-Lpc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="hTR-kj-Mfu" secondAttribute="bottom" id="1kR-aT-19P"/>
-                                    <constraint firstAttribute="height" constant="150" id="BOi-xj-l73"/>
-                                    <constraint firstAttribute="trailing" secondItem="hTR-kj-Mfu" secondAttribute="trailing" id="Xxk-wM-W6B"/>
-                                    <constraint firstItem="hTR-kj-Mfu" firstAttribute="leading" secondItem="Mcv-JI-tbq" secondAttribute="leading" id="dOO-Z1-nIG"/>
-                                    <constraint firstItem="hTR-kj-Mfu" firstAttribute="top" secondItem="Mcv-JI-tbq" secondAttribute="top" id="oXR-pl-XPS"/>
-                                    <constraint firstAttribute="width" constant="250" id="xWm-2p-IZy"/>
+                                    <constraint firstItem="GqP-j3-pnF" firstAttribute="height" secondItem="xjZ-Dj-qXd" secondAttribute="height" id="LfE-bR-Nbi"/>
                                 </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xF0-Gb-5rG"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Mcv-JI-tbq" firstAttribute="centerY" secondItem="F7C-Uc-pr2" secondAttribute="centerY" id="Yry-ay-fmS"/>
-                            <constraint firstItem="Mcv-JI-tbq" firstAttribute="centerX" secondItem="F7C-Uc-pr2" secondAttribute="centerX" id="xZQ-wu-4TR"/>
+                            <constraint firstItem="hTR-kj-Mfu" firstAttribute="centerY" secondItem="xF0-Gb-5rG" secondAttribute="centerY" id="o0S-TI-fhH"/>
+                            <constraint firstItem="hTR-kj-Mfu" firstAttribute="centerX" secondItem="xF0-Gb-5rG" secondAttribute="centerX" id="rJM-bT-WAt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OsC-Z8-YfM"/>

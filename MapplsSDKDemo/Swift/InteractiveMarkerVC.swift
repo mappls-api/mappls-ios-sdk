@@ -10,7 +10,7 @@ import MapplsAPIKit
 
 class InteractiveMarkerVC: UIViewController {
     var mapView:MapplsMapView!
-    var strType:String?
+    
     var polylineSource: MGLShapeSource?
     let annotation = MGLPointAnnotation()
     let destinationCoordinate = CLLocationCoordinate2D(latitude: 28.551438, longitude: 77.26319)
@@ -18,7 +18,7 @@ class InteractiveMarkerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-         self.title = strType
+        self.title = "Interactive Markers"
         mapView = MapplsMapView(frame: view.bounds)
         mapView.showsUserLocation = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

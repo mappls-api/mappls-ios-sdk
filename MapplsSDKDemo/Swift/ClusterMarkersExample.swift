@@ -298,10 +298,10 @@ extension ClusterMarkersExample_Swift: UIGestureRecognizerDelegate {
         return true
     }
     
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        // This will only get called for the custom double tap gesture.
-        return firstCluster(with: gestureRecognizer) != nil
-    }
+//    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        // This will only get called for the custom double tap gesture.
+//        return firstCluster(with: gestureRecognizer) != nil
+//    }
 }
 
 extension ClusterMarkersExample_Swift: MapplsMapViewDelegate {

@@ -13,7 +13,7 @@ import MapplsAPIKit
 class DefaultIndoorVC: UIViewController {
 
     var mapView: MapplsMapView!
-    var strType:String?
+    
     let vasantKunjLocation = CLLocationCoordinate2DMake(28.542568, 77.155914)
     let bangaloreExpoLocation = CLLocationCoordinate2DMake(13.062946, 77.474959)
     
@@ -48,7 +48,7 @@ class DefaultIndoorVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.title = strType
+        self.title = "Default Indoor"
         mapView = MapplsMapView(frame: view.bounds)
         mapView.showsUserLocation = true
         mapView.minimumZoomLevel = 3

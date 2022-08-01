@@ -14,12 +14,12 @@ class PointOnMapVC: UIViewController , MapplsMapViewDelegate {
     
     @IBOutlet weak var markerImage: UIImageView!
     @IBOutlet weak var lbl: UILabel!
-    var strType:String?
+    
     var mapView:MapplsMapView!
     var results:[MapplsGeocodedPlacemark]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = strType
+        self.title = "Point On Map"
         let initialCorr = CLLocationCoordinate2D(latitude: 28.543253, longitude: 77.261647)
        // let mapFrame = CGRect(x: 0, y: 112, width: 414, height: 750)
         mapView = MapplsMapView(frame: view.bounds)

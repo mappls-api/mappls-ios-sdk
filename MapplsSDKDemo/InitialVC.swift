@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class InitialVC: UIViewController {
 
@@ -30,5 +31,10 @@ class InitialVC: UIViewController {
     @IBAction func swift(_ sender: Any) {
         let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ListVC") as? ListVC
         self.navigationController?.pushViewController(vctrl!, animated: true)
+    }
+    
+    @IBAction func swiftUI(_ sender: Any) {
+        let vctrl = UIHostingController(rootView: SampleLauncherSwiftUIListView())
+        self.navigationController?.pushViewController(vctrl, animated: true)
     }
 }

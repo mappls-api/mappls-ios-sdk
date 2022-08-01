@@ -44,11 +44,11 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
         let currentType = autosuggestWidgetSampleTypes[indexPath.row]
         let cellIdentifier = "switchCell"
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
-            cell.textLabel?.text = AutosuggestWidgetSampleTypeConverter.titleFor(sampleType: currentType)
+            cell.textLabel?.text = currentType.title
             return cell
         } else {
             let newCell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
-            newCell.textLabel?.text = AutosuggestWidgetSampleTypeConverter.titleFor(sampleType: currentType)
+            newCell.textLabel?.text = currentType.title
             return newCell
         }
     }
@@ -78,13 +78,17 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
     func presentAlertConrollerForDefaultController() {
         let alertController = UIAlertController(title: "Choose Launch Type?", message: "Select type of launch of Controller", preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Push", style: .default, handler: { (alertAction) in
-            self.pushDefaultConroller()
+            self.dismiss(animated: true) {
+                self.pushDefaultConroller()
+            }
         }))
         alertController.addAction(UIAlertAction(title: "Present", style: .default, handler: { (alertAction) in
-            self.presentDefaultConroller()
+            self.dismiss(animated: true) {
+                self.presentDefaultConroller()
+            }
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        print(self.presentedViewController?.parent)
+        //print(self.presentedViewController?.parent)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -111,16 +115,16 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
     
     func presentAlertConrollerForCustomThemeController() {
         let alertController = UIAlertController(title: "Choose Theme?", message: "Select a theme for Controller", preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Yellow And Brown", style: .default, handler: { (alertAction) in
+        alertController.addAction(UIAlertAction(title: StyledAutosuggestWidgetSampleType.yellowAndBrown.title, style: .default, handler: { (alertAction) in
             self.openBrownTheme()
         }))
-        alertController.addAction(UIAlertAction(title: "White On Black", style: .default, handler: { (alertAction) in
+        alertController.addAction(UIAlertAction(title: StyledAutosuggestWidgetSampleType.whiteOnBlack.title, style: .default, handler: { (alertAction) in
             self.openBlackTheme()
         }))
-        alertController.addAction(UIAlertAction(title: "Blue Colors", style: .default, handler: { (alertAction) in
+        alertController.addAction(UIAlertAction(title: StyledAutosuggestWidgetSampleType.blueColors.title, style: .default, handler: { (alertAction) in
             self.openBlueTheme()
         }))
-        alertController.addAction(UIAlertAction(title: "Hot Dog Stand", style: .default, handler: { (alertAction) in
+        alertController.addAction(UIAlertAction(title: StyledAutosuggestWidgetSampleType.hotDogStand.title, style: .default, handler: { (alertAction) in
             self.openHotDogTheme()
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
