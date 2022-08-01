@@ -18,7 +18,6 @@ In this section you will find documentation for :-
 - REST APIs module is a custom module for developers to consume our RESTful APIs within their applications, easily, and without having to develop such 
   functionality from scratch.
 - Detailed information related to how to integrate Mappls Widgets.
-- Detailed information about integration of Vector iOS Map.
 
 # [Map SDK](#Map-SDK)
 
@@ -32,6 +31,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
+| `5.13.1` | 20 Jul, 2022 | Bug Resolved: Duplicate Bundle Id. |
 | `5.13.0` | 11 June, 2022 | Initial Mappls Map Release. |
 
 ## [Setup your Project](#Setup-your-Project)
@@ -48,7 +48,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
   - Add below lines in pod file of your project:
     ```Cocoapods
-    pod 'MapplsMap', '5.13.0'
+    pod 'MapplsMap', '5.13.1'
     ```
   - Run pod install or pod update (to update existing pods)
 
@@ -822,6 +822,84 @@ MapplsAccountManager.setClusterId("YOUR_CLUSTER_DEVICE_IDENTIFIER")
 
 // Get Cluster Identifier
 let clusterId = MapplsAccountManager.clusterId()
+```
+
+## [SwiftUI](#SwiftUI)
+
+### [Create Map View](#Create-MAPPLS-Map-View)
+
+1. In your project, add new SwiftUI View and name it MapView.swift
+2. In order to use native UIKit views in `SwiftUI` view, you must use [UIViewRepresentable](https://developer.apple.com/documentation/swiftui/uiviewrepresentable) wrapper. The instance of custom type which adopts UIViewRepresentable protocol is responsible for creation and management a UIView object in your SwiftUI interface.
+    ```
+    struct MapView: UIViewRepresentable {
+        ...
+    }
+    ```
+3. The UIViewRepresentable requires to implement makeUIViewController(context:) method that creates the instance of with the desired UIKit view. Add the following code to create map view instance
+    ```
+    private let mapView: MapplsMapView = MapplsMapView(frame: .zero)
+
+    func makeUIView(context: UIViewRepresentableContext<MapView>) -> MapplsMapView {
+        mapView.delegate = context.coordinator
+        return mapView
+    }
+    ```
+4. The UIViewRepresentable view also requires to implement updateUIView(_:context:) which is used to configure the newly created instance. To show map only We dont need to configure anything so we will keep it empty.
+    ```
+    func updateUIView(_ uiView: MapplsMapView, context: UIViewRepresentableContext<MapView>) {}
+    ```
+
+To add map annoations at design time add an `annotations` property in `MapView` struct as below:
+
+```
+@Binding var annotations: [MGLPointAnnotation]
+```
+
+Use below code to add marker at design time by setting annotations property.
+```
+struct ContentView: View {
+    
+    @State var annotations: [MGLPointAnnotation] = [
+        MGLPointAnnotation(title: "MAPPLS", coordinate: .init(latitude: 28.550679, longitude: 77.268949))
+    ]
+    
+    var body: some View {
+        MapView(annotations: $annotations).centerCoordinate(.init(latitude: 28.550679, longitude: 77.268949)).zoomLevel(16)
+    }
+}
+```
+
+### [Respond To Map Events](#Respond-To-Map-Events)
+
+In order to to respond to map events, for example perform an action after MapView initialization finished. In SwiftUI, a Coordinator can be used with delegates, data sources, and user events. The UIViewRepresentable protocol defines makeCoordinator() method which creates coordinator instance. Add the following code to declare coordinator class:
+
+```
+class Coordinator: NSObject, MGLMapViewDelegate {
+    var control: MapView
+
+    init(_ control: MapView) {
+        self.control = control
+    }
+
+    func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+        // write your custom code which will be executed
+        // after map's style has been loaded
+    }
+}
+```
+
+And then add the following method to the SwiftUI view:
+
+```
+func makeCoordinator() -> MapView.Coordinator {
+    Coordinator(self)
+}
+```
+
+And finally set the reference coordinator on Mappls map view.
+
+```
+mapView.delegate = context.coordinator
 ```
 
 <br><br><br>
