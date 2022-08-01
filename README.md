@@ -62,6 +62,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     - [Installation](./docs/v1.0.0/MapplsUIWidgets.md#Installation)
         - [Version History](./docs/v1.0.0/MapplsUIWidgets.md#Version-History)
     - [Autocomplete](./docs/v1.0.0/MapplsUIWidgets.md#Autocomplete)
+        - [SwiftUI](./docs/v1.0.0/MapplsUIWidgets.md#SwiftUI-Full-Screen-Control)
     - [Place Picker View](./docs/v1.0.0/MapplsUIWidgets.md#Place-Picker-View)
     - [Autocomplete Attribution Appearance](./docs/v1.0.0/MapplsUIWidgets.md#Autocomplete-Attribution-Appearance)
 
