@@ -10,6 +10,7 @@ enum SampleType: String, CaseIterable {
     case geofenceUI
     case geoanalytics
     case mapplsMapStyles
+    case trafficTilesOverlay
     case drivingRange
     case nearbyReport
     case zoomLevel
@@ -33,6 +34,7 @@ enum SampleType: String, CaseIterable {
     case autosuggest
     case geocode
     case reverseGeocoding
+    case mapplsRasterCatalogue
     case nearbySearch
     case placeDetail
     case distanceMatrix
@@ -159,6 +161,10 @@ enum SampleType: String, CaseIterable {
             return "DirectionUI Plugin"
         case .nearbyUI:
             return "Nearby UI"
+        case .trafficTilesOverlay:
+            return "Traffic Tiles Overlay"
+        case .mapplsRasterCatalogue:
+            return "MapplsRasterCatalogue"
         }
     }
 }

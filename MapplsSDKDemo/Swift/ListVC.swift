@@ -194,6 +194,22 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let nearbyReport = DemoNearbyReportViewController()
                 nearbyReport.title = "Nearby Report"
                 self.navigationController?.pushViewController(nearbyReport, animated: false)
+            
+            case .trafficTilesOverlay:
+                let traffictiles = MapplsTrafficVectorTilesViewController()
+                traffictiles.title = "Traffic vector tiles"
+                self.navigationController?.pushViewController(traffictiles, animated: false)
+            
+            case .reverseGeocoding:
+                let next = MapplsReverseGeocodeViewController()
+                next.title = "Reverse Geocoding"
+                self.navigationController?.pushViewController(next, animated: false)
+                
+            case .mapplsRasterCatalogue:
+                let raster = RasterCatalougeViewController()
+                raster.title = "Raster Catalogue"
+                self.navigationController?.pushViewController(raster, animated: false)
+            
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)

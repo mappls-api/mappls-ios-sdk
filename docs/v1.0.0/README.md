@@ -14,7 +14,7 @@ You can get your api key to be used in this document here: [https://apis.mappls.
 
 | Version | Supported SDK Version |
 | ------- | --------------------- |
-| [v1.0.0](README.md) | - MapplsAPICore - 1.0.0 <br/> - MapplsAPIKit - 2.0.0 <br/> - MappplsMap - 5.13.0 <br/> - MapplsUIWidget - 1.0.0 <br/> - MapplsNearbyUI - 1.0.0 <br/> - MapplsDirectionUI - 1.0.0 <br/> - MapplsGeoanalytics - 1.0.0 <br/> - MapplsFeedbackKit - 1.0.0 <br/> - MapplsDrivingRangePlugin - 1.0.0 <br/> - MapplsAnnotationExtension - 1.0.0 <br/> - MapplsGeofenceUI - 1.0.0 |
+| [v1.0.0](README.md) | - MapplsAPICore - 1.0.0 <br/> - MapplsAPIKit - 2.0.0 <br/> - MappplsMap - 5.13.0 <br/> - MapplsUIWidget - 1.0.0 <br/> - MapplsNearbyUI - 1.0.0 <br/> - MapplsDirectionUI - 1.0.0 <br/> - MapplsGeoanalytics - 1.0.0 <br/> - MapplsFeedbackKit - 1.0.0 <br/> - MapplsDrivingRangePlugin - 1.0.0 <br/> - MapplsAnnotationExtension - 1.0.0 <br/> - MapplsGeofenceUI - 1.0.0 <br/> - MapplsRasterCatalogue - 0.1.0 |
 
 Reference to the documentation of Previous SDK versions [here](https://github.com/mappls-api/mapmyindia-maps-vectorSDK-iOS)
 
@@ -57,6 +57,8 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 
 - [Interactive Layers - Mappls Map](InteractiveLayers.md)
 
+- [Traffic Vector Tiles Overlay - Mappls Map](MapplsTrafficVectorTileOverlay.md)
+
 - [Mappls UI Widgets](MapplsUIWidgets.md)
     - [Introduction](MapplsUIWidgets.md#Introduction)
     - [Installation](MapplsUIWidgets.md#Installation)
@@ -85,6 +87,8 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
 - [Mappls Feedback Kit](MapplsFeedbackKit.md)
 
 - [Mappls Feedback UI Kit](MapplsFeedbackUIKit.md)
+
+- [Mappls Raster Catalogue Plugin](RasterCatalouge.md)
 
 - [Mappls Driving Range plugin](MapplsDrivingRangePlugin.md)
   - [Introduction](MapplsDrivingRangePlugin.md#Introduction)

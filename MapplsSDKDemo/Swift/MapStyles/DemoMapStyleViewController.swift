@@ -2,7 +2,7 @@ import UIKit
 import MapplsMap
 
 class DemoMapStyleViewController: UIViewController {
-    var trafficLayerButton: UIButton!
+    
     var mapView: MapplsMapView!
     var bottomBannerStyleView = UIView()
     var newStylesArray = [MapplsMapStyle]()
@@ -39,31 +39,6 @@ class DemoMapStyleViewController: UIViewController {
         addPolyline(coordinates: coordinates)
         setupTableView()
         setupSWitchLayout()
-        
-        trafficLayerButton = UIButton()
-        trafficLayerButton.translatesAutoresizingMaskIntoConstraints = false
-        trafficLayerButton.setTitle("Traffic Layer", for: .normal)
-        trafficLayerButton.setTitleColor(.red, for: .normal)
-        trafficLayerButton.setTitleColor(.green, for: .selected)
-        trafficLayerButton.backgroundColor = UIColor.gray
-        trafficLayerButton.addTarget(self, action: #selector(trafficLayerButtonToggle), for: .touchUpInside)
-        self.view.addSubview(trafficLayerButton)
-        trafficLayerButton.topAnchor.constraint(equalTo: self.view.safeTopAnchor, constant: 20).isActive = true
-        trafficLayerButton.trailingAnchor.constraint(equalTo: self.view.safeTrailingAnchor, constant: -12).isActive = true
-    }
-
-    @objc func trafficLayerButtonToggle(_ button: UIButton) {
-        let newState = !button.isSelected
-        button.isSelected = newState
-        toggleTrafficLayers(isShow: newState)
-    }
-    
-    func toggleTrafficLayers(isShow: Bool) {
-        self.mapView.isTrafficEnabled = isShow
-        self.mapView.isClosureTrafficEnabled = isShow
-        self.mapView.isFreeFlowTrafficEnabled = isShow
-        self.mapView.isStopIconTrafficEnabled = isShow
-        self.mapView.isNonFreeFlowTrafficEnabled = isShow
     }
     
     
@@ -228,7 +203,6 @@ extension DemoMapStyleViewController : UITableViewDataSource, UITableViewDelegat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.mapView.setMapplsMapStyle(newStylesArray[indexPath.row].name ?? "")
-          print(mapView.styleURL)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
@@ -255,7 +229,7 @@ extension DemoMapStyleViewController : MapplsMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-        self.toggleTrafficLayers(isShow: self.trafficLayerButton.isSelected)
+
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {

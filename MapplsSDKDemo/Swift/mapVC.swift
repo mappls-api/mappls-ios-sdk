@@ -302,11 +302,6 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             searchBar.text = "Mappls, Okhla"
             callGeocode(searchQuery: searchBar.text!)
             break
-        case .reverseGeocoding:
-            let singleTap = UITapGestureRecognizer(target: self, action:
-                #selector(didTapMap(tap:)))
-            mapView.addGestureRecognizer(singleTap)
-            break
         case .nearbySearch:
 //            infoView = UIView()	
             self.view.addSubview(infoView)
@@ -475,50 +470,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
     }
     
     
-    //  MARK: -  Default button Method
-    @objc func didTapMap(tap: UITapGestureRecognizer) {
-        
-        if tap.state == .ended {
-            let location = tap.location(in: mapView)
-            let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
-            
-            switch sampleType {
-            case .reverseGeocoding:
-                let reverseGeocodeManager = MapplsReverseGeocodeManager.shared
-                let revOptions = MapplsReverseGeocodeOptions(coordinate:
-                    coordinate)
-                reverseGeocodeManager.reverseGeocode(revOptions) { (placemarks,
-                    attribution, error) in
-                    if let result = placemarks {
-                        
-                    }
-                    if let error = error {
-                        NSLog("%@", error)
-                    } else if let placemarks = placemarks, !placemarks.isEmpty {
-                        print("Reverse Geocode: \(placemarks[0].latitude ?? ""),\(placemarks[0].longitude ?? "")")
-                        print( placemarks[0].formattedAddress ?? "")
-                        
-                        self.mapView.removeAnnotations(self.mapView.annotations ??  [MGLAnnotation]())
-                        let point = MGLPointAnnotation()
-                        point.coordinate = CLLocationCoordinate2D(latitude: Double (placemarks[0].latitude ?? "")!, longitude:
-                            Double (placemarks[0].longitude ?? "")!)
-                        point.title = placemarks[0].formattedAddress
-                        self.mapView.addAnnotation(point)
-                        self.tempAnnotations.append(point)
-                        self.mapView.setCenter(CLLocationCoordinate2D(latitude: Double (placemarks[0].latitude ?? "")!, longitude:Double (placemarks[0].longitude ?? "")!), animated: false)
-                        self.vwFooter.isHidden = false
-                        //self.lblInfo.text = String(format: "latitude: %f , longitude: %f" ,coordinate.latitude , coordinate.longitude )
-                        self.lblInfo.text = String(format: "Address: %@" ,placemarks[0].formattedAddress!)
-                    } else {
-                        print("No results")
-                    }
-                }
-                break
-            default:
-                break
-            }
-        }
-    }
+  
     
     func callGeocode(searchQuery: String) {
         progressHUD.show()

@@ -17,4 +17,5 @@ target 'MapplsSDKDemo' do
   pod 'MapplsGeofenceUI', '1.0.0'
   pod 'MapplsGeoanalytics', '1.0.0'
   pod 'MapplsDrivingRangePlugin', '1.0.1'
+  pod 'MapplsRasterCatalogue'
 end
