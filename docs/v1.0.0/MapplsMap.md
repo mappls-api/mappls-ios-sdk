@@ -31,6 +31,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
+| `5.13.2` | 18 Aug, 2022 | Bug Resolved: Session not resetting. |
 | `5.13.1` | 20 Jul, 2022 | Bug Resolved: Duplicate Bundle Id. |
 | `5.13.0` | 11 June, 2022 | Initial Mappls Map Release. |
 
@@ -48,7 +49,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
   - Add below lines in pod file of your project:
     ```Cocoapods
-    pod 'MapplsMap', '5.13.1'
+    pod 'MapplsMap', '5.13.2'
     ```
   - Run pod install or pod update (to update existing pods)
 
