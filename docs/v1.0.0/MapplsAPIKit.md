@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.2` | 05 Jul 2022 | In response of Reverse Geocode `area code` is added|
 | `2.0.1` | 05 Jul 2022 | In response of Reverse Geocode `Mappls Pin` is added.|
 | `2.0.0` | 11 Jun 2022 | Initial release with `Mappls` branding and merging of Directions SDK. Supports Xcode 13+.|
 
@@ -234,6 +235,7 @@ In response of geocode search either you will receive an error or an array of `M
 -   **longitude:**  The longitude of the location.
 -   **formattedAddress:**  The complete human readable address string that is usually the complete postal address of the result.
 -   **area:** in-case the co-ordinate lies in a country the name of the country would be returned or if the co-ordinate lies in an ocean, the name of the ocean will be returned.  
+-   **areaCode:**  Area code of the region.
 
 ### Code Samples
 
