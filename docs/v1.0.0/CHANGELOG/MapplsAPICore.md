@@ -2,9 +2,8 @@
 
 ## 1.0.1 - 17 Aug, 2022
 
-### Added
-- Introduced a property `isEnableLogging` In MapplsAccountManager
-- On the based of Who am i respose region is set in MapplsAccountManage.
+### Fixes
+Imporovements and bug fixes
 
 ## 1.0.0 - 10 June, 2022
 
