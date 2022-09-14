@@ -26,7 +26,7 @@ To install the MapplsFeedbackUIKit using CocoaPods:
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsFeedbackUIKit', '1.0.0'
+pod 'MapplsFeedbackUIKit', '1.0.1'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
