@@ -15,6 +15,7 @@ If you don’t want to implement own logic and use sample from Mappls Jump to Sa
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
 | `1.0.0` | 22 June, 2022 | Initial release. |
+| `1.0.1` | 14 Sept, 2022 | Bug fixes. |
 
 ## [Setup your Project](#Setup-your-Project)
 
