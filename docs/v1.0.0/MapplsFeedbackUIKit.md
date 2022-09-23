@@ -41,6 +41,9 @@ It is required to set Mappls keys to use any MAPPL's SDK. Please refer the docum
 
 `MapplsFeedbackUIKitManager` is the class which will help to use this UI Control.Access shared instance of that class and call `getViewController` method to get instance of ViewController and present or push according to requirement.
 
+### [Properties](#Properties)
+**isShowStepProgress**: It is a shared property use to hide stepProgress, its default value `true`
+
 ##### Objective-C
 
 ```objectivec
