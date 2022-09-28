@@ -1057,6 +1057,174 @@ nearbyReportManager.getNearbyReportResult(option) { (response, error) in
 }
 ```
 
+## [Current Weather Condition API](#Current-Weather-Condition-API)
+
+API enables the developer to access current weather condition around whole India. This also enable developer to fetch current
+1. Air quality index
+2. Temperature
+3. Humidity
+4. Wind
+5. Visibility 
+
+Class used to get list of Current Weather Condition API is `MapplsWeatherManager`. Create an object of this class using Mappls's API Keys or alternatively use shared instance of `MapplsWeatherManager` class.
+
+**Note:** To use shared SDK must be initilized by setting Mappls's API Acesss Keys using class `MapplsAccountManager` of framework `MaplsAPIKit`. For more information please see [here](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/v1.0.0/MapplsAPICore.md).
+
+### Request Parameters
+
+`MapplsWeatherRequestOptions` is request class which will be used to pass all required and optional parameters. So it will be require to create an instance of `MapplsWeatherRequestOptions` and pass that instance to `getResults` function of `MapplsWeatherManager`.
+
+#### Mandatory Parameters:
+1. `location`: It is of type `CLLLocation` which takes `Latitude` and `longitude` of place
+
+#### Optional Parameter
+1. `tempUnit (String)`: Unit of temperature. **Below are the available value:**
+	- "C" celcius(°C)
+	- "F" farenheit (F)
+2.  `theme (MapplsIconTheme)`: This parameter is used to define the theme of icon. **Below are the available value:**
+	- MapplsIconThemeDark
+	- MapplsIconThemeLight 
+3.  `size (MapplsWeatherIconSize )`: This parameter is used to define the size of icon. **Below are the available value:**
+	- MapplsWeatherIconSize36PX (Default)
+	- MapplsWeatherIconSize24PX 
+4. `unitType (MapplsWeatherForcastUnitType)`: This parameter defines the unit type on the basis of which weather forecast information is sought for. **Below are the available value:**
+	- MapplsWeatherForcastUnitTypeDay
+	- MapplsWeatherForcastUnitTypeHour
+5. `unit (string)`: This parameter is the value for which forecast information is sought for. Valid values are:
+	- For Days
+        - `1`
+        - `5`
+        - `10`
+	- For Hours
+        - `1`
+        - `24`
+
+
+### Response Parameters:
+
+In callback of `getResults` function it will either return an error object of type `NSError` or an array of type `MapplsWeatherResponse`. Below is list of parameters of `MapplsWeatherResponse`:
+
+## Response parameters
+1. `data` (`MapplsWeatherData`)
+
+#### MapplsWeatherData result parameters:
+1. `temperature` (`MapplsWeatherTemperature`)
+    #### MapplsWeatherTemperature result parameters:
+    1. `value` (`NSNumber`): Temperature value.For eg:31.3
+    2. `unit` (`String`): Temperature unit.For eg:"°C"
+
+2. `weatherCondition` (`MapplsWeatherCondition`): Weather condition info
+
+    #### MapplsWeatherCondition result parameters:
+    1. `weatherId` (`NSNumber`): Id of Weather condition. For eg:5
+    2. `weatherText` (`String`): Weather condition info text.For eg:"Hazy sunshine"
+    3. `weatherDescription` (`String`): Description of weather For eg: "Total cloud cover between 20%-60%"
+    4. `weatherIcon` (`String`): Weather condition icon url.
+    5. `realFeelWeatherText` (`String`):Description of weather For eg:"Feels Like 41.0 °C"
+
+    
+3. `airQuality` (`MapplsAirQuality`): Air Quality info
+    #### AirQuality result parameters:
+    1. `airQualityIndex` (`NSNumber`): Give the value of air quality index. For eg:104
+    2. `airQualityIndexText` (`String`): Description for AQI given. For eg: "Unhealthy for Sensitive Groups"
+    3. `airQualityIndexUnit` (`String`): Gives the values of airquality index unit. For eg: "PM2.5"
+
+4. `humidity` (`MapplsHumidity`): MapplsHumidity info
+
+    #### MapplsHumidity result parameters:
+    1. `relHumidity` (`NSNumber`): Provides the value for humidity. For Eg: 65
+    2. `indoorRelHumidity` (`NSNumber`): Provide value for indoor relative humidity . For eg: 65
+
+5. `wind` (`MapplsWind`): Mappls Info
+
+    #### Mappls result parameters:
+    1. `windSpeed`(`NSNumber`):For Eg:12.8
+    2. `windSpeedUnit` (`String`):For Eg: "KM/H"
+    3. `windAngle` (`NSNumber`):For Eg: 338
+    4. `windAngleUnit` (`String`): For Eg: "NNW"
+
+6. `visibility` (`MapplsVisibility`): MapplsVisibility Info
+    #### MapplsVisibility result parameters:
+    1. `value` (`NSNumber`): Visibilty value. For eg: 2
+    2. `unit` (`String`): Unit of Visibilty value. For eg: "KM"
+
+7. `forecastData`: This feature is available for your solutions to get forecast details. The API is able to populate current weather condition and `forecast` of `1`, `5` & `10` days (depending on input)or hours based forecast for `1` hr and `24` hrs.
+
+    #### MapplsForecastData result parameters:
+    1. `hour`(`String`): Value Returned when request is made for hours. For eg: "26/09/2022 18:00",
+    2. `date` (`String`): Value Returned when request is made for multiple day/days. For eg: "28/09/2022",
+    3. `day` (`String`): Represents day name when request is made for multiple day/days. For eg: "Wednesday".
+    4. `temperature` (`MapplsWeatherTemperature`):
+
+        -  `minTemperature`(`NSNumber`): Minimum temperature value for the day/night.For eg:31.3 
+        -  `minTemperatureUnit` (`String`): Minimum Temperature Unit. For eg:"°C"
+        - `maxTemperature` (`NSNumber`): Maximum Temperature value for the day/night.For eg:31.3
+        - `maxTemperatureUnit` (`String`): Maximum Temperature Unit. For eg:"°C"
+
+    5. `weatherCondition` (`MapplsWeatherCondition`)
+
+        -  `weatherIdDay` (`NSNumber`): Shows the ID of the day  For Eg: 1
+        -  `weatherTextDay` (`String`): Shows the forcast description for the day For Eg: "Sunny"
+        -  `weatherIconDay` (`String`): Shows the forcast icon for day For Eg: "1.png"
+        -  `weatherIdNight` (`NSNumber`): Shows the ID of the night  For Eg: 33
+        -  `weatherTextNight` (`String`): Shows the forcast description for the night For Eg: "Clear"
+        -  `weatherIconNight` (`String`): Shows the forcast icon for the night For Eg: "33.png"
+    
+
+
+
+**Swift**
+```swift
+    let location = CLLocation(latitude: 28.787, longitude: 77.7873)
+    let options = MapplsWeatherRequestOptions(location: location)
+    // for 5 day weather forcast
+    options.unitType = .day
+    options.unit = "5"
+    
+    // for icon theme
+    options.theme = .light
+    MapplsWeatherManager.shared.getResults(options) { weatherResponse, error in
+        if let error = error {
+            print("error: \(error.localizedDescription)")
+        } else {
+            if let temp = weatherResponse?.data?.temperature?.temperature , let unit = weatherResponse?.data?.temperature?.temperatureUnit {
+                print("current temperature: \(temp) \(unit)")
+            }
+            
+		if let forcast = weatherResponse?.data?.forecastData {
+            	for forecastData in forcast {
+                    if let day = forecastData.day, let date = forecastData.date {
+                        print("day: \(forecastData.day) Date: \(date)")
+                    }
+                }
+            }
+        }
+    }
+```
+**Objective-c**
+
+```objc
+	MapplsWeatherManager * manager = [MapplsWeatherManager sharedManager];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:28.00 longitude:78.00];
+    MapplsWeatherRequestOptions *options = [[MapplsWeatherRequestOptions alloc] initWithLocation:location];
+    options.theme = MapplsIconThemeLight;
+    options.unitType = MapplsWeatherForcastUnitTypeHour;
+    options.unit = @"5";
+    [manager getResultsWithOptions:options completionHandler:^(MapplsWeatherResponse * _Nullable response, NSError * _Nullable error) {
+        if (error != nil ) {
+            NSLog(@"error: %@", error.localizedDescription);
+        } else {}
+            NSLog(@"temperature %@", response.data.temperature.temperature);
+            NSLog(@"temperatureUnit %@", response.data.temperature.temperatureUnit);
+        
+            for (MapplsForecastData* weatherForcast in response.data.forecastData){
+                NSLog(@"day %@", weatherForcast.day);
+                NSLog(@"date %@", weatherForcast.date);
+            }
+        }
+    }];
+```
+
 <br><br><br>
 
 ## Our many happy customers:
