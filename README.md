@@ -31,7 +31,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     * [Driving Distance - Time Matrix API](./docs/v1.0.0/MapplsAPIKit.md#Driving-Distance-Time-Matrix-API)
     * [POI Along The Route](./docs/v1.0.0/MapplsAPIKit.md#POI-Along-The-Route-API)
     * [Nearby Reports API](./docs/v1.0.0/MapplsAPIKit.md#Nearby-Reports-API)
-    * [Nearby Reports API](./docs/v1.0.0/MapplsAPIKit.md#Current-Weather-Condition-API)
+    * [Current Weather Condition API](./docs/v1.0.0/MapplsAPIKit.md#Current-Weather-Condition-API)
 
 - [Set Country Regions](./docs/v1.0.0/Regions.md)
     - [Country List](https://github.com/mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md)
