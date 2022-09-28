@@ -28,6 +28,9 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.5` | 28 Sept 2022 | - Added weather api.|
+| `2.0.4` | 06 Sept 2022 | - Added userActivity and media in response of placeDetails.|
+| `2.0.3` | 22 Aug 2022 | - added a parameter to set host and scheme in init method of manager class.|
 | `2.0.2` | 05 Jul 2022 | In response of Reverse Geocode `area code` is added|
 | `2.0.1` | 05 Jul 2022 | In response of Reverse Geocode `Mappls Pin` is added.|
 | `2.0.0` | 11 Jun 2022 | Initial release with `Mappls` branding and merging of Directions SDK. Supports Xcode 13+.|
