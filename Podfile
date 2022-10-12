@@ -6,9 +6,9 @@ target 'MapplsSDKDemo' do
   use_frameworks!
 
   # Pods for MapplsDemo
-  pod 'MapplsAPICore', '1.0.2'
-  pod 'MapplsAPIKit', '2.0.5'
-  pod 'MapplsMap', '5.13.3'
+  pod 'MapplsAPICore', '1.0.3'
+  pod 'MapplsAPIKit', '2.0.6'
+  pod 'MapplsMap', '5.13.4'
   pod 'MapplsFeedbackKit', '1.0.0'
   pod 'MapplsFeedbackUIKit', '1.0.0'
   pod 'MapplsUIWidgets', '1.0.1'
