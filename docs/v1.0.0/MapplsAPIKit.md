@@ -15,7 +15,7 @@ Our APIs, SDKs, and live updating map data available for [200+ countries & terri
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsAPIKit', '2.0.1'
+pod 'MapplsAPIKit', '2.0.5'
 ```
 
 Run pod repo update && pod install and open the resulting Xcode workspace.

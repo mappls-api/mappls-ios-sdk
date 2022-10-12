@@ -1,5 +1,9 @@
 # Changes to the MapplsMap SDK for iOS
 
+## 5.13.3 - 08 Sep, 2022
+
+An issue resolved where tiles were not loading on CarPlay when phone is in locked state.
+
 ## 5.13.2 - 18 Aug, 2022
 
 A Bug Resolved, session was not resetting if already a session is running. |
