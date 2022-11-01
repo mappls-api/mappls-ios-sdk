@@ -14,7 +14,7 @@ You can get your api key to be used in this document here: [https://apis.mappls.
 
 | Version | Supported SDK Version |
 | ------- | --------------------- |
-| [v1.0.0](README.md) | - MapplsAPICore - 1.0.2 <br/> - MapplsAPIKit - 2.0.5 <br/> - MappplsMap - 5.13.3 <br/> - MapplsUIWidget - 1.0.1 <br/> - MapplsNearbyUI - 1.0.0 <br/> - MapplsDirectionUI - 1.0.1 <br/> - MapplsGeoanalytics - 1.0.0 <br/> - MapplsFeedbackKit - 1.0.0 <br/> - MapplsFeedbackUIKit - 1.0.0 <br/> - MapplsDrivingRangePlugin - 1.0.1 <br/> - MapplsAnnotationExtension - 1.0.0 <br/> - MapplsGeofenceUI - 1.0.0 <br/> - MapplsRasterCatalogue - 0.1.0 |
+| [v1.0.0](README.md) | - [MapplsAPICore - 1.0.2](MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.5](MapplsAPIKit.md) <br/> - [MappplsMap - 5.13.3](MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.1](MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.0](MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.1](MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 1.0.0](MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 1.0.0](MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.1](MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.0](MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.0](MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](RasterCatalouge.md)|
 
 Reference to the documentation of Previous SDK versions [here](https://github.com/mappls-api/mapmyindia-maps-vectorSDK-iOS)
 
