@@ -203,6 +203,23 @@ The Map object should implement the methods of the `MapplsMapViewDelegate` proto
 ```
 ### [Loading the Map Events](#Loading-the-Map-Events)
 
+#### [-authorizationCompleted:withError:]()
+
+This delegate function will be called whenever authorization process of map completed. It gives either sucess or error 
+
+**Objective-C**
+```objectivec
+- (void)mapView:(MapplsMapView *)mapView authorizationCompleted:(BOOL)isSuccess withError:(nullable NSError *)error;
+```
+
+**Swift**
+```swift
+func mapView(_ mapView: MapplsMapView, authorizationCompleted isSuccess: Bool, withError error: Error?) {
+        
+ }
+```
+
+
 #### [-mapViewWillStartLoadingMap:]()
 Tells the delegate that the map view will begin to load.
 
@@ -250,6 +267,7 @@ This method may be called for a variety of reasons, including a network connecti
 ```swift
 optional func mapViewDidFailLoadingMap(_ mapView: MGLMapView, withError error: Error)
 ```
+
 
 #### [-mapViewWillStartRenderingFrame:]()
 
