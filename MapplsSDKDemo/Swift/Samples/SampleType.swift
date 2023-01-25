@@ -58,6 +58,7 @@ enum SampleType: String, CaseIterable {
     case autosuggestWidget
     case directionUIPlugin
     case nearbyUI
+    case setSymbolSortKeySample
     
     var title: String {
         switch self {
@@ -165,6 +166,8 @@ enum SampleType: String, CaseIterable {
             return "Traffic Tiles Overlay"
         case .mapplsRasterCatalogue:
             return "MapplsRasterCatalogue"
+        case .setSymbolSortKeySample:
+            return "Set Symbol Sort Key Sample"
         }
     }
 }

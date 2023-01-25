@@ -9,6 +9,7 @@
 import UIKit
 import MapplsAPIKit
 
+import MapplsMap
 class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tblVwList: UITableView!
@@ -209,7 +210,11 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let raster = RasterCatalougeViewController()
                 raster.title = "Raster Catalogue"
                 self.navigationController?.pushViewController(raster, animated: false)
-            
+            case .setSymbolSortKeySample:
+                let symbolSortKey = SetSymbolSortKeySample()
+                symbolSortKey.title = sampleType.title
+                self.navigationController?.pushViewController(symbolSortKey, animated: false)
+                
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
