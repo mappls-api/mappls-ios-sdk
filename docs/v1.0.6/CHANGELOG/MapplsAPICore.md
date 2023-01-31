@@ -1,5 +1,10 @@
 # Changes to the MapplsAPICore SDK for iOS
 
+## 1.0.5 - 30 Jan, 2023
+
+### Changed
+- Error code opimization for initializing Map.
+
 ## 1.0.4 - 09 Dec, 2022
 
 ### Changed

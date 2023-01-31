@@ -31,6 +31,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
+| `5.13.5` | 31 Jan, 2023 | Fixed `didFinishLoadingStyle` not getting called and added a class `MapplsMapAuthenticator` which can be used to initialize SDK using the method `initializeSDKSession`|
 | `5.13.4` | 13 Oct, 2022 | Give `Mappls Pin` in delegate function `didTapPlaceWithMapplsPin` on map tap. Performance improvements and optimization. |
 | `5.13.3` | 08 Sep, 2022 | Issue Resolved: Tiles not loading on CarPlay when phone is in locked state. |
 | `5.13.2` | 18 Aug, 2022 | Bug Resolved: Session not resetting. |
@@ -51,7 +52,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
   - Add below lines in pod file of your project:
     ```Cocoapods
-    pod 'MapplsMap', '5.13.4'
+    pod 'MapplsMap', '5.13.5'
     ```
   - Run pod install or pod update (to update existing pods)
 
@@ -70,6 +71,40 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 ### [MapplsAPICore](#MapplsAPICore)
 It is required to set Mappls keys to use any MAPPL's SDK. Please refer to documenatation [here](MapplsAPICore.md).
+
+### [MapplsMap](#mapplsmap)
+
+A class `MapplsMapAuthenticator` can be used to authorize the Map.
+
+It is recommended to call this method before initilizing `MapplsMapView`.
+
+Swift
+```swift
+MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
+  if let error = error {
+  // Map cannot be initilize
+    print("error: \(error.localizedDescription)")
+  } else {
+    // Map is authorized sucessfully.
+  }
+}
+```
+
+Objective - C
+
+```swift
+[[MapplsMapAuthenticator sharedManager] initializeSDKSession:^(BOOL isSuccess, NSError * _Nullable error) {
+  if (isSuccess) {
+    // Map is authorized sucessfully.          
+  } else {
+    // Map cannot be initilize
+  }
+}];
+
+```
+
+Note: Although authorization of Map is done internally on initilizing `MapplsMapView`, **Using this in advance will reduce map loading time**
+
 
 ## [Usage](#Usage)
 

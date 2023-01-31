@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.10` | 30 Jan 2023 | - Error code opimization for initializing Map.|
 | `2.0.9` | 02 Jan 2023 | - API wrapper added to get cost of tolls etc which can be consumed by Manager class `MapplsCostEstimationManager` and request class `MapplsCostEstimationOptions`.|
 | `2.0.8` | 09 Dec 2022 | - Issue of incorrect `Lanes` is fixed. A bug of ETA refresh is fixed where driving profile was not dynamic based on route requested. Turf code is refactored.|
 | `2.0.7` | 21 Oct 2022 | - Function added to calculate congestion delays. Host issue is resolved. Turf library's source code added.|

@@ -17,6 +17,7 @@ Mappls's Keys can be get from [here](http://about.mappls.com/api/signup) which i
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.5` | 30 Jan 2023 | - Error code opimization for initializing Map.|
 | `1.0.4` | 09 Dec 2022 | - A custom property `modelName` of extension `UIDevice` is made public.|
 | `1.0.3` | 13 Oct 2022 | - Some performance improvements and optimization.|
 

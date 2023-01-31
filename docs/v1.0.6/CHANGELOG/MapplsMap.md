@@ -1,5 +1,11 @@
 # Changes to the MapplsMap SDK for iOS
 
+## 5.13.5 - 31 Jan, 2023
+
+### Added
+
+- A class `MapplsMapAuthenticator` can be used to initialize SDK using the method `initializeSDKSession`.
+
 ## 5.13.4 - 13 Oct, 2022
 
 ### Added
