@@ -24,7 +24,7 @@ To install the MapplsDirectionUI using CocoaPods:
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsDirectionUI', '0.0.3'
+pod 'MapplsDirectionUI', '1.0.1'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
