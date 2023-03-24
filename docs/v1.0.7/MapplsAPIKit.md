@@ -15,7 +15,7 @@ Our APIs, SDKs, and live updating map data available for [200+ countries & terri
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsAPIKit', '2.0.9'
+pod 'MapplsAPIKit', '2.0.12'
 ```
 
 Run pod repo update && pod install and open the resulting Xcode workspace.
@@ -28,7 +28,9 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `2.0.10` | 30 Jan 2023 | - Error code opimization for initializing Map.|
+| `2.0.12 `| 17 Mar 2023  | - Added Fuel cost api., Fixed an api call for costEstimation.|
+| `2.0.11 `| 9 Feb 2023  | - Fixed an api call for costEstimation.|
+| `2.0.10 `| 30 Jan 2023 | - Error code opimization for initializing Map.|
 | `2.0.9` | 02 Jan 2023 | - API wrapper added to get cost of tolls etc which can be consumed by Manager class `MapplsCostEstimationManager` and request class `MapplsCostEstimationOptions`.|
 | `2.0.8` | 09 Dec 2022 | - Issue of incorrect `Lanes` is fixed. A bug of ETA refresh is fixed where driving profile was not dynamic based on route requested. Turf code is refactored.|
 | `2.0.7` | 21 Oct 2022 | - Function added to calculate congestion delays. Host issue is resolved. Turf library's source code added.|
@@ -1251,6 +1253,120 @@ Will return an array of `CongestionDelayInfo` which contains delay in seconds an
 ```swift
 let congestionDelays = MapplsDirectionsUtility().getCongestionDelays(forRoute: route, fromLocation: currentLocation, uptoDistane: 50, minCongestionDelay: 5)
 ```
+
+
+## [Trip Cost Estimation API](#Trip-Cost-Estimation-API)
+Trip Cost Estimation method provides total estimated cost for a route including tolls. User would still get the response for tolls  present on the route in absence of inputs given for fuel cost estimation .
+
+Major features are 
+1. Toll on route - It enable user to get the information about tolls on the set route, along with that user get value added information like total number of tolls, total cost on the basis of vehicle types, distance, duration, Individal toll details like Toll Name, Toll Cost, address, coordinates, distance, duration and so on.
+
+**_Note_** : Default parameter is dependent upon route profile selection
+ 2AxlesAuto for Driving, 2AxlesTruck for Trucking, 2AxlesMoto for Biking 
+
+2. Fuel Cost Estimation in a trip - Provisioning is done to populate estimated trip cost by passing specific params as input, API Provides/calculates the total estimated cost of any trip which include fuel cost and toll costs.
+
+## [Implementation](Implemenation)
+
+#### Swift
+```swift
+let  options = MapplsCostEstimationOptions(routeId: "Route Id")
+MapplsCostEstimationManager.shared.getMapplsTollResult(options) { placemarks, error in
+    if let error = error {
+        print(error)
+    } else {
+        print(placemarks)
+    }
+}
+```
+
+## [Request Parameters](#Request_Parameter)
+
+
+`MapplsCostEstimationOptions` is request class which will be used to pass all required and optional parameters. So it will be require to create an instance of `MapplsCostEstimationOptions` and pass that instance to `getMapplsTollResult` function of `MapplsCostEstimationManager`.
+
+The bold one are mandatory, and the italic one are optional.  
+
+### [a. Mandatory Parameters](#a_Mandatory_Parameters)
+
+1.	`routeId(String)` : A unique Id created by passing Start and End Location Coordinates.
+
+
+### [b. Optional Parameters](#b_Optional_Parameters) 
+
+1. `vehicleType(String)`: Vehicle type accepted values are 
+    2AxlesAuto 
+    2AxlesBus
+    2AxlesLCV 
+    2AxlesMoto 
+    2AxlesTruck
+    2AxlesHCMEME
+    3Axles
+    4Axles
+    5Axles
+    6Axles
+    7Axles
+
+**Note** : Default parameter is dependent upon route profile selection
+ 2AxlesAuto for Driving, 2AxlesTruck for Trucking, 2AxlesMoto for Biking 
+ 
+2. `vehicleFuelType(String)` : Fuel type of vehicle accepted values are
+3. `fuelEfficiency(String)` : Value defined to current efficiency of any vehicle
+4. `fuelEfficiencyUnit(String)` : Unit of Fuel based on fuel type accepted values are
+5. `fuelPrice(Double)` : Price of fuel 
+6. `isTollEnabled(Bool)` : This parameter is to poupulate/restrict toll data, possible Values  are "true" & "false", Default value is set as "false"
+7. `distance(NSNumber)`:
+8. `coordinate(CLLocation)`:
+**Note**: Claim provision is mandatory to get response/results.
+
+## [Response Parameters](#Response-Parameters)
+
+1. `hasTolls` (Boolean) : Returns true if tolls are available in the given route else false.
+2. `totalTolls` (NSNumber): No of tolls available in the given route.
+3. `locations` (`MapplsLocation`) : It contains the array of start, end and way point of route.
+4. `departureTime` (NSNumber) : The departure time of the user and default value is current timestamp.
+5. `currency`(String) :  Currency and default value is INR.
+6. `country` (String) : Country name and default value is India.
+7. `vehicleType` (String) : Types of Vehicle and accepted values are 2AxlesMoto, 2AxlesAuto, 2AxlesBus, 2AxlesHCMEME, 2AxlesLCV, 3Axles, 4Axles, 5Axles, 6Axles, 7Axles.
+8. `totalTollCost` (NSNumber) : Total toll cost on basis of tolls falling on the route. 
+9. `url` (String) : Url of the route and it is still in process to provide more meaning full response.
+10. `distance` (NSNumber) : The estimated distance of the route and the unit is meter.
+11. `duration` (NSNumber) : The estimated travel time of the route and the unit is seconds.
+12. `tolls`(List<`MapplsCostEstimationTollsDetail`>): Array of the toll objects fall on the route.
+13. `fuelEfficiency`(String): Value defined to current efficiency of any vehicle
+14. `totalFuelCost`(NSNumber): Total fuel cost calculated by formula (distance X Price)/mileage
+15. `fuelPrice`(NSNumber) : Price of fuel ; Default is set in case of no selection is "Petrol : 106, Diesel: 100, CNG: 80, EV: 10"
+16. `vehicleFuelType`(String) : Provided vehcile fuel type
+17. `totalTripcostEstimate`(NSNumber) : Total estimated cost of trip[Toll+Fuel] This parameter only appears in case of routes having tolls
+
+#### CostEstimationTollDetail response Parameter
+1. `mapplsPin` (String) : Unique Identifier of toll.
+2.  `tollName` (String) : Name of toll.
+3. `latitude`(NSNumber) : Latitude of toll.
+4. `longitude`(NSNumber) : Longitude of toll.
+5. `node`(NSNumber) : Node id of the route where the toll attached.
+6. `tollGrpId` (NSNumber) : Toll group Id.
+7. `road` (String) : Name of the road.
+8. `roadType` (String) : Type of road.
+9. `address` (string) : Address of Toll Plaza.
+10. `state` (String) : State Name.
+11. `lanes` (NSNumber) : No of lanes on the toll location.
+12. `agency` (string) : Toll maintaining agency such as NHAI, MCD.
+13. `type` (String) : Type of Toll and values are barrier and ticket.
+14. `averageWaitTimeRange` (NSNumber) : Average Wait time range.
+15. `nodeIdx` (NSNumber) : Node index of the toll on the route.
+16. `payment` ([String]) : Mode of payment such as cash, paytm etc.
+17. `cost` (NSNumber) : Cost of toll as per selected vehicle.
+18. `emergency` (String) : Emergency contact information if available.
+19. `amenities` ([String]) : Amenities at toll plaza if available.
+20. `distance` (NSNumber): Indvidual estimated distance.
+21. `duration` (NSNumber): Indvidual estimated duration.
+
+**_Note_** : To fetch all the parameteres in response user has to provsion all the sub template values. 
+
+#### MapplsLocation Response Parameters
+1. `latitude` (Double) : latitude of the start, end or waypoint.
+2.  `longitude` (Double) : longitude of the start, end or waypoint.
 
 <br><br><br>
 
