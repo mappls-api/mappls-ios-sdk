@@ -185,7 +185,7 @@ mapView.centerCoordinate = CLLocationCoordinate2DMake(28.551438, 77.265119)
 
 ## [Map Features](#Map-Features)
 
-### Current Location
+### Show Current Location
 
 To show user's current location on map, use property `.showsUserLocation.` and set its value to true.
 
@@ -200,6 +200,29 @@ mapView.showsUserLocation = YES;
 ```swift
 mapView.showsUserLocation = true
 ```
+
+### Get Current Location
+
+To show get user's current location, use property `.userLocation?.location.` 
+
+#### Swift
+
+```swift
+let userLocation: CLLocation = mapView.userLocation?.location
+```
+
+It will be of type `CLLocation` which contains below information.
+
+- speed
+- speedAccuracy
+- timestamp
+- course
+- verticalAccuracy
+- horizontalAccuracy
+- altitude
+- coordinate
+
+
 
 ### Tracking Mode
 
