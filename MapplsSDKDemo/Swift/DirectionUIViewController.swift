@@ -523,15 +523,15 @@ extension DirectionUIViewController: LocationChooserTableViewDirectionUIPluginDe
     }
 }
 extension DirectionUIViewController : MapplsDirectionViewControllerDelegate {
+    func didRequestForStartNavigation(for routes: [MapplsAPIKit.Route], viewController: UIViewController, locations: [MapplsDirectionUI.MapplsDirectionLocation], selectedRouteIndex: Int, error: NSError) {
+        
+    }
+    
     func didRequestForPreviewRoute(for steps: [RouteStep]?) {
         
     }
     
     func didRequestForPreviewRoute(for routes: [Route], locations: [MapplsDirectionLocation]) {
-        
-    }
-    
-    func didRequestForStartNavigation(for routes: [Route], locations: [MapplsDirectionLocation], selectedRouteIndex: Int, error: NSError) {
         
     }
     

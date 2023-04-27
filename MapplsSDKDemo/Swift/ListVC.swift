@@ -23,7 +23,9 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        MapplsMapAuthenticator.sharedManager().initializeSDKSession { isSucess, error in
+            
+        }
         if let place = placemark {
             self.navigationItem.title = "Place Detail"
             placeDetails = ["Address: \(place.formattedAddress ?? "")", "House Number: \(place.houseNumber ?? "")", "House Name: \(place.houseName ?? "")", "POI: \(place.poi ?? "")", "Street: \(place.street ?? "")", "Sub Sub Locality: \(place.subSubLocality ?? "")", "Sub Locality: \(place.subLocality ?? "")", "Locality: \(place.locality ?? "")", "Village: \(place.village ?? "")", "District: \(place.district ?? "")", "Sub District: \(place.subDistrict ?? "")", "City: \(place.city ?? "")", "State: \(place.state ?? "")", "Pincode: \(place.pincode ?? "")", "Latitude: \(place.latitude ?? "")", "Longitude: \(place.longitude ?? "")", "PlaceId: \(place.mapplsPin ?? "")", "Type: \(place.type ?? "")"]
@@ -214,7 +216,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let symbolSortKey = SetSymbolSortKeySample()
                 symbolSortKey.title = sampleType.title
                 self.navigationController?.pushViewController(symbolSortKey, animated: false)
-                
+            case .customMapplsPinMarker:
+                let mapplsPinMarkerVC = CustomMapplsPinMarkerViewController()
+                mapplsPinMarkerVC.title = sampleType.title
+                self.navigationController?.pushViewController(mapplsPinMarkerVC, animated: false)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)

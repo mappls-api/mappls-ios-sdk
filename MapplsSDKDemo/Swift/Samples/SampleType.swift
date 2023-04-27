@@ -22,6 +22,7 @@ enum SampleType: String, CaseIterable {
     case removeMarker
     case addMultipleMarkersWithBounds
     case customMarker
+    case customMapplsPinMarker
     case animateMarker
     case draggableMarker
     case clusteringMarkers
@@ -92,6 +93,8 @@ enum SampleType: String, CaseIterable {
             return "Add Multiple Markers With Bounds"
         case .customMarker:
             return "Custom Marker"
+        case .customMapplsPinMarker:
+            return "Custom Mappls Pin Marker"
         case .animateMarker:
             return "Animate Marker"
         case .draggableMarker:

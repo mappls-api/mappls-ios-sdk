@@ -61,6 +61,8 @@
 		4726F06D2647C412007EDB5E /* DrawCircleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0652647C412007EDB5E /* DrawCircleVC.swift */; };
 		4726F0712648503B007EDB5E /* ShapeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4726F0702648503B007EDB5E /* ShapeCell.xib */; };
 		472912892722783F0089A329 /* RoadTrafficDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472912882722783F0089A329 /* RoadTrafficDetailsViewController.swift */; };
+		47513EAD29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47513EAC29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift */; };
+		47513EAF29FA402E00BA6C83 /* SetSymbolSortKeySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47513EAE29FA402E00BA6C83 /* SetSymbolSortKeySample.swift */; };
 		476B0D062615D89100FE8EC6 /* NearbyViewControllerLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B0D052615D89100FE8EC6 /* NearbyViewControllerLauncher.swift */; };
 		476B0D0D2616CF4700FE8EC6 /* NearbyUIFilterConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B0D0C2616CF4700FE8EC6 /* NearbyUIFilterConfigurationCell.swift */; };
 		476B0D192618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B0D182618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift */; };
@@ -190,6 +192,8 @@
 		4726F0702648503B007EDB5E /* ShapeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShapeCell.xib; sourceTree = "<group>"; };
 		472912882722783F0089A329 /* RoadTrafficDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTrafficDetailsViewController.swift; sourceTree = "<group>"; };
 		472C3CE95E7127649D7CA1AB /* Pods-MapplsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsDemo/Pods-MapplsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		47513EAC29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapplsPinMarkerViewController.swift; sourceTree = "<group>"; };
+		47513EAE29FA402E00BA6C83 /* SetSymbolSortKeySample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSymbolSortKeySample.swift; sourceTree = "<group>"; };
 		476B0D052615D89100FE8EC6 /* NearbyViewControllerLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewControllerLauncher.swift; sourceTree = "<group>"; };
 		476B0D0C2616CF4700FE8EC6 /* NearbyUIFilterConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUIFilterConfigurationCell.swift; sourceTree = "<group>"; };
 		476B0D182618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyFilterConfigurationSetting.swift; sourceTree = "<group>"; };
@@ -481,6 +485,7 @@
 				1861995924DBE02D004D5547 /* PlacePicker */,
 				68417CC6210B32A700424A00 /* ListVC.swift */,
 				68534689210EF14B000ED395 /* mapVC.swift */,
+				47513EAE29FA402E00BA6C83 /* SetSymbolSortKeySample.swift */,
 				185B7FBF214B83C7000785FC /* MultipleShapesExample.swift */,
 				18BDD84D22F4005D00239CDC /* InteriorPolygonExample.swift */,
 				18404BD42303C435001D8DC0 /* DashedPolylineExample.swift */,
@@ -551,6 +556,7 @@
 				68A6BF1F2106E03F00547929 /* LaunchScreen.storyboard */,
 				68A6BF222106E03F00547929 /* Info.plist */,
 				68417CC4210B329100424A00 /* InitialVC.swift */,
+				47513EAC29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift */,
 			);
 			path = MapplsSDKDemo;
 			sourceTree = "<group>";
@@ -841,6 +847,7 @@
 				A4DA1E9523DB16BF0010743F /* DirectionIndicationView.swift in Sources */,
 				18BA17E3229E8FF000B0B135 /* GreatCircle.swift in Sources */,
 				18D14C9D251A39B5004A6D32 /* AutosuggestWidgetExamplesLauncherVC.swift in Sources */,
+				47513EAF29FA402E00BA6C83 /* SetSymbolSortKeySample.swift in Sources */,
 				186D0211248E266F006F1C84 /* DemoInteractiveLayersTableViewController.m in Sources */,
 				47DF639A2716B18E0069AAA8 /* DemoMapStyleTableViewCell.swift in Sources */,
 				18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */,
@@ -856,6 +863,7 @@
 				188AE97D21C7DAF500D2C866 /* CustomInfoWindowView.m in Sources */,
 				182D24D3251B46F70098914F /* UIViewController+Extension.swift in Sources */,
 				472912892722783F0089A329 /* RoadTrafficDetailsViewController.swift in Sources */,
+				47513EAD29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift in Sources */,
 				189D0BC5230CFDC5005C8390 /* HighlightPointExample.m in Sources */,
 				4726F0682647C412007EDB5E /* DefaultGeofenceVC.swift in Sources */,
 				A45C2997239A157100EC81F6 /* CustomIndoorVC.swift in Sources */,
