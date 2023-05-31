@@ -167,6 +167,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let vc = DirectionsViewController()
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
+            case .routingPredictive:
+                let vc = PredictiveDirectionsViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+                break
             case .directionUIPlugin:
                 let vC = DirectionUIViewController()
                 self.navigationController?.pushViewController(vC, animated: false)

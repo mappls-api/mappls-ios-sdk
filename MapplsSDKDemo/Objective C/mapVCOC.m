@@ -430,7 +430,7 @@ NSString *refLocation = nil;
     if (isETA) {
         options.resourceIdentifier = MapplsDirectionsResourceIdentifierRouteETA;
     }
-    MapplsDirections *directionManager = [[MapplsDirections alloc] initWithRestKey:MapplsAccountManager.restAPIKey clientId:MapplsAccountManager.clientId clientSecret:MapplsAccountManager.clientSecret grantType:MapplsAccountManager.grantType host:nil scheme:nil];
+    MapplsDirections *directionManager = [[MapplsDirections alloc] initWithRestKey:MapplsAccountManager.restAPIKey clientId:MapplsAccountManager.clientId clientSecret:MapplsAccountManager.clientSecret grantType:MapplsAccountManager.grantType host:nil scheme:nil path:nil];
     [directionManager calculateDirectionsWithOptions:options completionHandler:^(NSArray<MapplsWaypoint *> * _Nullable waypoints, NSArray<MapplsRoute *> * _Nullable routes, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error calculating directions: %@", error);

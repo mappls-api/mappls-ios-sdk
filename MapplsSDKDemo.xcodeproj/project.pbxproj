@@ -103,12 +103,19 @@
 		A4ACEA4D23D80C6400447644 /* InstructionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ACEA4C23D80C6400447644 /* InstructionTableVC.swift */; };
 		A4DA1E9523DB16BF0010743F /* DirectionIndicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA1E9323DB16BE0010743F /* DirectionIndicationView.swift */; };
 		A4DA1E9623DB16BF0010743F /* DirectionIndicationViewStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA1E9423DB16BE0010743F /* DirectionIndicationViewStyleKit.swift */; };
+		D115F99C2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115F99B2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift */; };
+		D115F9A22A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115F9A12A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift */; };
 		D13C05DB2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C05DA2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift */; };
 		D17F05462889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F05452889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
 		D17F054C288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */; };
 		D17F0552288FD181005333E8 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0551288FD181005333E8 /* SampleType.swift */; };
 		D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */; };
 		D1B09A942896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
+		D1F199A32A028EFF00836308 /* PredictiveDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */; };
+		D1F199A52A028F6200836308 /* RouteFetchSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */; };
+		D1F199A82A03CBB300836308 /* LocationPickerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */; };
+		D1F199AA2A04FC1800836308 /* AttributionChooserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A92A04FC1800836308 /* AttributionChooserVC.swift */; };
+		D1F199AC2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199AB2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift */; };
 		D1FC987C289103BD00C35D3A /* MapplsMapViewSampleSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC987B289103BD00C35D3A /* MapplsMapViewSampleSwiftUI.swift */; };
 		D1FC987E289103E800C35D3A /* MapplsMapViewSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC987D289103E800C35D3A /* MapplsMapViewSwiftUIView.swift */; };
 		D1FC98812891058F00C35D3A /* MGLPointAnnotation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */; };
@@ -241,12 +248,21 @@
 		A4DA1E9323DB16BE0010743F /* DirectionIndicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionIndicationView.swift; sourceTree = "<group>"; };
 		A4DA1E9423DB16BE0010743F /* DirectionIndicationViewStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionIndicationViewStyleKit.swift; sourceTree = "<group>"; };
 		BC8547164DC0296D549FC2E5 /* Pods-MapplsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsDemo/Pods-MapplsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D115F99B2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveRouteManeuversVC.swift; sourceTree = "<group>"; };
+		D115F9A12A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveRouteManeuverCell.swift; sourceTree = "<group>"; };
 		D13C05DA2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExampleSwiftUIRowView.swift; sourceTree = "<group>"; };
+		D15463212A25DC6A00E8AE5D /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16CB8D72A24ABAE00EF345A /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17F05452889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
 		D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExamplesLauncherSwiftUIListView.swift; sourceTree = "<group>"; };
 		D17F0551288FD181005333E8 /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTypeSwiftUI.swift; sourceTree = "<group>"; };
 		D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
+		D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictiveDirectionsViewController.swift; sourceTree = "<group>"; };
+		D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFetchSettingController.swift; sourceTree = "<group>"; };
+		D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableCell.swift; sourceTree = "<group>"; };
+		D1F199A92A04FC1800836308 /* AttributionChooserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionChooserVC.swift; sourceTree = "<group>"; };
+		D1F199AB2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapplsAttributeOptions+Extension.swift"; sourceTree = "<group>"; };
 		D1FC987B289103BD00C35D3A /* MapplsMapViewSampleSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsMapViewSampleSwiftUI.swift; sourceTree = "<group>"; };
 		D1FC987D289103E800C35D3A /* MapplsMapViewSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsMapViewSwiftUIView.swift; sourceTree = "<group>"; };
 		D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGLPointAnnotation+Extension.swift"; sourceTree = "<group>"; };
@@ -432,6 +448,8 @@
 		60899A189A49EB8A023BCDD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D15463212A25DC6A00E8AE5D /* MapplsAPICore.framework */,
+				D16CB8D72A24ABAE00EF345A /* MapplsAPICore.framework */,
 				54E116EBFFCE8E7E030496CC /* Pods_MapplsSDKDemo.framework */,
 			);
 			name = Frameworks;
@@ -467,6 +485,7 @@
 		68417CC3210B2DCE00424A00 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				D1F1999D2A028ED900836308 /* PredictiveDirections */,
 				47858FE928A266B6003059A1 /* RasterCatalogue */,
 				47858FE628A26409003059A1 /* ReverseGeocode */,
 				D17F054D288FD153005333E8 /* Samples */,
@@ -606,6 +625,20 @@
 				D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */,
 			);
 			path = AutosuggestWidget;
+			sourceTree = "<group>";
+		};
+		D1F1999D2A028ED900836308 /* PredictiveDirections */ = {
+			isa = PBXGroup;
+			children = (
+				D1F199A92A04FC1800836308 /* AttributionChooserVC.swift */,
+				D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */,
+				D1F199AB2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift */,
+				D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */,
+				D115F9A12A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift */,
+				D115F99B2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift */,
+				D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */,
+			);
+			path = PredictiveDirections;
 			sourceTree = "<group>";
 		};
 		D1FC987A2891037B00C35D3A /* Map */ = {
@@ -793,6 +826,7 @@
 				A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */,
 				68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */,
 				18778C4D24751F33006DE478 /* DraggableMapMarkerVC.swift in Sources */,
+				D1F199AC2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift in Sources */,
 				4726F0592647C017007EDB5E /* ColorPickerViewController.swift in Sources */,
 				18D14CA3251A5C35004A6D32 /* AutosuggestWidgetSampleType.swift in Sources */,
 				18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */,
@@ -810,9 +844,11 @@
 				1861996624DC305A004D5547 /* MapplsDemoSettingsVC.swift in Sources */,
 				47DF63A62716BC5D0069AAA8 /* DrivingRangeSettingViewController.swift in Sources */,
 				68417CC5210B329100424A00 /* InitialVC.swift in Sources */,
+				D1F199A52A028F6200836308 /* RouteFetchSettingController.swift in Sources */,
 				D17F05462889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */,
 				1861995D24DBE040004D5547 /* PlacePickerViewExampleVC.swift in Sources */,
 				47858FE828A2640A003059A1 /* MapplsReverseGeocodeViewController.swift in Sources */,
+				D115F99C2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift in Sources */,
 				476B0D062615D89100FE8EC6 /* NearbyViewControllerLauncher.swift in Sources */,
 				A49EB60F23DEC56A00A08E42 /* CustomCalloutViewForPolyline.swift in Sources */,
 				1859BB872304041F007D70CF /* SphericalUtil.swift in Sources */,
@@ -822,6 +858,7 @@
 				D17F0552288FD181005333E8 /* SampleType.swift in Sources */,
 				18404BD72303C974001D8DC0 /* GeodesicPolylineExample.swift in Sources */,
 				4726F06C2647C412007EDB5E /* PolygonPointsVC.swift in Sources */,
+				D1F199A82A03CBB300836308 /* LocationPickerTableCell.swift in Sources */,
 				47858FE428A25656003059A1 /* MapplsTrafficVectorTilesViewController.swift in Sources */,
 				6853468D210EF161000ED395 /* mapVCOC.m in Sources */,
 				18C9EAFE251B7E4600F95580 /* AutosuggestCustomUISearchControllerVC.swift in Sources */,
@@ -832,7 +869,9 @@
 				183207B822FAC5A900C738FF /* HighlightPointExample.swift in Sources */,
 				4726F0672647C412007EDB5E /* ShapeCell.swift in Sources */,
 				A49EB61323E004BA00A08E42 /* InteractiveMarkerVC.swift in Sources */,
+				D1F199A32A028EFF00836308 /* PredictiveDirectionsViewController.swift in Sources */,
 				4726F0692647C412007EDB5E /* CustomGeofenceVC.swift in Sources */,
+				D1F199AA2A04FC1800836308 /* AttributionChooserVC.swift in Sources */,
 				47DF638D2716AB250069AAA8 /* DemoGeoanalyticsViewController.swift in Sources */,
 				A464439023E2A9D60089E7CE /* PointOnMapVC.swift in Sources */,
 				4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */,
@@ -866,6 +905,7 @@
 				47513EAD29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift in Sources */,
 				189D0BC5230CFDC5005C8390 /* HighlightPointExample.m in Sources */,
 				4726F0682647C412007EDB5E /* DefaultGeofenceVC.swift in Sources */,
+				D115F9A22A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift in Sources */,
 				A45C2997239A157100EC81F6 /* CustomIndoorVC.swift in Sources */,
 				1861996824DC30C5004D5547 /* UserDefaultsManager.swift in Sources */,
 				D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */,
@@ -1032,7 +1072,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1041,7 +1081,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1060,7 +1100,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1069,7 +1109,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -44,6 +44,7 @@ enum SampleType: String, CaseIterable {
     case routeAdvance
     case routeAdvanceETA
     case routing
+    case routingPredictive
     case feedback
     case geoJsonMultipleShapes
     case dashedPolyline
@@ -135,6 +136,8 @@ enum SampleType: String, CaseIterable {
             return "Route Advance ETA"
         case .routing:
             return "Routing/Directions"
+        case .routingPredictive:
+            return "Routing/Directions Predictive"
         case .feedback:
             return "Feedback"
         case .geoJsonMultipleShapes:
