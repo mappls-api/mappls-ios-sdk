@@ -974,10 +974,14 @@ extension mapVC: UISearchBarDelegate {
 }
 
 extension mapVC: MapplsAutocompleteViewControllerDelegate {
+    func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
+    
     func didAutocomplete(viewController: MapplsAutocompleteViewController, withSuggestion suggestion: MapplsSearchPrediction) {
         
     }
-    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         self.dismiss(animated: false) {
             self.place = place
             if let latitude = place.latitude, let longitude = place.longitude {

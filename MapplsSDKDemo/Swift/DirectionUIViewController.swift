@@ -426,7 +426,11 @@ extension DirectionUIViewController: MapplsMapViewDelegate {
 }
 
 extension DirectionUIViewController: MapplsAutocompleteViewControllerDelegate {
-    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
+    
+    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         navigationController?.navigationBar.isHidden = true
         navigationController?.popViewController(animated: false)
         searchTextView.text = place.placeAddress

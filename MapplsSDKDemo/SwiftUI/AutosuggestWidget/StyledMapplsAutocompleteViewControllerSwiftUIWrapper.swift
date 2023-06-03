@@ -100,6 +100,10 @@ struct StyledMapplsAutocompleteViewControllerSwiftUIWrapper: UIViewControllerRep
     }
     
     class Coordinator: NSObject, UINavigationControllerDelegate, MapplsAutocompleteViewControllerDelegate {
+        func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+            
+        }
+        
         var parent: StyledMapplsAutocompleteViewControllerSwiftUIWrapper
         
         init(_ parent: StyledMapplsAutocompleteViewControllerSwiftUIWrapper) {
@@ -110,7 +114,7 @@ struct StyledMapplsAutocompleteViewControllerSwiftUIWrapper: UIViewControllerRep
             
         }
         
-        func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+        func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
             DispatchQueue.main.async {
                 print(place.description.description as Any)
                 self.parent.presentationMode.wrappedValue.dismiss()

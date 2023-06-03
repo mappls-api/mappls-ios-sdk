@@ -457,9 +457,11 @@ extension DrivingRangeSettingViewController {
     
 }
 extension DrivingRangeSettingViewController: MapplsAutocompleteViewControllerDelegate {
+    func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
     
-    
-    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         self.dismiss(animated: false) {
             if let _ = place.latitude, let _ = place.longitude {
                 self.setCoordinateValueForSourceOrDestinationLocationField(selectedPlace: place)

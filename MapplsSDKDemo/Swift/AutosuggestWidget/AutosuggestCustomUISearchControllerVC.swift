@@ -76,7 +76,11 @@ extension AutosuggestCustomUISearchControllerVC: UISearchBarDelegate {
 }
 
 extension AutosuggestCustomUISearchControllerVC: MapplsAutocompleteResultsViewControllerDelegate {
-    func didAutocomplete(resultsController: MapplsAutocompleteResultsViewController, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(resultsController: MapplsUIWidgets.MapplsAutocompleteResultsViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
+    
+    func didAutocomplete(resultsController: MapplsAutocompleteResultsViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         // Display the results and dismiss the search controller.
         searchController?.isActive = false
         searchController?.searchBar.resignFirstResponder()

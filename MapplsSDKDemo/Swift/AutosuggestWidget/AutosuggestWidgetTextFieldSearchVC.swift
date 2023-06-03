@@ -73,8 +73,11 @@ class AutosuggestWidgetTextFieldSearchVC: UIViewController {
 }
 
 extension AutosuggestWidgetTextFieldSearchVC: MapplsAutocompleteTableDataSourceDelegate {
+    func didAutocomplete(tableDataSource: MapplsUIWidgets.MapplsAutocompleteTableDataSource, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
     
-    func didAutocomplete(tableDataSource: MapplsAutocompleteTableDataSource, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(tableDataSource: MapplsAutocompleteTableDataSource, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         dismissResultsController()
         searchField.resignFirstResponder()
         searchField.isHidden = true

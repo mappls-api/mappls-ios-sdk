@@ -268,7 +268,11 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
 }
 
 extension AutosuggestWidgetExamplesLauncherVC: MapplsAutocompleteViewControllerDelegate {
-    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion) {
+    func didAutocomplete(viewController: MapplsUIWidgets.MapplsAutocompleteViewController, withFavouritePlace place: MapplsUIWidgets.MapplsUIWidgetAutosuggestFavouritePlace) {
+        
+    }
+    
+    func didAutocomplete(viewController: MapplsAutocompleteViewController, withPlace place: MapplsAtlasSuggestion, resultType type: MapplsAutosuggestResultType) {
         if viewController.parent is UINavigationController {
             viewController.navigationController?.popViewController(animated: true)
             self.showPlaceDetail(place: place)
