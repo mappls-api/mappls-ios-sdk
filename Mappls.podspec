@@ -20,7 +20,7 @@ Pod::Spec.new do |m|
 
   m.source = {
     :git => 'https://github.com/mappls-api/mappls-ios-sdk.git',
-    :tag => '1.0.8'
+    :tag => m.version.to_s
   }
 
   m.ios.deployment_target = '9.0'
