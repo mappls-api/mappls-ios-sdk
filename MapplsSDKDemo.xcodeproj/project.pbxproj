@@ -122,19 +122,6 @@
 		D1FC988328910ABF00C35D3A /* SampleLauncherSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC988228910ABF00C35D3A /* SampleLauncherSwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D129497928375BBC003A967B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		181F70B925A89A5B006024FE /* LocationsChooserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsChooserTableViewController.swift; sourceTree = "<group>"; };
 		182D24D2251B46F70098914F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -258,6 +245,7 @@
 		D17F0551288FD181005333E8 /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTypeSwiftUI.swift; sourceTree = "<group>"; };
 		D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
+		D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictiveDirectionsViewController.swift; sourceTree = "<group>"; };
 		D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFetchSettingController.swift; sourceTree = "<group>"; };
 		D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableCell.swift; sourceTree = "<group>"; };
@@ -448,6 +436,7 @@
 		60899A189A49EB8A023BCDD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */,
 				D15463212A25DC6A00E8AE5D /* MapplsAPICore.framework */,
 				D16CB8D72A24ABAE00EF345A /* MapplsAPICore.framework */,
 				54E116EBFFCE8E7E030496CC /* Pods_MapplsSDKDemo.framework */,
@@ -688,7 +677,6 @@
 				68A6BF102106E03C00547929 /* Frameworks */,
 				68A6BF112106E03C00547929 /* Resources */,
 				47AB0D70260B0C890055B864 /* ShellScript */,
-				D129497928375BBC003A967B /* Embed Frameworks */,
 				922FF0445E17525AD5B85E67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -1072,7 +1060,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1081,7 +1069,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1100,7 +1088,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1109,7 +1097,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
