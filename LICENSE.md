@@ -1,5 +1,3 @@
-BSD 3-Clause License
-
 [<img src="https://about.mappls.com/images/mappls-b-logo.svg" height="80"/> </p>](https://www.mapmyindia.com/api)
 
 MAPPLS © Copyright 2023 CE Info Systems Limited

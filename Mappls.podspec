@@ -9,7 +9,7 @@ Pod::Spec.new do |m|
 
   m.summary           = "Mappls SDK for iOS."
   m.description       = "SDK for iOS to enrich your app with interactive maps, detailed information from Mappls Places database, Place Widgets etc."
-  m.license           = { :type => 'BSD', :file => 'LICENSE.md' }
+  m.license           = { :type => 'Proprietary', :file => 'LICENSE.md' }
   m.author            = { 'Mappls' => 'apisupport@mappls.com' }
   m.screenshot        = "https://s3-ap-south-1.amazonaws.com/mmi-api-team/moveSDK/ios/resources/APIsImage.jpg"
   m.social_media_url  = 'https://twitter.com/mappls'
