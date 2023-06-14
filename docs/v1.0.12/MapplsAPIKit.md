@@ -1207,7 +1207,7 @@ In callback of `getResults` function it will either return an error object of ty
         if let error = error {
             print("error: \(error.localizedDescription)")
         } else {
-            if let temp = weatherResponse?.data?.temperature?.temperature , let unit = weatherResponse?.data?.temperature?.temperatureUnit {
+            if let temp = weatherResponse?.data?.temperature?.value , let unit = weatherResponse?.data?.temperature?.unit {
                 print("current temperature: \(temp) \(unit)")
             }
             
