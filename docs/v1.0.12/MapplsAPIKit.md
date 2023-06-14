@@ -1234,8 +1234,8 @@ In callback of `getResults` function it will either return an error object of ty
         if (error != nil ) {
             NSLog(@"error: %@", error.localizedDescription);
         } else {}
-            NSLog(@"temperature %@", response.data.temperature.temperature);
-            NSLog(@"temperatureUnit %@", response.data.temperature.temperatureUnit);
+            NSLog(@"temperature %@", response.data.temperature.value);
+            NSLog(@"temperatureUnit %@", response.data.temperature.unit);
         
             for (MapplsForecastData* weatherForcast in response.data.forecastData){
                 NSLog(@"day %@", weatherForcast.day);
