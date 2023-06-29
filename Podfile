@@ -6,7 +6,7 @@ target 'MapplsSDKDemo' do
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
   pod 'MapplsAPICore', '1.0.7'
-  pod 'MapplsAPIKit/Base', '2.0.15'
+  pod 'MapplsAPIKit/Base', '2.0.16'
   pod 'MapplsMap/Base', '5.13.9'
   pod 'MapplsFeedbackKit/Base', '1.0.0'
   pod 'MapplsFeedbackUIKit/Base', '1.0.0'
@@ -15,6 +15,6 @@ target 'MapplsSDKDemo' do
   pod 'MapplsNearbyUI/Base', '1.0.1'
   pod 'MapplsGeofenceUI/Base', '1.0.1'
   pod 'MapplsGeoanalytics/Base', '1.0.0'
-  pod 'MapplsDrivingRangePlugin/Base', '1.0.1'
+  pod 'MapplsDrivingRangePlugin/Base', '1.0.2'
   pod 'MapplsRasterCatalogue/Base', '0.1.0'
 end
