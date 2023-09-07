@@ -61,6 +61,7 @@ enum SampleType: String, CaseIterable {
     case directionUIPlugin
     case nearbyUI
     case setSymbolSortKeySample
+    case movingMarker
     
     var title: String {
         switch self {
@@ -174,6 +175,8 @@ enum SampleType: String, CaseIterable {
             return "MapplsRasterCatalogue"
         case .setSymbolSortKeySample:
             return "Set Symbol Sort Key Sample"
+        case .movingMarker:
+            return "Moving Marker"
         }
     }
 }

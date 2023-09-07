@@ -48,6 +48,7 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
+		4692D7322AA8822800B907AB /* MovingMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */; };
 		4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0522647C017007EDB5E /* ColorPicker.swift */; };
 		4726F0582647C017007EDB5E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0542647C017007EDB5E /* SettingsViewController.swift */; };
 		4726F0592647C017007EDB5E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0552647C017007EDB5E /* ColorPickerViewController.swift */; };
@@ -172,6 +173,7 @@
 		18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStyledAutocompleteViewController.swift; sourceTree = "<group>"; };
 		18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInstructions.swift; sourceTree = "<group>"; };
 		18F576D123FEAA880009A2D9 /* TextInstructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextInstructions.plist; sourceTree = "<group>"; };
+		4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMarkerViewController.swift; sourceTree = "<group>"; };
 		4726F0522647C017007EDB5E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		4726F0542647C017007EDB5E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4726F0552647C017007EDB5E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,14 @@
 			path = InstructionFormatterHelpers;
 			sourceTree = "<group>";
 		};
+		4692D7302AA8820400B907AB /* Moving Marker */ = {
+			isa = PBXGroup;
+			children = (
+				4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */,
+			);
+			path = "Moving Marker";
+			sourceTree = "<group>";
+		};
 		4726F0412647BCF3007EDB5E /* GeofenceUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +484,7 @@
 		68417CC3210B2DCE00424A00 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				4692D7302AA8820400B907AB /* Moving Marker */,
 				D1F1999D2A028ED900836308 /* PredictiveDirections */,
 				47858FE928A266B6003059A1 /* RasterCatalogue */,
 				47858FE628A26409003059A1 /* ReverseGeocode */,
@@ -872,6 +883,7 @@
 				18404BD92303D44D001D8DC0 /* ClusterMarkersExample.swift in Sources */,
 				68A6BF192106E03C00547929 /* ViewController.swift in Sources */,
 				A4DA1E9523DB16BF0010743F /* DirectionIndicationView.swift in Sources */,
+				4692D7322AA8822800B907AB /* MovingMarkerViewController.swift in Sources */,
 				18BA17E3229E8FF000B0B135 /* GreatCircle.swift in Sources */,
 				18D14C9D251A39B5004A6D32 /* AutosuggestWidgetExamplesLauncherVC.swift in Sources */,
 				47513EAF29FA402E00BA6C83 /* SetSymbolSortKeySample.swift in Sources */,
