@@ -5,8 +5,8 @@ target 'MapplsSDKDemo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
-  pod 'MapplsAPICore', '1.0.8'
-  pod 'MapplsAPIKit/Base', '2.0.18'
+  pod 'MapplsAPICore', '1.0.9'
+  pod 'MapplsAPIKit/Base', '2.0.19'
   pod 'MapplsMap/Base', '5.13.10'
   pod 'MapplsFeedbackKit/Base', '1.0.0'
   pod 'MapplsFeedbackUIKit/Base', '1.0.0'
