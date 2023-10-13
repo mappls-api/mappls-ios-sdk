@@ -145,7 +145,7 @@ class DirectionUIViewController: UIViewController {
     
     @objc func directionButtonClicked() {
         let sy = DefaultStyle.init()
-        let directionVC = MapplsDirectionViewController(for: locationModel, style: sy)
+        let directionVC = MapplsDirectionViewController(for: locationModel, style: .auto)
         directionVC.delegate = self
         makeAttributionArray()
         directionVC.attributationOptions = dirAttributions
@@ -155,7 +155,7 @@ class DirectionUIViewController: UIViewController {
     @objc func noLocationButtonClicked() {
         locationModel.removeAll()
         let sy = DefaultStyle.init()
-        let directionVC = MapplsDirectionViewController(for: locationModel, style: sy)
+        let directionVC = MapplsDirectionViewController(for: locationModel, style: .auto)
         makeAttributionArray()
         directionVC.attributationOptions = dirAttributions
         directionVC.delegate = self
@@ -514,8 +514,7 @@ extension DirectionUIViewController: LocationChooserTableViewDirectionUIPluginDe
         var viaPoint = [MapplsDirectionLocation]()
         viaPoint = viaLocations
         let locations = source + viaPoint + destinations
-        let style1 = DefaultStyle.init()
-        let directions = MapplsDirectionViewController(for: locations, style: style1)
+        let directions = MapplsDirectionViewController(for: locations, style: .auto)
         directions.delegate = self
         directions.profileIdentifier = profile
         directions.resourceIdentifier = resource

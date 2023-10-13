@@ -102,7 +102,7 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
     }
     
     func getAutocompleteViewControllerInstance() -> MapplsAutocompleteViewController {
-        let autocompleteViewController = MapplsAutocompleteViewController()
+        let autocompleteViewController = MapplsAutocompleteViewController(theme: .auto)
         let attributionSetting = MapplsAttributionsSettings()
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
