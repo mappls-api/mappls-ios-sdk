@@ -49,15 +49,14 @@ It is required to set Mappls keys to use any MAPPL's SDK. Please refer the docum
 ```objectivec
 CLLocation *location = [[CLLocation alloc] initWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude];
 
-UINavigationController *navVC = [[MapplsFeedbackUIKitManager sharedManager] getViewControllerWithLocation:location moduleId:ModuleId];
+UINavigationController *navVC = [[MapplsFeedbackUIKitManager sharedManager] getViewControllerWithLocation:location];
 [self presentViewController:navVC animated:YES completion:nil];
 ```
 
 ##### Swift
 
 ```swift
-let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude), moduleId: ModuleId)
-
+MapplsFeedbackUIKitManager.shared.getViewController(location: self.refLocations, speed: self.speed, alt: self.alt, bearing: self.bearing, accuracy: self.accuracy, appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, osVersionoptional: UIDevice.current.systemVersion, deviceName: UIDevice.current.name)
 self.present(navVC, animated: true, completion: nil)
 ```
 
