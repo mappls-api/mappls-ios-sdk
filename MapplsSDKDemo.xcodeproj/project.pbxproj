@@ -91,6 +91,7 @@
 		68A6BF1C2106E03C00547929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A6BF1A2106E03C00547929 /* Main.storyboard */; };
 		68A6BF1E2106E03F00547929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A6BF1D2106E03F00547929 /* Assets.xcassets */; };
 		68A6BF212106E03F00547929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A6BF1F2106E03F00547929 /* LaunchScreen.storyboard */; };
+		68B4DBC62ADE982700AB0F85 /* GradientPolylineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */; };
 		68B927C825A63587002E6B8A /* DistanceMatrixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */; };
 		68D07A6025B1CBD2005B86CB /* DirectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */; };
 		68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */; };
@@ -223,6 +224,7 @@
 		68A6BF1D2106E03F00547929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68A6BF202106E03F00547929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68A6BF222106E03F00547929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPolylineViewController.swift; sourceTree = "<group>"; };
 		68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceMatrixViewController.swift; sourceTree = "<group>"; };
 		68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUIViewController.swift; sourceTree = "<group>"; };
 		68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChooserTableViewDirectionUIPlugin.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				185A74ED249B4C5300081DAE /* CovidSafetyStatusExample.swift */,
 				18EF185D250A03EE0067182A /* POIsAlongTheRouteVC.swift */,
 				68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */,
+				68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				18404BD92303D44D001D8DC0 /* ClusterMarkersExample.swift in Sources */,
 				68A6BF192106E03C00547929 /* ViewController.swift in Sources */,
 				A4DA1E9523DB16BF0010743F /* DirectionIndicationView.swift in Sources */,
+				68B4DBC62ADE982700AB0F85 /* GradientPolylineViewController.swift in Sources */,
 				4692D7322AA8822800B907AB /* MovingMarkerViewController.swift in Sources */,
 				18BA17E3229E8FF000B0B135 /* GreatCircle.swift in Sources */,
 				18D14C9D251A39B5004A6D32 /* AutosuggestWidgetExamplesLauncherVC.swift in Sources */,
