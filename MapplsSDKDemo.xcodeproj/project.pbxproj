@@ -95,6 +95,7 @@
 		68B927C825A63587002E6B8A /* DistanceMatrixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */; };
 		68D07A6025B1CBD2005B86CB /* DirectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */; };
 		68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */; };
+		68D777D02AEBB8960048957A /* CategoriesMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */; };
 		A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */; };
 		A45C2997239A157100EC81F6 /* CustomIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */; };
 		A45C2998239A157100EC81F6 /* DefaultIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */; };
@@ -228,6 +229,7 @@
 		68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceMatrixViewController.swift; sourceTree = "<group>"; };
 		68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUIViewController.swift; sourceTree = "<group>"; };
 		68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChooserTableViewDirectionUIPlugin.swift; sourceTree = "<group>"; };
+		68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesMarkerViewController.swift; sourceTree = "<group>"; };
 		A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoSuggestVC.swift; sourceTree = "<group>"; };
 		A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIndoorVC.swift; sourceTree = "<group>"; };
 		A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIndoorVC.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				18404BD42303C435001D8DC0 /* DashedPolylineExample.swift */,
 				18404BD62303C974001D8DC0 /* GeodesicPolylineExample.swift */,
 				47858FE328A25656003059A1 /* MapplsTrafficVectorTilesViewController.swift */,
+				68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */,
 				18404BD82303D44D001D8DC0 /* ClusterMarkersExample.swift */,
 				183207B722FAC5A900C738FF /* HighlightPointExample.swift */,
 				188AE97721C7D66800D2C866 /* CustomAnnotationModels.swift */,
@@ -916,6 +919,7 @@
 				68534685210EDF59000ED395 /* ListVCOC.m in Sources */,
 				189C4BF025A9877500B2ADB2 /* LocationChooserTableViewCell.swift in Sources */,
 				D1FC987E289103E800C35D3A /* MapplsMapViewSwiftUIView.swift in Sources */,
+				68D777D02AEBB8960048957A /* CategoriesMarkerViewController.swift in Sources */,
 				185B7FC0214B83C7000785FC /* MultipleShapesExample.swift in Sources */,
 				186D0212248E266F006F1C84 /* CovidLayersExample.m in Sources */,
 				185B7FC3214B848F000785FC /* MultipleShapesExample.m in Sources */,
