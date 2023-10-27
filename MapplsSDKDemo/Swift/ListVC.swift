@@ -232,6 +232,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let gradientPolylineVC = GradientPolylineViewController()
                 gradientPolylineVC.title = sampleType.title
                 self.navigationController?.pushViewController(gradientPolylineVC, animated: false)
+            case .categoriesMarker:
+                let categoriesMarkerViewController = CategoriesMarkerViewController()
+                categoriesMarkerViewController.title = sampleType.title
+                self.navigationController?.pushViewController(categoriesMarkerViewController, animated: false)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
