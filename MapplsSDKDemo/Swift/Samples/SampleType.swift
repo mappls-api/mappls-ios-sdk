@@ -63,6 +63,8 @@ enum SampleType: String, CaseIterable {
     case setSymbolSortKeySample
     case movingMarker
     case gradientPolyline
+    case categoriesMarker
+    case customTapGesture
     
     var title: String {
         switch self {
@@ -180,6 +182,10 @@ enum SampleType: String, CaseIterable {
             return "Moving Marker"
         case .gradientPolyline:
             return "Gradient Polyline"
+        case .categoriesMarker:
+            return "Categories Marker"
+        case .customTapGesture:
+            return "Custom Tap Gesture"
         }
     }
 }

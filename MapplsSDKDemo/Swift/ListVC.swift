@@ -236,6 +236,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let categoriesMarkerViewController = CategoriesMarkerViewController()
                 categoriesMarkerViewController.title = sampleType.title
                 self.navigationController?.pushViewController(categoriesMarkerViewController, animated: false)
+            case .customTapGesture:
+                let customTapGestureController = CustomTapGestureController()
+                customTapGestureController.title = sampleType.title
+                self.navigationController?.pushViewController(customTapGestureController, animated: false)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)

@@ -82,6 +82,7 @@
 		68417CC5210B329100424A00 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68417CC4210B329100424A00 /* InitialVC.swift */; };
 		68417CC7210B32A700424A00 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68417CC6210B32A700424A00 /* ListVC.swift */; };
 		68417CCD210B48FB00424A00 /* MainC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68417CCC210B48FB00424A00 /* MainC.storyboard */; };
+		684CCDD32B04CB1900D38CFE /* CustomTapGestureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */; };
 		6850349125B6ACB900A347FB /* AttributionSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850349025B6ACB900A347FB /* AttributionSettingTableViewController.swift */; };
 		68534685210EDF59000ED395 /* ListVCOC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68534684210EDF59000ED395 /* ListVCOC.m */; };
 		6853468A210EF14B000ED395 /* mapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68534689210EF14B000ED395 /* mapVC.swift */; };
@@ -212,6 +213,7 @@
 		68417CC6210B32A700424A00 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		68417CC8210B330D00424A00 /* MapplsSDKDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapplsSDKDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		68417CCC210B48FB00424A00 /* MainC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainC.storyboard; sourceTree = "<group>"; };
+		684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGestureController.swift; sourceTree = "<group>"; };
 		6850349025B6ACB900A347FB /* AttributionSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionSettingTableViewController.swift; sourceTree = "<group>"; };
 		68534683210EDF59000ED395 /* ListVCOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListVCOC.h; sourceTree = "<group>"; };
 		68534684210EDF59000ED395 /* ListVCOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListVCOC.m; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				18EF185D250A03EE0067182A /* POIsAlongTheRouteVC.swift */,
 				68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */,
 				68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */,
+				684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */,
 				68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */,
 				18778C4D24751F33006DE478 /* DraggableMapMarkerVC.swift in Sources */,
+				684CCDD32B04CB1900D38CFE /* CustomTapGestureController.swift in Sources */,
 				D1F199AC2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift in Sources */,
 				4726F0592647C017007EDB5E /* ColorPickerViewController.swift in Sources */,
 				18D14CA3251A5C35004A6D32 /* AutosuggestWidgetSampleType.swift in Sources */,
