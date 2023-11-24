@@ -97,6 +97,7 @@
 		68D07A6025B1CBD2005B86CB /* DirectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */; };
 		68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */; };
 		68D777D02AEBB8960048957A /* CategoriesMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */; };
+		68DA0A6C2B107C73009E10C4 /* DottedLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */; };
 		A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */; };
 		A45C2997239A157100EC81F6 /* CustomIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */; };
 		A45C2998239A157100EC81F6 /* DefaultIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */; };
@@ -232,6 +233,7 @@
 		68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUIViewController.swift; sourceTree = "<group>"; };
 		68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChooserTableViewDirectionUIPlugin.swift; sourceTree = "<group>"; };
 		68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesMarkerViewController.swift; sourceTree = "<group>"; };
+		68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineViewController.swift; sourceTree = "<group>"; };
 		A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoSuggestVC.swift; sourceTree = "<group>"; };
 		A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIndoorVC.swift; sourceTree = "<group>"; };
 		A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIndoorVC.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */,
 				68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */,
 				684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */,
+				68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				4726F0692647C412007EDB5E /* CustomGeofenceVC.swift in Sources */,
 				D1F199AA2A04FC1800836308 /* AttributionChooserVC.swift in Sources */,
 				47DF638D2716AB250069AAA8 /* DemoGeoanalyticsViewController.swift in Sources */,
+				68DA0A6C2B107C73009E10C4 /* DottedLineViewController.swift in Sources */,
 				A464439023E2A9D60089E7CE /* PointOnMapVC.swift in Sources */,
 				4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */,
 				A4ACEA4D23D80C6400447644 /* InstructionTableVC.swift in Sources */,
