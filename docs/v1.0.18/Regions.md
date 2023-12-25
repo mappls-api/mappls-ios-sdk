@@ -21,12 +21,12 @@ Now what you as a developer need to do is to specify a region in our APIs/SDKs f
 To specify the region , refer to the below code. Default is India ("IND")
 
 ```js
-MapmyIndiaAccountManager.setDefaultRegion(MMIRegionTypeIdentifier("IND"))
+MapmyIndiaAccountManager.setDefaultRegion(MapplsRegionType("IND"))
 ```
 or
 
 ```js
-MapmyIndiaAccountManager.setDefaultRegion(MMIRegionTypeIdentifier("KWT"))
+MapmyIndiaAccountManager.setDefaultRegion(MapplsRegionType("KWT"))
 ```
 
 To select from a country list, use below code **(Available from MapmyIndiaAPIKit Version 1.4.19)**. Default is (.india)
