@@ -245,6 +245,17 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let customTapGestureController = DottedLineViewController()
                 customTapGestureController.title = sampleType.title
                 self.navigationController?.pushViewController(customTapGestureController, animated: false)
+                
+            case .heatMap:
+                let heatMapViewController = HeatMapViewController()
+                heatMapViewController.title = sampleType.title
+                self.navigationController?.pushViewController(heatMapViewController, animated: false)
+                
+            case .deviceSearch:
+                let deviceSearchViewController = DeviceSearchViewController()
+                deviceSearchViewController.title = sampleType.title
+                self.navigationController?.pushViewController(deviceSearchViewController, animated: false)
+                
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)

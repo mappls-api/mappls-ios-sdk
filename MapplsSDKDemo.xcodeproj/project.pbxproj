@@ -48,6 +48,7 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
+		3E5BBE268A8ABCF2FB38EEA0 /* Pods_MapplsSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */; };
 		4692D7322AA8822800B907AB /* MovingMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */; };
 		4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0522647C017007EDB5E /* ColorPicker.swift */; };
 		4726F0582647C017007EDB5E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0542647C017007EDB5E /* SettingsViewController.swift */; };
@@ -78,7 +79,6 @@
 		47DF639A2716B18E0069AAA8 /* DemoMapStyleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF63992716B18E0069AAA8 /* DemoMapStyleTableViewCell.swift */; };
 		47DF63A42716B6FF0069AAA8 /* DrivingRangeSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF63A32716B6FF0069AAA8 /* DrivingRangeSampleViewController.swift */; };
 		47DF63A62716BC5D0069AAA8 /* DrivingRangeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF63A52716BC5D0069AAA8 /* DrivingRangeSettingViewController.swift */; };
-		5838AB4E126BD20C3FC602A4 /* Pods_MapplsSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E116EBFFCE8E7E030496CC /* Pods_MapplsSDKDemo.framework */; };
 		68417CC5210B329100424A00 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68417CC4210B329100424A00 /* InitialVC.swift */; };
 		68417CC7210B32A700424A00 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68417CC6210B32A700424A00 /* ListVC.swift */; };
 		68417CCD210B48FB00424A00 /* MainC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68417CCC210B48FB00424A00 /* MainC.storyboard */; };
@@ -94,10 +94,14 @@
 		68A6BF212106E03F00547929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A6BF1F2106E03F00547929 /* LaunchScreen.storyboard */; };
 		68B4DBC62ADE982700AB0F85 /* GradientPolylineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */; };
 		68B927C825A63587002E6B8A /* DistanceMatrixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */; };
+		68BF2EAF2B6A309A00C84F31 /* DeviceSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF2EAE2B6A309A00C84F31 /* DeviceSearchViewController.swift */; };
+		68BF2EB12B6A372400C84F31 /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BF2EB02B6A372400C84F31 /* DeviceTableViewController.swift */; };
 		68D07A6025B1CBD2005B86CB /* DirectionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */; };
 		68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */; };
 		68D777D02AEBB8960048957A /* CategoriesMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */; };
 		68DA0A6C2B107C73009E10C4 /* DottedLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */; };
+		68E69CA12B62510B005E6E21 /* HeatMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E69CA02B62510B005E6E21 /* HeatMapViewController.swift */; };
+		68E69CA32B625148005E6E21 /* AI_PotLoc4SDB.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 68E69CA22B625147005E6E21 /* AI_PotLoc4SDB.geojson */; };
 		A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */; };
 		A45C2997239A157100EC81F6 /* CustomIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */; };
 		A45C2998239A157100EC81F6 /* DefaultIndoorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */; };
@@ -177,6 +181,7 @@
 		18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStyledAutocompleteViewController.swift; sourceTree = "<group>"; };
 		18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInstructions.swift; sourceTree = "<group>"; };
 		18F576D123FEAA880009A2D9 /* TextInstructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextInstructions.plist; sourceTree = "<group>"; };
+		1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMarkerViewController.swift; sourceTree = "<group>"; };
 		4726F0522647C017007EDB5E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		4726F0542647C017007EDB5E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +196,6 @@
 		4726F0652647C412007EDB5E /* DrawCircleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawCircleVC.swift; sourceTree = "<group>"; };
 		4726F0702648503B007EDB5E /* ShapeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShapeCell.xib; sourceTree = "<group>"; };
 		472912882722783F0089A329 /* RoadTrafficDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadTrafficDetailsViewController.swift; sourceTree = "<group>"; };
-		472C3CE95E7127649D7CA1AB /* Pods-MapplsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsDemo/Pods-MapplsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		47513EAC29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapplsPinMarkerViewController.swift; sourceTree = "<group>"; };
 		47513EAE29FA402E00BA6C83 /* SetSymbolSortKeySample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSymbolSortKeySample.swift; sourceTree = "<group>"; };
 		476B0D052615D89100FE8EC6 /* NearbyViewControllerLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewControllerLauncher.swift; sourceTree = "<group>"; };
@@ -208,8 +212,6 @@
 		47DF63992716B18E0069AAA8 /* DemoMapStyleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMapStyleTableViewCell.swift; sourceTree = "<group>"; };
 		47DF63A32716B6FF0069AAA8 /* DrivingRangeSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingRangeSampleViewController.swift; sourceTree = "<group>"; };
 		47DF63A52716BC5D0069AAA8 /* DrivingRangeSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingRangeSettingViewController.swift; sourceTree = "<group>"; };
-		54E116EBFFCE8E7E030496CC /* Pods_MapplsSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapplsSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64814389E202DE3C75F67CE5 /* Pods-MapplsSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		68417CC4210B329100424A00 /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		68417CC6210B32A700424A00 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		68417CC8210B330D00424A00 /* MapplsSDKDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapplsSDKDemo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -230,10 +232,14 @@
 		68A6BF222106E03F00547929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientPolylineViewController.swift; sourceTree = "<group>"; };
 		68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceMatrixViewController.swift; sourceTree = "<group>"; };
+		68BF2EAE2B6A309A00C84F31 /* DeviceSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSearchViewController.swift; sourceTree = "<group>"; };
+		68BF2EB02B6A372400C84F31 /* DeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
 		68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionUIViewController.swift; sourceTree = "<group>"; };
 		68D07A9325B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationChooserTableViewDirectionUIPlugin.swift; sourceTree = "<group>"; };
 		68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesMarkerViewController.swift; sourceTree = "<group>"; };
 		68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineViewController.swift; sourceTree = "<group>"; };
+		68E69CA02B62510B005E6E21 /* HeatMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapViewController.swift; sourceTree = "<group>"; };
+		68E69CA22B625147005E6E21 /* AI_PotLoc4SDB.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AI_PotLoc4SDB.geojson; sourceTree = "<group>"; };
 		A41DFAC8239906CE00D39EF9 /* AutoSuggestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoSuggestVC.swift; sourceTree = "<group>"; };
 		A45C2995239A157000EC81F6 /* CustomIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIndoorVC.swift; sourceTree = "<group>"; };
 		A45C2996239A157100EC81F6 /* DefaultIndoorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultIndoorVC.swift; sourceTree = "<group>"; };
@@ -244,7 +250,6 @@
 		A4ACEA4C23D80C6400447644 /* InstructionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionTableVC.swift; sourceTree = "<group>"; };
 		A4DA1E9323DB16BE0010743F /* DirectionIndicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionIndicationView.swift; sourceTree = "<group>"; };
 		A4DA1E9423DB16BE0010743F /* DirectionIndicationViewStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionIndicationViewStyleKit.swift; sourceTree = "<group>"; };
-		BC8547164DC0296D549FC2E5 /* Pods-MapplsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsDemo/Pods-MapplsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D115F99B2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveRouteManeuversVC.swift; sourceTree = "<group>"; };
 		D115F9A12A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveRouteManeuverCell.swift; sourceTree = "<group>"; };
 		D13C05DA2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExampleSwiftUIRowView.swift; sourceTree = "<group>"; };
@@ -265,7 +270,8 @@
 		D1FC987D289103E800C35D3A /* MapplsMapViewSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsMapViewSwiftUIView.swift; sourceTree = "<group>"; };
 		D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGLPointAnnotation+Extension.swift"; sourceTree = "<group>"; };
 		D1FC988228910ABF00C35D3A /* SampleLauncherSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleLauncherSwiftUIView.swift; sourceTree = "<group>"; };
-		D347D8DEFC4B8D876097668E /* Pods-MapplsSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DE6D733F3E4343C6B6A83F7C /* Pods-MapplsSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapplsSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,7 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5838AB4E126BD20C3FC602A4 /* Pods_MapplsSDKDemo.framework in Frameworks */,
+				3E5BBE268A8ABCF2FB38EEA0 /* Pods_MapplsSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +463,7 @@
 				D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */,
 				D15463212A25DC6A00E8AE5D /* MapplsAPICore.framework */,
 				D16CB8D72A24ABAE00EF345A /* MapplsAPICore.framework */,
-				54E116EBFFCE8E7E030496CC /* Pods_MapplsSDKDemo.framework */,
+				FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 		68417CC3210B2DCE00424A00 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				68BF2EAD2B6A306200C84F31 /* DeviceSearch */,
 				4692D7302AA8820400B907AB /* Moving Marker */,
 				D1F1999D2A028ED900836308 /* PredictiveDirections */,
 				47858FE928A266B6003059A1 /* RasterCatalogue */,
@@ -546,6 +553,7 @@
 				68D07A5F25B1CBD1005B86CB /* DirectionUIViewController.swift */,
 				68B4DBC52ADE982700AB0F85 /* GradientPolylineViewController.swift */,
 				684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */,
+				68E69CA02B62510B005E6E21 /* HeatMapViewController.swift */,
 				68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */,
 			);
 			path = Swift;
@@ -576,6 +584,7 @@
 				18D14C9F251A5815004A6D32 /* Common */,
 				18F576CE23FEA8100009A2D9 /* InstructionFormatterHelpers */,
 				185B7FBD214B8333000785FC /* metro-line.geojson */,
+				68E69CA22B625147005E6E21 /* AI_PotLoc4SDB.geojson */,
 				68417CC3210B2DCE00424A00 /* Swift */,
 				68417CC2210B2DB800424A00 /* Objective C */,
 				68A6BF162106E03C00547929 /* AppDelegate.swift */,
@@ -598,6 +607,15 @@
 				68B927C725A63587002E6B8A /* DistanceMatrixViewController.swift */,
 			);
 			path = DistanceMatrix;
+			sourceTree = "<group>";
+		};
+		68BF2EAD2B6A306200C84F31 /* DeviceSearch */ = {
+			isa = PBXGroup;
+			children = (
+				68BF2EAE2B6A309A00C84F31 /* DeviceSearchViewController.swift */,
+				68BF2EB02B6A372400C84F31 /* DeviceTableViewController.swift */,
+			);
+			path = DeviceSearch;
 			sourceTree = "<group>";
 		};
 		D17F054D288FD153005333E8 /* Samples */ = {
@@ -680,10 +698,8 @@
 		F560EFD69E767ADFE19F5A20 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				472C3CE95E7127649D7CA1AB /* Pods-MapplsDemo.debug.xcconfig */,
-				BC8547164DC0296D549FC2E5 /* Pods-MapplsDemo.release.xcconfig */,
-				D347D8DEFC4B8D876097668E /* Pods-MapplsSDKDemo.debug.xcconfig */,
-				64814389E202DE3C75F67CE5 /* Pods-MapplsSDKDemo.release.xcconfig */,
+				1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */,
+				DE6D733F3E4343C6B6A83F7C /* Pods-MapplsSDKDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -695,12 +711,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68A6BF252106E03F00547929 /* Build configuration list for PBXNativeTarget "MapplsSDKDemo" */;
 			buildPhases = (
-				3BAE6AB9014B2A13CA8F0B68 /* [CP] Check Pods Manifest.lock */,
+				DC2450A50F23FE0C88C69C38 /* [CP] Check Pods Manifest.lock */,
 				68A6BF0F2106E03C00547929 /* Sources */,
 				68A6BF102106E03C00547929 /* Frameworks */,
 				68A6BF112106E03C00547929 /* Resources */,
 				47AB0D70260B0C890055B864 /* ShellScript */,
-				922FF0445E17525AD5B85E67 /* [CP] Embed Pods Frameworks */,
+				DF5BFE374543B06AE64ABA04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -757,13 +773,31 @@
 				4726F0712648503B007EDB5E /* ShapeCell.xib in Resources */,
 				185B7FBE214B8333000785FC /* metro-line.geojson in Resources */,
 				68417CCD210B48FB00424A00 /* MainC.storyboard in Resources */,
+				68E69CA32B625148005E6E21 /* AI_PotLoc4SDB.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3BAE6AB9014B2A13CA8F0B68 /* [CP] Check Pods Manifest.lock */ = {
+		47AB0D70260B0C890055B864 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n";
+		};
+		DC2450A50F23FE0C88C69C38 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -785,25 +819,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		47AB0D70260B0C890055B864 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
-		};
-		922FF0445E17525AD5B85E67 /* [CP] Embed Pods Frameworks */ = {
+		DF5BFE374543B06AE64ABA04 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -866,6 +882,7 @@
 				1859BB872304041F007D70CF /* SphericalUtil.swift in Sources */,
 				476B0D192618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift in Sources */,
 				476B0D1D2618341E00FE8EC6 /* CustomNearbyUIViewController.swift in Sources */,
+				68E69CA12B62510B005E6E21 /* HeatMapViewController.swift in Sources */,
 				18B3DD5825AB887200B26BDF /* DirectionsViewController.swift in Sources */,
 				D17F0552288FD181005333E8 /* SampleType.swift in Sources */,
 				18404BD72303C974001D8DC0 /* GeodesicPolylineExample.swift in Sources */,
@@ -890,6 +907,7 @@
 				4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */,
 				A4ACEA4D23D80C6400447644 /* InstructionTableVC.swift in Sources */,
 				4726F06D2647C412007EDB5E /* DrawCircleVC.swift in Sources */,
+				68BF2EAF2B6A309A00C84F31 /* DeviceSearchViewController.swift in Sources */,
 				4726F0582647C017007EDB5E /* SettingsViewController.swift in Sources */,
 				68D07A6025B1CBD2005B86CB /* DirectionUIViewController.swift in Sources */,
 				1861995C24DBE040004D5547 /* PlacePickerViewExampleLauncherVC.swift in Sources */,
@@ -910,6 +928,7 @@
 				18BDD84E22F4005D00239CDC /* InteriorPolygonExample.swift in Sources */,
 				D1FC988328910ABF00C35D3A /* SampleLauncherSwiftUIView.swift in Sources */,
 				D17F054C288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift in Sources */,
+				68BF2EB12B6A372400C84F31 /* DeviceTableViewController.swift in Sources */,
 				18404BD52303C435001D8DC0 /* DashedPolylineExample.swift in Sources */,
 				68B927C825A63587002E6B8A /* DistanceMatrixViewController.swift in Sources */,
 				4726F06B2647C412007EDB5E /* CustomGeofenceAnnotation.swift in Sources */,
@@ -1082,7 +1101,7 @@
 		};
 		68A6BF262106E03F00547929 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D347D8DEFC4B8D876097668E /* Pods-MapplsSDKDemo.debug.xcconfig */;
+			baseConfigurationReference = 1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1110,7 +1129,7 @@
 		};
 		68A6BF272106E03F00547929 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64814389E202DE3C75F67CE5 /* Pods-MapplsSDKDemo.release.xcconfig */;
+			baseConfigurationReference = DE6D733F3E4343C6B6A83F7C /* Pods-MapplsSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
