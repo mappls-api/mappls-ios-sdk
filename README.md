@@ -54,6 +54,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     * [Polylines](./docs/v1.0.19/MapplsMap.md#Polylines)
     * [Polygons](./docs/v1.0.19/MapplsMap.md#Polygons)
     * [Map Camera](./docs/v1.0.19/MapplsMap.md#Map-Camera)
+    * [Heat Map](./docs/v1.0.19/MapplsHeatMap.md)
     * [Miscellaneous](./docs/v1.0.19/MapplsMap.md#Miscellaneous)
     * [Cluster Based Authentication](./docs/v1.0.19/MapplsMap.md#Cluster-Based-Authentication)
 

@@ -14,7 +14,7 @@ You can get your api key to be used in this document here: [https://apis.mappls.
 
 | Version | Supported SDK Version |
 | ------- | --------------------- |
-| [v1.0.19](README.md) | - [MapplsAPICore - 1.0.10](MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.20](MapplsAPIKit.md) <br/> - [MappplsMap - 5.13.10](MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.4](MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.0](MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.8](MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 1.0.0](MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 1.0.0](MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.0](MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.1](MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.1](MapplsIntouch.md)|
+| [v1.0.19](README.md) | - [MapplsAPICore - 1.0.10](MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.21](MapplsAPIKit.md) <br/> - [MappplsMap - 5.13.10](MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.4](MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.0](MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.8](MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 1.0.0](MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 1.0.0](MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.0](MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.1](MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.1](MapplsIntouch.md)|
 | [v1.0.18](./docs/v1.0.18/README.md) | - [MapplsAPICore - 1.0.10](./docs/v1.0.18/MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.20](./docs/v1.0.18/MapplsAPIKit.md) <br/> - [MappplsMap - 5.13.10](./docs/v1.0.18/MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.4](./docs/v1.0.18/MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.0](./docs/v1.0.18/MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.7](./docs/v1.0.18/MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](./docs/v1.0.18/MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 1.0.0](./docs/v1.0.18/MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 1.0.0](./docs/v1.0.18/MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](./docs/v1.0.18/MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.0](./docs/v1.0.18/MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.1](./docs/v1.0.18/MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](./docs/v1.0.18/RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.1](./docs/v1.0.18/MapplsIntouch.md)|
 
 For More History Go Here: [Version History](../../Version-History.md)
@@ -54,6 +54,7 @@ Reference to the documentation of Previous SDK versions [here](https://github.co
     * [Polygons](MapplsMap.md#Polygons)
     * [Map Camera](MapplsMap.md#Map-Camera)
     * [Miscellaneous](MapplsMap.md#Miscellaneous)
+    * [Heat Map](MapplsHeatMap.md)
     * [Cluster Based Authentication](MapplsMap.md#Cluster-Based-Authentication)
 
 - [Mappls Pin Strategy - Mappls Map](MapplsPinStrategy.md)
