@@ -115,13 +115,9 @@ You will find below useful properties in suggestion object :
 1.  **type:**  type of location POI or Country or City
 2.  **mapplsPin:**  Mappls Pin of the location 6-char alphanumeric.
 3.  **placeAddress:**  Address of the location.
-4.  **latitude:**  Latitude of the location.
-5.  **longitude:**  longitude of the location.
-6.  **entranceLatitude:**  entry latitude of the location
-7.  **entrancelongitude:**  entry longitude of the location
-8.  **placeName:**  Name of the location.
-9.  **orderIndex:**  the order where this result should be placed
-10. **addressTokens**:
+4.  **placeName:**  Name of the location.
+5.  **orderIndex:**  the order where this result should be placed
+6.  **addressTokens:**
 
     **houseNumber**: house number of the location.
 
@@ -257,8 +253,7 @@ In response of geocode search either you will receive an error or an array of `M
 -   **city:**  The name of the city in which the location exists.
 -   **state:**  The name of the state in which the location exists.
 -   **pincode:**  The pin code of the location area.
--   **latitude:**  The latitude of the location.
--   **longitude:**  The longitude of the location.
+
 -   **formattedAddress:**  The complete human readable address string that is usually the complete postal address of the result.
 -   **areaCode:**  The area code of region.
 -   **area:** in-case the co-ordinate lies in a country the name of the country would be returned or if the co-ordinate lies in an ocean, the name of the ocean will be returned.  
@@ -369,12 +364,10 @@ You will find below useful properties in suggestion object :
 -   **distance:**  provides the distance from the provided location bias in meters.
 -   **mapplsPin:**  Mappls Pin, unique id of the location 6-char alphanumeric.
 -   **email:**  Email for contact.
--   **entryLatitude:**  latitude of the entrance of the location.
--   **entryLongitude:**  longitude of the entrance of the location.
+
 -   **keywords:**  provides an array of matched keywords or codes.
 -   **landlineNo:**  Email for contact.
--   **latitude:**  Latitude of the location.
--   **longitude:**  longitude of the location.
+
 -   **mobileNo :**  Phone number for contact.
 -   **orderIndex:**  the order where this result should be placed
 -   **placeAddress:**  Address of the location.
