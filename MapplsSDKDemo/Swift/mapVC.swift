@@ -162,11 +162,22 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
         searchBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         searchBar.isUserInteractionEnabled = true
+        if sampleType == .geocode {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Detail", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.showPlacemarkDetailVC))
+        }
       }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc public func showPlacemarkDetailVC() {
+        if self.tableDict.count > 0 {
+            let vc = PlacemarkDetailsVC()
+            vc.tableDict = self.tableDict
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc func handleTap(){
@@ -470,9 +481,10 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
     }
     
     
-  
+    var tableDict  : [[String : Any]] = [[String : Any]]()
     
     func callGeocode(searchQuery: String) {
+        tableDict.removeAll()
         progressHUD.show()
         let atlasGeocodeManager = MapplsAtlasGeocodeManager.shared
         let atlasGeocodeOptions = MapplsAtlasGeocodeOptions(query: searchQuery)
@@ -482,8 +494,26 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
                 self.progressHUD.hide()
                 if let error = error {
                     NSLog("%@", error)
-                } else if let result = response, let placemarks = result.placemarks, placemarks.count > 0 {
-                    if let latitudeNumber = placemarks[0].latitude, let longitudeNumber = placemarks[0].longitude {
+                } else if let result = response, let placemarks = result.placemarks, placemarks.count > 0,
+                          let fistObject = placemarks.first {
+                    let encoder = JSONEncoder()
+                    if let data = try? encoder.encode(placemarks),
+                       let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+                        guard let dictionary = json as? [[String : Any]] else {
+                            return
+                        }
+                      
+                        guard let dd = dictionary.first else {
+                            return
+                        }
+                        let _ = dd.keys.map({ key in
+                            if let value = dd[key] as? String {
+                                self.tableDict.append(["\(key)":"\(value)"])
+                            }
+                        })
+                        
+                    }
+                    if let latitudeNumber = fistObject.latitude, let longitudeNumber = fistObject.longitude {
                         let latitudeValue = Double(exactly: latitudeNumber) ?? 0
                         let longitudeValue = Double(exactly: longitudeNumber) ?? 0
                         

@@ -548,7 +548,113 @@ class UserDefaultsManager {
         }
     }
     
+    private static let isBuildingFootprintsOverlayEnabledKey = "isBuildingFootprintsOverlayEnabledKey"
+    static var isBuildingFootprintsOverlayEnabled: Bool {
+        get {
+            if isKeyPresentInUserDefaults(key: isBuildingFootprintsOverlayEnabledKey) {
+                return UserDefaults.standard.bool(forKey: isBuildingFootprintsOverlayEnabledKey)
+            }
+            else {
+                return true
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: isBuildingFootprintsOverlayEnabledKey)
+        }
+    }
     
+    private static let isUseDefaultStyleForBuildingAppearanceKey = "isUseDefaultStyleForBuildingAppearanceKey"
+    static var isUseDefaultStyleForBuildingAppearance: Bool {
+        get {
+            if isKeyPresentInUserDefaults(key: isUseDefaultStyleForBuildingAppearanceKey) {
+                return UserDefaults.standard.bool(forKey: isUseDefaultStyleForBuildingAppearanceKey)
+            }
+            else {
+                return false
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: isUseDefaultStyleForBuildingAppearanceKey)
+        }
+    }
+
+    
+    private static let placePickerBuildingLayerFillColorKey = "placePickerBuildingLayerFillColorKey"
+    static var placePickerBuildingLayerFillColor: UIColor {
+        get {
+            let defaultColor = UIColor.green.withAlphaComponent(0.3)
+            if isKeyPresentInUserDefaults(key: placePickerBuildingLayerFillColorKey) {
+                return UserDefaults.standard.colorForKey(key: placePickerBuildingLayerFillColorKey) ?? defaultColor
+            }
+            else {
+                return defaultColor
+            }
+        }
+        set {
+            UserDefaults.standard.setColor(color: newValue, forKey: placePickerBuildingLayerFillColorKey)
+        }
+    }
+    
+    private static let placePickerBuildingLayerFillOpacityKey = "placePickerBuildingLayerFillOpacityKey"
+    static var placePickerBuildingLayerFillOpacity: Double {
+        get {
+            if isKeyPresentInUserDefaults(key: placePickerBuildingLayerFillOpacityKey) {
+                return UserDefaults.standard.double(forKey: placePickerBuildingLayerFillOpacityKey)
+            }
+            else {
+                return 0.3
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: placePickerBuildingLayerFillOpacityKey)
+        }
+    }
+    
+    private static let placePickerBuildingLayerStrokeColorKey = "placePickerBuildingLayerStrokeColorKey"
+    static var placePickerBuildingLayerStrokeColor: UIColor {
+        get {
+            let defaultColor = UIColor.green.withAlphaComponent(0.3)
+            if isKeyPresentInUserDefaults(key: placePickerBuildingLayerStrokeColorKey) {
+                return UserDefaults.standard.colorForKey(key: placePickerBuildingLayerStrokeColorKey) ?? defaultColor
+            }
+            else {
+                return defaultColor
+            }
+        }
+        set {
+            UserDefaults.standard.setColor(color: newValue, forKey: placePickerBuildingLayerStrokeColorKey)
+        }
+    }
+    
+    private static let placePickerBuildingLayerStrokeWidthKey = "placePickerBuildingLayerStrokeWidthKey"
+    static var placePickerBuildingLayerStrokeWidth: Double {
+        get {
+            if isKeyPresentInUserDefaults(key: placePickerBuildingLayerStrokeWidthKey) {
+                return UserDefaults.standard.double(forKey: placePickerBuildingLayerStrokeWidthKey)
+            }
+            else {
+                return 1
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: placePickerBuildingLayerStrokeWidthKey)
+        }
+    }
+    
+    private static let placePickerBuildingLayerStrokeOpacityKey = "placePickerBuildingLayerStrokeOpacityKey"
+    static var placePickerBuildingLayerStrokeOpacity: Double {
+        get {
+            if isKeyPresentInUserDefaults(key: placePickerBuildingLayerStrokeOpacityKey) {
+                return UserDefaults.standard.double(forKey: placePickerBuildingLayerStrokeOpacityKey)
+            }
+            else {
+                return 0.3
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: placePickerBuildingLayerStrokeOpacityKey)
+        }
+    }
 }
 
 extension UserDefaults {

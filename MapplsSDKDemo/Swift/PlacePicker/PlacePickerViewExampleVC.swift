@@ -23,11 +23,36 @@ class PlacePickerViewExampleVC: UIViewController {
 //        return "Place Picker"
 //    }
     
+    func hexStringFromColor(color: UIColor) -> String {
+        let components = color.cgColor.components
+        let r: CGFloat = components?[0] ?? 0.0
+        let g: CGFloat = components?[1] ?? 0.0
+        let b: CGFloat = components?[2] ?? 0.0
+
+        let hexString = String.init(format: "%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
+        print(hexString)
+        return hexString
+     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView = MapplsMapView()
         // Do any additional setup after loading the view.
         placePickerView = PlacePickerView(frame: self.view.bounds, parentViewController: self, mapView: mapView)
+        
+        placePickerView.isBuildingFootprintEnabled = UserDefaultsManager.isBuildingFootprintsOverlayEnabled
+        
+        if UserDefaultsManager.isUseDefaultStyleForBuildingAppearance == false {
+            let buildingAppearance = MapplsBuildingAppearance()
+            buildingAppearance.fillColor = "\(hexStringFromColor(color: UserDefaultsManager.placePickerBuildingLayerFillColor))"
+            buildingAppearance.fillOpacity = "\(UserDefaultsManager.placePickerBuildingLayerFillOpacity)"
+            buildingAppearance.strokeColor = "\(hexStringFromColor(color: UserDefaultsManager.placePickerBuildingLayerStrokeColor))"
+            buildingAppearance.strokeOpacity = "\(UserDefaultsManager.placePickerBuildingLayerStrokeOpacity)"
+            buildingAppearance.strokeWidth = "\(UserDefaultsManager.placePickerBuildingLayerStrokeWidth)"
+            
+            placePickerView.buildingAppearance = buildingAppearance
+        }
+        
         placePickerView.delegate = self
         self.view.addSubview(placePickerView)
         // placeView.autocompleAttributionsSetting

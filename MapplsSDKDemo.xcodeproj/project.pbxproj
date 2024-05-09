@@ -120,6 +120,7 @@
 		D17F0552288FD181005333E8 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0551288FD181005333E8 /* SampleType.swift */; };
 		D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */; };
 		D1B09A942896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
+		D1CD0F5E2BE6437B00A84A04 /* PlacemarkDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */; };
 		D1F199A32A028EFF00836308 /* PredictiveDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */; };
 		D1F199A52A028F6200836308 /* RouteFetchSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */; };
 		D1F199A82A03CBB300836308 /* LocationPickerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */; };
@@ -130,6 +131,19 @@
 		D1FC98812891058F00C35D3A /* MGLPointAnnotation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */; };
 		D1FC988328910ABF00C35D3A /* SampleLauncherSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC988228910ABF00C35D3A /* SampleLauncherSwiftUIView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1E80E882BDF74A3000D232B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		181F70B925A89A5B006024FE /* LocationsChooserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsChooserTableViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +275,7 @@
 		D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTypeSwiftUI.swift; sourceTree = "<group>"; };
 		D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
 		D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacemarkDetailsVC.swift; sourceTree = "<group>"; };
 		D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictiveDirectionsViewController.swift; sourceTree = "<group>"; };
 		D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFetchSettingController.swift; sourceTree = "<group>"; };
 		D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableCell.swift; sourceTree = "<group>"; };
@@ -555,6 +570,7 @@
 				684CCDD22B04CB1900D38CFE /* CustomTapGestureController.swift */,
 				68E69CA02B62510B005E6E21 /* HeatMapViewController.swift */,
 				68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */,
+				D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -716,7 +732,8 @@
 				68A6BF102106E03C00547929 /* Frameworks */,
 				68A6BF112106E03C00547929 /* Resources */,
 				47AB0D70260B0C890055B864 /* ShellScript */,
-				DF5BFE374543B06AE64ABA04 /* [CP] Embed Pods Frameworks */,
+				22B9D1E6B4AFD2D9C83C6F19 /* [CP] Embed Pods Frameworks */,
+				D1E80E882BDF74A3000D232B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -780,6 +797,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22B9D1E6B4AFD2D9C83C6F19 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47AB0D70260B0C890055B864 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -795,7 +829,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 		};
 		DC2450A50F23FE0C88C69C38 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -817,23 +852,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF5BFE374543B06AE64ABA04 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -927,6 +945,7 @@
 				188AE97821C7D66800D2C866 /* CustomAnnotationModels.swift in Sources */,
 				18BDD84E22F4005D00239CDC /* InteriorPolygonExample.swift in Sources */,
 				D1FC988328910ABF00C35D3A /* SampleLauncherSwiftUIView.swift in Sources */,
+				D1CD0F5E2BE6437B00A84A04 /* PlacemarkDetailsVC.swift in Sources */,
 				D17F054C288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift in Sources */,
 				68BF2EB12B6A372400C84F31 /* DeviceTableViewController.swift in Sources */,
 				18404BD52303C435001D8DC0 /* DashedPolylineExample.swift in Sources */,
@@ -1116,7 +1135,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1144,7 +1163,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.20;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

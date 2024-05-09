@@ -20,6 +20,8 @@ class MapplsDemoSettingsVC: UITableViewController {
     var selectedOption = ""
     var didClicked : Bool = false
     
+    var selectedPlacePickerSetting: PlacePickerSettingType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -60,6 +62,10 @@ class MapplsDemoSettingsVC: UITableViewController {
             UserDefaultsManager.isBottomInfoViewHidden = sender.isOn
         } else if currentType == .isBottomPlaceDetailViewHidden {
             UserDefaultsManager.isBottomPlaceDetailViewHidden = sender.isOn
+        } else if currentType == .isBuildingFootprintsOverlayEnabled {
+           UserDefaultsManager.isBuildingFootprintsOverlayEnabled = sender.isOn
+        } else if currentType == .isUseDefaultStyleForBuildingAppearance {
+            UserDefaultsManager.isUseDefaultStyleForBuildingAppearance = sender.isOn
         }
     }
     
@@ -268,6 +274,40 @@ class MapplsDemoSettingsVC: UITableViewController {
             return UserDefaultsManager.isBottomInfoViewHidden
         case .isBottomPlaceDetailViewHidden:
             return UserDefaultsManager.isBottomPlaceDetailViewHidden
+        case .isBuildingFootprintsOverlayEnabled:
+            return UserDefaultsManager.isBuildingFootprintsOverlayEnabled
+        case .isUseDefaultStyleForBuildingAppearance:
+            return UserDefaultsManager.isUseDefaultStyleForBuildingAppearance
+        case .placePickerBuildingLayerFillColor, .placePickerBuildingLayerFillOpacity,
+                .placePickerBuildingLayerStrokeColor, .placePickerBuildingLayerStrokeOpacity,
+                .placePickerBuildingLayerStrokeWidth:
+            return false
+        }
+    }
+    
+    func getColorFromSetting(setting: PlacePickerSettingType) -> UIColor {
+        switch setting {
+        case .placePickerBuildingLayerFillColor:
+            return UserDefaultsManager.placePickerBuildingLayerFillColor
+        case .placePickerBuildingLayerStrokeColor:
+            return UserDefaultsManager.placePickerBuildingLayerStrokeColor
+        default:
+            break
+        }
+        
+        return .white
+    }
+    
+    func getValueForStepperFromSetting(setting: PlacePickerSettingType) -> Double {
+        switch setting {
+        case .placePickerBuildingLayerFillOpacity:
+            return UserDefaultsManager.placePickerBuildingLayerFillOpacity
+        case .placePickerBuildingLayerStrokeOpacity:
+            return UserDefaultsManager.placePickerBuildingLayerStrokeOpacity
+        case .placePickerBuildingLayerStrokeWidth:
+            return UserDefaultsManager.placePickerBuildingLayerStrokeWidth
+        default:
+            return 0.1
         }
     }
     
@@ -309,6 +349,58 @@ class MapplsDemoSettingsVC: UITableViewController {
             return ""
         }
     }
+    
+    @objc func colorButtonPressed(_ sender : UIButton) {
+        let indexPath = IndexPath(row: sender.tag, section: Int(DemoSettingType.placePicker.rawValue))
+        let setting = placePickerSettings[indexPath.row]
+        selectedPlacePickerSetting = setting
+        openColorPickerController()
+    }
+    
+    func createGetStepperForSetting(setting: PlacePickerSettingType) -> UIStepper {
+        let stepper = UIStepper(frame: .zero)
+        stepper.minimumValue = 0
+        stepper.maximumValue = 1
+        stepper.stepValue = 0.1
+        stepper.value = 0.3
+        
+        switch setting {
+        case.placePickerBuildingLayerStrokeWidth:
+            stepper.minimumValue = 0
+            stepper.maximumValue = 10
+            stepper.stepValue = 0.1
+            stepper.value = 0.3
+        default:
+            break
+        }
+        
+        return stepper
+    }
+    
+    @objc func stepperChanged(_ sender: UIStepper) {
+        let indexRow = sender.tag
+        let setting = placePickerSettings[indexRow]
+        switch setting {
+        case .placePickerBuildingLayerFillOpacity:
+            UserDefaultsManager.placePickerBuildingLayerFillOpacity = sender.value
+        case .placePickerBuildingLayerStrokeOpacity:
+            UserDefaultsManager.placePickerBuildingLayerStrokeOpacity = sender.value
+        case .placePickerBuildingLayerStrokeWidth:
+            UserDefaultsManager.placePickerBuildingLayerStrokeWidth = sender.value
+        default:
+            break
+        }
+        
+        let indexPath = IndexPath(row: indexRow, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    @objc func openColorPickerController() {
+        let colorPickerVC = ColorPickerViewController(nibName: nil, bundle: nil)
+        colorPickerVC.delegate = self
+        colorPickerVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(colorPickerVC, animated: true, completion: nil)
+    }
 }
 
 //MARK:- Table View Controller Methods
@@ -348,25 +440,72 @@ extension MapplsDemoSettingsVC {
         let currentSection = demoSettings[indexPath.section]
         
         if currentSection == .placePicker {
+            var returnCell = UITableViewCell()
             let currentType = placePickerSettings[indexPath.row]
-            let cellIdentifier = "switchCell"
-            if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
-                if let accessoryView = cell.accessoryView, accessoryView.isKind(of: UISwitch.self) {
-                    let switchView = accessoryView as! UISwitch
-                    switchView.isOn = getValueForPlacePickerSetting(currentType)
-                    switchView.tag = indexPath.row
+            switch currentType {
+            case .placePickerBuildingLayerFillColor, .placePickerBuildingLayerStrokeColor:
+                let cellIdentifier = "colorPickerCell"
+                if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+                    if let colorButton = cell.accessoryView, colorButton.isKind(of: UIButton.self) {
+                        colorButton.backgroundColor = getColorFromSetting(setting: currentType)
+                        colorButton.tag = indexPath.row
+                    }
+                    returnCell = cell
+                } else {
+                    let newCell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+                    newCell.textLabel?.text = currentType.description
+                    let colorButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+                    colorButton.backgroundColor = getColorFromSetting(setting: currentType)
+                    colorButton.tag = indexPath.row
+                    colorButton.addTarget(self, action: #selector(colorButtonPressed(_:)), for: .touchUpInside)
+                    newCell.accessoryView = colorButton
+                    returnCell = newCell
                 }
-                return cell
-            } else {
-                let newCell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
-                newCell.textLabel?.text = currentType.description
-                let switchView = UISwitch(frame: .zero)
-                switchView.isOn = getValueForPlacePickerSetting(currentType)
-                switchView.tag = indexPath.row // for detect which row switch Changed
-                switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-                newCell.accessoryView = switchView
-                return newCell
+            case .placePickerBuildingLayerFillOpacity, .placePickerBuildingLayerStrokeOpacity, .placePickerBuildingLayerStrokeWidth:
+                let cellIdentifier = "stepperCell"
+                if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+                    if let accessoryView = cell.accessoryView, accessoryView.isKind(of: UIStepper.self) {
+                        let stepper = accessoryView as! UIStepper
+                        stepper.tag = indexPath.row
+                        let stepperValue = getValueForStepperFromSetting(setting: currentType)
+                        stepper.value = stepperValue
+                        cell.detailTextLabel?.text = String(format: "%.1f", stepperValue)
+                    }
+                    returnCell = cell
+                } else {
+                    let newCell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
+                    newCell.textLabel?.text = currentType.description
+                    let stepper = createGetStepperForSetting(setting: currentType)
+                    stepper.tag = indexPath.row
+                    stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
+                    newCell.accessoryView = stepper
+                    let stepperValue = getValueForStepperFromSetting(setting: currentType)
+                    stepper.value = stepperValue
+                    newCell.detailTextLabel?.text = String(format: "%.1f", stepperValue)
+                    returnCell = newCell
+                }
+            default:
+                let cellIdentifier = "switchCell"
+                if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+                    if let accessoryView = cell.accessoryView, accessoryView.isKind(of: UISwitch.self) {
+                        let switchView = accessoryView as! UISwitch
+                        switchView.isOn = getValueForPlacePickerSetting(currentType)
+                        switchView.tag = indexPath.row
+                    }
+                    returnCell = cell
+                } else {
+                    let newCell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+                    newCell.textLabel?.text = currentType.description
+                    let switchView = UISwitch(frame: .zero)
+                    switchView.isOn = getValueForPlacePickerSetting(currentType)
+                    switchView.tag = indexPath.row // for detect which row switch Changed
+                    switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+                    newCell.accessoryView = switchView
+                    returnCell = newCell
+                }
             }
+            
+            return returnCell
         }
         else if currentSection == .autocomplete {
             let cellIdentifier = "autocompleteOptions"
@@ -429,6 +568,33 @@ extension MapplsDemoSettingsVC {
        
     }
 }
+
+extension MapplsDemoSettingsVC: ColorPickerViewControllerDelegate {
+    func didPickedColor(color: UIColor) {
+        if let setting = selectedPlacePickerSetting {
+            switch setting {
+            case .placePickerBuildingLayerFillColor:
+                UserDefaultsManager.placePickerBuildingLayerFillColor = color
+            case .placePickerBuildingLayerStrokeColor:
+                UserDefaultsManager.placePickerBuildingLayerStrokeColor = color
+            default:
+                break
+            }
+            
+            if let indexRow = placePickerSettings.firstIndex(of: setting) {
+                let indexPath = IndexPath(row: indexRow, section: Int(DemoSettingType.placePicker.rawValue))
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
+        selectedPlacePickerSetting = nil
+    }
+    
+    func didCancelColorPicker() {
+        selectedPlacePickerSetting = nil
+    }
+}
+
 public enum DemoSettingType: UInt, CustomStringConvertible, CaseIterable {
     case placePicker
     case autocomplete
@@ -518,6 +684,14 @@ public enum PlacePickerSettingType: UInt, CustomStringConvertible, CaseIterable 
     case isBottomInfoViewHidden
     case isBottomPlaceDetailViewHidden
     
+    case isBuildingFootprintsOverlayEnabled
+    case isUseDefaultStyleForBuildingAppearance
+    case placePickerBuildingLayerFillColor
+    case placePickerBuildingLayerFillOpacity
+    case placePickerBuildingLayerStrokeColor
+    case placePickerBuildingLayerStrokeOpacity
+    case placePickerBuildingLayerStrokeWidth
+    
     public var description: String {
         switch self {
         case .isCustomMarkerView:
@@ -552,6 +726,21 @@ public enum PlacePickerSettingType: UInt, CustomStringConvertible, CaseIterable 
             return "Info View Hidden"
         case .isBottomPlaceDetailViewHidden:
             return "Place Details View Hidden"
+            
+        case .isBuildingFootprintsOverlayEnabled:
+            return "Enable Building Layer"
+        case .isUseDefaultStyleForBuildingAppearance:
+            return "Default Style For Building"
+        case .placePickerBuildingLayerFillColor:
+            return "Building Fill Color"
+        case .placePickerBuildingLayerFillOpacity:
+            return "Building Fill Opacity"
+        case .placePickerBuildingLayerStrokeColor:
+            return "Building Stroke Color"
+        case .placePickerBuildingLayerStrokeOpacity:
+            return "Building Stroke Opacity"
+        case .placePickerBuildingLayerStrokeWidth:
+            return "Building Stroke Width"
         }
     }
 }
