@@ -752,9 +752,9 @@ placePickerView.mapView.setCenter(CLLocationCoordinate2DMake(28.612936, 77.22954
 
 The Place Picker widget has the capability to showcase certain premium features if they are provisioned within your project, like: 
 
-#### Building Boundry
+#### Highlighting a Building
 
-If the selected point on the map falls within the building, then Mappls Place Picker can also highlight the said building on the map. This visualization's color palette is configurable within the Mappls Map SDK.
+If the selected point on the map falls within a building, then Mappls Place Picker can also highlight the said building on the map. This visualization's color palette is configurable within the Mappls Map SDK.
 
 In order to access this feature, please contact API support as well as your Business relationship manager.
 
@@ -762,7 +762,7 @@ Properties related to these feature are:
 
 **isBuildingFootprintEnabled:**
 
-This is a boolean property. By setting its value footprint of building can be enabled or disabled event if it is povisioned for the project.
+This is a boolean property. By setting its value the ability to highlight the footprint of a building can be enabled or disabled if it is povisioned for your project.
 
 ```swift
 placePickerView.isBuildingFootprintEnabled = true
@@ -770,7 +770,7 @@ placePickerView.isBuildingFootprintEnabled = true
 
 **buildingAppearance:**
 
-The appearance of footprint of builiding can be set by setting value of this property. This accepts object of type `MapplsBuildingAppearance`.
+The appearance of the footprint of builiding can be configured by setting value of this property. This accepts object of type `MapplsBuildingAppearance`.
 
 ```swift
 let buildingAppearance = MapplsBuildingAppearance()
