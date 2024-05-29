@@ -26,6 +26,7 @@ enum SampleType: String, CaseIterable {
     case animateMarker
     case draggableMarker
     case clusteringMarkers
+    case clusteringAdvancedMarkers
     case interactiveMarkers
     case polyline
     case multiplePolylines
@@ -109,6 +110,8 @@ enum SampleType: String, CaseIterable {
             return "Draggable Marker"
         case .clusteringMarkers:
             return "Clustering Markers"
+        case .clusteringAdvancedMarkers:
+            return "Clustering Advanced Markers"
         case .interactiveMarkers:
             return "Interactive Markers"
         case .polyline:

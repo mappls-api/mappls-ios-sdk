@@ -106,6 +106,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let vc = ClusterMarkersExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
+            case .clusteringAdvancedMarkers:
+                let vc = ClusterAdvancedMarkersExample_Swift(nibName: nil, bundle: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
+                break
             case .geodesicPolyline:
                 let vc = GeodesicPolylineExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)

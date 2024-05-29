@@ -121,6 +121,7 @@
 		D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */; };
 		D1B09A942896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
 		D1CD0F5E2BE6437B00A84A04 /* PlacemarkDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */; };
+		D1CE04382C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CE04372C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift */; };
 		D1F199A32A028EFF00836308 /* PredictiveDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */; };
 		D1F199A52A028F6200836308 /* RouteFetchSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */; };
 		D1F199A82A03CBB300836308 /* LocationPickerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */; };
@@ -276,6 +277,7 @@
 		D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
 		D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacemarkDetailsVC.swift; sourceTree = "<group>"; };
+		D1CE04372C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterAdvancedMarkersExample.swift; sourceTree = "<group>"; };
 		D1F199A22A028EFF00836308 /* PredictiveDirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictiveDirectionsViewController.swift; sourceTree = "<group>"; };
 		D1F199A42A028F6200836308 /* RouteFetchSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFetchSettingController.swift; sourceTree = "<group>"; };
 		D1F199A72A03CBB300836308 /* LocationPickerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerTableCell.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				47858FE328A25656003059A1 /* MapplsTrafficVectorTilesViewController.swift */,
 				68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */,
 				18404BD82303D44D001D8DC0 /* ClusterMarkersExample.swift */,
+				D1CE04372C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift */,
 				183207B722FAC5A900C738FF /* HighlightPointExample.swift */,
 				188AE97721C7D66800D2C866 /* CustomAnnotationModels.swift */,
 				188AE97921C7D92C00D2C866 /* CustomCalloutView.swift */,
@@ -921,6 +924,7 @@
 				D1F199AA2A04FC1800836308 /* AttributionChooserVC.swift in Sources */,
 				47DF638D2716AB250069AAA8 /* DemoGeoanalyticsViewController.swift in Sources */,
 				68DA0A6C2B107C73009E10C4 /* DottedLineViewController.swift in Sources */,
+				D1CE04382C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift in Sources */,
 				A464439023E2A9D60089E7CE /* PointOnMapVC.swift in Sources */,
 				4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */,
 				A4ACEA4D23D80C6400447644 /* InstructionTableVC.swift in Sources */,
@@ -1126,7 +1130,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1154,7 +1158,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
