@@ -10,7 +10,7 @@ target 'MapplsSDKDemo' do
   pod 'MapplsAPIKit', '2.0.22'
   pod 'MapplsMap/Base', '5.13.11'
   pod 'MapplsFeedbackKit/Base', '1.0.0'
-  pod 'MapplsFeedbackUIKit/Base', '1.0.2'
+  pod 'MapplsFeedbackUIKit/Base', '1.0.3'
   pod 'MapplsUIWidgets/Base', '1.0.6'
   pod 'MapplsDirectionUI/Base', '1.0.8'
   pod 'MapplsNearbyUI/Base', '1.0.1'

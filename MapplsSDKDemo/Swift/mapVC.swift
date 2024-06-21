@@ -19,7 +19,8 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
         if let lat = placemark.longitude, let long = placemark.longitude {
             self.refLocations = "\(lat),\(long)"
         }
-        let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: self.refLocations, speed: self.speed, alt: self.alt, bearing: self.bearing, accuracy: self.accuracy, appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, osVersionoptional: UIDevice.current.systemVersion, deviceName: UIDevice.current.name)
+        
+        let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: self.refLocations, speed: self.speed, alt: self.alt, bearing: self.bearing, accuracy: self.accuracy, appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, osVersionoptional: UIDevice.current.systemVersion, deviceName: UIDevice.current.name, theme: MapplsFeedbackTheme.auto)
         self.present(navVC, animated: true, completion: nil)
     }
     
