@@ -425,7 +425,7 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
             if let annotations = mapView.annotations {
                 mapView.showAnnotations(annotations, animated: true)
             }
-            break        
+            break     
         default:
             break
         }

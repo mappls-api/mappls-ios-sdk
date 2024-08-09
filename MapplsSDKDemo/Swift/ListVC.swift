@@ -260,6 +260,11 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 deviceSearchViewController.title = sampleType.title
                 self.navigationController?.pushViewController(deviceSearchViewController, animated: false)
                 
+            case .routeTrafficPolyline:
+                let deviceSearchViewController = RouteTrafficPolylineSample()
+                deviceSearchViewController.title = sampleType.title
+                self.navigationController?.pushViewController(deviceSearchViewController, animated: false)
+                
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)

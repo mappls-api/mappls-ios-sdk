@@ -69,6 +69,7 @@ enum SampleType: String, CaseIterable {
     case dottedLine
     case heatMap
     case deviceSearch
+    case routeTrafficPolyline
     
     var title: String {
         switch self {
@@ -198,6 +199,8 @@ enum SampleType: String, CaseIterable {
             return "Heat Map"
         case .deviceSearch:
             return "Device Search"
+        case .routeTrafficPolyline:
+            return "Route Traffic Polyline"
         }
     }
 }
