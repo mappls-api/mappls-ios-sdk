@@ -117,6 +117,7 @@
 		D115F99C2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115F99B2A0A3BD1003CBEDC /* PredictiveRouteManeuversVC.swift */; };
 		D115F9A22A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D115F9A12A0A3E81003CBEDC /* PredictiveRouteManeuverCell.swift */; };
 		D13C05DB2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13C05DA2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift */; };
+		D176683D2C99798300BA71DC /* ItemPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176683C2C99798300BA71DC /* ItemPickerViewController.swift */; };
 		D17F05462889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F05452889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
 		D17F054C288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */; };
 		D17F0552288FD181005333E8 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0551288FD181005333E8 /* SampleType.swift */; };
@@ -274,6 +275,7 @@
 		D13C05DA2893A53B0024B8E6 /* AutosuggestWidgetExampleSwiftUIRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExampleSwiftUIRowView.swift; sourceTree = "<group>"; };
 		D15463212A25DC6A00E8AE5D /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16CB8D72A24ABAE00EF345A /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D176683C2C99798300BA71DC /* ItemPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPickerViewController.swift; sourceTree = "<group>"; };
 		D17F05452889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
 		D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExamplesLauncherSwiftUIListView.swift; sourceTree = "<group>"; };
 		D17F0551288FD181005333E8 /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				4726F05B2647C0E3007EDB5E /* GeofenceUISetting */,
 				1861996524DC305A004D5547 /* MapplsDemoSettingsVC.swift */,
 				1861996724DC30C5004D5547 /* UserDefaultsManager.swift */,
+				D176683C2C99798300BA71DC /* ItemPickerViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */,
 				68534685210EDF59000ED395 /* ListVCOC.m in Sources */,
 				189C4BF025A9877500B2ADB2 /* LocationChooserTableViewCell.swift in Sources */,
+				D176683D2C99798300BA71DC /* ItemPickerViewController.swift in Sources */,
 				D1FC987E289103E800C35D3A /* MapplsMapViewSwiftUIView.swift in Sources */,
 				68D777D02AEBB8960048957A /* CategoriesMarkerViewController.swift in Sources */,
 				185B7FC0214B83C7000785FC /* MultipleShapesExample.swift in Sources */,
@@ -1146,7 +1150,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1155,7 +1159,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.21;
+				MARKETING_VERSION = 1.0.26;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1174,7 +1178,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
@@ -1183,7 +1187,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.21;
+				MARKETING_VERSION = 1.0.26;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mappls.MapplsSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

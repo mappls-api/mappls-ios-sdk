@@ -26,6 +26,7 @@ struct MapplsAutocompleteViewControllerSwiftUIWrapper: UIViewControllerRepresent
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         autocompleteViewController.delegate = context.coordinator
         autocompleteViewController.attributionSettings = attributionSetting
         autocompleteViewController.autocompleteFilter = MapplsAutocompleteFilter()

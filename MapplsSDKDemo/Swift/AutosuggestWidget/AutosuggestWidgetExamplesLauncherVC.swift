@@ -107,6 +107,7 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         autocompleteViewController.delegate = self
         autocompleteViewController.attributionSettings = attributionSetting
         autocompleteViewController.autocompleteFilter = getAutocompleteFilter()
@@ -243,6 +244,7 @@ extension AutosuggestWidgetExamplesLauncherVC: UITableViewDataSource, UITableVie
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         acController.attributionSettings = attributionSetting
         present(acController, animated: true)
     }

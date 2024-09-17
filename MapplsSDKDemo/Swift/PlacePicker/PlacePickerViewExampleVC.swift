@@ -60,6 +60,7 @@ class PlacePickerViewExampleVC: UIViewController {
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         placePickerView.autocompleteAttributionSettings = attributionSetting
         if isForCustom {
             let customView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 200))

@@ -19,6 +19,7 @@ class AutosuggestCustomUISearchControllerVC: UIViewController {
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         resultsViewController?.attributionSettings = attributionSetting
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.hidesNavigationBarDuringPresentation = false

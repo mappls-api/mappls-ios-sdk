@@ -137,6 +137,15 @@ class MapplsDemoSettingsVC: UITableViewController {
                 present(alertController, animated: false, completion: nil)
             }
             return selectedOptions
+        case .attributionLogoType:
+            let selectedOptions = 4
+            if didClicked {
+                let vc = ItemPickerViewController(pickerViewType: .logoType)
+                vc.modalPresentationStyle = .overFullScreen
+                vc.delegate = self
+                present(vc, animated: false, completion: nil)
+            }
+            return selectedOptions
         }
     }
     
@@ -342,6 +351,19 @@ class MapplsDemoSettingsVC: UITableViewController {
                 return "Top"
             case 1:
                 return "Bottom"
+            default:
+                return ""
+            }
+        } else if intValue == 4 {
+            switch UserDefaultsManager.attributionLogoType {
+            case 0:
+                return "Auto"
+            case 1:
+                return "Mappls|MapmyIndia"
+            case 2:
+                return "Mappls"
+            case 3:
+                return "MapmyIndia"
             default:
                 return ""
             }
@@ -595,6 +617,19 @@ extension MapplsDemoSettingsVC: ColorPickerViewControllerDelegate {
     }
 }
 
+extension MapplsDemoSettingsVC: ItemPickerViewControllerDelegate {
+    func itemSelected(sender: ItemPickerViewController, item: Int) {
+        let pickerType = sender.pickerViewType
+        switch pickerType {
+        case .logoType:
+            UserDefaultsManager.attributionLogoType = item
+            self.tableView.reloadData()
+        default:
+            break
+        }
+    }
+}
+
 public enum DemoSettingType: UInt, CustomStringConvertible, CaseIterable {
     case placePicker
     case autocomplete
@@ -621,6 +656,8 @@ public enum AutocompleteSettingType: UInt, CustomStringConvertible, CaseIterable
     case attributionSize
     case horizontalAlignment
     case attributionVerticalPlacement
+    case attributionLogoType
+    
     public var description: String{
         switch self {
         case .horizontalAlignment:
@@ -629,6 +666,8 @@ public enum AutocompleteSettingType: UInt, CustomStringConvertible, CaseIterable
             return "Attribution Size"
         case .attributionVerticalPlacement:
             return "Attribution Vertical Placement"
+        case .attributionLogoType:
+            return "Attribution Logo Type"
         }
     }
 }

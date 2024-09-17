@@ -35,6 +35,7 @@ class AutosuggestWidgetTextFieldSearchVC: UIViewController {
         attributionSetting.attributionSize = MapplsContentSize(rawValue: UserDefaultsManager.attributionSize) ?? .medium
         attributionSetting.attributionHorizontalContentAlignment = MapplsHorizontalContentAlignment(rawValue: Int(UserDefaultsManager.attributionHorizontalAlignment)) ?? .center
         attributionSetting.attributionVerticalPlacement = MapplsVerticalPlacement(rawValue: UserDefaultsManager.attributionVerticalPlacement) ?? .before
+        attributionSetting.attributionLogoType = MapplsAttributionLogoType(rawValue: UserDefaultsManager.attributionLogoType) ?? .auto
         tableDataSource.attributionSettings = attributionSetting
         tableDataSource.delegate = self
         tableDataSource.autocompleteFilter = getAutocompleteFilter()

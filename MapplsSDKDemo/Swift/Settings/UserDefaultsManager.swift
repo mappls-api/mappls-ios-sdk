@@ -318,6 +318,21 @@ class UserDefaultsManager {
         }
     }
     
+    private static let attributionLogoTypeKey = "attributionLogoTypeKey"
+    static var attributionLogoType: Int {
+        get {
+            if isKeyPresentInUserDefaults(key: attributionLogoTypeKey) {
+                return UserDefaults.standard.integer(forKey: attributionLogoTypeKey)
+            }
+            else {
+                return Int(MapplsAttributionLogoType.auto.rawValue)
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: attributionLogoTypeKey)
+        }
+    }
+    
     private static let profileIdentifierKey = "profileIdentifierKey"
     static var profileIdentifier: String {
         get {
