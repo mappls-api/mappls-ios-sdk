@@ -13,29 +13,7 @@ import MapplsAPIKit
 import MapplsFeedbackUIKit
 import MapplsUIWidgets
 
-class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLocationManagerDelegate , PlacePickerViewDelegate {
-    func didPickedLocation(placemark: MapplsGeocodedPlacemark) {
-        self.refLocations = "MMI000"
-        if let lat = placemark.longitude, let long = placemark.longitude {
-            self.refLocations = "\(lat),\(long)"
-        }
-        
-        let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: self.refLocations, speed: self.speed, alt: self.alt, bearing: self.bearing, accuracy: self.accuracy, appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, osVersionoptional: UIDevice.current.systemVersion, deviceName: UIDevice.current.name, theme: MapplsFeedbackTheme.auto)
-        self.present(navVC, animated: true, completion: nil)
-    }
-    
-    func didReverseGeocode(placemark: MapplsGeocodedPlacemark) {
-
-    }
-    
-    func didFailedReverseGeocode(error: NSError?) {
-        
-    }
-    
-    func didCancelPlacePicker() {
-        
-    }
-    
+class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLocationManagerDelegate {
     func suggestionSelected(suggestion: MapplsAtlasSuggestion, placeName: String) {
          if let lat = suggestion.latitude, let lng = suggestion.longitude {
                    let coordinates = CLLocationCoordinate2DMake(CLLocationDegrees(truncating: lat),CLLocationDegrees(truncating: lng))
@@ -363,20 +341,6 @@ class mapVC: UIViewController, MapplsMapViewDelegate,AutoSuggestDelegates, CLLoc
         case .routeAdvanceETA:
             callRouteUsingDirectionsFramework(isETA: true)
             isCustomCalloutForPolyline = true
-            break
-        case .feedback:
-            mapView = MapplsMapView()
-            let placePickerView = PlacePickerView(frame: self.view.bounds, parentViewController: self, mapView: mapView)
-            placePickerView.delegate = self
-            self.view.addSubview(placePickerView)
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-            locationManager.startMonitoringSignificantLocationChanges()
-            locationManager.distanceFilter = 10
-            mapView.showsUserLocation = true
-            feedbackButton.isHidden = false
             break
         case .animateMarker:
             isForCustomAnnotationView = true

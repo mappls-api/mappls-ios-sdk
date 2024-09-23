@@ -122,6 +122,7 @@
 		D17F054C288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */; };
 		D17F0552288FD181005333E8 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0551288FD181005333E8 /* SampleType.swift */; };
 		D17F0558288FD1ED005333E8 /* SampleTypeSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */; };
+		D1A67F382CA18D43009C8E52 /* FeedbackManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A67F372CA18D43009C8E52 /* FeedbackManagerViewController.swift */; };
 		D1B09A942896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */; };
 		D1CD0F5E2BE6437B00A84A04 /* PlacemarkDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */; };
 		D1CE04382C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CE04372C0091BB00717CB9 /* ClusterAdvancedMarkersExample.swift */; };
@@ -280,6 +281,7 @@
 		D17F054B288EBE65005333E8 /* AutosuggestWidgetExamplesLauncherSwiftUIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutosuggestWidgetExamplesLauncherSwiftUIListView.swift; sourceTree = "<group>"; };
 		D17F0551288FD181005333E8 /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		D17F0557288FD1ED005333E8 /* SampleTypeSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTypeSwiftUI.swift; sourceTree = "<group>"; };
+		D1A67F372CA18D43009C8E52 /* FeedbackManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackManagerViewController.swift; sourceTree = "<group>"; };
 		D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift; sourceTree = "<group>"; };
 		D1B2F27B2A2DB23B00FEAD39 /* MapplsAPICore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapplsAPICore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacemarkDetailsVC.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 		68417CC3210B2DCE00424A00 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				D1A67F362CA18B9B009C8E52 /* Feedback */,
 				B127A27C2C660E980046B2DC /* RouteTrafficPolyline */,
 				68BF2EAD2B6A306200C84F31 /* DeviceSearch */,
 				4692D7302AA8820400B907AB /* Moving Marker */,
@@ -691,6 +694,14 @@
 				D1B09A932896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift */,
 			);
 			path = AutosuggestWidget;
+			sourceTree = "<group>";
+		};
+		D1A67F362CA18B9B009C8E52 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				D1A67F372CA18D43009C8E52 /* FeedbackManagerViewController.swift */,
+			);
+			path = Feedback;
 			sourceTree = "<group>";
 		};
 		D1F1999D2A028ED900836308 /* PredictiveDirections */ = {
@@ -961,6 +972,7 @@
 				47513EAF29FA402E00BA6C83 /* SetSymbolSortKeySample.swift in Sources */,
 				186D0211248E266F006F1C84 /* DemoInteractiveLayersTableViewController.m in Sources */,
 				47DF639A2716B18E0069AAA8 /* DemoMapStyleTableViewCell.swift in Sources */,
+				D1A67F382CA18D43009C8E52 /* FeedbackManagerViewController.swift in Sources */,
 				18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */,
 				D1B09A942896FC59008881E0 /* StyledMapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */,
 				188AE97821C7D66800D2C866 /* CustomAnnotationModels.swift in Sources */,
