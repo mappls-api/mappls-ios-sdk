@@ -1,13 +1,5 @@
 # Changes to the MapplsUIWidgets SDK for iOS
 
-## 1.0.8 - 09 Oct, 2024
-
-### Added
-- Support is added for Landscape mode.
-
-### Fixed
-- Bugs fixed.
-
 ## 1.0.7 - 17 Sep, 2024
 
 ### Added
