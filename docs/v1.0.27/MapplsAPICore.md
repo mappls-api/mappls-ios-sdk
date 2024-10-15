@@ -18,13 +18,14 @@ Mappls's Keys can be get from [here](http://about.mappls.com/api/signup) which i
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsAPICore', '1.0.11'
+pod 'MapplsAPICore', '1.0.12'
 ```
 
 ## [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.12 `| 10 Oct 2024 | - Support added for Smart Trip Planning API.|
 | `1.0.11 `| 08 May 2024 | - Apple Privacy Manifest file added., - Some support issue resolved for MapplsUIWidget SDK.|
 | `1.0.10 `| 27 Oct 2023 | - Security Improvements.|
 | `1.0.9 `| 22 Sep 2023 | - Bug fixes & Improvements.|

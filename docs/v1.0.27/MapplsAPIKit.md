@@ -15,7 +15,7 @@ Our APIs, SDKs, and live updating map data available for [200+ countries & terri
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsAPIKit', '2.0.24'
+pod 'MapplsAPIKit', '2.0.25'
 ```
 
 Run pod repo update && pod install and open the resulting Xcode workspace.
@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.25`| 10 Oct 2024 | - Added wrapper for Smart Trip Planning API. |
 | `2.0.24`| 23 Jul 2024 | - Issue fixed for support of MapplsAnnodationExtension library. |
 | `2.0.23 `| 03 Jul 2024 | - Added new maneuver Ids. - Added function to get congestion delay in `MapplsDirectionsUtility` class.|
 | `2.0.22 `| 08 May 2024 | - Apple Privacy Manifest file added. - New paramters introuduced in response of Goecode and ReverseGeocode.|

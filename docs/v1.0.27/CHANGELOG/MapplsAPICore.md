@@ -1,5 +1,10 @@
 # Changes to the MapplsAPICore SDK for iOS
 
+## 1.0.12 - 10 Oct, 2024
+
+### Added
+- Support added for Smart Trip Planning API.
+
 ## 1.0.11 - 08 May, 2024
 
 ### Added

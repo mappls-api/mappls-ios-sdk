@@ -21,7 +21,7 @@ Below are list of dependencies which are required to run this SDK:
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsUIWidgets', '1.0.7'
+pod 'MapplsUIWidgets', '1.0.8'
 ```
 On running `pod install` command it will automatically download and setup `MapplsUIWidgets` and dependent frameworks.
 
@@ -29,7 +29,8 @@ On running `pod install` command it will automatically download and setup `Mappl
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.7` | 17 Seo, 2024 | In Autosuggest Widget, option to set type of logo is added.|
+| `1.0.8` | 09 Oct, 2024 | - Support is added for Landscape mode.|
+| `1.0.7` | 17 Sep, 2024 | In Autosuggest Widget, option to set type of logo is added.|
 | `1.0.6` | 08 May, 2024 | - Logic is optimized to show name and address of place., - Option to show boundry of building for selected place.|
 | `1.0.5` | 28 Nov, 2023 | Add a provision to change highlighted color of cell.|
 | `1.0.4` | 11 June, 2023 | Added a provision to change the theme in initilizer of `MapplsAutocompleteViewController`. its default value is `auto`. its excepted value can `.day`, `.night` and `.auto`|

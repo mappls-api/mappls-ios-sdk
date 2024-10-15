@@ -1,5 +1,10 @@
 # Changes to the MapplsAPIKit SDK for iOS
 
+## 2.0.25 - 10 Oct, 2024
+
+### Added
+- Added wrapper for Smart Trip Planning API.
+
 ## 2.0.24 - 23 Jul, 2024
 
 ### Changed
