@@ -1,5 +1,11 @@
 # Changes to the MapplsAPIKit SDK for iOS
 
+## 2.0.28 - 20 Nov, 2024
+
+### Changed
+- An issue is fixed where a crash was happening on getting the route while the language `Telugu` was selected.
+- Spoken instruction for arrival of destination or via point is set for different languages.
+
 ## 2.0.27 - 13 Nov, 2024
 
 ### Changed
