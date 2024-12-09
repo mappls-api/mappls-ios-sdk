@@ -268,6 +268,11 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let feedbackManagerViewControllerSample = FeedbackManagerViewControllerSample()
                 feedbackManagerViewControllerSample.title = sampleType.title
                 self.navigationController?.pushViewController(feedbackManagerViewControllerSample, animated: false)
+                
+            case .iconScaleFactor:
+                let dynamicIconController = IconScaleFactorController()
+                dynamicIconController.title = sampleType.title
+                self.navigationController?.pushViewController(dynamicIconController, animated: false)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
