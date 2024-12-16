@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,7 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
-		2CBF6C692D07059800FDCE03 /* DynamicIconScaleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF6C682D07059800FDCE03 /* DynamicIconScaleController.swift */; };
+		356BBF832D1053C200D1C518 /* IconScaleFactorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */; };
 		3E5BBE268A8ABCF2FB38EEA0 /* Pods_MapplsSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */; };
 		4692D7322AA8822800B907AB /* MovingMarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */; };
 		4726F0562647C017007EDB5E /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726F0522647C017007EDB5E /* ColorPicker.swift */; };
@@ -202,7 +202,7 @@
 		18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInstructions.swift; sourceTree = "<group>"; };
 		18F576D123FEAA880009A2D9 /* TextInstructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextInstructions.plist; sourceTree = "<group>"; };
 		1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		2CBF6C682D07059800FDCE03 /* DynamicIconScaleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIconScaleController.swift; sourceTree = "<group>"; };
+		356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconScaleFactorController.swift; sourceTree = "<group>"; };
 		4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMarkerViewController.swift; sourceTree = "<group>"; };
 		4726F0522647C017007EDB5E /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		4726F0542647C017007EDB5E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -552,6 +552,7 @@
 				47513EAE29FA402E00BA6C83 /* SetSymbolSortKeySample.swift */,
 				185B7FBF214B83C7000785FC /* MultipleShapesExample.swift */,
 				18BDD84D22F4005D00239CDC /* InteriorPolygonExample.swift */,
+				356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */,
 				18404BD42303C435001D8DC0 /* DashedPolylineExample.swift */,
 				18404BD62303C974001D8DC0 /* GeodesicPolylineExample.swift */,
 				47858FE328A25656003059A1 /* MapplsTrafficVectorTilesViewController.swift */,
@@ -587,7 +588,6 @@
 				68E69CA02B62510B005E6E21 /* HeatMapViewController.swift */,
 				68DA0A6B2B107C73009E10C4 /* DottedLineViewController.swift */,
 				D1CD0F5D2BE6437B00A84A04 /* PlacemarkDetailsVC.swift */,
-				2CBF6C682D07059800FDCE03 /* DynamicIconScaleController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -905,7 +905,6 @@
 				A41DFAC9239906CE00D39EF9 /* AutoSuggestVC.swift in Sources */,
 				68D07A9425B555AC005B86CB /* LocationChooserTableViewDirectionUIPlugin.swift in Sources */,
 				18778C4D24751F33006DE478 /* DraggableMapMarkerVC.swift in Sources */,
-				2CBF6C692D07059800FDCE03 /* DynamicIconScaleController.swift in Sources */,
 				684CCDD32B04CB1900D38CFE /* CustomTapGestureController.swift in Sources */,
 				D1F199AC2A04FD7000836308 /* MapplsAttributeOptions+Extension.swift in Sources */,
 				4726F0592647C017007EDB5E /* ColorPickerViewController.swift in Sources */,
@@ -934,6 +933,7 @@
 				A49EB60F23DEC56A00A08E42 /* CustomCalloutViewForPolyline.swift in Sources */,
 				1859BB872304041F007D70CF /* SphericalUtil.swift in Sources */,
 				476B0D192618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift in Sources */,
+				356BBF832D1053C200D1C518 /* IconScaleFactorController.swift in Sources */,
 				476B0D1D2618341E00FE8EC6 /* CustomNearbyUIViewController.swift in Sources */,
 				68E69CA12B62510B005E6E21 /* HeatMapViewController.swift in Sources */,
 				18B3DD5825AB887200B26BDF /* DirectionsViewController.swift in Sources */,

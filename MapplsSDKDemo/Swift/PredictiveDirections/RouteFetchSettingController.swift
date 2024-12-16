@@ -132,7 +132,7 @@ class RouteFetchSettingController: UITableViewController {
                             .axleLoad,
                             .isHazmat]
         }
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.enableAutoToolbar = true
     }
     
