@@ -59,7 +59,7 @@ class DirectionUIViewController: UIViewController {
         searchTextView.isUserInteractionEnabled = true
         let gestureRecoognizor = UITapGestureRecognizer(target: self, action: #selector(onSearchViewTaped))
         searchTextView.addGestureRecognizer(gestureRecoognizor)
-        
+        MapplsDirectionUIConfiguration.shared.shouldShowManueverView = true
         setUpButtonSheetLayout()
         setUpCurrentLocationLayout()
         setupTestButtonsLayout()
