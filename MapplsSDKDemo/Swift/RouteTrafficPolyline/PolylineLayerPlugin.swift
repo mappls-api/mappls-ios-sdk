@@ -8,16 +8,38 @@ public let MoveCongestionAttribute = "congestion"
 public let MoveCurrentLegAttribute = "isCurrentLeg"
 
 
+extension UIColor {
+    
+    class var defaultRouteLayer: UIColor { get { return #colorLiteral(red: 0, green: 0.6134340167, blue: 0.9874320626, alpha: 1) } }
+    class var defaultAlternateLine: UIColor { get { return #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) } }
+    class var defaultAlternateLineCasing: UIColor { get { return #colorLiteral(red: 0.5019607843, green: 0.4980392157, blue: 0.5019607843, alpha: 1) } }
+    class var defaultManeuverArrowStroke: UIColor { get { return .defaultRouteLayer } }
+    class var defaultManeuverArrow: UIColor { get { return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) } }
+    
+    class var defaultLaneArrowPrimary: UIColor { get { return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) } }
+    class var defaultLaneArrowSecondary: UIColor { get { return #colorLiteral(red: 0.6196078431, green: 0.6196078431, blue: 0.6196078431, alpha: 1) } }
+    
+    class var trafficUnknown: UIColor { get { return defaultRouteLayer } }
+    class var trafficLow: UIColor { get { return defaultRouteLayer } }
+    class var trafficModerate: UIColor { get { return #colorLiteral(red: 0.9529411765, green: 0.6509803922, blue: 0.3098039216, alpha: 1) } }
+    class var trafficHeavy: UIColor { get { return #colorLiteral(red: 0.9137254902, green: 0.2, blue: 0.2509803922, alpha: 1) } }
+    class var trafficSevere: UIColor { get { return #colorLiteral(red: 0.5411764706, green: 0.05882352941, blue: 0.2196078431, alpha: 1) } }
+    class var trafficAlternateLow: UIColor { get { return #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1) } }
+}
+
+
+
+
 open class PolylineLayerPlugin: NSObject {
     public var mapView: MapplsMapView!
     
     // Define colors for different traffic conditions and route alternatives
-    public var routeAlternateColor: UIColor = .lightGray
-    public var trafficUnknownColor: UIColor = .systemBlue
-    public var trafficLowColor: UIColor = .cyan
-    public var trafficModerateColor: UIColor = .yellow
-    public var trafficHeavyColor: UIColor = .orange
-    public var trafficSevereColor: UIColor = .red
+    public var routeAlternateColor: UIColor = .defaultAlternateLine
+    public var trafficUnknownColor: UIColor = .trafficUnknown
+    public var trafficLowColor: UIColor = .trafficLow
+    public var trafficModerateColor: UIColor = .trafficModerate
+    public var trafficHeavyColor: UIColor = .trafficHeavy
+    public var trafficSevereColor: UIColor = .trafficSevere
     
     // Assign marker images
     public var sourceMarkerImage: UIImage? = UIImage(named: "source-location-pin")
@@ -309,13 +331,13 @@ open class PolylineLayerPlugin: NSObject {
     /// Returns an `NSExpression` for the line width based on the zoom level.
     /// - Returns: An `NSExpression` representing the line width.
     private func getLineWidth() -> NSExpression {
-        let multiplier: CGFloat = 1.5 // Example multiplier
+        let multiplier: CGFloat = 3.5 // Example multiplier
         let stops: [NSNumber: NSNumber] = [
             10: NSNumber(value: 2.0 * multiplier),
             12: NSNumber(value: 3.0 * multiplier),
             14: NSNumber(value: 4.0 * multiplier),
             16: NSNumber(value: 6.0 * multiplier),
-            18: NSNumber(value: 8.0 * multiplier)
+            18: NSNumber(value: 7.0 * multiplier)
         ]
         return NSExpression(format: "mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)", stops)
     }

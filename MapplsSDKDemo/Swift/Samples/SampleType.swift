@@ -71,6 +71,7 @@ enum SampleType: String, CaseIterable {
     case deviceSearch
     case routeTrafficPolyline
     case iconScaleFactor
+    case customUserLocation
     
     var title: String {
         switch self {
@@ -204,6 +205,8 @@ enum SampleType: String, CaseIterable {
             return "Route Traffic Polyline"
         case .iconScaleFactor:
             return "Icon Scale Factor"
+        case .customUserLocation:
+            return "Custom User Location"
         }
     }
 }

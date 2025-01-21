@@ -35,6 +35,8 @@ public class RouteTrafficPolylineSample: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedOnMap))
         self.mapView.addGestureRecognizer(tap)
+        
+        self.polylinePluginObj = PolylineLayerPlugin(mapView: self.mapView)
     }
     
     func applyConstraint() {
@@ -46,13 +48,11 @@ public class RouteTrafficPolylineSample: UIViewController {
     
     func displayRoutePolyline() {
         let origin = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 28.6139, longitude: 77.2090), name: "Source")
-        let waypoint1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 23.0225, longitude: 72.5714), name: "Waypoint 1")
-        let waypoint2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 18.5204, longitude: 73.8567), name: "Waypoint 2")
+//        let waypoint1 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 23.0225, longitude: 72.5714), name: "Waypoint 1")
+//        let waypoint2 = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 18.5204, longitude: 73.8567), name: "Waypoint 2")
         let destination = Waypoint(coordinate: CLLocationCoordinate2D(latitude: 19.0760, longitude: 72.8777), name: "Destiantion")
-        origin.allowsArrivingOnOppositeSide = false
-        destination.allowsArrivingOnOppositeSide = false
         
-        let options = RouteOptions(waypoints: [origin, waypoint1, waypoint2,destination])
+        let options = RouteOptions(waypoints: [origin, destination])
         options.routeShapeResolution = .full
         options.includesAlternativeRoutes = true
         options.resourceIdentifier = .routeETA
@@ -64,7 +64,6 @@ public class RouteTrafficPolylineSample: UIViewController {
             
             self.routes = allRoutes
             DispatchQueue.main.async {
-                self.polylinePluginObj = PolylineLayerPlugin(mapView: self.mapView)
                 self.polylinePluginObj?.renderRoutePolyline(routes: allRoutes)
             }
         }
