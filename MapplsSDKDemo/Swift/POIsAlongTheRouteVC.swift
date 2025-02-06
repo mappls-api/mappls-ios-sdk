@@ -104,10 +104,10 @@ class POIsAlongTheRouteVC: UIViewController {
         let poiAlongTheRouteOptions = MapplsPOIAlongTheRouteOptions(path: routePath, category: "FODCOF")
         poiAlongTheRouteOptions.buffer = 1000
         let poiAlongTheRouteManager = MapplsPOIAlongTheRouteManager(clientId: MapplsAccountManager.clientId(), clientSecret: MapplsAccountManager.clientSecret(), grantType: MapplsAccountManager.grantType())
-        let _ = poiAlongTheRouteManager.getPOIsAlongTheRoute(poiAlongTheRouteOptions) { (suggestions, error) in
+        let _ = poiAlongTheRouteManager.getPOIsAlongTheRoute(poiAlongTheRouteOptions) { (result, error) in
             if let error = error {
                 print("\(error.localizedDescription)")
-            } else if let suggestions = suggestions {
+            } else if let suggestions = result?.suggestions {
                 DispatchQueue.main.async {
                     self.plotPOIMarkers(suggestions: suggestions)
                 }
