@@ -24,7 +24,7 @@ To install the MapplsDirectionUI using CocoaPods:
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsDirectionUI', '1.0.9'
+pod 'MapplsDirectionUI', '1.0.10'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -44,7 +44,8 @@ Below are list of dependcies which are required to run this SDK:
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.9` | 18 Dec 2024 | - Added provision to change the base url of routing and search apis. <Br> - direction list ui enchancement. <br> - Added property `shouldShowManueverView` in `MapplsDirectionUIConfiguration` class its default value is `false`. |
+| `1.0.10` | 06 Feb 2025 | - Added a function to rest Mappls Direction Controller. <Br>- Added `controller` parameter in `didRequestForGoBack` delegate function <br>- Improvemtns. |
+| `1.0.9` | 18 Dec 2024 | - Added provision to change the base url of routing and search apis. <Br> - direction list ui enchancement. <br> - Added property `shouldUseManeuverView` in `MapplsDirectionUIConfiguration` class its default value is `false`. |
 | `1.0.8` | 27 Dec 2023 | - Added dotted polyline for walking profile. <Br> - Bug Fixes |
 | `1.0.7` | 11 Oct 2023 | - Added support for dark, light and auto theme.|
 | `1.0.6` | 24 Aug 2023 | - Bugs & Improvemtns. |
@@ -217,7 +218,8 @@ It is a protocol class which will be used for callback methods as shown below:
 Swift
 ```swift
 /// This meathod will be called when back button is clicked in `TopBannerView`
-1. didRequestForGoBack(for view: MapplsDirectionTopBannerView)
+/// If this method is implemented, Then back functionality will be handled on the app side. 
+1. func didRequestForGoBack(for view: MapplsDirectionTopBannerView, controller: UIViewController)
 
 ```
 

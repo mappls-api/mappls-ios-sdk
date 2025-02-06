@@ -1,4 +1,9 @@
-# Changes to the MapplsDirectionUI SDK for iOS
+## 1.0.10 - 06 Feb, 2025
+
+### Added
+- Added a function to rest Mappls Direction Controller.
+- Added `controller` parameter in `didRequestForGoBack` delegate function.
+- Improvemtns
 
 ## 1.0.9 - 17 Dec, 2024
 
