@@ -35,6 +35,7 @@ To integrate Geofence SDK, it is important to pass an object of **MapplsMapView*
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
 | `1.0.1` | 01 Nov, 2022 | Bug fixes due to dependency of APIKit version 2.0.7 |
 | `1.0.0` | 10 June, 2022 | Initial Mappls Release |
 

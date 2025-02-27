@@ -31,7 +31,7 @@ This widget can be installed using CocoaPods. It is available with the name `Map
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsNearbyUI', '1.0.1'
+pod 'MapplsNearbyUI', '1.0.2'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -40,6 +40,7 @@ Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
 | Version | Dated | Description | 
 | :---- | :---- | :---- |
+| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
 | `1.0.1` | 01 Nov 2022 | Bug fixes due to dependency of APIKit version 2.0.7|
 | `1.0.0` | 01 Jun 2022 | Initial Mappls NearbyUI Release.|
 

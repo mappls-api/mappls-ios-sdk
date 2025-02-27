@@ -17,7 +17,7 @@ To install the Mappls Annotation Extension using CocoaPods:
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsAnnotationExtension', '1.0.1'
+pod 'MapplsAnnotationExtension', '1.0.2'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -36,6 +36,7 @@ Below are list of dependcies which are required to run this SDK:
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
 | `1.0.1` | 23 Jul 2024 | Fixed issue of marker not adding using Mappls Pin. |
 | `1.0.0` | 14 Jun 2022 | Initial Mappls release. |
 
