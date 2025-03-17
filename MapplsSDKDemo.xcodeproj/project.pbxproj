@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -137,6 +137,7 @@
 		D1FC987E289103E800C35D3A /* MapplsMapViewSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC987D289103E800C35D3A /* MapplsMapViewSwiftUIView.swift */; };
 		D1FC98812891058F00C35D3A /* MGLPointAnnotation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */; };
 		D1FC988328910ABF00C35D3A /* SampleLauncherSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FC988228910ABF00C35D3A /* SampleLauncherSwiftUIView.swift */; };
+		D1FFC0A72D87E608007DD9F4 /* DynamicClusteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFC0A62D87E608007DD9F4 /* DynamicClusteringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -299,6 +300,7 @@
 		D1FC987D289103E800C35D3A /* MapplsMapViewSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsMapViewSwiftUIView.swift; sourceTree = "<group>"; };
 		D1FC98802891058F00C35D3A /* MGLPointAnnotation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGLPointAnnotation+Extension.swift"; sourceTree = "<group>"; };
 		D1FC988228910ABF00C35D3A /* SampleLauncherSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleLauncherSwiftUIView.swift; sourceTree = "<group>"; };
+		D1FFC0A62D87E608007DD9F4 /* DynamicClusteringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicClusteringViewController.swift; sourceTree = "<group>"; };
 		DE6D733F3E4343C6B6A83F7C /* Pods-MapplsSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapplsSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -563,6 +565,7 @@
 				18BDD84D22F4005D00239CDC /* InteriorPolygonExample.swift */,
 				356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */,
 				18404BD42303C435001D8DC0 /* DashedPolylineExample.swift */,
+				D1FFC0A62D87E608007DD9F4 /* DynamicClusteringViewController.swift */,
 				18404BD62303C974001D8DC0 /* GeodesicPolylineExample.swift */,
 				47858FE328A25656003059A1 /* MapplsTrafficVectorTilesViewController.swift */,
 				68D777CF2AEBB8960048957A /* CategoriesMarkerViewController.swift */,
@@ -908,6 +911,7 @@
 			files = (
 				18EF185E250A03EE0067182A /* POIsAlongTheRouteVC.swift in Sources */,
 				18778C5A24756C47006DE478 /* MultiplePolylinesExample.swift in Sources */,
+				D1FFC0A72D87E608007DD9F4 /* DynamicClusteringViewController.swift in Sources */,
 				181F70BA25A89A5B006024FE /* LocationsChooserTableViewController.swift in Sources */,
 				186D020C248E25F4006F1C84 /* CovidLayersTableVC.swift in Sources */,
 				188AE97A21C7D92C00D2C866 /* CustomCalloutView.swift in Sources */,

@@ -273,6 +273,10 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let dynamicIconController = IconScaleFactorController()
                 dynamicIconController.title = sampleType.title
                 self.navigationController?.pushViewController(dynamicIconController, animated: false)
+            case .dynamicClustering:
+                let dynamicClusteringVC = DynamicClusteringViewController()
+                dynamicClusteringVC.title = sampleType.title
+                self.navigationController?.pushViewController(dynamicClusteringVC, animated: true)
             default:
                 let vctrl = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC") as? mapVC
                 self.navigationController?.pushViewController(vctrl!, animated: true)
