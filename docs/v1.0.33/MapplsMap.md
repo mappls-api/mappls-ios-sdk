@@ -211,6 +211,14 @@ mapView.showsUserLocation = YES;
 mapView.showsUserLocation = true
 ```
 
+To get current location, use property `.userLocation.` its of type `MGLUserLocation` which contains `location` property. 
+
+#### Swift
+
+```swift
+let userLocation: CLLocation = mapView.userLocation?.location
+```
+
 ### Tracking Mode
 
 To move map with user location change use property `userTrackingMode`. Its an enum property of type `.MGLUserTrackingMode.`. You can set any value from following:
