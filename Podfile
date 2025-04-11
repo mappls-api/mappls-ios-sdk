@@ -6,8 +6,8 @@ target 'MapplsSDKDemo' do
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
   pod 'MapplsAPICore', '1.0.16'
-  pod 'MapplsLMS/Base', '1.0.5'
-  pod 'MapplsAPIKit', '2.0.30'
+  pod 'MapplsLMS/Base', '1.0.6'
+  pod 'MapplsAPIKit', '2.0.31'
   pod 'MapplsMap/Base', '5.13.16'
   pod 'MapplsFeedbackKit/Base', '2.0.0'
   pod 'MapplsFeedbackUIKit/Base', '2.0.0'

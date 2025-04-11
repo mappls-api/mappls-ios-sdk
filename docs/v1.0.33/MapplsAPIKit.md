@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.31`| 10 Apr 2025 | - Updated Digipin Logic <br>- Improved error handling for reverse geocoding.|
 | `2.0.30`| 03 Feb 2025 | - Added `MapplsDigipinUtility` for getting DIGIPIN from Coordinates and vice versa<br>- Added Entry Coordinates in Reverse Geocode Response.<br>- Added `filter` in Poi Along the Route Api Request and added page info<br>- Added `hourOfOperation`, `longDescription`, `shortDescription`, `richInfo` and `partnersFlag` in Poi Along the Route Api Response.<br>- Revamped Smart Trip Planning Api. |
 | `2.0.29`| 17 Dec 2024 | -  Introduced the `maneuverId` property in the `VisualInstruction` class. <br> - Added a provision to cancel directions requests. <br> - Optimizations.|
 | `2.0.28`| 20 Nov 2024 | - Spoken instruction for arrival of destination or via point is set for different languages. |
