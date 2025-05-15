@@ -33,7 +33,7 @@ public class RouteTrafficPolylineSample: UIViewController {
         mapView.delegate = self
         view.addSubview(mapView)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedOnMap))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleMapTap(_:)))
         self.mapView.addGestureRecognizer(tap)
         
         self.polylinePluginObj = PolylineLayerPlugin(mapView: self.mapView)
@@ -65,14 +65,99 @@ public class RouteTrafficPolylineSample: UIViewController {
             self.routes = allRoutes
             DispatchQueue.main.async {
                 self.polylinePluginObj?.renderRoutePolyline(routes: allRoutes)
+                if let markerImage = UIImage(named: "marker2"){
+                    let focusedRoute = allRoutes[0]
+                    self.addMarkersAlongRoute(route: focusedRoute, count: 5, image: markerImage, imageName: "marker2")
+                } else {
+                    print("Image not found in assets")
+                }
             }
         }
     }
     
-    @objc func tappedOnMap(_ gesture: UITapGestureRecognizer){
-        let selectedRutes = self.polylinePluginObj?.selectRoute(point: gesture.location(in: self.mapView))
-        print("selectedRutes::", selectedRutes)
+    
+    private func generateMarkersAlongRoute(route: Route, numberOfMarkers: Int) -> [CLLocationCoordinate2D] {
+        guard let coordinates = route.coordinates, coordinates.count > 1 else { return [] }
+        
+        let polyline = Polyline(coordinates)
+        var markerCoordinates: [CLLocationCoordinate2D] = []
+
+        let totalDistance = polyline.distance()
+        let spacing = totalDistance / Double(numberOfMarkers + 1)
+
+        for i in 1...numberOfMarkers {
+            let distance = spacing * Double(i)
+            if let coordinate = polyline.coordinateFromStart(distance: distance) {
+                markerCoordinates.append(coordinate)
+            }
+        }
+        return markerCoordinates
     }
+
+    
+    func addMarkersAlongRoute(route: Route, count: Int, image: UIImage, imageName: String) {
+        guard let style = mapView.style else { return }
+
+        let coordinates = generateMarkersAlongRoute(route: route, numberOfMarkers: count)
+        var pointFeatures: [MGLPointFeature] = []
+
+        for (index, coord) in coordinates.enumerated() {
+            let feature = MGLPointFeature()
+            feature.coordinate = coord
+            feature.title = "route-marker-\(index)"
+            feature.attributes = [
+                "iconName": imageName,
+                "markerType": "route-marker"
+            ]
+
+            pointFeatures.append(feature)
+        }
+
+        let shapeCollection = MGLShapeCollectionFeature(shapes: pointFeatures)
+
+        let sourceId = "custom-route-marker-source"
+        let layerId = "custom-route-marker-layer"
+
+        if let source = style.source(withIdentifier: sourceId) as? MGLShapeSource {
+            source.shape = shapeCollection
+        } else {
+            let source = MGLShapeSource(identifier: sourceId, shape: shapeCollection, options: nil)
+            style.addSource(source)
+
+            let symbolLayer = MGLSymbolStyleLayer(identifier: layerId, source: source)
+            symbolLayer.iconImageName = NSExpression(forKeyPath: "iconName")
+            symbolLayer.iconScale = NSExpression(forConstantValue: 0.2)
+            symbolLayer.iconAllowsOverlap = NSExpression(forConstantValue: true)
+            style.addLayer(symbolLayer)
+        }
+
+        if style.image(forName: imageName) == nil {
+                style.setImage(image, forName: imageName)
+            
+        }
+    }
+    
+    @objc func handleMapTap(_ gesture: UITapGestureRecognizer) {
+        let tapPoint = gesture.location(in: mapView)
+
+        let features = mapView.visibleFeatures(at: tapPoint)
+        if let tappedMarker = features.first(where: {
+            $0.attribute(forKey: "markerType") as? String == "route-marker"
+        }) {
+            showMessage("You tapped on a route marker")
+            return
+        }
+        if let selectedRoutes = self.polylinePluginObj?.selectRoute(point: tapPoint) {
+            print("Selected route index: \(selectedRoutes)")
+        }
+    }
+
+    func showMessage(_ message: String) {
+        let alert = UIAlertController(title: "Marker Tapped", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+
 }
 
 //MARK: - MapView Delegates
