@@ -21,7 +21,7 @@ Below are list of dependencies which are required to run this SDK:
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsUIWidgets', '1.0.11'
+pod 'MapplsUIWidgets', '1.0.12'
 ```
 On running `pod install` command it will automatically download and setup `MapplsUIWidgets` and dependent frameworks.
 
@@ -29,6 +29,7 @@ On running `pod install` command it will automatically download and setup `Mappl
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.12` | 28 Jul, 2025 | - Resolved an issue where the initial center coordinate set on the map was ignored in favor of the current location. <br> - Resolved an issue where switching to dark theme caused the map to re-center to the current location.|
 | `1.0.11` | 15 May, 2025 | - Improved place name and address format is place picker view. |
 | `1.0.10` | 15 Dec, 2024 | - Added option to set base url for search and reversegeocode. |
 | `1.0.9` | 15 Nov, 2024 | - Bitcode disabled to support Xcode 16. - Some improvements. |

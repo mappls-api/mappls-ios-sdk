@@ -1,5 +1,22 @@
 # Changes to the MapplsAPIKit SDK for iOS
 
+## 2.0.32 - 25 Jul, 2025
+
+### Added
+
+- Added a `richInfo` object in poi along the route repsonse .
+
+### Fixed
+
+- Resolved an issue with EntryCoordinates in the reverse geocode API response.
+
+## 2.0.31 - 10 Apr, 2025
+
+### Fixed
+
+- Improved DIGIPIN logic.
+- Fixed error hadling in reverse geocode.
+
 ## 2.0.30 - 02 Feb, 2025
 
 ### Changed

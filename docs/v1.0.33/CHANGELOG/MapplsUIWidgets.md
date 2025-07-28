@@ -1,5 +1,14 @@
 # Changes to the MapplsUIWidgets SDK for iOS
 
+## 1.0.12 - 28 Jul, 2025
+
+### Fixed
+- Resolved an issue where the initial center coordinate set on the map was ignored in favor of the current location
+- Resolved an issue where switching to dark theme caused the map to re-center to the current location
+
+## 1.0.11 - 15 May, 2025
+- Improved place name and address format is place picker view
+
 ## 1.0.10 - 17 Dec, 2024
 
 ### Added
