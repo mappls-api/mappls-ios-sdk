@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/ce00077915/Github-MapmyIndia/mappls-ios-sdk/MapplsSDKDemo.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

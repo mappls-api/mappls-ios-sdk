@@ -1,0 +1,123 @@
+{
+  "originHash" : "22717dd69250a4c4a69b4da67358771b42e0ec6151ce2b5eb3b9c223d8b5f011",
+  "pins" : [
+    {
+      "identity" : "mappls-api-core-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-api-core-ios-distribution.git",
+      "state" : {
+        "revision" : "5742ec7bccdcea8973aeed1b8f0441544979ec79",
+        "version" : "2.0.4"
+      }
+    },
+    {
+      "identity" : "mappls-api-kit-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-api-kit-ios-distribution.git",
+      "state" : {
+        "revision" : "63453a0f4cdad9d71f196bdb9541c16e6e48ac00",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-direction-ui-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-direction-ui-ios-distribution.git",
+      "state" : {
+        "revision" : "f33409d71387bf970b16d128ee3ef9cd9358aea0",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-drivingrange-plugin-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-drivingrange-plugin-ios-distribution.git",
+      "state" : {
+        "revision" : "118e37cf4f95c38bb06d091007cd471d118c002b",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-feedback-kit-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-feedback-kit-ios-distribution.git",
+      "state" : {
+        "revision" : "50cd31423b43d85b7cfa30c3b89e5ff78cdd63d8",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-feedback-uikit-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-feedback-uikit-ios-distribution.git",
+      "state" : {
+        "revision" : "afb65d98de08f5cebd65e57dca32b1444e757893",
+        "version" : "3.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-geoanalytics-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-geoanalytics-ios-distribution.git",
+      "state" : {
+        "revision" : "0aedcf7aa6cdf3a0d6105efeba98715ff04ed572",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-geofence-ui-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-geofence-ui-ios-distribution.git",
+      "state" : {
+        "revision" : "2ae1cf1cbecb882bd9c4c38bb753324cb5d7f0b7",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-lms-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-lms-ios-distribution.git",
+      "state" : {
+        "revision" : "c930bad5fd599dfad250c18d469b52c944acde49",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "mappls-map-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-map-ios-distribution.git",
+      "state" : {
+        "revision" : "4fd13d5c441a568838dfcb960692a22d0d8c96f4",
+        "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-nearby-ui-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-nearby-ui-ios-distribution.git",
+      "state" : {
+        "revision" : "d2e7fbd6047a6f773cd35f40779c5013a4b64332",
+        "version" : "2.0.1"
+      }
+    },
+    {
+      "identity" : "mappls-raster-catalogue-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-raster-catalogue-ios-distribution.git",
+      "state" : {
+        "revision" : "04b50ece67471344d39172d8bbea694f3587f9ff",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-ui-widget-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mappls-api/mappls-ui-widget-ios-distribution.git",
+      "state" : {
+        "revision" : "b0e1ba41694377a1b93909ad18db27880512651e",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
