@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,9 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
+		352BA8682EFABB3C004EF53A /* MapplsTrackingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA8672EFABB33004EF53A /* MapplsTrackingSample.swift */; };
+		352BA86D2EFABCD2004EF53A /* MapRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA86B2EFABCD2004EF53A /* MapRouteViewController.swift */; };
+		352BA86E2EFABCD2004EF53A /* TrackingExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA86C2EFABCD2004EF53A /* TrackingExampleViewController.swift */; };
 		353A3EE52D4D0A980015153C /* CustomUserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353A3EE42D4D0A980015153C /* CustomUserLocationViewController.swift */; };
 		356BBF832D1053C200D1C518 /* IconScaleFactorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */; };
 		3E5BBE268A8ABCF2FB38EEA0 /* Pods_MapplsSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1783C5ECF7702551DBD780 /* Pods_MapplsSDKDemo.framework */; };
@@ -204,6 +207,9 @@
 		18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInstructions.swift; sourceTree = "<group>"; };
 		18F576D123FEAA880009A2D9 /* TextInstructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextInstructions.plist; sourceTree = "<group>"; };
 		1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		352BA8672EFABB33004EF53A /* MapplsTrackingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsTrackingSample.swift; sourceTree = "<group>"; };
+		352BA86B2EFABCD2004EF53A /* MapRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouteViewController.swift; sourceTree = "<group>"; };
+		352BA86C2EFABCD2004EF53A /* TrackingExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingExampleViewController.swift; sourceTree = "<group>"; };
 		353A3EE42D4D0A980015153C /* CustomUserLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUserLocationViewController.swift; sourceTree = "<group>"; };
 		356BBF822D1053C200D1C518 /* IconScaleFactorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconScaleFactorController.swift; sourceTree = "<group>"; };
 		4692D7312AA8822800B907AB /* MovingMarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMarkerViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +392,23 @@
 			path = InstructionFormatterHelpers;
 			sourceTree = "<group>";
 		};
+		352BA86A2EFABC4C004EF53A /* TrackingPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				352BA86B2EFABCD2004EF53A /* MapRouteViewController.swift */,
+				352BA86C2EFABCD2004EF53A /* TrackingExampleViewController.swift */,
+				352BA8672EFABB33004EF53A /* MapplsTrackingSample.swift */,
+			);
+			path = TrackingPlugin;
+			sourceTree = "<group>";
+		};
+		352BA86F2EFB96DC004EF53A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		353A3EE32D4D0A2F0015153C /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +560,8 @@
 		68417CC3210B2DCE00424A00 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				352BA86F2EFB96DC004EF53A /* Location */,
+				352BA86A2EFABC4C004EF53A /* TrackingPlugin */,
 				D1A67F362CA18B9B009C8E52 /* Feedback */,
 				B127A27C2C660E980046B2DC /* RouteTrafficPolyline */,
 				68BF2EAD2B6A306200C84F31 /* DeviceSearch */,
@@ -853,9 +878,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -947,6 +976,7 @@
 				476B0D062615D89100FE8EC6 /* NearbyViewControllerLauncher.swift in Sources */,
 				A49EB60F23DEC56A00A08E42 /* CustomCalloutViewForPolyline.swift in Sources */,
 				1859BB872304041F007D70CF /* SphericalUtil.swift in Sources */,
+				352BA8682EFABB3C004EF53A /* MapplsTrackingSample.swift in Sources */,
 				476B0D192618309F00FE8EC6 /* NearbyFilterConfigurationSetting.swift in Sources */,
 				356BBF832D1053C200D1C518 /* IconScaleFactorController.swift in Sources */,
 				476B0D1D2618341E00FE8EC6 /* CustomNearbyUIViewController.swift in Sources */,
@@ -1031,6 +1061,8 @@
 				185A74F1249B4C7C00081DAE /* CovidSafetyStatusExample.m in Sources */,
 				6853468A210EF14B000ED395 /* mapVC.swift in Sources */,
 				47DF638B2716AB0F0069AAA8 /* GeoanalyticsTableViewCell.swift in Sources */,
+				352BA86D2EFABCD2004EF53A /* MapRouteViewController.swift in Sources */,
+				352BA86E2EFABCD2004EF53A /* TrackingExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

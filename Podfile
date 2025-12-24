@@ -8,7 +8,7 @@ target 'MapplsSDKDemo' do
   pod 'MapplsAPICore','1.0.16'
   pod 'MapplsLMS/Base','1.0.6'
   pod 'MapplsAPIKit','2.0.32'
-  pod 'MapplsMap/Base','5.13.16'
+  pod 'MapplsMap/Base','6.0.0'
   pod 'MapplsFeedbackKit/Base','2.0.0'
   pod 'MapplsFeedbackUIKit/Base','2.0.0'
   pod 'MapplsUIWidgets/Base', '1.0.12'
@@ -18,4 +18,5 @@ target 'MapplsSDKDemo' do
   pod 'MapplsGeoanalytics/Base', '1.0.0'
   pod 'MapplsDrivingRangePlugin/Base', '1.0.2'
   pod 'MapplsRasterCatalogue/Base', '0.1.0'
+  pod "MapplsUtils"
 end

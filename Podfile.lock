@@ -1,0 +1,140 @@
+PODS:
+  - IQKeyboardCore (1.0.8)
+  - IQKeyboardManagerSwift (8.0.1):
+    - IQKeyboardManagerSwift/Appearance (= 8.0.1)
+    - IQKeyboardManagerSwift/Core (= 8.0.1)
+    - IQKeyboardManagerSwift/IQKeyboardReturnManager (= 8.0.1)
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager (= 8.0.1)
+    - IQKeyboardManagerSwift/IQTextView (= 8.0.1)
+    - IQKeyboardManagerSwift/Resign (= 8.0.1)
+  - IQKeyboardManagerSwift/Appearance (8.0.1):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardManagerSwift/Core (8.0.1):
+    - IQKeyboardNotification
+    - IQTextInputViewNotification
+  - IQKeyboardManagerSwift/IQKeyboardReturnManager (8.0.1):
+    - IQKeyboardReturnManager
+  - IQKeyboardManagerSwift/IQKeyboardToolbarManager (8.0.1):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardToolbarManager
+  - IQKeyboardManagerSwift/IQTextView (8.0.1):
+    - IQTextView
+  - IQKeyboardManagerSwift/Resign (8.0.1):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardNotification (1.0.6)
+  - IQKeyboardReturnManager (1.0.6):
+    - IQKeyboardCore
+  - IQKeyboardToolbar (1.1.3):
+    - IQKeyboardToolbar/Core (= 1.1.3)
+  - IQKeyboardToolbar/Core (1.1.3):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Placeholderable
+  - IQKeyboardToolbar/Placeholderable (1.1.3)
+  - IQKeyboardToolbarManager (1.1.4):
+    - IQKeyboardToolbar
+    - IQTextInputViewNotification
+  - IQTextInputViewNotification (1.0.9):
+    - IQKeyboardCore
+  - IQTextView (1.0.5):
+    - IQKeyboardToolbar/Placeholderable
+  - MapplsAPICore (1.0.16)
+  - MapplsAPIKit (2.0.32):
+    - MapplsAPIKit/Complete (= 2.0.32)
+  - MapplsAPIKit/Base (2.0.32)
+  - MapplsAPIKit/Complete (2.0.32):
+    - MapplsAPIKit/Base
+    - MapplsAPIKit/Dependencies
+  - MapplsAPIKit/Dependencies (2.0.32):
+    - MapplsAPICore (~> 1.0.16)
+    - MapplsLMS/Base (~> 1.0.6)
+  - MapplsDirectionUI/Base (1.0.10)
+  - MapplsDrivingRangePlugin/Base (1.0.2)
+  - MapplsFeedbackKit/Base (2.0.0)
+  - MapplsFeedbackUIKit/Base (2.0.0)
+  - MapplsGeoanalytics/Base (1.0.0)
+  - MapplsGeofenceUI/Base (1.0.2)
+  - MapplsLMS/Base (1.0.6)
+  - MapplsMap/Base (6.0.0)
+  - MapplsNearbyUI/Base (1.0.2)
+  - MapplsRasterCatalogue/Base (0.1.0)
+  - MapplsUIWidgets/Base (1.0.12)
+  - MapplsUtils (1.0.0):
+    - MapplsUtils/Complete (= 1.0.0)
+  - MapplsUtils/Base (1.0.0)
+  - MapplsUtils/Complete (1.0.0):
+    - MapplsUtils/Base
+    - MapplsUtils/Dependencies
+  - MapplsUtils/Dependencies (1.0.0):
+    - MapplsAPICore (~> 1.0.16)
+    - MapplsAPIKit/Base (~> 2.0.32)
+    - MapplsMap/Base (~> 6.0.0)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - MapplsAPICore (= 1.0.16)
+  - MapplsAPIKit (= 2.0.32)
+  - MapplsDirectionUI/Base (= 1.0.10)
+  - MapplsDrivingRangePlugin/Base (= 1.0.2)
+  - MapplsFeedbackKit/Base (= 2.0.0)
+  - MapplsFeedbackUIKit/Base (= 2.0.0)
+  - MapplsGeoanalytics/Base (= 1.0.0)
+  - MapplsGeofenceUI/Base (= 1.0.2)
+  - MapplsLMS/Base (= 1.0.6)
+  - MapplsMap/Base (= 6.0.0)
+  - MapplsNearbyUI/Base (= 1.0.2)
+  - MapplsRasterCatalogue/Base (= 0.1.0)
+  - MapplsUIWidgets/Base (= 1.0.12)
+  - MapplsUtils
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardCore
+    - IQKeyboardManagerSwift
+    - IQKeyboardNotification
+    - IQKeyboardReturnManager
+    - IQKeyboardToolbar
+    - IQKeyboardToolbarManager
+    - IQTextInputViewNotification
+    - IQTextView
+    - MapplsAPICore
+    - MapplsAPIKit
+    - MapplsDirectionUI
+    - MapplsDrivingRangePlugin
+    - MapplsFeedbackKit
+    - MapplsFeedbackUIKit
+    - MapplsGeoanalytics
+    - MapplsGeofenceUI
+    - MapplsLMS
+    - MapplsMap
+    - MapplsNearbyUI
+    - MapplsRasterCatalogue
+    - MapplsUIWidgets
+    - MapplsUtils
+
+SPEC CHECKSUMS:
+  IQKeyboardCore: 8652977ec919cf5351aa2977fedd1a6546476fbc
+  IQKeyboardManagerSwift: 835fc9c6e4732398113406d84900ad2e8f141218
+  IQKeyboardNotification: eb4910401f5a0e68f97e71c62f8a0c5b7e9d535c
+  IQKeyboardReturnManager: fcbf51fc68d7536fc1fbcca5231c4e82576b12ac
+  IQKeyboardToolbar: 9fe900f8e7def414be4025af0ca098df764d4fe3
+  IQKeyboardToolbarManager: c8a575e8b5fffe5873d0e75312244498a0759473
+  IQTextInputViewNotification: 3b9fb27a16e7ee8958cc9092cfb07a1a9e1fd559
+  IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
+  MapplsAPICore: 922af98586ffbddb054822b302804f77f662fca5
+  MapplsAPIKit: 71385b8f702727239f72c63ed29958e542957676
+  MapplsDirectionUI: cf443db2c783cd49fba89feef45bbc7a2060d3df
+  MapplsDrivingRangePlugin: a706c25ca1bda12411743ce9d784f059ffe2e71a
+  MapplsFeedbackKit: 3c96bcd142304b115ad9b15d557190ac1de9e2f9
+  MapplsFeedbackUIKit: 76d7677e84f91aaddbf76a52bbfd9d0e474aeecf
+  MapplsGeoanalytics: fa3434679c22d73a4ff47fac50a246c9b61b0192
+  MapplsGeofenceUI: 31e051e796d7c153300b6d1c8d04d8b4860fe472
+  MapplsLMS: e74a9047ae1c5a977f61eaaa42ae89a57c499e57
+  MapplsMap: cfb0091e3bd8328ea70b397fcd6063eedaf557ba
+  MapplsNearbyUI: 0fe0677a102ef1fc433a4e3ae75c72d9b087c7d9
+  MapplsRasterCatalogue: b2b21f15928d851fb550392d7fce16a7444991b0
+  MapplsUIWidgets: f0da5343c242877b018f2ef72e8a4471bc977f01
+  MapplsUtils: 11944ba4df778504e0bc802f99012ca88267e9d0
+
+PODFILE CHECKSUM: f3872821472259d7b40df578656cf8b35d7de629
+
+COCOAPODS: 1.16.2

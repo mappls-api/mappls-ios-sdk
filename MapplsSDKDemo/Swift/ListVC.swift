@@ -142,16 +142,22 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let vc = MultiplePolylinesExample_Swift(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case .covidLayers:
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidLayersExample") as? CovidLayersExample_Swift {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                
+            case .trackingPlugin:
+                
+                let vc = MapplsTrackingSample()
+                self.navigationController?.pushViewController(vc, animated: true)
                 break
-            case .covid19SafetyStatus:
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidSafetyStatusExample") as? CovidSafetyStatusExample_Swift {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                break
+//            case .covidLayers:
+//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidLayersExample") as? CovidLayersExample_Swift {
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//                break
+//            case .covid19SafetyStatus:
+//                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CovidSafetyStatusExample") as? CovidSafetyStatusExample_Swift {
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//                break
             case .placePicker:
                 let vc = PlacePickerViewExampleLauncherVC(nibName: nil, bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)

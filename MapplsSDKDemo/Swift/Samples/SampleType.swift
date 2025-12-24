@@ -30,6 +30,7 @@ enum SampleType: String, CaseIterable {
     case interactiveMarkers
     case polyline
     case multiplePolylines
+    case trackingPlugin
     case polygons
     case circles
     case updateCircle
@@ -54,8 +55,8 @@ enum SampleType: String, CaseIterable {
     case defaultIndoor
     case customIndoor
     case pointOnMap
-    case covidLayers
-    case covid19SafetyStatus
+//    case covidLayers
+//    case covid19SafetyStatus
     case placePicker
     case poiAlongTheRoute
     case autosuggestWidget
@@ -168,10 +169,10 @@ enum SampleType: String, CaseIterable {
             return "Custom Indoor"
         case .pointOnMap:
             return "Point On Map"
-        case .covidLayers:
-            return "Covid Layers"
-        case .covid19SafetyStatus:
-            return "COVID-19 Safety Status"
+//        case .covidLayers:
+//            return "Covid Layers"
+//        case .covid19SafetyStatus:
+//            return "COVID-19 Safety Status"
         case .placePicker:
             return "Place Picker"
         case .poiAlongTheRoute:
@@ -210,6 +211,8 @@ enum SampleType: String, CaseIterable {
             return "Custom User Location"
         case .dynamicClustering:
             return "Advanced Dynamic Clustering"
+        case .trackingPlugin:
+            return "Tracking Plugin"
         }
     }
 }

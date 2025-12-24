@@ -50,8 +50,6 @@ class DirectionUIViewController: UIViewController {
         
         mapView = MapplsDirectionMapView(frame: self.view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.coronaNovalButton.isHidden = true
-        mapView.coronaNovalButtonMargins.y = 200
         mapView.delegate = self
         mapView.showsUserLocation = true
         view.addSubview(mapView)
