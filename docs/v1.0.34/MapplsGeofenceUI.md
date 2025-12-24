@@ -16,7 +16,7 @@ To integrate Geofence SDK, it is important to pass an object of **MapplsMapView*
 1. To start with,  MapplsAPIKit and MapplsMap frameworks are required to be added in your project. These are available on Cocoapods and it can be accessed by using below pod commands.
 
     ```cocoapods
-    pod 'MapplsGeofenceUI', '1.0.1'
+    pod 'MapplsGeofenceUI', '1.0.3'
     ```
 
     **Note:** Mappls's SDK keys will required to initialize MapplsMap SDK. 
@@ -35,7 +35,8 @@ To integrate Geofence SDK, it is important to pass an object of **MapplsMapView*
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
+| `1.0.3` | 19 Dec, 2025 | Added a delegate method to stop polyline dragging and a new optional parameter called delegate in the init method. |
+| `1.0.2` | 25 Feb, 2025 | 'bitcode' disabled to support Xcode 15. |
 | `1.0.1` | 01 Nov, 2022 | Bug fixes due to dependency of APIKit version 2.0.7 |
 | `1.0.0` | 10 June, 2022 | Initial Mappls Release |
 
@@ -57,11 +58,10 @@ var geofenceView: MapplsGeofenceView!
   // If you're on a background thread and want to execute code on the main thread, you need to call async()
  DispatchQueue.main.async {
 let geofenceInstance: MapplsGeofenceView =  {
-geofenceView = MapplsGeofenceView.init(geofenceframe: self.view.bounds)
+geofenceView = MapplsGeofenceView.init(geofenceframe: self.view.bounds, delegate: self)
 geofenceView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
  return geofenceView
 }()
-geofenceInstance.delegate = self
 self.view.addSubview(geofenceInstance)
 }
 }
@@ -341,6 +341,13 @@ To  set zoom of map.
     ```swift
     circleRadiusChanged(radius: Double) 
     ```
+
+    **3. Stop dragging :** To disable dragging of annotations. If return true then dragging will be disabled.
+
+    ```swift
+    shouldEnableDragging(controlPoint: MapplsControlPoint) -> Bool?
+    ```
+
     **3. Circle Radius Changed :** To get if circle did end dragging.
 
     ```swift
