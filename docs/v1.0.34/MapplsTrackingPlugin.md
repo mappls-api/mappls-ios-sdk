@@ -58,10 +58,10 @@ let plugin =  MapplsTrackingPlugin(mapView: mapView, sourceLocation: startCoordi
     It accept fowlloing parameters
 
     - `location` : It is optional parameter of type `CLLocationCoordinate2D`, It is the start location of the device.
-    - `duration` : It is of type Double, it is the duration (sec) to reach between start and endlocation. its default value is 2 second.
+    - `duration` : It is of type Double, it is the duration (ms) to reach between start and endlocation. its default value is 2000 ms.
 
     ```swift
-        plugin.update(with: coordinate, duration: 2)
+        plugin.update(with: coordinate, duration: 2000)
     ```
 
 
