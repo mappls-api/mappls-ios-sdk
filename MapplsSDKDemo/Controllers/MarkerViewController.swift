@@ -258,11 +258,11 @@ extension MarkerViewController: CommonSearchBarDelegate {
     }
     
     func didPressDone(text: String) async {
-        let annotation: MGLPointAnnotation = MGLPointAnnotation()
-        annotation.mapplsPin = text
+        let annotation: MapplsPointAnnotation = MapplsPointAnnotation(mapplsPin: text)
+        
         mapView.removeAnnotations(mapView.annotations ?? [])
-        mapView.addAnnotation(annotation)
-        mapView.showAnnotations([annotation], animated: true)
+        await mapView.addMapplsAnnotation(annotation)
+        await mapView.showMapplsPins([text], animated: true)
     }
 }
 

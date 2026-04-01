@@ -166,7 +166,7 @@ class RestAPITripPlanViewController: UIViewController {
     
     @objc func getEVTripPlanButtonPressed() {
         guard waypoints.count > 1, let route = currentRoute else {return}
-        let options = MapplsSmartTripPlanOptions(geom: route.geometry ?? "", actualDistanceToEmpty: 60, stateOfCharge: 80, searchSoc: 120, snappedWaypoints: waypoints, waypoint: route.routeOptions.waypoints)
+        let options = MapplsSmartTripPlanOptions(routeId: route.routeIdentifier ?? "", actualDistanceToEmpty: 60, stateOfCharge: 80, searchSoc: 120, snappedWaypoints: waypoints, waypoint: route.routeOptions.waypoints)
         let manager = MapplsSmartTripPlanManager()
         activityIndicator.startAnimating()
         manager.getSmartTripResult(options) { response, error in

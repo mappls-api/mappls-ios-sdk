@@ -15,8 +15,6 @@
 		35ACC7ED2DF9B377006B9710 /* MapplsRasterCatalogue in Frameworks */ = {isa = PBXBuildFile; productRef = 35ACC7EC2DF9B377006B9710 /* MapplsRasterCatalogue */; };
 		35ACC7F02DF9B393006B9710 /* MapplsGeoanalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 35ACC7EF2DF9B393006B9710 /* MapplsGeoanalytics */; };
 		35ACC7F32DF9B3B3006B9710 /* MapplsDrivingRangePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 35ACC7F22DF9B3B3006B9710 /* MapplsDrivingRangePlugin */; };
-		35ACC8072DF9B6D4006B9710 /* app1747745852i1191326110.i.conf in Resources */ = {isa = PBXBuildFile; fileRef = 35ACC8052DF9B6D4006B9710 /* app1747745852i1191326110.i.conf */; };
-		35ACC8082DF9B6D4006B9710 /* app1747745852i1191326110.i.olf in Resources */ = {isa = PBXBuildFile; fileRef = 35ACC8062DF9B6D4006B9710 /* app1747745852i1191326110.i.olf */; };
 		47F09EB52D5E0733006FF04A /* CommonSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F09EB42D5E0733006FF04A /* CommonSearchBarView.swift */; };
 		47F09EB72D5E0FD1006FF04A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F09EB62D5E0FD1006FF04A /* UIViewController+Extension.swift */; };
 		50E8BD0971CF06B3E743FE14 /* Pods_MapplsSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F3D9B7E408C25C52C51AA1 /* Pods_MapplsSDKDemo.framework */; };
@@ -152,8 +150,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		35ACC8052DF9B6D4006B9710 /* app1747745852i1191326110.i.conf */ = {isa = PBXFileReference; lastKnownFileType = file; path = app1747745852i1191326110.i.conf; sourceTree = "<group>"; };
-		35ACC8062DF9B6D4006B9710 /* app1747745852i1191326110.i.olf */ = {isa = PBXFileReference; lastKnownFileType = text; path = app1747745852i1191326110.i.olf; sourceTree = "<group>"; };
 		47F09EB42D5E0733006FF04A /* CommonSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSearchBarView.swift; sourceTree = "<group>"; };
 		47F09EB62D5E0FD1006FF04A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		67B92E465D72DC67822E0702 /* Pods-MapplsSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,8 +333,6 @@
 				CC64C46B2D2CFA52001BE9CA /* Controllers */,
 				CC64C46A2D2CFA3F001BE9CA /* Views */,
 				CC64C4572D2CF15D001BE9CA /* SceneDelegate.swift */,
-				35ACC8052DF9B6D4006B9710 /* app1747745852i1191326110.i.conf */,
-				35ACC8062DF9B6D4006B9710 /* app1747745852i1191326110.i.olf */,
 				CC64C4592D2CF15D001BE9CA /* ViewController.swift */,
 				CC64C45B2D2CF15D001BE9CA /* Main.storyboard */,
 				CC64C45E2D2CF15E001BE9CA /* Assets.xcassets */,
@@ -602,8 +596,6 @@
 				CCD1D8F42D50895F002A61E5 /* LICENSE.txt in Resources */,
 				CCA1AE252D42112A00A6C8BB /* Marker.geojson in Resources */,
 				99853DCC2D5F07D900B12F29 /* Roboto-Regular.ttf in Resources */,
-				35ACC8072DF9B6D4006B9710 /* app1747745852i1191326110.i.conf in Resources */,
-				35ACC8082DF9B6D4006B9710 /* app1747745852i1191326110.i.olf in Resources */,
 				CCD1D8F22D50895F002A61E5 /* Roboto-BoldItalic.ttf in Resources */,
 				CC64C4622D2CF15E001BE9CA /* LaunchScreen.storyboard in Resources */,
 				CCA0B30D2D4356FC003743AA /* ShapeCell.xib in Resources */,
@@ -649,9 +641,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -997,7 +993,7 @@
 			repositoryURL = "https://github.com/mappls-api/mappls-map-ios-distribution.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
+				minimumVersion = 6.1.3;
 			};
 		};
 		35ACC7DF2DF9B2D2006B9710 /* XCRemoteSwiftPackageReference "mappls-feedback-uikit-ios-distribution" */ = {
