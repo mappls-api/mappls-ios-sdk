@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`, `MapplsAPIKit`, `MapplsMap`. All depe
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.1`| 01 Apr 2026 | - A delegate method has been added to set request options for auto-suggest. <br> - The `zoom` and `hyperLocal` parameters have been removed. |
 | `2.0.0`| 06 Jun 2025 | - Updated minimum iOS deployment target to 13.0 <br> - Authentication and authorization mechanisms have been revised. |
 | --- | --- | --- |
 | `1.0.11` | 15 May, 2025 | - Improved place name and address format is place picker view. |
