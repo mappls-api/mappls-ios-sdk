@@ -28,6 +28,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.34`| 03 Apr 2026 |- Added a `fromNodeIdx` and `toNodeIdxobject` in `RouteStep` object of routing api response. <br>- Added `suggestedSearchAtlas` object in response of POI Along the route api. <br> - Added `filter`, `refLocation`, `bridge` and `bounds` in request params `MapplsPOIAlongTheRouteOptions` <br> - Added `fallBackSpeed` and `fallBackCoordinate` in reuest of distance matrix api.|
 | `2.0.32`| 25 Jul 2025 | - Added a `richInfo` object in poi along the route repsonse . <br>- Resolved an issue with EntryCoordinates in the reverse geocode API response.|
 | `2.0.31`| 10 Apr 2025 | - Updated Digipin Logic <br>- Improved error handling for reverse geocoding.|
 | `2.0.30`| 03 Feb 2025 | - Added `MapplsDigipinUtility` for getting DIGIPIN from Coordinates and vice versa<br>- Added Entry Coordinates in Reverse Geocode Response.<br>- Added `filter` in Poi Along the Route Api Request and added page info<br>- Added `hourOfOperation`, `longDescription`, `shortDescription`, `richInfo` and `partnersFlag` in Poi Along the Route Api Response.<br>- Revamped Smart Trip Planning Api. |
@@ -96,7 +97,6 @@ Additionally you can also set location and restriction filters in object of `Map
 ### Request Parameters
 
 1.  **location:**  Location is required to get location bias autosuggest results.
-2.  **zoom:**  takes the zoom level of the current scope of the map (min: 4, max: 18).
 3.  **includeTokenizeAddress**: On setting value of this property to true it provides the different address attributes in a structured object in response.
 4.  **pod**: It takes place type which helps in restricting the results to certain chosen type  
     Below mentioned are the codes for the pod -
@@ -1025,6 +1025,10 @@ Additionally you can pass some other parameters to get filtered/specific results
 1. **page:**  It is of type `Int`. Used for pagination. By default, a request returns maximum 10 results and to get the next 10 or so on pass the page value accordingly. Default is 1.
 1. **filter**  It is of type `String`, This feature in POI Along the Route API empowers the user a fine discovery of EV charging stations along with the existing keyword and category code lookups. It uses multiple keys like "model", "plugType", "macVType". It uses key:value pair(s).
 (e.g. plugType:IEC).
+1. **filter** 
+1. **refLocation**
+1. **bridge**
+1. **bounds**
 
 ### Response Parameters:
 
@@ -1059,7 +1063,7 @@ In callback of `getPOIsAlongTheRoute` function it will either return an error ob
 - **orderIndex(Int)** The order where this result should be placed.
 - **shortDesc(String)**
 - **longDesc(String)**
-
+- **suggestedSearchAtlas**
 **Swift**
 
 ```swift

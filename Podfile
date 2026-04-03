@@ -7,11 +7,11 @@ target 'MapplsSDKDemo' do
   pod 'IQKeyboardManagerSwift'
   pod 'MapplsAPICore','1.0.16'
   pod 'MapplsLMS/Base','1.0.6'
-  pod 'MapplsAPIKit','2.0.32'
+  pod 'MapplsAPIKit','2.0.34'
   pod 'MapplsMap/Base','6.0.0'
   pod 'MapplsFeedbackKit/Base','2.0.0'
   pod 'MapplsFeedbackUIKit/Base','2.0.0'
-  pod 'MapplsUIWidgets/Base', '1.0.12'
+  pod 'MapplsUIWidgets/Base', '1.0.13'
   pod 'MapplsDirectionUI/Base','1.0.10'
   pod 'MapplsNearbyUI/Base','1.0.2'
   pod 'MapplsGeofenceUI/Base', '1.0.2'
@@ -19,4 +19,5 @@ target 'MapplsSDKDemo' do
   pod 'MapplsDrivingRangePlugin/Base', '1.0.2'
   pod 'MapplsRasterCatalogue/Base', '0.1.0'
   pod "MapplsUtils"
+  pod "FittedSheets"
 end

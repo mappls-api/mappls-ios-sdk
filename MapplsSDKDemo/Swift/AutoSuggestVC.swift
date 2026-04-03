@@ -116,9 +116,6 @@ class AutoSuggestVC: UIViewController {
                 let autoSearchOptions = MapplsAutoSearchAtlasOptions(query: searchText)
                 if let coordinates = centerCoordinate {
                     autoSearchOptions.location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                    if let zoom = mapZoomLevel {
-                        autoSearchOptions.zoom = NSNumber(value: zoom)
-                    }
                 }
                 MapplsAutoSuggestManager.shared.getAutoSuggestionResults(autoSearchOptions) { result, error in
                     DispatchQueue.main.async {

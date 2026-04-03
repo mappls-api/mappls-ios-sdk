@@ -29,6 +29,7 @@ On running `pod install` command it will automatically download and setup `Mappl
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.13` | 03 Apr, 2026 | - Removed hyerLocal and zoom request parameters - <br> - Introduced venue heighlight feature in MapplsPlacePikcer.|
 | `1.0.12` | 28 Jul, 2025 | - Resolved an issue where the initial center coordinate set on the map was ignored in favor of the current location. <br> - Resolved an issue where switching to dark theme caused the map to re-center to the current location.|
 | `1.0.11` | 15 May, 2025 | - Improved place name and address format is place picker view. |
 | `1.0.10` | 15 Dec, 2024 | - Added option to set base url for search and reversegeocode. |
