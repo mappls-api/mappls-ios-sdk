@@ -18,23 +18,24 @@ The widget offers the following basic functionalities:
 
 ![](https://mmi-api-team.s3.amazonaws.com/moveSDK/ios/resources/MapmyIndiaNearbyUI/MapmyIndiaNearbyUI.gif)
 
-<br> This can be done by following simple steps.
-
-**Step 1:-**
 ## [Installation](#Installation)
 
+### [CocoaPods](#Using-CocoaPods)
 
-This widget can be installed using CocoaPods. It is available with the name `MapplsNearbyUI`.
+1. Add the following line to your `Podfile`:
+   ```ruby
+   pod 'MapplsNearbyUI', '1.0.2'
+   ```
+2. Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
-### [Using CocoaPods](#Using-CocoaPods)
+### [Swift Package Manager](#Swift-Package-Manager)
 
-Create a Podfile with the following specification:
-
-```
-pod 'MapplsNearbyUI', '1.0.2'
-```
-
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
+   ```
+   https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git
+   ```
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
 
 ### [Version History](#Version-History)
 
@@ -44,9 +45,7 @@ Run `pod repo update && pod install` and open the resulting Xcode workspace.
 | `1.0.1` | 01 Nov 2022 | Bug fixes due to dependency of APIKit version 2.0.7|
 | `1.0.0` | 01 Jun 2022 | Initial Mappls NearbyUI Release.|
 
-<br>
-
-#### [Dependencies](#Dependencies)
+### [Dependencies](#Dependencies)
 
 This library depends upon several Mappls's own libraries. All dependent libraries will be automatically installed using CocoaPods.
 
@@ -57,12 +56,11 @@ Below are list of dependencies which are required to run this SDK:
 - [MapplsMap](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsMap.md)
 - [MapplsUIWidgets](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsUIWidgets.md)
 
-#### [Authorization](#Authorization)
+### [Authorization](#Authorization)
 
-##### [MapplsAPICore](#MapplsAPICore)
-It is required to set Mappls keys to use any Mappls SDK. Please refer the documentation [here](https://github.com/mappls-api/mappls-ios-sdk/docs/v1.0.0/MapplsAPICore.md).
+#### [MapplsAPICore](#MapplsAPICore)
+It is required to set Mappls keys to use any Mappls SDK. Please refer the documentation [here](MapplsAPICore.md).
 
-**Step 2:-**
 ## [Launching with default configuration](#Launching-with-default-configuration)
 
 

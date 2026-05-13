@@ -51,32 +51,44 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 ## [Setup your Project](#Setup-your-Project)
 
-#### Create a new project in Xcode.
+Create a new project in Xcode, then install the SDK using one of the methods below.
 
-- Install libraries to your project which can be done in two ways either Manual or using Cocoapods.
+### Manual
 
-  **Manual Procedure:**
-  -   Drag and drop the Mappls's Map SDK xcframework (MapplsMap.xcframework) to your project. It must be added in embedded binaries.
-  -   Drag and drop the `MapplsAPIKit` xcframework to your project. It must be added in embedded binaries. It is a dependent xcframework.
+1. Drag and drop `MapplsMap.xcframework` to your project. It must be added in **Embedded Binaries**.
+2. Drag and drop `MapplsAPIKit.xcframework` to your project. It must be added in **Embedded Binaries**. It is a dependent xcframework.
 
-  **Cocoapods:**
+### CocoaPods
 
-  - Add below lines in pod file of your project:
-    ```Cocoapods
-    pod 'MapplsMap', '5.13.16'
-    ```
-  - Run pod install or pod update (to update existing pods)
+1. Add the following line to your `Podfile`:
+   ```ruby
+   pod 'MapplsMap', '6.0.0'
+   ```
+2. Run `pod install` or `pod update` (to update existing pods).
 
-- For iOS9 or later, make this change to your info.plist (Project target > info.plist > Add row and set keys `NSLocationAlwaysAndWhenInUseUsageDescription`, `NSLocationWhenInUseUsageDescription`, `NSLocationAlwaysUsageDescription`). As follows
-    ```
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Your location is required</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Your location is required</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Your location is required</string>
-    ```
-    Message should be appropriate, according to use of your application.
+### Swift Package Manager
+
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
+   ```
+   https://github.com/MapmyIndia/mappls-map-ios-distribution.git
+   ```
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+
+### Info.plist Configuration
+
+For iOS 9 or later, add location usage keys to your `Info.plist` (Project target > Info.plist > Add row):
+
+```xml
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Your location is required</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>Your location is required</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Your location is required</string>
+```
+
+> The message should be appropriate to the use of your application.
 
 ## [Authorization](#Authorization)
 

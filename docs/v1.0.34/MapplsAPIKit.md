@@ -20,6 +20,19 @@ pod 'MapplsAPIKit', '2.0.32'
 
 Run pod repo update && pod install and open the resulting Xcode workspace.
 
+
+### Swift Package Manager
+
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
+
+```
+https://github.com/MapmyIndia/mappls-api-kit-distribution.git
+```
+
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+
+
 ### [Dependencies](#Dependencies)
 
 This library depends upon `MapplsAPICore`. All dependent libraries will be automatically installed on using CocoaPods.

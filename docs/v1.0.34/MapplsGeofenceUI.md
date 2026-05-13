@@ -11,25 +11,31 @@ Anyone can integrate the Mappls Geofence Plugin by following simple steps.Please
 
 To integrate Geofence SDK, it is important to pass an object of **MapplsMapView** which is part of Mappls's MapplsMap SDK.
 
-## Step 1 :-  [Setup your Project](#Setup-your-Project)
+## [Setup your Project](#Setup-your-Project)
 
-1. To start with,  MapplsAPIKit and MapplsMap frameworks are required to be added in your project. These are available on Cocoapods and it can be accessed by using below pod commands.
+### [Using CocoaPods](#Using-CocoaPods)
 
-    ```cocoapods
-    pod 'MapplsGeofenceUI', '1.0.3'
-    ```
+To install the MapplsGeofenceUI using CocoaPods:
 
-    **Note:** Mappls's SDK keys will required to initialize MapplsMap SDK. 
-    
-    Fore more information on setting Click [here](https://github.com/mappls-api/mappls-ios-sdk/).
-    user can get the keys by login/signup on Mappls's developer [Dashboard](https://about.mappls.com/api/signup).
+Create a Podfile with the following specification:
 
-    **Below are commands to install SDK using Cocoapods:**
+```
+pod 'MapplsGeofenceUI', '1.0.3'
+```
 
-    - `cd Your Project path`
-    - `pod init`
-    - `pod install`
-    - `open your xcworkspace`
+Run `pod repo update && pod install` and open the resulting Xcode workspace.
+
+### Swift Package Manager
+
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
+
+```
+https://github.com/MapmyIndia/mappls-geofence-ui-ios-distribution.git
+```
+
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+
 
 ### [Version History](#Version-History)
 

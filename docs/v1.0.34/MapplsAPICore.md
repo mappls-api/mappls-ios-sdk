@@ -15,11 +15,30 @@ Mappls's Keys can be get from [here](http://about.mappls.com/api/signup) which i
 
 ## [Installation](#Installation)
 
-This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
+### CocoaPods
+
+Add the following line to your `Podfile`:
 
 ```ruby
 pod 'MapplsAPICore', '1.0.16'
 ```
+
+Then run:
+
+```bash
+pod install
+```
+
+### Swift Package Manager
+
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
+
+```
+https://github.com/MapmyIndia/mappls-api-core-distribution.git
+```
+
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
 
 ## [Version History](#Version-History)
 
