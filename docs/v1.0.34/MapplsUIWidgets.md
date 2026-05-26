@@ -20,7 +20,7 @@ The MapplsUIWidgets SDK for iOS allows you can build rich apps by quickly implem
 1. In Xcode, go to **File > Add Package Dependencies...**
 2. Enter the repository URL:
    ```
-   https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git
+   https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution
    ```
 3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
 
