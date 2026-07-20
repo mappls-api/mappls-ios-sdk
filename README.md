@@ -10,10 +10,19 @@ search and routes on map, to your web or mobile applications.
 
 You can get your api key to be used in this document here: [https://apis.mappls.com/console/](https://apis.mappls.com/console/)
 
+> ### ⚠️ [CocoaPods Deprecation Notice](#CocoaPods-Deprecation-Notice)
+> `CocoaPods` support for Mappls iOS SDKs will be **deprecated soon**. We are migrating our distribution to **Swift Package Manager (SPM)**.
+>
+> - All **new SDK releases from this point onwards will be published on SPM only**.
+> - Existing `CocoaPods` releases already published will continue to work, but will **not receive further updates**.
+> - Please plan your migration to SPM at the earliest to continue receiving the latest features, fixes and support.
+> - Refer to the **Swift Package Manager** installation instructions in each SDK's documentation (e.g. [MapplsAPICore.md](./docs/v1.0.35/MapplsAPICore.md#Installation), [MapplsAPIKit.md](./docs/v1.0.35/MapplsAPIKit.md#Installation)) for the repository URLs to add.
+
 ## [Documentation History](#Documentation-History)
 
 | Version | Supported SDK Version |
 | ------- | --------------------- |
+| [1.0.35](./docs/v1.0.35/README.md) | - [MapplsAPICore - 1.0.18](./docs/v1.0.35/MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.36](./docs/v1.0.35/MapplsAPIKit.md) <br/> - [MapplsMap - 6.0.1](./docs/v1.0.35/MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.13](./docs/v1.0.35/MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.2](./docs/v1.0.35/MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.10](./docs/v1.0.35/MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](./docs/v1.0.35/MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 2.0.0](./docs/v1.0.35/MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 2.0.0](./docs/v1.0.35/MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](./docs/v1.0.35/MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.2](./docs/v1.0.35/MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.3](./docs/v1.0.35/MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](./docs/v1.0.35/RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.2](./docs/v1.0.35/MapplsIntouch.md) <br/> - [MapplsUtils - 1.0.0](./docs/v1.0.35/MapplsTrackingPlugin.md)|
 | [1.0.34](./docs/v1.0.34/README.md) | - [MapplsAPICore - 1.0.16](./docs/v1.0.34/MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.34](./docs/v1.0.34/MapplsAPIKit.md) <br/> - [MapplsMap - 6.0.0](./docs/v1.0.34/MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.13](./docs/v1.0.34/MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.2](./docs/v1.0.34/MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.10](./docs/v1.0.34/MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](./docs/v1.0.34/MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 2.0.0](./docs/v1.0.34/MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 2.0.0](./docs/v1.0.34/MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](./docs/v1.0.34/MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.2](./docs/v1.0.34/MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.3](./docs/v1.0.34/MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](./docs/v1.0.34/RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.2](./docs/v1.0.34/MapplsIntouch.md) <br/> - [MapplsUtils - 1.0.0](./docs/v1.0.34/MapplsTrackingPlugin.md)|
 | [1.0.33](./docs/v1.0.33/README.md) | - [MapplsAPICore - 1.0.16](./docs/v1.0.33/MapplsAPICore.md) <br/> - [MapplsAPIKit - 2.0.32](./docs/v1.0.33/MapplsAPIKit.md) <br/> - [MapplsMap - 5.13.16](./docs/v1.0.33/MapplsMap.md#Vector-iOS-Map) <br/> - [MapplsUIWidget - 1.0.12](./docs/v1.0.33/MapplsUIWidgets.md) <br/> - [MapplsNearbyUI - 1.0.2](./docs/v1.0.33/MapplsNearbyUI.md) <br/> - [MapplsDirectionUI - 1.0.10](./docs/v1.0.33/MapplsDirectionUI.md) <br/> - [MapplsGeoanalytics - 1.0.0](./docs/v1.0.33/MapplsGeoanalytics.md) <br/> - [MapplsFeedbackKit - 2.0.0](./docs/v1.0.33/MapplsFeedbackKit.md) <br/> - [MapplsFeedbackUIKit - 2.0.0](./docs/v1.0.33/MapplsFeedbackUIKit.md) <br/> - [MapplsDrivingRangePlugin - 1.0.2](./docs/v1.0.33/MapplsDrivingRangePlugin.md) <br/> - [MapplsAnnotationExtension - 1.0.2](./docs/v1.0.33/MapplsAnnotationExtension.md) <br/> - [MapplsGeofenceUI - 1.0.2](./docs/v1.0.33/MapplsGeofenceUI.md) <br/> - [MapplsRasterCatalogue - 0.1.0](./docs/v1.0.33/RasterCatalouge.md) <br/> - [MapplsIntouch - 1.0.2](./docs/v1.0.33/MapplsIntouch.md)|
 . . . . . .
@@ -23,91 +32,91 @@ For More History Go Here: [Version History](./Version-History.md)
 Reference to the documentation of Previous SDK versions [here](https://github.com/mappls-api/mapmyindia-maps-vectorSDK-iOS)
 
 ## [Table Of Content](#Table-Of-Content)
-- [Mappls API Core](./docs/v1.0.34/MapplsAPICore.md)[](#Mappls-API-Core)
+- [Mappls API Core](./docs/v1.0.35/MapplsAPICore.md)[](#Mappls-API-Core)
 
-- [Mappls API Kit](./docs/v1.0.34/MapplsAPIKit.md)
-    * [Autosuggest API](./docs/v1.0.34/MapplsAPIKit.md#Autosuggest-API)
-    * [Reverse Geocode API](./docs/v1.0.34/MapplsAPIKit.md#Reverse-Geocoding-API)
-    * [Nearby API](./docs/v1.0.34/MapplsAPIKit.md#Nearby-API)
-    * [Place Detail](./docs/v1.0.34/MapplsAPIKit.md#Place-Detail)
-    * [Geocode API](./docs/v1.0.34/MapplsAPIKit.md#Geocoding-API)
-    * [Routing API](./docs/v1.0.34/MapplsAPIKit.md#Routing-API)
-    * [Driving Distance - Time Matrix API](./docs/v1.0.34/MapplsAPIKit.md#Driving-Distance-Time-Matrix-API)
-    * [POI Along The Route](./docs/v1.0.34/MapplsAPIKit.md#POI-Along-The-Route-API)
-    * [Nearby Reports API](./docs/v1.0.34/MapplsAPIKit.md#Nearby-Reports-API)
-    * [Current Weather Condition API](./docs/v1.0.34/MapplsAPIKit.md#Current-Weather-Condition-API)
-    * [Trip Cost Estimation API](./docs/v1.0.34/MapplsAPIKit.md#Trip-Cost-Estimation-API)
-    * [DIGIPIN](./docs/v1.0.34/DIGIPIN.md)
+- [Mappls API Kit](./docs/v1.0.35/MapplsAPIKit.md)
+    * [Autosuggest API](./docs/v1.0.35/MapplsAPIKit.md#Autosuggest-API)
+    * [Reverse Geocode API](./docs/v1.0.35/MapplsAPIKit.md#Reverse-Geocoding-API)
+    * [Nearby API](./docs/v1.0.35/MapplsAPIKit.md#Nearby-API)
+    * [Place Detail](./docs/v1.0.35/MapplsAPIKit.md#Place-Detail)
+    * [Geocode API](./docs/v1.0.35/MapplsAPIKit.md#Geocoding-API)
+    * [Routing API](./docs/v1.0.35/MapplsAPIKit.md#Routing-API)
+    * [Driving Distance - Time Matrix API](./docs/v1.0.35/MapplsAPIKit.md#Driving-Distance-Time-Matrix-API)
+    * [POI Along The Route](./docs/v1.0.35/MapplsAPIKit.md#POI-Along-The-Route-API)
+    * [Nearby Reports API](./docs/v1.0.35/MapplsAPIKit.md#Nearby-Reports-API)
+    * [Current Weather Condition API](./docs/v1.0.35/MapplsAPIKit.md#Current-Weather-Condition-API)
+    * [Trip Cost Estimation API](./docs/v1.0.35/MapplsAPIKit.md#Trip-Cost-Estimation-API)
+    * [DIGIPIN](./docs/v1.0.35/DIGIPIN.md)
 
-- [Set Country Regions](./docs/v1.0.34/Regions.md)
+- [Set Country Regions](./docs/v1.0.35/Regions.md)
     - [Country List](https://github.com/mappls-api/mapmyindia-rest-api/blob/master/docs/countryISO.md)
 
-- [Mappls Map](./docs/v1.0.34/MapplsMap.md#Vector-iOS-Map)
-    * [Getting Started](./docs/v1.0.34/MapplsMap.md#Getting-Started)
-    * [Setup your Project](./docs/v1.0.34/MapplsMap.md#Setup-your-Project)
-    * [Usage](./docs/v1.0.34/MapplsMap.md#Usage)    
-    * [Add a Mappls Map View](./docs/v1.0.34/MapplsMap.md#Add-a-Mappls-Map-View)
-        * [SwiftUI](./docs/v1.0.34/MapplsMap.md#SwiftUI)
-    * [Map Interactions](./docs/v1.0.34/MapplsMap.md#Map-Interactions)
-    * [Map Features](./docs/v1.0.34/MapplsMap.md#Map-Features)
-    * [Map Events](./docs/v1.0.34/MapplsMap.md#Map-Events)
-    * [Map Overlays](./docs/v1.0.34/MapplsMap.md#Map-Overlays)
-    * [Polylines](./docs/v1.0.34/MapplsMap.md#Polylines)
-    * [Polygons](./docs/v1.0.34/MapplsMap.md#Polygons)
-    * [Map Camera](./docs/v1.0.34/MapplsMap.md#Map-Camera)
-    * [Heat Map](./docs/v1.0.34/MapplsHeatMap.md)
-    * [Miscellaneous](./docs/v1.0.34/MapplsMap.md#Miscellaneous)
-    * [Cluster Based Authentication](./docs/v1.0.34/MapplsMap.md#Cluster-Based-Authentication)
+- [Mappls Map](./docs/v1.0.35/MapplsMap.md#Vector-iOS-Map)
+    * [Getting Started](./docs/v1.0.35/MapplsMap.md#Getting-Started)
+    * [Setup your Project](./docs/v1.0.35/MapplsMap.md#Setup-your-Project)
+    * [Usage](./docs/v1.0.35/MapplsMap.md#Usage)    
+    * [Add a Mappls Map View](./docs/v1.0.35/MapplsMap.md#Add-a-Mappls-Map-View)
+        * [SwiftUI](./docs/v1.0.35/MapplsMap.md#SwiftUI)
+    * [Map Interactions](./docs/v1.0.35/MapplsMap.md#Map-Interactions)
+    * [Map Features](./docs/v1.0.35/MapplsMap.md#Map-Features)
+    * [Map Events](./docs/v1.0.35/MapplsMap.md#Map-Events)
+    * [Map Overlays](./docs/v1.0.35/MapplsMap.md#Map-Overlays)
+    * [Polylines](./docs/v1.0.35/MapplsMap.md#Polylines)
+    * [Polygons](./docs/v1.0.35/MapplsMap.md#Polygons)
+    * [Map Camera](./docs/v1.0.35/MapplsMap.md#Map-Camera)
+    * [Heat Map](./docs/v1.0.35/MapplsHeatMap.md)
+    * [Miscellaneous](./docs/v1.0.35/MapplsMap.md#Miscellaneous)
+    * [Cluster Based Authentication](./docs/v1.0.35/MapplsMap.md#Cluster-Based-Authentication)
 
-- [Mappls Pin Strategy - Mappls Map](./docs/v1.0.34/MapplsPinStrategy.md)
+- [Mappls Pin Strategy - Mappls Map](./docs/v1.0.35/MapplsPinStrategy.md)
 
-- [Mappls Map Styles - Mappls Map](./docs/v1.0.34/MapplsMapStyle.md)
+- [Mappls Map Styles - Mappls Map](./docs/v1.0.35/MapplsMapStyle.md)
 
-- [Interactive Layers - Mappls Map](./docs/v1.0.34/InteractiveLayers.md)
+- [Interactive Layers - Mappls Map](./docs/v1.0.35/InteractiveLayers.md)
 
-- [Traffic Vector Tiles Overlay - Mappls Map](./docs/v1.0.34/MapplsTrafficVectorTileOverlay.md)
+- [Traffic Vector Tiles Overlay - Mappls Map](./docs/v1.0.35/MapplsTrafficVectorTileOverlay.md)
 
-- [Mappls UI Widgets](./docs/v1.0.34/MapplsUIWidgets.md)
-    - [Introduction](./docs/v1.0.34/MapplsUIWidgets.md#Introduction)
-    - [Installation](./docs/v1.0.34/MapplsUIWidgets.md#Installation)
-        - [Version History](./docs/v1.0.34/MapplsUIWidgets.md#Version-History)
-    - [Autocomplete](./docs/v1.0.34/MapplsUIWidgets.md#Autocomplete)
-        - [SwiftUI](./docs/v1.0.34/MapplsUIWidgets.md#SwiftUI-Full-Screen-Control)
-    - [Place Picker View](./docs/v1.0.34/MapplsUIWidgets.md#Place-Picker-View)
-    - [Autocomplete Attribution Appearance](./docs/v1.0.34/MapplsUIWidgets.md#Autocomplete-Attribution-Appearance)
+- [Mappls UI Widgets](./docs/v1.0.35/MapplsUIWidgets.md)
+    - [Introduction](./docs/v1.0.35/MapplsUIWidgets.md#Introduction)
+    - [Installation](./docs/v1.0.35/MapplsUIWidgets.md#Installation)
+        - [Version History](./docs/v1.0.35/MapplsUIWidgets.md#Version-History)
+    - [Autocomplete](./docs/v1.0.35/MapplsUIWidgets.md#Autocomplete)
+        - [SwiftUI](./docs/v1.0.35/MapplsUIWidgets.md#SwiftUI-Full-Screen-Control)
+    - [Place Picker View](./docs/v1.0.35/MapplsUIWidgets.md#Place-Picker-View)
+    - [Autocomplete Attribution Appearance](./docs/v1.0.35/MapplsUIWidgets.md#Autocomplete-Attribution-Appearance)
 
-- [Mappls Nearby UI](./docs/v1.0.34/MapplsNearbyUI.md)
-    - [Introduction](./docs/v1.0.34/MapplsNearbyUI.md#Introduction)
-    - [Installation](./docs/v1.0.34/MapplsNearbyUI.md#Installation)
-        - [Version History](./docs/v1.0.34/MapplsNearbyUI.md#Version-History)
-    - [Launching with default configuration](./docs/v1.0.34/MapplsNearbyUI.md#Launching-with-default-configuration)
-    - [MapplsNearbyCategoriesViewControllerDelegate](./docs/v1.0.34/MapplsNearbyUI.md#MapplsNearbyCategoriesViewControllerDelegate)
+- [Mappls Nearby UI](./docs/v1.0.35/MapplsNearbyUI.md)
+    - [Introduction](./docs/v1.0.35/MapplsNearbyUI.md#Introduction)
+    - [Installation](./docs/v1.0.35/MapplsNearbyUI.md#Installation)
+        - [Version History](./docs/v1.0.35/MapplsNearbyUI.md#Version-History)
+    - [Launching with default configuration](./docs/v1.0.35/MapplsNearbyUI.md#Launching-with-default-configuration)
+    - [MapplsNearbyCategoriesViewControllerDelegate](./docs/v1.0.35/MapplsNearbyUI.md#MapplsNearbyCategoriesViewControllerDelegate)
 
-- [Mappls Direction UI Widget](./docs/v1.0.34/MapplsDirectionUI.md)
-    - [Introduction](./docs/v1.0.34/MapplsDirectionUI.md#Introduction)
-    - [Installation](./docs/v1.0.34/MapplsDirectionUI.md#Installation)
-        - [Version History](./docs/v1.0.34/MapplsDirectionUI.md#Version-History)
-    - [Usage](./docs/v1.0.34/MapplsDirectionUI.md#Usage)
-        - [MapplsDirectionsViewController](./docs/v1.0.34/MapplsDirectionUI.md#MapplsDirectionsViewController)
+- [Mappls Direction UI Widget](./docs/v1.0.35/MapplsDirectionUI.md)
+    - [Introduction](./docs/v1.0.35/MapplsDirectionUI.md#Introduction)
+    - [Installation](./docs/v1.0.35/MapplsDirectionUI.md#Installation)
+        - [Version History](./docs/v1.0.35/MapplsDirectionUI.md#Version-History)
+    - [Usage](./docs/v1.0.35/MapplsDirectionUI.md#Usage)
+        - [MapplsDirectionsViewController](./docs/v1.0.35/MapplsDirectionUI.md#MapplsDirectionsViewController)
 
-- [Mappls Geoanalytics](./docs/v1.0.34/MapplsGeoanalytics.md)
+- [Mappls Geoanalytics](./docs/v1.0.35/MapplsGeoanalytics.md)
 
-- [Mappls Feedback Kit](./docs/v1.0.34/MapplsFeedbackKit.md)
+- [Mappls Feedback Kit](./docs/v1.0.35/MapplsFeedbackKit.md)
 
-- [Mappls Feedback UI Kit](./docs/v1.0.34/MapplsFeedbackUIKit.md)
+- [Mappls Feedback UI Kit](./docs/v1.0.35/MapplsFeedbackUIKit.md)
 
-- [Mappls Raster Catalogue Plugin](./docs/v1.0.34/RasterCatalouge.md)
+- [Mappls Raster Catalogue Plugin](./docs/v1.0.35/RasterCatalouge.md)
 
-- [Mappls Driving Range plugin](./docs/v1.0.34/MapplsDrivingRangePlugin.md)
-  - [Introduction](./docs/v1.0.34/MapplsDrivingRangePlugin.md#Introduction)
-  - [Installation](./docs/v1.0.34/MapplsDrivingRangePlugin.md#Installation)
-      - [Version History](./docs/v1.0.34/MapplsDrivingRangePlugin.md#Version-History)
+- [Mappls Driving Range plugin](./docs/v1.0.35/MapplsDrivingRangePlugin.md)
+  - [Introduction](./docs/v1.0.35/MapplsDrivingRangePlugin.md#Introduction)
+  - [Installation](./docs/v1.0.35/MapplsDrivingRangePlugin.md#Installation)
+      - [Version History](./docs/v1.0.35/MapplsDrivingRangePlugin.md#Version-History)
 
-- [Mappls Annotation Extension](./docs/v1.0.34/MapplsAnnotationExtension.md)
+- [Mappls Annotation Extension](./docs/v1.0.35/MapplsAnnotationExtension.md)
 
-- [Mappls Geofence UI Plugin](./docs/v1.0.34/MapplsGeofenceUI.md)
+- [Mappls Geofence UI Plugin](./docs/v1.0.35/MapplsGeofenceUI.md)
 
-- [Mappls Tracking Plugin](./docs/v1.0.34/MapplsTrackingPlugin.md)
+- [Mappls Tracking Plugin](./docs/v1.0.35/MapplsTrackingPlugin.md)
 
 <br><br><br>
 
