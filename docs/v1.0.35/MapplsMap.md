@@ -31,6 +31,7 @@ Mappls's Map SDK for iOS lets you easily add Mappls Map and web services to your
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
+| `6.0.2` | 23 Jul 2026 | - Fixed the issue with mapplsPin. |
 | `6.0.1` | 17 Jul 2026 | - Improvements and Bug Fixes. |
 | `5.13.16` | 03 Feb, 2025 | - Improvements. |
 | `5.13.15` | 23 Oct, 2024 | - Map Logo optimization. - Bitcode disabled to support Xcode 16. |

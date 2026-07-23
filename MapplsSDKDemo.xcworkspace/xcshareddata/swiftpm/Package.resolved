@@ -1,0 +1,87 @@
+{
+  "originHash" : "07a0bd1c1df49060e46e6aa5d530f6bdeca264e6b58eb5b79584902d913b4579",
+  "pins" : [
+    {
+      "identity" : "mappls-api-core-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-api-core-distribution.git",
+      "state" : {
+        "revision" : "939eae99c3ce399cc220825b001220b32eeec9ce",
+        "version" : "1.0.18"
+      }
+    },
+    {
+      "identity" : "mappls-api-kit-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-api-kit-distribution.git",
+      "state" : {
+        "revision" : "78eb8091e6c36e2e926f1be77c2404232e335f7c",
+        "version" : "2.0.37"
+      }
+    },
+    {
+      "identity" : "mappls-direction-ui-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-direction-ui-ios-distribution.git",
+      "state" : {
+        "revision" : "6791c63689b38caf4cee4c45c75cede6b4723d29",
+        "version" : "1.0.10"
+      }
+    },
+    {
+      "identity" : "mappls-feedback-kit-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-feedback-kit-ios-distribution.git",
+      "state" : {
+        "revision" : "c0b8a47cec2b462feea7ecf41cbd2fd4301593e0",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-feedback-ui-kit-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-feedback-ui-kit-ios-distribution.git",
+      "state" : {
+        "revision" : "9788f93caa2795b5af79acbf4711191928cca275",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "mappls-lms-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-lms-distribution.git",
+      "state" : {
+        "revision" : "69a40276f8dd4d3454c0051a13f887b6f95b05a2",
+        "version" : "1.0.6"
+      }
+    },
+    {
+      "identity" : "mappls-map-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-map-ios-distribution.git",
+      "state" : {
+        "revision" : "7dad6ad27c0bcbf5fa4f49affb7f877f485172cb",
+        "version" : "6.0.2"
+      }
+    },
+    {
+      "identity" : "mappls-nearby-ui-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git",
+      "state" : {
+        "revision" : "96554c5a3e65b06e461fd1d2eda07ff76c4a62ca",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "mappls-ui-widget-ios-distribution",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git",
+      "state" : {
+        "revision" : "6e6984a702f3a29839f4953cbe1cd6146df1934e",
+        "version" : "1.0.13"
+      }
+    }
+  ],
+  "version" : 3
+}

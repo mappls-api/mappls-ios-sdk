@@ -8,35 +8,34 @@ This extension leverages the power of runtime styling with an object oriented ap
 
 ## [Installation](#Installation)
 
-This plugin can be installed using CocoaPods. It is available with name `MapplsAnnotationExtension`.
+### Swift Package Manager
 
-### [Using CocoaPods](#Using-CocoaPods)
-
-To install the Mappls Annotation Extension using CocoaPods:
-
-Create a Podfile with the following specification:
+1. In Xcode, go to **File > Add Package Dependencies...**
+2. Enter the repository URL:
 
 ```
-pod 'MapplsAnnotationExtension', '1.0.2'
+https://github.com/MapmyIndia/mappls-annotation-extension-ios-distribution.git
 ```
 
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
+3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+
 
 #### [Dependencies](#Dependencies)
 
-This library depends upon several Mappls's own and third party libraries. All dependent libraries will be automatically installed on using CocoaPods.
+This library depends upon several Mappls's own and third party libraries. All dependent libraries will be installed on using SMP.
 
 Below are list of dependcies which are required to run this SDK:
 
-- [MapplsAPICore](MapplsAPICore.md)
-- [MapplsAPIKit](MapplsAPIKit.md)
-- [MapplsMaps](MapplsMap.md)
+- [MapplsAPICore](https://github.com/MapmyIndia/mappls-api-core-distribution.git)
+- [MapplsAPIKit](https://github.com/MapmyIndia/mappls-api-kit-distribution.git)
+- [MapplsMaps](https://github.com/MapmyIndia/mappls-map-ios-distribution.git)
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
+| `1.0.3` | 23 Jul 2026 | Updated Map SDK. |
+| `1.0.2` | 25 Feb 2025 | 'bitcode' disabled to support Xcode 15 |
 | `1.0.1` | 23 Jul 2024 | Fixed issue of marker not adding using Mappls Pin. |
 | `1.0.0` | 14 Jun 2022 | Initial Mappls release. |
 

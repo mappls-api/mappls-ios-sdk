@@ -48,6 +48,15 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
+		350455BA3011F26300A745DE /* MapplsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 350455B93011F26300A745DE /* MapplsMap */; };
+		350455BD3011F26C00A745DE /* MapplsAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 350455BC3011F26C00A745DE /* MapplsAPIKit */; };
+		350455C03011F27400A745DE /* MapplsAPICore in Frameworks */ = {isa = PBXBuildFile; productRef = 350455BF3011F27400A745DE /* MapplsAPICore */; };
+		350455C33011F28400A745DE /* MapplsUIWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 350455C23011F28400A745DE /* MapplsUIWidgets */; };
+		350455C63011F2AE00A745DE /* MapplsNearbyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 350455C53011F2AE00A745DE /* MapplsNearbyUI */; };
+		350455C93011F2C500A745DE /* MapplsFeedbackUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 350455C83011F2C500A745DE /* MapplsFeedbackUIKit */; };
+		350455CC3011F2D700A745DE /* MapplsFeedbackKit in Frameworks */ = {isa = PBXBuildFile; productRef = 350455CB3011F2D700A745DE /* MapplsFeedbackKit */; };
+		350455CF3011F2EF00A745DE /* MapplsDirectionUI in Frameworks */ = {isa = PBXBuildFile; productRef = 350455CE3011F2EF00A745DE /* MapplsDirectionUI */; };
+		350455D23011F30F00A745DE /* MapplsLMS in Frameworks */ = {isa = PBXBuildFile; productRef = 350455D13011F30F00A745DE /* MapplsLMS */; };
 		352BA8682EFABB3C004EF53A /* MapplsTrackingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA8672EFABB33004EF53A /* MapplsTrackingSample.swift */; };
 		352BA86D2EFABCD2004EF53A /* MapRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA86B2EFABCD2004EF53A /* MapRouteViewController.swift */; };
 		352BA86E2EFABCD2004EF53A /* TrackingExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BA86C2EFABCD2004EF53A /* TrackingExampleViewController.swift */; };
@@ -316,7 +325,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350455BA3011F26300A745DE /* MapplsMap in Frameworks */,
+				350455CF3011F2EF00A745DE /* MapplsDirectionUI in Frameworks */,
+				350455C33011F28400A745DE /* MapplsUIWidgets in Frameworks */,
+				350455C93011F2C500A745DE /* MapplsFeedbackUIKit in Frameworks */,
+				350455CC3011F2D700A745DE /* MapplsFeedbackKit in Frameworks */,
+				350455C63011F2AE00A745DE /* MapplsNearbyUI in Frameworks */,
+				350455D23011F30F00A745DE /* MapplsLMS in Frameworks */,
+				350455C03011F27400A745DE /* MapplsAPICore in Frameworks */,
 				3E5BBE268A8ABCF2FB38EEA0 /* Pods_MapplsSDKDemo.framework in Frameworks */,
+				350455BD3011F26C00A745DE /* MapplsAPIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +860,17 @@
 				Base,
 			);
 			mainGroup = 68A6BF0A2106E03C00547929;
+			packageReferences = (
+				350455B83011F26300A745DE /* XCRemoteSwiftPackageReference "mappls-map-ios-distribution" */,
+				350455BB3011F26C00A745DE /* XCRemoteSwiftPackageReference "mappls-api-kit-distribution" */,
+				350455BE3011F27400A745DE /* XCRemoteSwiftPackageReference "mappls-api-core-distribution" */,
+				350455C13011F28400A745DE /* XCRemoteSwiftPackageReference "mappls-ui-widget-ios-distribution" */,
+				350455C43011F2AE00A745DE /* XCRemoteSwiftPackageReference "mappls-nearby-ui-ios-distribution" */,
+				350455C73011F2C500A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-ui-kit-ios-distribution" */,
+				350455CA3011F2D700A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-kit-ios-distribution" */,
+				350455CD3011F2EF00A745DE /* XCRemoteSwiftPackageReference "mappls-direction-ui-ios-distribution" */,
+				350455D03011F30F00A745DE /* XCRemoteSwiftPackageReference "mappls-lms-distribution" */,
+			);
 			productRefGroup = 68A6BF142106E03C00547929 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1284,6 +1313,129 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		350455B83011F26300A745DE /* XCRemoteSwiftPackageReference "mappls-map-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-map-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.2;
+			};
+		};
+		350455BB3011F26C00A745DE /* XCRemoteSwiftPackageReference "mappls-api-kit-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-api-kit-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.37;
+			};
+		};
+		350455BE3011F27400A745DE /* XCRemoteSwiftPackageReference "mappls-api-core-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-api-core-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.18;
+			};
+		};
+		350455C13011F28400A745DE /* XCRemoteSwiftPackageReference "mappls-ui-widget-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.13;
+			};
+		};
+		350455C43011F2AE00A745DE /* XCRemoteSwiftPackageReference "mappls-nearby-ui-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		350455C73011F2C500A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-ui-kit-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-feedback-ui-kit-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		350455CA3011F2D700A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-kit-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-feedback-kit-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		350455CD3011F2EF00A745DE /* XCRemoteSwiftPackageReference "mappls-direction-ui-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-direction-ui-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.10;
+			};
+		};
+		350455D03011F30F00A745DE /* XCRemoteSwiftPackageReference "mappls-lms-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-lms-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		350455B93011F26300A745DE /* MapplsMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455B83011F26300A745DE /* XCRemoteSwiftPackageReference "mappls-map-ios-distribution" */;
+			productName = MapplsMap;
+		};
+		350455BC3011F26C00A745DE /* MapplsAPIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455BB3011F26C00A745DE /* XCRemoteSwiftPackageReference "mappls-api-kit-distribution" */;
+			productName = MapplsAPIKit;
+		};
+		350455BF3011F27400A745DE /* MapplsAPICore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455BE3011F27400A745DE /* XCRemoteSwiftPackageReference "mappls-api-core-distribution" */;
+			productName = MapplsAPICore;
+		};
+		350455C23011F28400A745DE /* MapplsUIWidgets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455C13011F28400A745DE /* XCRemoteSwiftPackageReference "mappls-ui-widget-ios-distribution" */;
+			productName = MapplsUIWidgets;
+		};
+		350455C53011F2AE00A745DE /* MapplsNearbyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455C43011F2AE00A745DE /* XCRemoteSwiftPackageReference "mappls-nearby-ui-ios-distribution" */;
+			productName = MapplsNearbyUI;
+		};
+		350455C83011F2C500A745DE /* MapplsFeedbackUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455C73011F2C500A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-ui-kit-ios-distribution" */;
+			productName = MapplsFeedbackUIKit;
+		};
+		350455CB3011F2D700A745DE /* MapplsFeedbackKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455CA3011F2D700A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-kit-ios-distribution" */;
+			productName = MapplsFeedbackKit;
+		};
+		350455CE3011F2EF00A745DE /* MapplsDirectionUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455CD3011F2EF00A745DE /* XCRemoteSwiftPackageReference "mappls-direction-ui-ios-distribution" */;
+			productName = MapplsDirectionUI;
+		};
+		350455D13011F30F00A745DE /* MapplsLMS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 350455D03011F30F00A745DE /* XCRemoteSwiftPackageReference "mappls-lms-distribution" */;
+			productName = MapplsLMS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68A6BF0B2106E03C00547929 /* Project object */;
 }
