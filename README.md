@@ -15,7 +15,11 @@ Explore the largest directory of APIs & SDKs for maps, routes and search.
 Our APIs, SDKs, and live updating map data available for [200+ nations and territories](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) give developer-friendly, easy-to-integrate plugins to add capabilities like intelligent
 search and routes on map, to your web or mobile applications.
 
-You can get your api key to be used in this document here: [https://apis.mappls.com/console/](https://apis.mappls.com/console/)
+## [Authentication](#Authentication)
+
+To initialize and authenticate any **` Mappls SDK `**, you must include **` i.conf `**  and **` i.olf `** files in your project bundle:
+
+You can download the required files from the **[Auth Console](http://auth.mappls.com/console/)**
 
 ## [Documentation History](#Documentation-History)
 
