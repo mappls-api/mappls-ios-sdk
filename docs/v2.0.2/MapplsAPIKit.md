@@ -6,7 +6,7 @@
 
 Our APIs, SDKs, and live updating map data available for [200+ countries & territories](https://github.com/MapmyIndia/mapmyindia-rest-api/blob/master/docs/countryISO.md) give developers tools to build better experiences across various platforms.
 
-1. You can get your api key to be used in this document here: [https://apis.mappls.com/console/](https://apis.mappls.com/console/)
+1. You can get your api key to be used in this document here: [https://auth.mappls.com/console/](https://auth.mappls.com/console/)
 
 2. The sample code is provided to help you understand the basic functionality of Mappls REST APIs working on iOS native development platform. 
 
