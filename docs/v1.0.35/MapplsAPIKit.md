@@ -41,6 +41,7 @@ This library depends upon `MapplsAPICore`. All dependent libraries will be autom
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `2.0.37`| 17 jul 2026 | - Improvements and Bug Fixes.|
 | `2.0.36`| 17 jul 2026 | - Improvements and Bug Fixes.|
 | `2.0.34`| 03 Apr 2026 |- Added a `fromNodeIdx` and `toNodeIdxobject` in `RouteStep` object of routing api response. <br>- Added `suggestedSearchAtlas` object in response of POI Along the route api. <br> - Added `filter`, `refLocation`, `bridge` and `bounds` in request params `MapplsPOIAlongTheRouteOptions` <br> - Added `fallBackSpeed` and `fallBackCoordinate` in reuest of distance matrix api.|
 | `2.0.32`| 25 Jul 2025 | - Added a `richInfo` object in poi along the route repsonse . <br>- Resolved an issue with EntryCoordinates in the reverse geocode API response.|
