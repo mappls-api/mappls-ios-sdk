@@ -48,6 +48,10 @@
 		18F45358251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F45357251A81BB0091A898 /* DemoStyledAutocompleteViewController.swift */; };
 		18F576D023FEA83B0009A2D9 /* TextInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */; };
 		18F576D223FEAA880009A2D9 /* TextInstructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F576D123FEAA880009A2D9 /* TextInstructions.plist */; };
+		35033F5D30764F4D00C9F922 /* FittedSheets in Frameworks */ = {isa = PBXBuildFile; productRef = 35033F5C30764F4D00C9F922 /* FittedSheets */; };
+		35033F6030764F7900C9F922 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 35033F5F30764F7900C9F922 /* IQKeyboardManagerSwift */; };
+		35033F6330764FD800C9F922 /* MapplsGeofenceUI in Frameworks */ = {isa = PBXBuildFile; productRef = 35033F6230764FD800C9F922 /* MapplsGeofenceUI */; };
+		35033F65307650EE00C9F922 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35033F64307650EE00C9F922 /* SceneDelegate.swift */; };
 		350455BA3011F26300A745DE /* MapplsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 350455B93011F26300A745DE /* MapplsMap */; };
 		350455BD3011F26C00A745DE /* MapplsAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 350455BC3011F26C00A745DE /* MapplsAPIKit */; };
 		350455C03011F27400A745DE /* MapplsAPICore in Frameworks */ = {isa = PBXBuildFile; productRef = 350455BF3011F27400A745DE /* MapplsAPICore */; };
@@ -216,6 +220,7 @@
 		18F576CF23FEA83B0009A2D9 /* TextInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInstructions.swift; sourceTree = "<group>"; };
 		18F576D123FEAA880009A2D9 /* TextInstructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TextInstructions.plist; sourceTree = "<group>"; };
 		1D1CE60A0F058C1C6F8D4F27 /* Pods-MapplsSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapplsSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-MapplsSDKDemo/Pods-MapplsSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		35033F64307650EE00C9F922 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		352BA8672EFABB33004EF53A /* MapplsTrackingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapplsTrackingSample.swift; sourceTree = "<group>"; };
 		352BA86B2EFABCD2004EF53A /* MapRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouteViewController.swift; sourceTree = "<group>"; };
 		352BA86C2EFABCD2004EF53A /* TrackingExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingExampleViewController.swift; sourceTree = "<group>"; };
@@ -325,10 +330,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35033F6330764FD800C9F922 /* MapplsGeofenceUI in Frameworks */,
 				350455BA3011F26300A745DE /* MapplsMap in Frameworks */,
+				35033F5D30764F4D00C9F922 /* FittedSheets in Frameworks */,
 				350455CF3011F2EF00A745DE /* MapplsDirectionUI in Frameworks */,
 				350455C33011F28400A745DE /* MapplsUIWidgets in Frameworks */,
 				350455C93011F2C500A745DE /* MapplsFeedbackUIKit in Frameworks */,
+				35033F6030764F7900C9F922 /* IQKeyboardManagerSwift in Frameworks */,
 				350455CC3011F2D700A745DE /* MapplsFeedbackKit in Frameworks */,
 				350455C63011F2AE00A745DE /* MapplsNearbyUI in Frameworks */,
 				350455D23011F30F00A745DE /* MapplsLMS in Frameworks */,
@@ -687,6 +695,7 @@
 				68A6BF222106E03F00547929 /* Info.plist */,
 				68417CC4210B329100424A00 /* InitialVC.swift */,
 				47513EAC29FA35AC00BA6C83 /* CustomMapplsPinMarkerViewController.swift */,
+				35033F64307650EE00C9F922 /* SceneDelegate.swift */,
 			);
 			path = MapplsSDKDemo;
 			sourceTree = "<group>";
@@ -831,6 +840,11 @@
 			dependencies = (
 			);
 			name = MapplsSDKDemo;
+			packageProductDependencies = (
+				35033F5C30764F4D00C9F922 /* FittedSheets */,
+				35033F5F30764F7900C9F922 /* IQKeyboardManagerSwift */,
+				35033F6230764FD800C9F922 /* MapplsGeofenceUI */,
+			);
 			productName = MapDemo;
 			productReference = 68A6BF132106E03C00547929 /* MapplsSDKDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -870,6 +884,9 @@
 				350455CA3011F2D700A745DE /* XCRemoteSwiftPackageReference "mappls-feedback-kit-ios-distribution" */,
 				350455CD3011F2EF00A745DE /* XCRemoteSwiftPackageReference "mappls-direction-ui-ios-distribution" */,
 				350455D03011F30F00A745DE /* XCRemoteSwiftPackageReference "mappls-lms-distribution" */,
+				35033F5B30764F4C00C9F922 /* XCRemoteSwiftPackageReference "FittedSheets" */,
+				35033F5E30764F7900C9F922 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				35033F6130764FD800C9F922 /* XCRemoteSwiftPackageReference "mappls-geofence-ui-ios-distribution" */,
 			);
 			productRefGroup = 68A6BF142106E03C00547929 /* Products */;
 			projectDirPath = "";
@@ -996,6 +1013,7 @@
 				A4DA1E9623DB16BF0010743F /* DirectionIndicationViewStyleKit.swift in Sources */,
 				1861996624DC305A004D5547 /* MapplsDemoSettingsVC.swift in Sources */,
 				47DF63A62716BC5D0069AAA8 /* DrivingRangeSettingViewController.swift in Sources */,
+				35033F65307650EE00C9F922 /* SceneDelegate.swift in Sources */,
 				68417CC5210B329100424A00 /* InitialVC.swift in Sources */,
 				D1F199A52A028F6200836308 /* RouteFetchSettingController.swift in Sources */,
 				D17F05462889BE05005333E8 /* MapplsAutocompleteViewControllerSwiftUIWrapper.swift in Sources */,
@@ -1247,7 +1265,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1275,7 +1293,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 22L95D5KTZ;
 				INFOPLIST_FILE = MapplsSDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1315,6 +1333,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		35033F5B30764F4C00C9F922 /* XCRemoteSwiftPackageReference "FittedSheets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gordontucker/FittedSheets.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+		35033F5E30764F7900C9F922 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+		35033F6130764FD800C9F922 /* XCRemoteSwiftPackageReference "mappls-geofence-ui-ios-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MapmyIndia/mappls-geofence-ui-ios-distribution.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
 		350455B83011F26300A745DE /* XCRemoteSwiftPackageReference "mappls-map-ios-distribution" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MapmyIndia/mappls-map-ios-distribution.git";
@@ -1390,6 +1432,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		35033F5C30764F4D00C9F922 /* FittedSheets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35033F5B30764F4C00C9F922 /* XCRemoteSwiftPackageReference "FittedSheets" */;
+			productName = FittedSheets;
+		};
+		35033F5F30764F7900C9F922 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35033F5E30764F7900C9F922 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		35033F6230764FD800C9F922 /* MapplsGeofenceUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35033F6130764FD800C9F922 /* XCRemoteSwiftPackageReference "mappls-geofence-ui-ios-distribution" */;
+			productName = MapplsGeofenceUI;
+		};
 		350455B93011F26300A745DE /* MapplsMap */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 350455B83011F26300A745DE /* XCRemoteSwiftPackageReference "mappls-map-ios-distribution" */;
