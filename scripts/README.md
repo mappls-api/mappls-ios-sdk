@@ -259,11 +259,23 @@ python3 scripts/create_release.py --confirm --no-gh-release
 A manually-triggered GitHub Actions workflow that chains the scripts above into
 one release pipeline.
 
-## Trigger
+## Triggers
 
-Run it from the GitHub **Actions** tab → "Release SDK Docs" → **Run workflow**.
-GitHub Actions can't prompt interactively, so the "new version vs. update
-current" choice is a dropdown input you pick when launching it.
+The workflow runs three ways:
+
+- **Automatically on push to `auth-legacy`** (when `scripts/**`, `docs/**`, or
+  the workflow file change). Uses safe defaults: `update-current`, real run,
+  create release — but it skips the release step if the docs didn't actually
+  change, so a push with no new SDK version won't produce an empty release.
+- **Automatically on a weekly schedule** (Mondays 03:00 UTC) to pick up newly
+  published SPM versions.
+- **Manually** via the GitHub **Actions** tab → "Release SDK Docs" →
+  **Run workflow**, where you choose the inputs (this is also the only way to
+  run `new-version` mode or a dry-run preview). The manual button requires the
+  workflow to be on the default branch.
+
+Automatic runs never prompt; they always use `update-current`. To create a new
+doc version, trigger manually and pick `new-version`.
 
 ## Inputs
 

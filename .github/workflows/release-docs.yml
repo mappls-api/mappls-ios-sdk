@@ -1,15 +1,32 @@
 name: Release SDK Docs
 
-# Manually triggered pipeline that:
-#   1. Updates the docs (either in place, or as a brand-new doc version) and
-#      refreshes each module's CHANGELOG from the MapmyIndia distribution repos.
+# Pipeline that:
+#   1. Updates the docs (in place, or as a brand-new doc version) and refreshes
+#      each module's CHANGELOG from the MapmyIndia distribution repos.
 #   2. Builds a release note from the changelog, commits the docs, creates a git
 #      tag, pushes, and publishes a GitHub release.
 #
-# GitHub Actions can't prompt interactively, so the "create new doc version vs.
-# update the current one" choice is a workflow input you pick when you run it.
+# Triggers
+#   * push to auth-legacy  -> automatic run (update-current + release)
+#   * schedule (weekly)    -> automatic run to catch new SPM releases
+#   * workflow_dispatch     -> manual run with full control over the inputs
+#
+# GitHub Actions can't prompt interactively, so for manual runs the
+# "new doc version vs. update current" choice is a workflow input. Automatic
+# runs always use safe defaults (update-current).
 
 on:
+  push:
+    branches:
+      - auth-legacy
+    paths:
+      # Only auto-run when something release-relevant changes, not on every push.
+      - "scripts/**"
+      - "docs/**"
+      - ".github/workflows/release-docs.yml"
+  schedule:
+    # Weekly, Mondays 03:00 UTC — picks up newly published SPM versions.
+    - cron: "0 3 * * 1"
   workflow_dispatch:
     inputs:
       mode:
@@ -39,6 +56,11 @@ on:
 permissions:
   contents: write        # push commits/tags and create releases
 
+# Don't let overlapping runs race on the same branch's tags/commits.
+concurrency:
+  group: release-docs-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release-docs:
     runs-on: ubuntu-latest
@@ -47,6 +69,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: auth-legacy
           # Full history so tags and pushes work correctly.
           fetch-depth: 0
 
@@ -60,6 +83,31 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Resolve the effective settings. Manual runs use the inputs; automatic
+      # runs (push / schedule) fall back to safe defaults: update-current, make
+      # a real release, not a dry run.
+      - name: Resolve settings
+        id: cfg
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MODE="${{ inputs.mode }}"
+            NEW_VERSION="${{ inputs.new_version }}"
+            CREATE_RELEASE="${{ inputs.create_release }}"
+            DRY_RUN="${{ inputs.dry_run }}"
+          else
+            # push / schedule: automatic, safe defaults
+            MODE="update-current"
+            NEW_VERSION=""
+            CREATE_RELEASE="true"
+            DRY_RUN="false"
+          fi
+          echo "mode=$MODE"                     >> "$GITHUB_OUTPUT"
+          echo "new_version=$NEW_VERSION"       >> "$GITHUB_OUTPUT"
+          echo "create_release=$CREATE_RELEASE" >> "$GITHUB_OUTPUT"
+          echo "dry_run=$DRY_RUN"               >> "$GITHUB_OUTPUT"
+          echo "Resolved: mode=$MODE new_version='$NEW_VERSION' create_release=$CREATE_RELEASE dry_run=$DRY_RUN (event=${{ github.event_name }})"
+
       # --- Step 1: update docs (and changelogs) -------------------------------
       # 'update-current' refreshes docs/vX.Y.Z in place; 'new-version' creates a
       # new docs folder, bumps the Documentation History tables (dropping the
@@ -69,12 +117,12 @@ jobs:
         run: |
           set -euo pipefail
           ARGS="--yes"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          if [ "${{ steps.cfg.outputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
-          if [ "${{ inputs.mode }}" = "new-version" ]; then
-            if [ -n "${{ inputs.new_version }}" ]; then
-              python3 scripts/update_sdk_docs.py --new-version "${{ inputs.new_version }}" $ARGS
+          if [ "${{ steps.cfg.outputs.mode }}" = "new-version" ]; then
+            if [ -n "${{ steps.cfg.outputs.new_version }}" ]; then
+              python3 scripts/update_sdk_docs.py --new-version "${{ steps.cfg.outputs.new_version }}" $ARGS
             else
               python3 scripts/update_sdk_docs.py --new-version $ARGS
             fi
@@ -82,18 +130,37 @@ jobs:
             python3 scripts/update_sdk_docs.py --update-current $ARGS
           fi
 
+      # Did step 1 actually change anything? If not, there's nothing to release,
+      # so we skip the release step (prevents empty/duplicate releases on pushes
+      # that don't bring new SDK versions).
+      - name: Detect doc changes
+        id: changes
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain -- docs README.md Version-History.md)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Docs changed."
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No doc changes; release step will be skipped."
+          fi
+
       # --- Step 2: tag + release ---------------------------------------------
       # create_release.py builds the release note from the changelog, commits
       # the docs, tags, pushes, and publishes a GitHub release. It is dry-run by
       # default; --confirm makes it execute. gh/git auth via GITHUB_TOKEN.
+      # Runs only when a release was requested AND docs actually changed (or on
+      # a manual dry run, so you can always preview).
       - name: Create tag and GitHub release
-        if: ${{ inputs.create_release }}
+        if: >-
+          ${{ steps.cfg.outputs.create_release == 'true' &&
+              (steps.changes.outputs.changed == 'true' || steps.cfg.outputs.dry_run == 'true') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          RELEASE_ARGS="--branch ${{ github.ref_name }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          RELEASE_ARGS="--branch auth-legacy"
+          if [ "${{ steps.cfg.outputs.dry_run }}" = "true" ]; then
             # No --confirm => create_release.py previews only.
             python3 scripts/create_release.py $RELEASE_ARGS
           else
