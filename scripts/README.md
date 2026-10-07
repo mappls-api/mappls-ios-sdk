@@ -19,7 +19,13 @@ distribution repos under [github.com/MapmyIndia](https://github.com/MapmyIndia).
    only `Package.swift`), or if you pass `--row-only`, the script instead
    splices a single version-history row (real date/description when a README
    exists, otherwise the `--date` / `--note` fallback).
-5. Refreshes the module version numbers in the current-version row of the
+5. The matching **`CHANGELOG/<Module>.md`** file is also refreshed from the
+   distribution repo: it uses the repo's native `CHANGELOG.md` when present,
+   otherwise it derives the changelog from the README's Version History table.
+   This runs even when the main doc is already current (so a lagging changelog
+   still gets caught up), and keeps the release-note script's source data fresh.
+   Repos with no README or changelog are left unchanged.
+6. Refreshes the module version numbers in the current-version row of the
    **Documentation History** table in both `README.md` and
    `docs/vX.Y.Z/README.md`.
 
@@ -123,3 +129,159 @@ version — run the script again until it reports everything up to date.
   the target (current or new) folder is written.
 - Only the current docs-version row of the README tables is edited; historical
   rows are left untouched.
+
+---
+
+# Release tagging: `release_from_changelog.py`
+
+Builds a release note from a docs version's `CHANGELOG/` folder and creates a
+git tag for that release (optionally pushing it and publishing a GitHub
+release).
+
+## How it works
+
+1. Resolves the docs version to release (newest `docs/vX.Y.Z` by default, or
+   `--version vX.Y.Z`).
+2. Reads every `docs/vX.Y.Z/CHANGELOG/*.md` and extracts each module's latest
+   entry (the first `## <ver> - <date>` block with its `### Added/Fixed/Changed`
+   details).
+3. Aggregates them into a single release note: a module→version summary plus a
+   per-module changelog section.
+4. Writes the note to `docs/vX.Y.Z/RELEASE_NOTES.md` (override with `--out`).
+5. Creates an annotated git tag (name defaults to the bare version, e.g.
+   `1.0.36`, matching the repo's existing tags) whose message is the note.
+6. Optionally `--push` the tag and/or create a GitHub release with `--gh-release`
+   (uses the `gh` CLI).
+
+## Requirements
+
+- Python 3.9+
+- `git` CLI
+- `gh` CLI (only for `--gh-release`)
+
+## Usage
+
+```bash
+# Preview the note + exact git/gh commands, change nothing
+python3 scripts/release_from_changelog.py --dry-run
+
+# Create the annotated tag locally (newest docs version)
+python3 scripts/release_from_changelog.py
+
+# A specific version, pushed to origin
+python3 scripts/release_from_changelog.py --version v1.0.36 --push
+
+# Create the tag and a GitHub release, and push
+python3 scripts/release_from_changelog.py --gh-release --push
+
+# Custom tag name
+python3 scripts/release_from_changelog.py --tag v1.0.36
+```
+
+## Notes
+
+- The tag is created with `git tag --cleanup=verbatim` so the markdown note
+  (including `#` headings) is preserved verbatim in the tag message.
+- If the working tree has uncommitted changes, the script stops with a warning
+  (the tag would point at HEAD, not your uncommitted work). Commit first, or
+  pass `--allow-dirty` to proceed anyway.
+- The script refuses to overwrite an existing tag; delete it or choose another
+  name with `--tag`.
+- `--push` and `--gh-release` reach the network and publish — run `--dry-run`
+  first to review.
+
+---
+
+# Full release: `create_release.py`
+
+Orchestrates the whole release end to end: build the note, commit the docs,
+tag, push, and publish a GitHub release.
+
+## Steps it runs
+
+1. Resolve the version (newest `docs/vX.Y.Z` or `--version`).
+2. Build the release note and write `docs/vX.Y.Z/RELEASE_NOTES.md`
+   (reuses `release_from_changelog.py`).
+3. `git add` the version's docs (+ `README.md`, `Version-History.md`) and commit.
+4. Create the annotated tag (`--cleanup=verbatim`, so markdown headings survive).
+5. Push the branch and the tag to the remote.
+6. Create a GitHub release with `gh`, using the note as the body.
+
+## Safety
+
+**Dry-run by default.** Pushing and publishing are hard to reverse and affect a
+shared remote, so the script only *prints* the git/gh commands unless you pass
+`--confirm`. It also pre-checks that the tag doesn't already exist (locally or
+on the remote) and that `gh` is available.
+
+## Requirements
+
+- Python 3.9+, `git` CLI
+- `gh` CLI authenticated with push access (unless `--no-gh-release`)
+
+## Usage
+
+```bash
+# Preview everything, change nothing (recommended first)
+python3 scripts/create_release.py
+
+# Do it for real: commit, tag, push, GitHub release
+python3 scripts/create_release.py --confirm
+
+# A specific version
+python3 scripts/create_release.py --version v1.0.36 --confirm
+
+# Commit and tag locally only, no push / no release
+python3 scripts/create_release.py --confirm --local --no-gh-release
+
+# Tag an already-committed HEAD (don't make a new commit)
+python3 scripts/create_release.py --confirm --no-commit
+
+# Push the tag but skip the GitHub release
+python3 scripts/create_release.py --confirm --no-gh-release
+```
+
+## Flags
+
+- `--version` — docs version to release (default: newest).
+- `--tag` — tag name (default: bare version, e.g. `1.0.36`).
+- `--branch` / `--remote` — target branch / remote (defaults: current branch, `origin`).
+- `--message` — commit message (default: `docs: release <tag>`).
+- `--confirm` — actually execute (otherwise dry-run).
+- `--local` — commit + tag, no push.
+- `--no-commit` — tag HEAD as-is, no new commit.
+- `--no-gh-release` — skip the GitHub release.
+
+---
+
+# CI pipeline: `.github/workflows/release-docs.yml`
+
+A manually-triggered GitHub Actions workflow that chains the scripts above into
+one release pipeline.
+
+## Trigger
+
+Run it from the GitHub **Actions** tab → "Release SDK Docs" → **Run workflow**.
+GitHub Actions can't prompt interactively, so the "new version vs. update
+current" choice is a dropdown input you pick when launching it.
+
+## Inputs
+
+- **mode** — `update-current` (refresh `docs/vX.Y.Z` in place) or `new-version`
+  (create a new docs folder).
+- **new_version** — for `new-version` mode, an explicit version like `v1.0.37`;
+  leave blank to auto-bump the patch.
+- **create_release** — whether to tag + publish a GitHub release after updating.
+- **dry_run** — preview only (default **true**). Flip to false to actually
+  commit, push, and publish.
+
+## What it does
+
+1. **Update docs + changelogs** — runs `update_sdk_docs.py` with the chosen
+   mode. Refreshes module docs and `CHANGELOG/*.md` from the distribution repos.
+2. **Tag + release** — runs `create_release.py`, which builds the release note
+   from the changelog, commits the docs, creates the git tag, pushes, and
+   publishes a GitHub release (via `gh`, using the workflow's `GITHUB_TOKEN`).
+
+Keep `dry_run = true` for your first run to review the planned changes in the
+job log; re-run with `dry_run = false` to perform the release.

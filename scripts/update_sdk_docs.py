@@ -208,34 +208,109 @@ def _http_get(url: str, timeout: int = 30) -> str | None:
         return None
 
 
-def fetch_remote_readme(repo_url: str, version: str,
-                        default_branch: str | None) -> str | None:
-    """Fetch the distribution repo's README documentation.
-
-    Tries the exact version tag first (so the doc matches the released version),
-    then falls back to the default branch. Returns the README text, or ``None``
-    if the repo exposes no README at any of those refs.
-    """
-    slug = repo_slug(repo_url)
+def _candidate_refs(version: str, default_branch: str | None) -> list[str]:
+    """Refs to try, in order: exact version tag, default branch, main, master."""
     refs: list[str] = [version]
     if default_branch:
         refs.append(default_branch)
-    # Common fallbacks in case the default branch couldn't be resolved.
     for b in ("main", "master"):
         if b not in refs:
             refs.append(b)
+    return refs
 
-    # Repos are inconsistent about the README filename casing
-    # (README.md vs Readme.md vs readme.md).
-    filenames = ("README.md", "Readme.md", "readme.md")
 
-    for ref in refs:
+def fetch_remote_file(repo_url: str, version: str, default_branch: str | None,
+                      filenames: tuple[str, ...]) -> str | None:
+    """Fetch the first available file (by name, across refs) from a repo.
+
+    Tries the exact version tag first (so content matches the released
+    version), then the default branch / main / master. Returns the file text or
+    ``None`` if none of the names exist at any ref.
+    """
+    slug = repo_slug(repo_url)
+    for ref in _candidate_refs(version, default_branch):
         for filename in filenames:
             url = f"https://raw.githubusercontent.com/{slug}/{ref}/{filename}"
             text = _http_get(url)
             if text:
                 return text
     return None
+
+
+def fetch_remote_readme(repo_url: str, version: str,
+                        default_branch: str | None) -> str | None:
+    """Fetch the distribution repo's README documentation.
+
+    Repos are inconsistent about the README filename casing
+    (README.md vs Readme.md vs readme.md), so try each.
+    """
+    return fetch_remote_file(
+        repo_url, version, default_branch,
+        ("README.md", "Readme.md", "readme.md"),
+    )
+
+
+def fetch_remote_changelog(repo_url: str, version: str,
+                           default_branch: str | None) -> str | None:
+    """Fetch a native CHANGELOG file from the distribution repo, if present."""
+    return fetch_remote_file(
+        repo_url, version, default_branch,
+        ("CHANGELOG.md", "Changelog.md", "changelog.md",
+         "CHANGELOG", "CHANGES.md"),
+    )
+
+
+def derive_changelog_from_readme(readme_text: str, module_name: str) -> str | None:
+    """Convert a README "Version History" table into CHANGELOG markdown.
+
+    Produces the same shape the local ``CHANGELOG/<Module>.md`` files use:
+
+        # Changes to the <Module> SDK for iOS
+
+        ## <ver> - <date>
+
+        ### Changes
+        - <bullet>
+        - <bullet>
+
+    Returns ``None`` if no version-history rows are found.
+    """
+    rows: list[tuple[str, str, str]] = []
+    for line in readme_text.splitlines():
+        m = VERSION_ROW_RE.match(line)
+        if not m:
+            continue
+        version = m.group(1)
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        date = cells[1].strip()
+        description = cells[2].strip()
+        rows.append((version, date, description))
+
+    if not rows:
+        return None
+
+    out: list[str] = [f"# Changes to the {module_name} SDK for iOS", ""]
+    for version, date, description in rows:
+        out.append(f"## {version} - {date}")
+        out.append("")
+        out.append("### Changes")
+        # Descriptions use "<br>" (or "<Br>") as line separators and often
+        # start each item with a leading "- ". Normalise into clean bullets.
+        parts = re.split(r"(?i)<br\s*/?>", description)
+        wrote_bullet = False
+        for part in parts:
+            text = part.strip()
+            text = re.sub(r"^-\s*", "", text).strip()  # drop existing leading dash
+            if not text:
+                continue
+            out.append(f"- {text}")
+            wrote_bullet = True
+        if not wrote_bullet:
+            out.append("- Improvements and bug fixes.")
+        out.append("")
+    return "\n".join(out).rstrip() + "\n"
 
 
 def extract_history_row(readme_text: str, version: str) -> tuple[str, str] | None:
@@ -674,6 +749,73 @@ def _rewrite_new_folder_readme(new_readme: Path, old_version: str,
         + (f", dropped oldest row {dropped}" if dropped else ""))
 
 
+def _dedupe_leading_title(text: str) -> str:
+    """Collapse an immediately-repeated leading '# ...' title line.
+
+    Some upstream CHANGELOG files accidentally repeat their title line twice;
+    keep just the first.
+    """
+    lines = text.splitlines()
+    if len(lines) >= 2 and lines[0].startswith("# ") and lines[0] == lines[1]:
+        del lines[1]
+    return "\n".join(lines)
+
+
+def _changelog_top_version(path: Path) -> str | None:
+    """Return the newest version in a local CHANGELOG file, or None."""
+    if not path.exists():
+        return None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"^##\s+(\d+(?:\.\d+){1,3})\s*-", line)
+        if m:
+            return m.group(1)
+    return None
+
+
+def update_module_changelog(docs_dir: Path, module_name: str, repo_url: str,
+                            version: str, default_branch: str | None,
+                            remote_readme: str | None, no_fetch: bool,
+                            dry_run: bool) -> str:
+    """Refresh ``docs/<version>/CHANGELOG/<Module>.md`` from the distribution repo.
+
+    Prefers a native CHANGELOG file in the repo; otherwise derives one from the
+    README's Version History table (reusing an already-fetched README when
+    available). Returns a short status label describing what was done.
+    """
+    changelog_dir = docs_dir / "CHANGELOG"
+    target = changelog_dir / f"{module_name}.md"
+
+    if no_fetch:
+        return "changelog: skipped (--no-fetch)"
+
+    # 1. Prefer the repo's own CHANGELOG file.
+    content = fetch_remote_changelog(repo_url, version, default_branch)
+    source = "native CHANGELOG"
+
+    # 2. Otherwise derive from the README version-history table.
+    if not content:
+        readme = remote_readme
+        if readme is None:
+            readme = fetch_remote_readme(repo_url, version, default_branch)
+        if readme:
+            content = derive_changelog_from_readme(readme, module_name)
+            source = "derived from README version history"
+
+    if not content:
+        return "changelog: no source available (left unchanged)"
+
+    content = _dedupe_leading_title(content)
+    if not content.endswith("\n"):
+        content += "\n"
+
+    if dry_run:
+        return f"changelog: WOULD write {target.name} ({source})"
+
+    changelog_dir.mkdir(parents=True, exist_ok=True)
+    target.write_text(content, encoding="utf-8")
+    return f"changelog: wrote {target.name} ({source})"
+
+
 def prompt_mode(current_version: str, suggested_new: str) -> tuple[bool, str | None]:
     """Interactively ask whether to update current docs or create a new version.
 
@@ -812,13 +954,28 @@ def main() -> int:
         latest_versions[mod.name] = mod.latest_remote
 
         if not is_newer(mod.latest_remote, mod.current_doc_version):
-            log("    -> up to date\n")
+            # The module doc is current, but its CHANGELOG file may still be
+            # behind (changelogs and the main doc are tracked separately).
+            # Refresh the changelog when it lags the latest released version.
+            cl_top = _changelog_top_version(
+                docs_dir / "CHANGELOG" / f"{mod.name}.md"
+            )
+            if not args.no_fetch and is_newer(mod.latest_remote, cl_top):
+                default_branch = remote_default_branch(mod.repo_url)
+                cl_status = update_module_changelog(
+                    docs_dir, mod.name, mod.repo_url, mod.latest_remote,
+                    default_branch, None, args.no_fetch, args.dry_run,
+                )
+                log(f"    -> up to date (doc); {cl_status}\n")
+            else:
+                log("    -> up to date\n")
             continue
 
         # Fetch the full documentation for this version from the distribution
         # repo. We prefer to replace the entire module doc with the repo's
         # README so ALL content (new API sections, changelog, etc.) is copied.
         remote_readme: str | None = None
+        default_branch: str | None = None
         if not args.no_fetch:
             default_branch = remote_default_branch(mod.repo_url)
             remote_readme = fetch_remote_readme(
@@ -842,7 +999,12 @@ def main() -> int:
                     else remote_readme + "\n"
                 mod.path.write_text(content, encoding="utf-8")
                 log(f"    -> replaced {mod.path.name} with full remote README "
-                    f"for {mod.latest_remote}\n")
+                    f"for {mod.latest_remote}")
+            cl_status = update_module_changelog(
+                docs_dir, mod.name, mod.repo_url, mod.latest_remote,
+                default_branch, remote_readme, args.no_fetch, args.dry_run,
+            )
+            log(f"    -> {cl_status}\n")
             continue
 
         # Row-splice path (either --row-only, or no remote README available).
@@ -875,11 +1037,16 @@ def main() -> int:
         log(f"    doc src : {source_label}")
         if args.dry_run:
             log(f"    -> WOULD add row: | `{mod.latest_remote}` | "
-                f"{row_date} | {preview_desc}|\n")
+                f"{row_date} | {preview_desc}|")
         else:
             mod.path.write_text(new_text, encoding="utf-8")
             log(f"    -> added row: | `{mod.latest_remote}` | {row_date} | "
-                f"{preview_desc}|\n")
+                f"{preview_desc}|")
+        cl_status = update_module_changelog(
+            docs_dir, mod.name, mod.repo_url, mod.latest_remote,
+            default_branch, remote_readme, args.no_fetch, args.dry_run,
+        )
+        log(f"    -> {cl_status}\n")
 
     # Update README version tables.
     log("Updating Documentation History tables in README files...")

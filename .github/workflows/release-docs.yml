@@ -1,0 +1,101 @@
+name: Release SDK Docs
+
+# Manually triggered pipeline that:
+#   1. Updates the docs (either in place, or as a brand-new doc version) and
+#      refreshes each module's CHANGELOG from the MapmyIndia distribution repos.
+#   2. Builds a release note from the changelog, commits the docs, creates a git
+#      tag, pushes, and publishes a GitHub release.
+#
+# GitHub Actions can't prompt interactively, so the "create new doc version vs.
+# update the current one" choice is a workflow input you pick when you run it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Docs update mode"
+        type: choice
+        required: true
+        default: update-current
+        options:
+          - update-current      # refresh the current docs/vX.Y.Z in place
+          - new-version         # create a new docs/vX.Y.Z folder
+      new_version:
+        description: "New version for 'new-version' mode (e.g. v1.0.37). Leave blank to auto-bump the patch."
+        type: string
+        required: false
+        default: ""
+      create_release:
+        description: "Create git tag + GitHub release after updating docs?"
+        type: boolean
+        required: true
+        default: true
+      dry_run:
+        description: "Dry run (preview only, nothing committed/pushed/published)"
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: write        # push commits/tags and create releases
+
+jobs:
+  release-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so tags and pushes work correctly.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # --- Step 1: update docs (and changelogs) -------------------------------
+      # 'update-current' refreshes docs/vX.Y.Z in place; 'new-version' creates a
+      # new docs folder, bumps the Documentation History tables (dropping the
+      # oldest), and pulls the latest module docs. Both also refresh the
+      # CHANGELOG/*.md files from the distribution repos.
+      - name: Update docs and changelogs
+        run: |
+          set -euo pipefail
+          ARGS="--yes"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ inputs.mode }}" = "new-version" ]; then
+            if [ -n "${{ inputs.new_version }}" ]; then
+              python3 scripts/update_sdk_docs.py --new-version "${{ inputs.new_version }}" $ARGS
+            else
+              python3 scripts/update_sdk_docs.py --new-version $ARGS
+            fi
+          else
+            python3 scripts/update_sdk_docs.py --update-current $ARGS
+          fi
+
+      # --- Step 2: tag + release ---------------------------------------------
+      # create_release.py builds the release note from the changelog, commits
+      # the docs, tags, pushes, and publishes a GitHub release. It is dry-run by
+      # default; --confirm makes it execute. gh/git auth via GITHUB_TOKEN.
+      - name: Create tag and GitHub release
+        if: ${{ inputs.create_release }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          RELEASE_ARGS="--branch ${{ github.ref_name }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            # No --confirm => create_release.py previews only.
+            python3 scripts/create_release.py $RELEASE_ARGS
+          else
+            python3 scripts/create_release.py $RELEASE_ARGS --confirm
+          fi
