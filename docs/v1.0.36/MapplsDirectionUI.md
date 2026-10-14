@@ -37,7 +37,7 @@ To add MapplsDirectionUI to your project using SPM:
 2. Enter the repository URL in the search field:
 
    ```
-   https://github.com/mappls-api/mappls-direction-ui-ios-distribution
+    https://github.com/MapmyIndia/mappls-direction-ui-ios-distribution.git
    ```
 
 3. Choose the version rule (for example, **Up to Next Major** starting from `1.0.11`) and add the package.
