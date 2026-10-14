@@ -1,77 +1,112 @@
 name: Release SDK Docs
 
-# Pipeline that:
-#   1. Updates the docs (in place, or as a brand-new doc version) and refreshes
-#      each module's CHANGELOG from the MapmyIndia distribution repos.
-#   2. Builds a release note from the changelog, commits the docs, creates a git
-#      tag, pushes, and publishes a GitHub release.
+# Pipeline (three jobs, run one after another):
+#   1. update-docs        Refresh module docs + Documentation History tables
+#                         from the MapmyIndia distribution repos.
+#   2. update-changelogs  Refresh docs/vX.Y.Z/CHANGELOG/*.md.
+#   3. create-tag         Build the release note from the changelogs, create the
+#                         git tag for the newest doc version, push it, and
+#                         publish a GitHub release. Skipped if the tag exists.
 #
-# Triggers
-#   * push to auth-legacy  -> automatic run (update-current + release)
-#   * schedule (weekly)    -> automatic run to catch new SPM releases
-#   * workflow_dispatch     -> manual run with full control over the inputs
+# Each job commits and pushes its own changes, and the next job checks out the
+# updated branch. Pushes made with GITHUB_TOKEN don't trigger new workflow runs,
+# so the bot's own commits won't loop.
 #
-# GitHub Actions can't prompt interactively, so for manual runs the
-# "new doc version vs. update current" choice is a workflow input. Automatic
-# runs always use safe defaults (update-current).
+# Trigger: manual only. Actions tab -> "Release SDK Docs" -> Run workflow.
+# Pushes and schedules do NOT start this pipeline. It only runs when started
+# on the auth-legacy branch, and only commits/tags/pushes auth-legacy.
+#
+# auto mode: if any SDK has a newer SPM release than the current docs, step 1
+# creates a new docs/vX.Y.Z folder (patch bump), step 2 fills its changelogs,
+# and step 3 tags it. If nothing is newer, the current folder is refreshed in
+# place and step 3 skips because its tag already exists.
 
 on:
-  push:
-    branches:
-      - auth-legacy
-    paths:
-      # Only auto-run when something release-relevant changes, not on every push.
-      - "scripts/**"
-      - "docs/**"
-      - ".github/workflows/release-docs.yml"
-  schedule:
-    # Weekly, Mondays 03:00 UTC — picks up newly published SPM versions.
-    - cron: "0 3 * * 1"
   workflow_dispatch:
     inputs:
       mode:
-        description: "Docs update mode"
+        description: "auto = new docs folder only if an SDK has a newer SPM release; update-current = refresh in place; new-version = always create a new folder"
         type: choice
         required: true
-        default: update-current
+        default: auto
         options:
-          - update-current      # refresh the current docs/vX.Y.Z in place
-          - new-version         # create a new docs/vX.Y.Z folder
+          - auto
+          - update-current
+          - new-version
       new_version:
-        description: "New version for 'new-version' mode (e.g. v1.0.37). Leave blank to auto-bump the patch."
+        description: "new-version only: explicit version (e.g. v1.0.37). Blank = auto-bump patch."
         type: string
         required: false
         default: ""
-      create_release:
-        description: "Create git tag + GitHub release after updating docs?"
-        type: boolean
-        required: true
-        default: true
       dry_run:
-        description: "Dry run (preview only, nothing committed/pushed/published)"
+        description: "Dry run (preview only, nothing committed/pushed/published). Off = changes are committed, tagged and pushed."
         type: boolean
         required: true
-        default: true
+        default: false
 
 permissions:
   contents: write        # push commits/tags and create releases
 
-# Don't let overlapping runs race on the same branch's tags/commits.
+# Only this branch is updated, tagged and released.
+env:
+  TARGET_BRANCH: auth-legacy
+  # The scripts live in a PRIVATE repo so they aren't visible in this public
+  # repo. Each job checks it out into ./scripts at run time. Requires a repo
+  # secret SCRIPTS_REPO_TOKEN (fine-grained PAT with Contents:Read on this repo).
+  SCRIPTS_REPO: mappls-api/sdk-docs-scripts
+  SCRIPTS_REF: main
+
+# Don't let overlapping runs race on the branch's commits/tags.
 concurrency:
-  group: release-docs-${{ github.ref }}
+  group: release-docs-auth-legacy
   cancel-in-progress: false
 
 jobs:
-  release-docs:
+  # ------------------------------------------------------------------------ #
+  # Step 1: update documents
+  # ------------------------------------------------------------------------ #
+  update-docs:
+    name: "1. Update documents"
+    # Only run when started on auth-legacy (pick it in the "Use workflow
+    # from" dropdown). On any other branch this job, and so jobs 2 and 3,
+    # are skipped.
+    if: github.ref == 'refs/heads/auth-legacy'
     runs-on: ubuntu-latest
-
+    timeout-minutes: 30
+    outputs:
+      mode: ${{ steps.cfg.outputs.mode }}
+      dry_run: ${{ steps.cfg.outputs.dry_run }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: auth-legacy
-          # Full history so tags and pushes work correctly.
+          ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
+
+      - name: Checkout private scripts
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.SCRIPTS_REPO }}
+          ref: ${{ env.SCRIPTS_REF }}
+          token: ${{ secrets.SCRIPTS_REPO_TOKEN }}
+          path: .private-scripts
+
+      # The scripts must end up at ./scripts/*.py (they locate docs/ as
+      # ../docs from their own path). Accept either private-repo layout:
+      # files at the repo root, or inside a scripts/ folder.
+      - name: Install private scripts
+        run: |
+          set -euo pipefail
+          SRC="$(dirname "$(find .private-scripts -name update_sdk_docs.py -not -path '*/.git/*' | head -1)")"
+          if [ -z "$SRC" ] || [ "$SRC" = "." ]; then
+            echo "::error::update_sdk_docs.py not found in $SCRIPTS_REPO@$SCRIPTS_REF. Files present:"
+            find .private-scripts -not -path '*/.git*' | head -50
+            exit 1
+          fi
+          mkdir -p scripts
+          cp "$SRC"/*.py scripts/
+          echo "Installed scripts from $SRC:"
+          ls -la scripts
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -83,86 +118,244 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Resolve the effective settings. Manual runs use the inputs; automatic
-      # runs (push / schedule) fall back to safe defaults: update-current, make
-      # a real release, not a dry run.
+      # Inputs go through env (not ${{ }} in the script) so user-typed values
+      # can't inject shell commands.
       - name: Resolve settings
         id: cfg
+        env:
+          IN_MODE: ${{ inputs.mode }}
+          IN_NEW_VERSION: ${{ inputs.new_version }}
+          IN_DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            MODE="${{ inputs.mode }}"
-            NEW_VERSION="${{ inputs.new_version }}"
-            CREATE_RELEASE="${{ inputs.create_release }}"
-            DRY_RUN="${{ inputs.dry_run }}"
-          else
-            # push / schedule: automatic, safe defaults
-            MODE="update-current"
-            NEW_VERSION=""
-            CREATE_RELEASE="true"
-            DRY_RUN="false"
+          MODE="$IN_MODE"; NEW_VERSION="$IN_NEW_VERSION"; DRY_RUN="$IN_DRY_RUN"
+          if [ -n "$NEW_VERSION" ] && ! [[ "$NEW_VERSION" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::new_version must look like v1.0.37 (got '$NEW_VERSION')"
+            exit 1
           fi
-          echo "mode=$MODE"                     >> "$GITHUB_OUTPUT"
-          echo "new_version=$NEW_VERSION"       >> "$GITHUB_OUTPUT"
-          echo "create_release=$CREATE_RELEASE" >> "$GITHUB_OUTPUT"
-          echo "dry_run=$DRY_RUN"               >> "$GITHUB_OUTPUT"
-          echo "Resolved: mode=$MODE new_version='$NEW_VERSION' create_release=$CREATE_RELEASE dry_run=$DRY_RUN (event=${{ github.event_name }})"
+          {
+            echo "mode=$MODE"
+            echo "new_version=$NEW_VERSION"
+            echo "dry_run=$DRY_RUN"
+          } >> "$GITHUB_OUTPUT"
+          echo "Resolved: mode=$MODE new_version='$NEW_VERSION' dry_run=$DRY_RUN"
 
-      # --- Step 1: update docs (and changelogs) -------------------------------
-      # 'update-current' refreshes docs/vX.Y.Z in place; 'new-version' creates a
-      # new docs folder, bumps the Documentation History tables (dropping the
-      # oldest), and pulls the latest module docs. Both also refresh the
-      # CHANGELOG/*.md files from the distribution repos.
-      - name: Update docs and changelogs
+      - name: Update module docs
+        env:
+          MODE: ${{ steps.cfg.outputs.mode }}
+          NEW_VERSION: ${{ steps.cfg.outputs.new_version }}
+          DRY_RUN: ${{ steps.cfg.outputs.dry_run }}
         run: |
           set -euo pipefail
-          ARGS="--yes"
-          if [ "${{ steps.cfg.outputs.dry_run }}" = "true" ]; then
-            ARGS="$ARGS --dry-run"
-          fi
-          if [ "${{ steps.cfg.outputs.mode }}" = "new-version" ]; then
-            if [ -n "${{ steps.cfg.outputs.new_version }}" ]; then
-              python3 scripts/update_sdk_docs.py --new-version "${{ steps.cfg.outputs.new_version }}" $ARGS
+          ARGS=(--yes --skip-changelogs)
+          [ "$DRY_RUN" = "true" ] && ARGS+=(--dry-run)
+          if [ "$MODE" = "new-version" ]; then
+            if [ -n "$NEW_VERSION" ]; then
+              ARGS+=(--new-version "$NEW_VERSION")
             else
-              python3 scripts/update_sdk_docs.py --new-version $ARGS
+              ARGS+=(--new-version)
             fi
+          elif [ "$MODE" = "auto" ]; then
+            ARGS+=(--auto)
           else
-            python3 scripts/update_sdk_docs.py --update-current $ARGS
+            ARGS+=(--update-current)
           fi
+          python3 scripts/update_sdk_docs.py "${ARGS[@]}"
 
-      # Did step 1 actually change anything? If not, there's nothing to release,
-      # so we skip the release step (prevents empty/duplicate releases on pushes
-      # that don't bring new SDK versions).
-      - name: Detect doc changes
-        id: changes
+      - name: Commit and push docs
+        if: ${{ steps.cfg.outputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
-          if [ -n "$(git status --porcelain -- docs README.md Version-History.md)" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Docs changed."
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No doc changes; release step will be skipped."
+          git add -A -- docs README.md Version-History.md
+          if git diff --cached --quiet; then
+            echo "No doc changes to commit."
+            exit 0
           fi
+          git commit -m "docs: update SDK module docs"
+          git pull --rebase origin "$TARGET_BRANCH"
+          git push origin "$TARGET_BRANCH"
 
-      # --- Step 2: tag + release ---------------------------------------------
-      # create_release.py builds the release note from the changelog, commits
-      # the docs, tags, pushes, and publishes a GitHub release. It is dry-run by
-      # default; --confirm makes it execute. gh/git auth via GITHUB_TOKEN.
-      # Runs only when a release was requested AND docs actually changed (or on
-      # a manual dry run, so you can always preview).
-      - name: Create tag and GitHub release
-        if: >-
-          ${{ steps.cfg.outputs.create_release == 'true' &&
-              (steps.changes.outputs.changed == 'true' || steps.cfg.outputs.dry_run == 'true') }}
+  # ------------------------------------------------------------------------ #
+  # Step 2: update changelogs
+  # ------------------------------------------------------------------------ #
+  update-changelogs:
+    name: "2. Update changelogs"
+    needs: update-docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout (includes step 1's commit)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+
+      - name: Checkout private scripts
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.SCRIPTS_REPO }}
+          ref: ${{ env.SCRIPTS_REF }}
+          token: ${{ secrets.SCRIPTS_REPO_TOKEN }}
+          path: .private-scripts
+
+      # The scripts must end up at ./scripts/*.py (they locate docs/ as
+      # ../docs from their own path). Accept either private-repo layout:
+      # files at the repo root, or inside a scripts/ folder.
+      - name: Install private scripts
+        run: |
+          set -euo pipefail
+          SRC="$(dirname "$(find .private-scripts -name update_sdk_docs.py -not -path '*/.git/*' | head -1)")"
+          if [ -z "$SRC" ] || [ "$SRC" = "." ]; then
+            echo "::error::update_sdk_docs.py not found in $SCRIPTS_REPO@$SCRIPTS_REF. Files present:"
+            find .private-scripts -not -path '*/.git*' | head -50
+            exit 1
+          fi
+          mkdir -p scripts
+          cp "$SRC"/*.py scripts/
+          echo "Installed scripts from $SRC:"
+          ls -la scripts
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Always targets the newest docs folder, which is the one step 1 just
+      # updated or created.
+      - name: Update changelogs
+        env:
+          DRY_RUN: ${{ needs.update-docs.outputs.dry_run }}
+        run: |
+          set -euo pipefail
+          ARGS=(--yes --update-current --changelogs-only)
+          [ "$DRY_RUN" = "true" ] && ARGS+=(--dry-run)
+          python3 scripts/update_sdk_docs.py "${ARGS[@]}"
+
+      - name: Commit and push changelogs
+        if: ${{ needs.update-docs.outputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          git add -A -- docs
+          if git diff --cached --quiet; then
+            echo "No changelog changes to commit."
+            exit 0
+          fi
+          git commit -m "docs: update SDK changelogs"
+          git pull --rebase origin "$TARGET_BRANCH"
+          git push origin "$TARGET_BRANCH"
+
+  # ------------------------------------------------------------------------ #
+  # Step 3: create git tag (+ GitHub release)
+  # ------------------------------------------------------------------------ #
+  create-tag:
+    name: "3. Create git tag"
+    needs: [update-docs, update-changelogs]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout (includes steps 1 and 2 commits)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0          # full history + tags
+
+      - name: Checkout private scripts
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.SCRIPTS_REPO }}
+          ref: ${{ env.SCRIPTS_REF }}
+          token: ${{ secrets.SCRIPTS_REPO_TOKEN }}
+          path: .private-scripts
+
+      # The scripts must end up at ./scripts/*.py (they locate docs/ as
+      # ../docs from their own path). Accept either private-repo layout:
+      # files at the repo root, or inside a scripts/ folder.
+      - name: Install private scripts
+        run: |
+          set -euo pipefail
+          SRC="$(dirname "$(find .private-scripts -name update_sdk_docs.py -not -path '*/.git/*' | head -1)")"
+          if [ -z "$SRC" ] || [ "$SRC" = "." ]; then
+            echo "::error::update_sdk_docs.py not found in $SCRIPTS_REPO@$SCRIPTS_REF. Files present:"
+            find .private-scripts -not -path '*/.git*' | head -50
+            exit 1
+          fi
+          mkdir -p scripts
+          cp "$SRC"/*.py scripts/
+          echo "Installed scripts from $SRC:"
+          ls -la scripts
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Tag name = newest docs folder without the "v" (docs/v1.0.36 -> 1.0.36).
+      - name: Resolve tag
+        id: tag
+        run: |
+          set -euo pipefail
+          VERSION="$(find docs -mindepth 1 -maxdepth 1 -type d -name 'v*' -exec basename {} \; | sort -V | tail -1)"
+          if [ -z "$VERSION" ]; then
+            echo "::error::No docs/vX.Y.Z folder found."
+            exit 1
+          fi
+          # Tag = "<doc version>(<branch>)", e.g. "v1.0.36(auth-legacy)".
+          TAG="${VERSION}(${TARGET_BRANCH})"
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null \
+             || [ -n "$(git ls-remote --tags origin "refs/tags/$TAG")" ]; then
+            EXISTS="true"
+            echo "Tag $TAG already exists; skipping tag creation."
+          else
+            EXISTS="false"
+            echo "Will create tag $TAG for docs/$VERSION."
+          fi
+          {
+            echo "version=$VERSION"
+            echo "tag=$TAG"
+            echo "exists=$EXISTS"
+          } >> "$GITHUB_OUTPUT"
+
+      # New tag -> create the tag AND publish the release.
+      # create_release.py writes RELEASE_NOTES.md from the changed SDKs'
+      # changelogs, commits it, tags, pushes, and publishes the release.
+      - name: Create tag and release
+        if: ${{ steps.tag.outputs.exists != 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.tag.outputs.version }}
+          TAG: ${{ steps.tag.outputs.tag }}
+          DRY_RUN: ${{ needs.update-docs.outputs.dry_run }}
         run: |
           set -euo pipefail
-          RELEASE_ARGS="--branch auth-legacy"
-          if [ "${{ steps.cfg.outputs.dry_run }}" = "true" ]; then
-            # No --confirm => create_release.py previews only.
-            python3 scripts/create_release.py $RELEASE_ARGS
-          else
-            python3 scripts/create_release.py $RELEASE_ARGS --confirm
+          # Tag + release name = "<doc version>(<branch>)".
+          ARGS=(--version "$VERSION" --tag "$TAG" --branch "$TARGET_BRANCH" --title "$TAG")
+          [ "$DRY_RUN" != "true" ] && ARGS+=(--confirm)
+          if [ "$DRY_RUN" = "true" ] && [ "${{ needs.update-docs.outputs.mode }}" != "update-current" ]; then
+            echo "Dry run: the new docs folder wasn't created, so this previews against $VERSION."
           fi
+          python3 scripts/create_release.py "${ARGS[@]}"
+
+      # Tag already existed -> don't re-tag, but still (re)publish the release
+      # so its notes reflect the changed SDKs' changelogs.
+      - name: Publish release for existing tag
+        if: ${{ steps.tag.outputs.exists == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.tag.outputs.version }}
+          TAG: ${{ steps.tag.outputs.tag }}
+          DRY_RUN: ${{ needs.update-docs.outputs.dry_run }}
+        run: |
+          set -euo pipefail
+          ARGS=(--version "$VERSION" --tag "$TAG" --branch "$TARGET_BRANCH" --title "$TAG" --release-only)
+          [ "$DRY_RUN" != "true" ] && ARGS+=(--confirm)
+          python3 scripts/create_release.py "${ARGS[@]}"
