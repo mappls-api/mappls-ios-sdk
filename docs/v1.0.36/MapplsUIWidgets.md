@@ -13,9 +13,9 @@ Below are the list of dependencies which are required to run this SDK:
 
 | Dependency | Minimum Version |
 | :---- | :---- |
-| [MapplsAPICore](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/MapplsAPICore.md) | `1.0.18` |
-| [MapplsAPIKit](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/MapplsAPIKit.md) | `2.0.38` |
-| [MapplsMap](https://github.com/mappls-api/mappls-ios-sdk/blob/main/docs/MapplsMap.md) | `6.0.2` |
+| [MapplsAPICore](https://github.com/MapmyIndia/mappls-api-core-distribution.git) | `1.0.18` |
+| [MapplsAPIKit](https://github.com/MapmyIndia/mappls-api-kit-distribution.git) | `2.0.39` |
+| [MapplsMap](https://github.com/MapmyIndia/mappls-map-ios-distribution.git) | `6.0.2` |
 
 ## [Installation](#Installation)
 
@@ -24,7 +24,7 @@ Below are the list of dependencies which are required to run this SDK:
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsUIWidgets', '1.0.15'
+pod 'MapplsUIWidgets', '1.0.16'
 ```
 On running `pod install` command it will automatically download and setup `MapplsUIWidgets` and dependent frameworks.
 
@@ -36,22 +36,23 @@ On running `pod install` command it will automatically download and setup `Mappl
 https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution
 ```
 
-To add it in Xcode, go to **File → Add Package Dependencies…**, paste the URL above, and select version `1.0.15` or later.
+To add it in Xcode, go to **File → Add Package Dependencies…**, paste the URL above, and select version `1.0.16` or later.
 
 Or add it to your `Package.swift` dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git", from: "1.0.15")
+    .package(url: "https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git", from: "1.0.16")
 ]
 ```
 
-> **Note:** `MapplsUIWidgets` is distributed as a binary framework. When integrating via Swift Package Manager you must also add its [dependencies](#Dependencies) (`MapplsAPICore`, `MapplsLMS`, `MapplsAPIKit`, `MapplsMap`) to your project.
+> **Note:** `MapplsUIWidgets` is distributed as a binary framework. When integrating via Swift Package Manager you must also add its [dependencies](#Dependencies) (`MapplsAPICore`, `MapplsAPIKit`, `MapplsMap`) to your project.
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.16` | 19 Oct, 2026 | - Added a `global` property to `MapplsAutocompleteFilter` and removed the `hyperLocal` property. <br> - Bumped the minimum `MapplsAPIKit` dependency to `2.0.39`. |
 | `1.0.15` | 06 Oct, 2026 | - Updated the release pipeline and build scripts for the MapplsUIWidgets SDK. |
 | `1.0.14` | 06 Oct, 2026 | - Restructured the project by flattening the directory layout and migrating dependency management from CocoaPods/Carthage to Swift Package Manager. |
 | `1.0.13` | 06 Apr, 2026 | - Added venue highlight feature along with a sample. <br> - Added a delegate method to modify the request of autosuggest and text search. <br> - Removed the `hyperLocal` and `zoom` parameters from the request. |

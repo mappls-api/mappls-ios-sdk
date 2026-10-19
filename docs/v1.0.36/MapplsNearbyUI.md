@@ -15,10 +15,16 @@ The widget offers the following basic functionalities:
 - Ability to get information from Mappls Nearby Search widget through a callback.
 
 
+### [Requirements](#Requirements)
+
+- Minimum iOS Deployment Target: **iOS 13.0**
+
+
 ### [Version History](#Version-History)
 
 | Version | Dated | Description | 
 | :---- | :---- | :---- |
+| `1.0.4` | 19 Oct 2026 | Updated dependencies MapplsAPIKit (`2.0.39`) and MapplsUIWidgets (`1.0.16`). |
 | `1.0.3` | 07 Oct 2026 | Updated dependencies and build configuration for the legacy auth distribution. |
 | `1.0.2` | 25 Feb 2025 | 'bitcode' disabled to support Xcode 15. |
 | `1.0.1` | 01 Nov 2022 | Bug fixes due to dependency of APIKit version 2.0.7|
@@ -44,14 +50,14 @@ This widget can be installed using either CocoaPods or Swift Package Manager. It
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsNearbyUI', '1.0.3'
+pod 'MapplsNearbyUI', '1.0.4'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
 ### [Using Swift Package Manager](#Using-Swift-Package-Manager)
 
-In Xcode, go to **File > Add Package Dependencies…**, enter the distribution repository URL and select the `1.0.3` version:
+In Xcode, go to **File > Add Package Dependencies…**, enter the distribution repository URL and select the `1.0.4` version:
 
 ```
 https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git
@@ -62,7 +68,7 @@ Alternatively, add it to the `dependencies` of your `Package.swift`:
 ```swift
 .package(
     url: "https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git",
-    from: "1.0.3"
+    from: "1.0.4"
 )
 ```
 
@@ -75,9 +81,9 @@ Below are list of dependencies which are required to run this SDK:
 | Dependency | Minimum Version | Repository |
 | :---- | :---- | :---- |
 | MapplsAPICore | `1.0.18` | https://github.com/MapmyIndia/mappls-api-core-distribution.git |
-| MapplsAPIKit | `2.0.38` | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
+| MapplsAPIKit | `2.0.39` | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
 | MapplsMap | `6.0.2` | https://github.com/MapmyIndia/mappls-map-ios-distribution.git |
-| MapplsUIWidgets | `1.0.15` | https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git |
+| MapplsUIWidgets | `1.0.16` | https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git |
 
 > **Note:** If you install `MapplsNearbyUI` using **CocoaPods**, all of the above dependencies are resolved and installed automatically. If you install using **Swift Package Manager**, these dependencies are **not** added automatically — you must add each of the above packages to your project manually using their repository URLs.
 

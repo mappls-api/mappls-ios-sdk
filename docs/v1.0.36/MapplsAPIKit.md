@@ -25,7 +25,7 @@ Our APIs, SDKs, and live updating map data available for [200+ countries & terri
 This library is available through `CocoaPods`. Add the following line to your `Podfile`:
 
 ```ruby
-pod 'MapplsAPIKit', '2.0.38'
+pod 'MapplsAPIKit', '2.0.39'
 ```
 
 Then run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -47,45 +47,48 @@ This library depends on `MapplsAPICore`. When you install `MapplsAPIKit` through
 
 ## [Version History](#Version-History)
 
+> **Latest release · `2.0.39`** — 19 Oct 2026 · See [CHANGELOG.md](CHANGELOG.md) for full release notes.
+
 | Version | Dated | Description |
-| :---- | :---- | :---- |
-| `2.0.38`| 25 Sep 2026 | - Renamed the `searchType` request parameter to `global` in `MapplsAutoSearchAtlasOptions`, `MapplsNearbyAtlasOptions`, `MapplsAtlasGeocodeOptions`, and `MapplsReverseGeocodeOptions`. <br>- Added a `responseLanguage` option to `MapplsNearbyAtlasOptions`, `MapplsTextSearchAtlasOptions`, and `MapplsPOIAlongTheRouteOptions`. <br>- Added a `lang` field to the AutoSuggest and Nearby responses. <br>- Added an `isKeyword` field to `MapplsPlaceExplanation`.|
-| `2.0.37`| 17 jul 2026 | - Improvements and Bug Fixes.|
-| `2.0.36`| 17 jul 2026 | - Improvements and Bug Fixes.|
-| `2.0.34`| 03 Apr 2026 |- Added a `fromNodeIdx` and `toNodeIdxobject` in `RouteStep` object of routing api response. <br>- Added `suggestedSearchAtlas` object in response of POI Along the route api. <br> - Added `filter`, `refLocation`, `bridge` and `bounds` in request params `MapplsPOIAlongTheRouteOptions` <br> - Added `fallBackSpeed` and `fallBackCoordinate` in reuest of distance matrix api.|
-| `2.0.32`| 25 Jul 2025 | - Added a `richInfo` object in poi along the route repsonse . <br>- Resolved an issue with EntryCoordinates in the reverse geocode API response.|
-| `2.0.31`| 10 Apr 2025 | - Updated Digipin Logic <br>- Improved error handling for reverse geocoding.|
-| `2.0.30`| 03 Feb 2025 | - Added `MapplsDigipinUtility` for getting DIGIPIN from Coordinates and vice versa<br>- Added Entry Coordinates in Reverse Geocode Response.<br>- Added `filter` in Poi Along the Route Api Request and added page info<br>- Added `hourOfOperation`, `longDescription`, `shortDescription`, `richInfo` and `partnersFlag` in Poi Along the Route Api Response.<br>- Revamped Smart Trip Planning Api. |
-| `2.0.29`| 17 Dec 2024 | -  Introduced the `maneuverId` property in the `VisualInstruction` class. <br> - Added a provision to cancel directions requests. <br> - Optimizations.|
-| `2.0.28`| 20 Nov 2024 | - Spoken instruction for arrival of destination or via point is set for different languages. |
-| `2.0.27`| 13 Nov 2024 | - Added multi language support to speak and visualize routing instructions etc. |
-| `2.0.26`| 23 Oct 2024 | - Bitcode disabled to support Xcode 16. |
-| `2.0.25`| 10 Oct 2024 | - Added wrapper for Smart Trip Planning API. |
-| `2.0.24`| 23 Jul 2024 | - Issue fixed for support of MapplsAnnodationExtension library. |
-| `2.0.23 `| 03 Jul 2024 | - Added new maneuver Ids. - Added function to get congestion delay in `MapplsDirectionsUtility` class.|
-| `2.0.22 `| 08 May 2024 | - Apple Privacy Manifest file added. - New paramters introuduced in response of Goecode and ReverseGeocode.|
-| `2.0.21 `| 31 Jan 2024  | - Device Search API introuduced. |
-| `2.0.20 `| 27 Oct 2023  | - Security Improvements. |
-| `2.0.19 `| 22 Sep 2023  | - Bug fixes & Improvements. |
-| `2.0.18 `| 22 Aug 2023  | - Bug fixes & Improvements. |
-| `2.0.17 `| 01 Aug 2023  | - improvements in shortInstruction. - crash fixed if distance property is not found in route api response. |
-| `2.0.16 `| 27 Jun 2023  | - Driving Range API wrapper is added. - In routing api correct the value of direction profile for trucking. etc. |
-| `2.0.15 `| 01 Jun 2023  | - Bug fixes & Improvements. |
-| `2.0.14 `| 30 May 2023  | Domain of APIs changed. In APIs of Distance Matrix and Reverse Geocode authentication process is changed See Docs below. |
-| `2.0.13 `| 2 May 2023  | - Added `responseLanguage` request parameter in AtlasOptions class, Added `instructions` in request paramter of direction api and Added `language` in request paramter of reverseGocode api.|
-| `2.0.12 `| 17 Mar 2023  | - Added Fuel cost api., Fixed an api call for costEstimation.|
-| `2.0.11 `| 9 Feb 2023  | - Fixed an api call for costEstimation.|
-| `2.0.10 `| 30 Jan 2023 | - Error code opimization for initializing Map.|
-| `2.0.9` | 02 Jan 2023 | - API wrapper added to get cost of tolls etc which can be consumed by Manager class `MapplsCostEstimationManager` and request class `MapplsCostEstimationOptions`.|
-| `2.0.8` | 09 Dec 2022 | - Issue of incorrect `Lanes` is fixed. A bug of ETA refresh is fixed where driving profile was not dynamic based on route requested. Turf code is refactored.|
-| `2.0.7` | 21 Oct 2022 | - Function added to calculate congestion delays. Host issue is resolved. Turf library's source code added.|
-| `2.0.6` | 13 Oct 2022 | - Some performance improvements and optimization.|
-| `2.0.5` | 28 Sept 2022 | - Added weather api.|
-| `2.0.4` | 06 Sept 2022 | - Added userActivity and media in response of placeDetails.|
-| `2.0.3` | 24 Aug 2022 | - added a parameter to set host and scheme in init method of manager class.|
-| `2.0.2` | 22 Aug 2022 | - In response of Reverse Geocode `areaCode` is added and Fixed a crash while using shared instance of MapplsDirection class.|
-| `2.0.1` | 05 Jul 2022 | In response of Reverse Geocode `Mappls Pin` is added.|
-| `2.0.0` | 11 Jun 2022 | Initial release with `Mappls` branding and merging of Directions SDK. Supports Xcode 13+.|
+| :---: | :---: | :--- |
+| **`2.0.39`** | 19 Oct 2026 | Added `lang` to `RouteOptions`; `responseLanguage` in POI Along the Route is now a `String`. |
+| `2.0.38` | 25 Sep 2026 | Renamed `searchType` to `global`; added `responseLanguage`, response `lang`, and `isKeyword`. |
+| `2.0.37` | 17 Jul 2026 | Improvements and bug fixes. |
+| `2.0.36` | 17 Jul 2026 | Improvements and bug fixes. |
+| `2.0.34` | 03 Apr 2026 | Added node indices to `RouteStep`; new POI Along the Route and distance matrix params. |
+| `2.0.32` | 25 Jul 2025 | Added `richInfo` to POI Along the Route; fixed reverse geocode entry coordinates. |
+| `2.0.31` | 10 Apr 2025 | Updated DIGIPIN logic; improved reverse geocoding error handling. |
+| `2.0.30` | 03 Feb 2025 | Added `MapplsDigipinUtility`; revamped Smart Trip Planning API. |
+| `2.0.29` | 17 Dec 2024 | Added `maneuverId` to `VisualInstruction`; cancellable directions requests. |
+| `2.0.28` | 20 Nov 2024 | Multi-language spoken arrival instructions. |
+| `2.0.27` | 13 Nov 2024 | Multi-language support for routing instructions. |
+| `2.0.26` | 23 Oct 2024 | Bitcode disabled to support Xcode 16. |
+| `2.0.25` | 10 Oct 2024 | Added Smart Trip Planning API wrapper. |
+| `2.0.24` | 23 Jul 2024 | Fixed `MapplsAnnotationExtension` support. |
+| `2.0.23` | 03 Jul 2024 | New maneuver IDs; congestion-delay helper in `MapplsDirectionsUtility`. |
+| `2.0.22` | 08 May 2024 | Added Apple Privacy Manifest; new geocode/reverse-geocode params. |
+| `2.0.21` | 31 Jan 2024 | Introduced Device Search API. |
+| `2.0.20` | 27 Oct 2023 | Security improvements. |
+| `2.0.19` | 22 Sep 2023 | Bug fixes and improvements. |
+| `2.0.18` | 22 Aug 2023 | Bug fixes and improvements. |
+| `2.0.17` | 01 Aug 2023 | Short-instruction improvements; route-response crash fix. |
+| `2.0.16` | 27 Jun 2023 | Added Driving Range API wrapper. |
+| `2.0.15` | 01 Jun 2023 | Bug fixes and improvements. |
+| `2.0.14` | 30 May 2023 | API domains changed; revised Distance Matrix and Reverse Geocode auth. |
+| `2.0.13` | 02 May 2023 | Added `responseLanguage`, `instructions`, and reverse-geocode `language` params. |
+| `2.0.12` | 17 Mar 2023 | Added Fuel Cost API; fixed cost-estimation call. |
+| `2.0.11` | 09 Feb 2023 | Fixed cost-estimation API call. |
+| `2.0.10` | 30 Jan 2023 | Error-code optimization for map initialization. |
+| `2.0.9` | 02 Jan 2023 | Added `MapplsCostEstimationManager` for toll cost. |
+| `2.0.8` | 09 Dec 2022 | Fixed `Lanes` and ETA refresh; refactored Turf code. |
+| `2.0.7` | 21 Oct 2022 | Added congestion-delay helper; host fix; bundled Turf source. |
+| `2.0.6` | 13 Oct 2022 | Performance improvements and optimization. |
+| `2.0.5` | 28 Sep 2022 | Added Weather API. |
+| `2.0.4` | 06 Sep 2022 | Added `userActivity` and media to place details. |
+| `2.0.3` | 24 Aug 2022 | Added host/scheme params to manager init. |
+| `2.0.2` | 22 Aug 2022 | Added `areaCode` to reverse geocode; fixed shared-instance crash. |
+| `2.0.1` | 05 Jul 2022 | Added Mappls Pin to reverse geocode. |
+| `2.0.0` | 11 Jun 2022 | Initial Mappls-branded release; merged Directions SDK (Xcode 13+). |
 
 ## [Getting Started](#Getting-Started)
 

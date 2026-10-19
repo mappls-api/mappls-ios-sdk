@@ -24,7 +24,7 @@ To install the MapplsDirectionUI using CocoaPods:
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsDirectionUI', '1.0.11'
+pod 'MapplsDirectionUI', '1.0.12'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -37,10 +37,10 @@ To add MapplsDirectionUI to your project using SPM:
 2. Enter the repository URL in the search field:
 
    ```
-    https://github.com/MapmyIndia/mappls-direction-ui-ios-distribution.git
+   https://github.com/mappls-api/mappls-direction-ui-ios-distribution
    ```
 
-3. Choose the version rule (for example, **Up to Next Major** starting from `1.0.11`) and add the package.
+3. Choose the version rule (for example, **Up to Next Major** starting from `1.0.12`) and add the package.
 
 > **Note:** Unlike CocoaPods, Swift Package Manager does **not** resolve the transitive Mappls dependencies automatically. When you integrate via SPM, you must add **each** of the dependencies listed below to your project **manually** using their respective repository URLs, otherwise the build will fail with missing-module errors.
 
@@ -55,16 +55,17 @@ Below is the list of dependencies which are required to run this SDK:
 | Dependency | Version | Repository URL |
 | :---- | :---- | :---- |
 | [MapplsAPICore](MapplsAPICore.md) | `~> 1.0.18` | https://github.com/MapmyIndia/mappls-api-core-distribution.git |
-| [MapplsAPIKit](MapplsAPIKit.md) | `~> 2.0.38` | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
+| [MapplsAPIKit](MapplsAPIKit.md) | `~> 2.0.39` | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
 | [MapplsMap](MapplsMap.md) | `~> 6.0.2` | https://github.com/MapmyIndia/mappls-map-ios-distribution.git |
-| [MapplsUIWidgets](MapplsUIWidgets.md) | `~> 1.0.15` | https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git |
-| [MapplsNearbyUI](MapplsNearbyUI.md) | `~> 1.0.3` | https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git |
-| [MapplsLMS](MapplsLMS.md) | `~> 1.0.8` | https://github.com/MapmyIndia/mappls-lms-distribution.git |
+| [MapplsUIWidgets](MapplsUIWidgets.md) | `~> 1.0.16` | https://github.com/MapmyIndia/mappls-ui-widget-ios-distribution.git |
+| [MapplsNearbyUI](MapplsNearbyUI.md) | `~> 1.0.4` | https://github.com/MapmyIndia/mappls-nearby-ui-ios-distribution.git |
+| [MapplsLMS](MapplsLMS.md) | `~> 1.0.9` | https://github.com/MapmyIndia/mappls-lms-distribution.git |
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
+| `1.0.12` | 19 Oct 2026 | - Added `resetDirectionsUI()`; `restDirectionsUI()` is deprecated. <br>- Added accessibility labels for map control buttons. <br>- Crash fixes and improvements. |
 | `1.0.11` | 07 Oct 2026 | - Added support for latest Mappls SDKs. |
 | `1.0.10` | 06 Feb 2025 | - Added a function to rest Mappls Direction Controller. <Br>- Added `controller` parameter in `didRequestForGoBack` delegate function <br>- Improvemtns. |
 | `1.0.9` | 18 Dec 2024 | - Added provision to change the base url of routing and search apis. <Br> - direction list ui enchancement. <br> - Added property `shouldUseManeuverView` in `MapplsDirectionUIConfiguration` class its default value is `false`. |
@@ -83,6 +84,24 @@ Below is the list of dependencies which are required to run this SDK:
 
 ### [MapplsAPICore](#MapplsAPICore)
 It is required to set MAPPLS's keys to use any MAPPL's SDK. Please see [here](MapplsAPICore.md) to achieve this.
+
+## [Location Permission](#Location-Permission)
+
+MapplsDirectionUI uses the device's location to set the current location as the origin and to center the map. To request location access, add the following keys to your app's `Info.plist` with a short description of why your app needs location:
+
+```xml
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Your location is used to set your starting point and show directions.</string>
+```
+
+If your app also needs location access while running in the background, add:
+
+```xml
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Your location is used to set your starting point and show directions.</string>
+```
+
+Without these keys, iOS silently denies the location request and the SDK falls back to manual source selection.
 
 ## [Usage](#Usage)
 
@@ -221,6 +240,13 @@ MapplsDirectionUIConfiguration.shared.isShowCongestionDelayOnRoute = false
 let directionVC = MapplsDirectionViewController()
 directionVC.shouldAllowToAddViapoint = true
 ```
+##### [resetDirectionsUI](resetDirectionsUI)
+`resetDirectionsUI()` clears the current routes, markers and pending requests, and resets the location inputs. It replaces the deprecated `restDirectionsUI()`.
+
+```swift
+directionVC.resetDirectionsUI()
+```
+
 #### [showDottedPolylineForWalkingProfile](showDottedPolylineForWalkingProfile) 
 
 `showDottedPolylineForWalkingProfile` is boolean a propery to show dotted or plain polyline for walking profile. Its default value is `true`.
