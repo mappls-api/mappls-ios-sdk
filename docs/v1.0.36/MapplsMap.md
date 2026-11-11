@@ -64,7 +64,7 @@ Create a new project in Xcode, then install the SDK using one of the methods bel
 
 1. Add the following line to your `Podfile`:
    ```ruby
-   pod 'MapplsMap', '6.0.1'
+   pod 'MapplsMap', '6.0.2'
    ```
 2. Run `pod install` or `pod update` (to update existing pods).
 
