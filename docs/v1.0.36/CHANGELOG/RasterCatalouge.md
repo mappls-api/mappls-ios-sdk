@@ -1,5 +1,14 @@
 # Changes to the MapplsRasterCatalogue SDK for iOS
 
+## 1.0.2 - 21 Oct, 2026
+
+### Changed
+
+- Updated dependencies:
+  - `MapplsAPICore` to `1.0.18`
+  - `MapplsAPIKit` to `2.0.39`
+  - `MapplsMap` to `6.0.2`
+
 ## 1.0.1 - 09 Oct, 2026
 
 ### Added
