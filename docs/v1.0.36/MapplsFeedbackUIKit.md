@@ -8,49 +8,80 @@ FeedbackUI Kit for IOS is a UI kit to use wrapper for Mappls's feedback API. It 
 
 **Note:** Sample for UI view controllers with source code is also provided by Mappls which user can directly use to show feedback screen. Information about how to use UI sample is also provided in this documentation.
 
-If you don’t want to implement own logic and use sample from Mappls Jump to Sample UI Kit section.
+If you don't want to implement own logic and use sample from Mappls Jump to Sample UI Kit section.
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :------ | :---- | :---------- |
-| `2.0.0` | 14 Nov, 2024 | - UI screen is changed. - URL property for icon is used to show icon for Report Categories. |
-| `1.0.4` | 23 Sep, 2024 | Options is added to `Push` or `Present` feedback controller .|
-| `1.0.3` | 20 Jun, 2024 | Theme support is added.|
-| `1.0.2` | 23 Sep, 2022 | Added a Bool property `isShowStepProgress` to hide stepProgress.|
-| `1.0.1` | 14 Sept, 2022 | Bug fixes. |
+| `2.0.1` | 21 Oct, 2026 | Distributed as an XCFramework through Swift Package Manager. Minimum iOS version is 15.0. Built against `MapplsFeedbackKit` `2.0.1` and the legacy `MapplsAPICore` (`mappls-api-core-distribution`) `1.0.18`. |
+| `2.0.0` | 14 Nov, 2024 | UI screen is changed. URL property for icon is used to show icon for Report Categories. |
+| `1.0.4` | 23 Sep, 2024 | Options is added to `Push` or `Present` feedback controller. |
+| `1.0.3` | 20 Jun, 2024 | Theme support is added. |
+| `1.0.2` | 23 Sep, 2022 | Added a Bool property `isShowStepProgress` to hide stepProgress. |
+| `1.0.1` | 14 Sep, 2022 | Bug fixes. |
 | `1.0.0` | 22 June, 2022 | Initial release. |
 
-## [Setup your Project](#Setup-your-Project)
+For the full list of changes see [CHANGELOG](CHANGELOG.md).
 
-### [Using CocoaPods](#Using-CocoaPods)
+## [Requirements](#Requirements)
 
-To install the MapplsFeedbackUIKit using CocoaPods:
+- iOS 15.0+
+- Xcode 26.2+
+- Swift 5.9+
 
-Create a Podfile with the following specification:
+## [Dependencies](#Dependencies)
 
+| Dependency | Version | Description |
+| :--------- | :------ | :---------- |
+| [MapplsFeedbackKit](https://github.com/mappls-api/mappls-feedback-kit-ios-distribution) | `2.0.1` (up to next major) | Feedback API SDK used by this UI kit to fetch report categories and submit feedback. |
+| [MapplsAPICore](https://github.com/MapmyIndia/mappls-api-core-distribution) | `1.0.18` (up to next major) | Legacy authentication and authorization core for Mappls SDKs. |
+
+These dependencies are not bundled inside `MapplsFeedbackUIKit`. Add all three packages to your app target. It is required to set Mappls keys through `MapplsAPICore` before using this SDK.
+
+## [Installation](#Installation)
+
+### [Swift Package Manager](#Swift-Package-Manager)
+
+`MapplsFeedbackUIKit` is distributed as an XCFramework through Swift Package Manager.
+
+#### Using Xcode
+
+1. In Xcode, select **File > Add Package Dependencies...**
+1. Enter the repository URL:
+
+    ```
+    https://github.com/mappls-api/mappls-feedback-ui-kit-ios-distribution.git
+    ```
+
+See [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app) for more details.
+
+#### Using Package.swift
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/mappls-api/mappls-feedback-ui-kit-ios-distribution.git", from: "2.0.1"),
+    .package(url: "https://github.com/mappls-api/mappls-feedback-kit-ios-distribution.git", from: "2.0.1"),
+    .package(url: "https://github.com/MapmyIndia/mappls-api-core-distribution.git", from: "1.0.18")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            .product(name: "MapplsFeedbackUIKit", package: "mappls-feedback-ui-kit-ios-distribution"),
+            .product(name: "MapplsFeedbackKit", package: "mappls-feedback-kit-ios-distribution"),
+            .product(name: "MapplsAPICore", package: "mappls-api-core-distribution")
+        ]
+    )
+]
 ```
-pod 'MapplsFeedbackUIKit', '2.0.0'
+
+#### Import
+
+```swift
+import MapplsAPICore
+import MapplsFeedbackUIKit
 ```
-
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
-
-### Swift Package Manager
-
-1. In Xcode, go to **File > Add Package Dependencies...**
-2. Enter the repository URL:
-
-```
-https://github.com/MapmyIndia/mappls-feedback-ui-kit-ios-distribution.git
-```
-
-3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
-
-
-### [Authorization](#Authorization)
-
-#### [MapplsAPICore](#MapplsAPICore)
-It is required to set Mappls keys to use any MAPPL's SDK. Please refer the documenatation [here](MapplsAPICore.md)
 
 ## [Usage](#Usage)
 
@@ -60,7 +91,6 @@ It is required to set Mappls keys to use any MAPPL's SDK. Please refer the docum
 
 ```swift
 let navVC = MapplsFeedbackUIKitManager.shared.getViewController(location: "78.120,28.2300",appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, osVersionoptional: UIDevice.current.systemVersion, deviceName: UIDevice.current.name, theme: .night)
-
 self.present(navVC, animated: true, completion: nil)
 ```
 

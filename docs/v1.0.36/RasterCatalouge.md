@@ -23,14 +23,14 @@ You can add `MapplsRasterCatalogue` to your project through Xcode:
 
 1. In Xcode, open your project and navigate to **File ▸ Add Package Dependencies…**
 2. Enter the repository URL of the package in the search field.
-3. Choose the dependency rule (recommended: **Up to Next Major Version** starting from `1.0.1`).
+3. Choose the dependency rule (recommended: **Up to Next Major Version** starting from `1.0.2`).
 4. Select the `MapplsRasterCatalogue` product and add it to your target.
 
 Alternatively, if you maintain a `Package.swift` manifest, add the package to your `dependencies`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mappls-api/mappls-raster-catalogue-ios.git", .upToNextMajor(from: "1.0.1"))
+    .package(url: "https://github.com/mappls-api/mappls-raster-catalogue-ios.git", .upToNextMajor(from: "1.0.2"))
 ]
 ```
 
@@ -41,7 +41,7 @@ The Mappls dependencies (`MapplsAPICore`, `MapplsAPIKit`, and `MapplsMap`) are r
 Create a Podfile with the following specification:
 
 ```
-pod 'MapplsRasterCatalogue', '1.0.1'
+pod 'MapplsRasterCatalogue', '1.0.2'
 ```
 
 Run `pod repo update && pod install` and open the resulting Xcode workspace.
@@ -50,6 +50,7 @@ Run `pod repo update && pod install` and open the resulting Xcode workspace.
 
 | Version | Dated | Description | 
 | :---- | :---- | :---- |
+| `1.0.2` | 21 October 2026 | Updated Mappls dependency versions. |
 | `1.0.1` | 09 October 2026 | Added support for Mappls Authorization 2.0, SPM support, and dependency updates. |
 | `0.1.0` | 20 June 2022 | Initial version release. |
 
@@ -61,9 +62,9 @@ Below is the list of dependencies which are required to run this SDK, along with
 
 | Dependency | Version | Repository URL |
 | :---- | :---- | :---- |
-| `MapplsAPICore` | `2.1.4` | [mappls-api-core-ios-distribution](https://github.com/mappls-api/mappls-api-core-ios-distribution.git) |
-| `MapplsAPIKit` | `3.0.8` | [mappls-api-kit-ios-distribution](https://github.com/mappls-api/mappls-api-kit-ios-distribution.git) |
-| `MapplsMap` | `6.1.5` | [mappls-map-ios-distribution-base](https://github.com/mappls-api/mappls-map-ios-distribution-base.git) |
+| `MapplsAPICore` | `1.0.18` | [mappls-api-core-distribution](https://github.com/MapmyIndia/mappls-api-core-distribution.git) |
+| `MapplsAPIKit` | `2.0.39` | [mappls-api-kit-distribution](https://github.com/MapmyIndia/mappls-api-kit-distribution.git) |
+| `MapplsMap` | `6.0.2` | [mappls-map-ios-distribution](https://github.com/MapmyIndia/mappls-map-ios-distribution.git) |
 
 ## [Authorization](#Authorization)
 

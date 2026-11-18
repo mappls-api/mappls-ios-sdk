@@ -19,7 +19,7 @@ Below are list of dependencies which are required to run this SDK:
 This library is available through `CocoaPods`. To install, simply add the following line to your `podfile`:
 
 ```ruby
-pod 'MapplsIntouch', '1.0.2'
+pod 'MapplsIntouch', '1.0.3'
 ```
 On running `pod install` command it will automatically download and setup `MapplsUIWidgets` and dependent frameworks.
 
@@ -27,7 +27,8 @@ On running `pod install` command it will automatically download and setup `Mappl
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.2` | 25 Feb 2025 | Bitcode disabled to support Xcode 16.|
+| `1.0.3` | 17 Nov, 2026 | Intouch API base URL updated to `intouch.mappls.com` and `MapplsAPICore` dependency updated to `1.0.18`.|
+| `1.0.2` | 26 Feb, 2025 | 'bitcode' disabled to support Xcode 15.|
 | `1.0.1` | 24 Mar, 2023 | Bug fixes.|
 | `1.0.0` | 30 Jan, 2023 | Initial Mappls UIWidget Release.|
 

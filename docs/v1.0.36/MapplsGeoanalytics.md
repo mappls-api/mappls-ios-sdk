@@ -24,7 +24,7 @@ This plugin gets the layer specified which is stored in Mappls’s Database and 
 Add the following line to your `Podfile`:
 
 ```ruby
-pod 'MapplsGeoanalytics', '1.0.1'
+pod 'MapplsGeoanalytics', '1.0.2'
 ```
 
 Then run `pod repo update && pod install` and open the resulting `.xcworkspace`.
@@ -35,7 +35,7 @@ Add the distribution package to your `Package.swift` dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mappls-api/mappls-geoanalytics-ios-distribution.git", from: "1.0.1")
+    .package(url: "https://github.com/mappls-api/mappls-geoanalytics-ios-distribution.git", from: "1.0.2")
 ]
 ```
 
@@ -51,7 +51,8 @@ The package exposes a single `MapplsGeoanalytics` library product backed by a bi
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.1` | — | Updated minimum iOS deployment target to 15.0, revised authentication, and added SPM distribution. |
+| `1.0.2` | 21 Oct 2026 | Improvements and bug fixes. Updated MapplsAPIKit dependency to 2.0.39. |
+| `1.0.1` | — | Updated minimum iOS deployment target to 13.0, revised authentication, and added SPM distribution. |
 | `1.0.0` | 20 June 2022 | Initial version release with a Mappls geoanalytics. |
 
 ### [Dependencies](#Dependencies)
@@ -61,16 +62,14 @@ The package exposes a single `MapplsGeoanalytics` library product backed by a bi
 | Dependency | Minimum Version | Repository |
 | :---- | :---- | :---- |
 | MapplsAPICore | 1.0.18 | https://github.com/MapmyIndia/mappls-api-core-distribution.git |
-| MapplsAPIKit | 2.0.38 | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
-| MapplsMap | 6.0.2 | https://github.com/MapmyIndia/mappls-map-ios-distribution.git |
+| MapplsAPIKit | 2.0.39 | https://github.com/MapmyIndia/mappls-api-kit-distribution.git |
 
 When installing with CocoaPods, these dependencies are resolved automatically. When using Swift Package Manager, make sure the dependencies are also added to your project:
 
 ```swift
 dependencies: [
     .package(url: "https://github.com/MapmyIndia/mappls-api-core-distribution.git", from: "1.0.18"),
-    .package(url: "https://github.com/MapmyIndia/mappls-api-kit-distribution.git", from: "2.0.38"),
-    .package(url: "https://github.com/MapmyIndia/mappls-map-ios-distribution.git", from: "6.0.2")
+    .package(url: "https://github.com/MapmyIndia/mappls-api-kit-distribution.git", from: "2.0.39")
 ]
 ```
 
@@ -78,9 +77,9 @@ dependencies: [
 
 | Platform | Minimum Deployment Target |
 | :---- | :---- |
-| iOS | 15.0 |
+| iOS | 13.0 |
 
-The Swift Package distribution targets iOS 15.0 and above.
+The Swift Package distribution targets iOS 13.0 and above.
 
 ## [Authorization](#Authorization)
 

@@ -8,33 +8,62 @@ This extension leverages the power of runtime styling with an object oriented ap
 
 ## [Installation](#Installation)
 
-### Swift Package Manager
+This plugin can be installed using CocoaPods or Swift Package Manager. It is available with name `MapplsAnnotationExtension`.
 
-1. In Xcode, go to **File > Add Package Dependencies...**
-2. Enter the repository URL:
+### [Using CocoaPods](#Using-CocoaPods)
+
+To install the Mappls Annotation Extension using CocoaPods:
+
+Create a Podfile with the following specification:
+
+```
+pod 'MapplsAnnotationExtension', '1.0.4'
+```
+
+Run `pod repo update && pod install` and open the resulting Xcode workspace.
+
+### [Using Swift Package Manager](#Using-Swift-Package-Manager)
+
+The Mappls Annotation Extension is also distributed as a binary Swift package.
+
+In Xcode, choose **File > Add Package Dependencies...** and enter the repository URL:
 
 ```
 https://github.com/MapmyIndia/mappls-annotation-extension-ios-distribution.git
 ```
 
-3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+Pick a version rule (for example, *Up to Next Major*) and add the package.
 
+Alternatively, add it to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(
+        url: "https://github.com/MapmyIndia/mappls-annotation-extension-ios-distribution.git",
+        from: "1.0.4"
+    )
+]
+```
 
 #### [Dependencies](#Dependencies)
 
-This library depends upon several Mappls's own and third party libraries. All dependent libraries will be installed on using SMP.
+This library depends upon several of Mappls's own and third party libraries.
 
-Below are list of dependcies which are required to run this SDK:
+When installed through CocoaPods, all dependent libraries are installed automatically. The Swift package is distributed as a binary (`xcframework`), so its dependencies are not resolved automatically and must be added as separate Swift packages alongside it.
 
-- [MapplsAPICore](https://github.com/MapmyIndia/mappls-api-core-distribution.git)
-- [MapplsAPIKit](https://github.com/MapmyIndia/mappls-api-kit-distribution.git)
-- [MapplsMaps](https://github.com/MapmyIndia/mappls-map-ios-distribution.git)
+Below are the dependencies which are required to run this SDK:
+
+| Dependency | Documentation | Swift Package URL |
+| :---- | :---- | :---- |
+| MapplsAPICore | [MapplsAPICore.md](MapplsAPICore.md) | `https://github.com/MapmyIndia/mappls-api-core-distribution.git` |
+| MapplsAPIKit | [MapplsAPIKit.md](MapplsAPIKit.md) | `https://github.com/MapmyIndia/mappls-api-kit-distribution.git` |
+| MapplsMap | [MapplsMap.md](MapplsMap.md) | `https://github.com/MapmyIndia/mappls-map-ios-distribution.git` |
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.3` | 23 Jul 2026 | Updated Map SDK. |
+| `1.0.4` | 21 Oct 2026 | Updated to the latest Mappls SDK dependencies. |
 | `1.0.2` | 25 Feb 2025 | 'bitcode' disabled to support Xcode 15 |
 | `1.0.1` | 23 Jul 2024 | Fixed issue of marker not adding using Mappls Pin. |
 | `1.0.0` | 14 Jun 2022 | Initial Mappls release. |

@@ -11,37 +11,82 @@ Anyone can integrate the Mappls Geofence Plugin by following simple steps.Please
 
 To integrate Geofence SDK, it is important to pass an object of **MapplsMapView** which is part of Mappls's MapplsMap SDK.
 
-## [Setup your Project](#Setup-your-Project)
+## Step 1 :-  [Setup your Project](#Setup-your-Project)
 
-### [Using CocoaPods](#Using-CocoaPods)
+To start with, the MapplsAPICore, MapplsAPIKit and MapplsMap frameworks are required to be added in your project. The Geofence Plugin can be integrated either using **Swift Package Manager** or **CocoaPods**.
 
-To install the MapplsGeofenceUI using CocoaPods:
+**Note:** Mappls's SDK keys are required to initialize the MapplsMap SDK. For more information on setting them, click [here](https://github.com/mappls-api/mappls-ios-sdk/). You can get the keys by login/signup on Mappls's developer [Dashboard](https://about.mappls.com/api/signup).
 
-Create a Podfile with the following specification:
+### Option A :-  [Swift Package Manager](#Swift-Package-Manager)
 
+MapplsGeofenceUI is distributed as a binary XCFramework via Swift Package Manager. When adding it via SPM, you must also add all of its runtime dependencies as explicit package dependencies, since binary targets do not resolve them automatically.
+
+In Xcode, choose **File > Add Package Dependencies…** and add each of the following repository URLs, selecting the matching version:
+
+| Package | Repository URL | Version |
+| :---- | :---- | :---- |
+| `MapplsGeofenceUI` | `https://github.com/MapmyIndia/mappls-geofence-ui-distribution.git` | `1.0.7` |
+| `MapplsAPICore` | `https://github.com/MapmyIndia/mappls-api-core-distribution.git` | `1.0.18` |
+| `MapplsAPIKit` | `https://github.com/MapmyIndia/mappls-api-kit-distribution.git` | `2.0.39` |
+| `MapplsMap` | `https://github.com/MapmyIndia/mappls-map-ios-distribution.git` | `6.0.2` |
+
+Alternatively, declare them in your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/MapmyIndia/mappls-geofence-ui-distribution.git", exact: "1.0.5"),
+    .package(url: "https://github.com/MapmyIndia/mappls-api-core-distribution.git", exact: "1.0.18"),
+    .package(url: "https://github.com/MapmyIndia/mappls-api-kit-distribution.git", exact: "2.0.39"),
+    .package(url: "https://github.com/MapmyIndia/mappls-map-ios-distribution.git", exact: "6.0.2")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            "MapplsGeofenceUI",
+            "MapplsAPICore",
+            "MapplsAPIKit",
+            "MapplsMap"
+        ]
+    )
+]
 ```
-pod 'MapplsGeofenceUI', '1.0.3'
+
+Then add the `MapplsGeofenceUI`, `MapplsAPICore`, `MapplsAPIKit` and `MapplsMap` library products to your app target.
+
+### Option B :-  [CocoaPods](#CocoaPods)
+
+The Geofence Plugin is also available on CocoaPods. Add the pod to your `Podfile`:
+
+```cocoapods
+pod 'MapplsGeofenceUI', '1.0.7'
 ```
 
-Run `pod repo update && pod install` and open the resulting Xcode workspace.
+The required dependencies (`MapplsAPICore` and `MapplsAPIKit`) are declared by the podspec and installed automatically.
 
-### Swift Package Manager
+**Below are the commands to install the SDK using CocoaPods:**
 
-1. In Xcode, go to **File > Add Package Dependencies...**
-2. Enter the repository URL:
+- `cd Your Project path`
+- `pod init`
+- `pod install`
+- `open your xcworkspace`
 
-```
-https://github.com/MapmyIndia/mappls-geofence-ui-ios-distribution.git
-```
+### [Dependencies](#Dependencies)
 
-3. Select the version rule (e.g. **Up to Next Major**) and click **Add Package**.
+MapplsGeofenceUI depends on the following Mappls SDKs. The versions below are the ones this release (`1.0.7`) is built and tested against.
 
+| Dependency | Version | Repository (SPM) |
+| :---- | :---- | :---- |
+| `MapplsAPICore` | `1.0.18` | [mappls-api-core-distribution](https://github.com/MapmyIndia/mappls-api-core-distribution.git) |
+| `MapplsAPIKit` | `2.0.39` | [mappls-api-kit-distribution](https://github.com/MapmyIndia/mappls-api-kit-distribution.git) |
+| `MapplsMap` | `6.0.2` | [mappls-map-ios-distribution](https://github.com/MapmyIndia/mappls-map-ios-distribution.git) |
 
 ### [Version History](#Version-History)
 
 | Version | Dated | Description |
 | :---- | :---- | :---- |
-| `1.0.6` | 07 Oct 2026 | - Improvements and Bug Fixes.|
+| `1.0.7` | 21 Oct, 2026 | Updated to the latest dependencies. |
+| `1.0.4` | 08 Oct, 2026 | Updated to the latest dependencies. |
 | `1.0.3` | 19 Dec, 2025 | Added a delegate method to stop polyline dragging and a new optional parameter called delegate in the init method. |
 | `1.0.2` | 25 Feb, 2025 | 'bitcode' disabled to support Xcode 15. |
 | `1.0.1` | 01 Nov, 2022 | Bug fixes due to dependency of APIKit version 2.0.7 |
